@@ -1153,6 +1153,9 @@ details.exact summary small{font-weight:500}
 .gd-b li+li{margin-top:7px}
 .gd-b b{color:var(--ink)}
 .gd-end{height:calc(16px + env(safe-area-inset-bottom,0px))}
+.saved-pill{position:fixed;z-index:81;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translate(-50%,12px);opacity:0;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:var(--ok);color:#fff;font-weight:700;font-size:14px;box-shadow:0 10px 24px -10px rgba(0,0,0,.5);transition:.22s;pointer-events:none}
+.saved-pill svg{width:16px;height:16px}
+.saved-pill.show{opacity:1;transform:translate(-50%,0)}
 /* Prijava */
 .login{position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding:24px 18px calc(24px + env(safe-area-inset-bottom,0px));background:radial-gradient(120% 70% at 50% 0%,var(--surface) 0%,var(--bg) 60%);overflow-y:auto}
 .lg-card{width:100%;max-width:380px;text-align:left}
@@ -1293,8 +1296,9 @@ const MONTHS=['januar','februar','mart','april','maj','juni','juli','august','se
 const MONTHS_G=['januara','februara','marta','aprila','maja','juna','jula','augusta','septembra','oktobra','novembra','decembra'];
 const WEEK_ORDER=['1','2','3','4','5','6','0'];
 /* Verzija i promjene: dopunjava se sa svakom novom izmjenom */
-const APP_VERSION='2.4';
+const APP_VERSION='2.4.1';
 const CHANGELOG=[
+  {v:'2.4.1',d:'2026-11-02',n:['Ispravka: radno vrijeme se sada sprema samo, odmah nakon izmjene, pa raspored uvijek prikazuje tačno ono što je podešeno','Kad se postavke sačuvaju, kratko se prikaže „Sačuvano“']},
   {v:'2.4',d:'2026-11-02',n:['10 novih tema: Ponoć, Bordo, Zlato, Neon, Čelik, Okean, Kraljevska, Menta, Berberski stub i Kafa','Teme složene u osnovne, tamne i svijetle']},
   {v:'2.3.1',d:'2026-11-02',n:['Nova posveta i dova na stranici „O aplikaciji“']},
   {v:'2.3',d:'2026-11-02',n:['Uputstvo za korištenje svih opcija, u Postavkama ispod „O aplikaciji“']},
@@ -2100,7 +2104,7 @@ function scheduleHTML(){
     '<div class="dstrip" id="dstrip" role="group" aria-label="Izbor dana">'+stripHTML+
       '<label class="ds cal" aria-label="Izaberi drugi datum">'+I.cal+'<span class="ds-n">Datum</span><input type="date" id="jump" value="'+date+'"></label></div>'+
     '<div class="dhead"><div><h2>'+esc(rel||DAYS[d.getDay()])+'</h2>'+
-      '<p>'+esc((rel?DAYS[d.getDay()]+', ':'')+d.getDate()+'. '+MONTHS_G[d.getMonth()])+(h.radi?(h.posebno?', danas posebno ':', radi ')+ivText(h):', ne radi')+'</p>'+
+      '<p>'+esc((rel?DAYS[d.getDay()]+', ':'')+d.getDate()+'. '+MONTHS_G[d.getMonth()])+(h.radi?(h.posebno?', posebno vrijeme ':', radi ')+ivText(h):', ne radi')+'</p>'+
       '<p class="dsum">'+esc(sum)+'</p>'+remBtn+'</div>'+gameBtn(date)+'</div>'+(state.gamesOpen?'<div class="gpanel">'+gamesHTML(date)+'</div>':'')+gapCard+nextCard+body;
 }
 function dayStrip(days,sel,act){
@@ -2503,7 +2507,7 @@ function guideHTML(){
     'Dodirni naziv dana (npr. <b>Pon</b>) za <b>Kopiraj na druge dane</b> ili <b>Ne radim ovaj dan</b>.',
     '<b>Tačna vremena po danima</b> služe za minute kao 08:15.',
     'U kalendaru <b>Neradni dani i posebno vrijeme</b> dodirni datum: <b>Po rasporedu</b>, <b>Posebno</b> (obojiš sate samo za taj dan) ili <b>Ne radim</b> (godišnji, praznik).',
-    'Kad nešto promijeniš u tabeli, pojavi se dugme <b>Sačuvaj promjene</b>. Kalendar datuma se sprema odmah.'
+    'Sve izmjene u postavkama se spremaju same, odmah. Kad se sačuvaju, dole kratko piše <b>Sačuvano</b>.'
   ]))+
   sec(I.note,'Usluge, izgled i ostale postavke',li([
     '<b>Salon:</b> naziv, pozivni broj (za Viber i SMS), valuta i <b>Razmak termina</b> (koliko često se nude slobodna vremena, npr. svakih 30 min).',
@@ -2551,7 +2555,17 @@ function aboutHTML(){
     '<div class="ver"><span>'+esc(state.settings.naziv)+'</span><b>Verzija '+APP_VERSION+'</b></div>'+
     '<p class="group-t">Šta je novo</p><div class="cl-list">'+cl+'</div>';
 }
-function markDirty(){const b=document.getElementById('saveBar');if(b&&b.hidden){b.hidden=false;}}
+/* Postavke se spremaju same, odmah nakon izmjene */
+let asT=null,savedT=null;
+function markDirty(){clearTimeout(asT);asT=setTimeout(()=>{asT=null;saveSettings({silent:true});},700);}
+async function flushSettings(){if(!asT)return true;clearTimeout(asT);asT=null;return saveSettings({silent:true,loud:true});}
+document.addEventListener('visibilitychange',()=>{if(document.hidden)flushSettings();});
+window.addEventListener('pagehide',()=>{flushSettings();});
+function flashSaved(){
+  let el=document.getElementById('savedPill');
+  if(!el){el=document.createElement('div');el.id='savedPill';el.className='saved-pill';el.setAttribute('role','status');document.body.appendChild(el);}
+  el.innerHTML=I.check+' Sačuvano';el.classList.add('show');clearTimeout(savedT);savedT=setTimeout(()=>el.classList.remove('show'),1400);
+}
 function svcRow(u,i){
   const bi=Number.isInteger(u.boja)?u.boja:(Number(i)||0)%8;
   return '<div class="svc-row" data-id="'+esc(u.id)+'"><button type="button" class="cdot" data-act="svc-color" data-i="'+bi+'" style="--c:'+SVC_COLORS[bi]+'" aria-label="Promijeni boju usluge"></button>'+
@@ -2561,8 +2575,10 @@ function svcRow(u,i){
     '<button type="button" class="del" data-act="del-svc" aria-label="Ukloni uslugu">'+I.trash+'</button></div>';
 }
 
-async function saveSettings(){
-  const msg=$('#setMsg');msg.textContent='';
+async function saveSettings(opt){
+  opt=opt||{};
+  const msg=$('#setMsg');if(!msg||!$('#setForm'))return true;msg.textContent='';
+  const fail=t=>{msg.textContent=t;if(!opt.silent||opt.loud){toast(t);msg.scrollIntoView({block:'center',behavior:'smooth'});}return false;};
   const s=JSON.parse(JSON.stringify(state.settings));
   s.naziv=$('#s-naziv').value.trim()||DEFAULT_SETTINGS.naziv;
   let poz=$('#s-poz').value.replace(/[^\d+]/g,'');if(poz&&!poz.startsWith('+'))poz='+'+poz;s.pozivni=poz||'+387';
@@ -2572,7 +2588,7 @@ async function saveSettings(){
     const on=$('#h-'+k+'-on').checked;
     const rows=readIv('h-'+k+'-l');
     const bad=rows.find(x=>!validT(x.od)||!validT(x.do)||tm(x.od)>=tm(x.do));
-    if(on&&(bad||!rows.length)){msg.textContent=DAYS[Number(k)]+': '+(bad?'početak mora biti prije kraja ('+(bad.od||'?')+' – '+(bad.do||'?')+').':'upišite radno vrijeme.');msg.scrollIntoView({block:'center',behavior:'smooth'});return;}
+    if(on&&(bad||!rows.length))return fail(DAYS[Number(k)]+': '+(bad?'početak mora biti prije kraja ('+(bad.od||'?')+' – '+(bad.do||'?')+').':'upišite radno vrijeme.'));
     const iv=normIntervals(rows,null)||s.radno[k].intervali;
     s.radno[k]={radi:on,intervali:iv,od:iv[0].od,do:iv[iv.length-1].do};
   }
@@ -2582,14 +2598,18 @@ async function saveSettings(){
     const n=r.querySelector('[data-f=naziv]').value.trim();
     if(!n)continue;
     const tr=clampInt(r.querySelector('[data-f=trajanje]').value,5,480,NaN);
-    if(!Number.isFinite(tr)){msg.textContent='Upišite trajanje u minutama za uslugu „'+n+'“.';return;}
+    if(!Number.isFinite(tr))return fail('Upišite trajanje u minutama za uslugu „'+n+'“.');
     const c=Number(String(r.querySelector('[data-f=cijena]').value).replace(/\./g,'').replace(',','.'))||0;
     us.push({id:r.dataset.id,naziv:n.slice(0,60),trajanje:tr,cijena:Math.max(0,c),boja:clampInt(r.querySelector('.cdot').dataset.i,0,7,0)});
   }
-  if(!us.length){msg.textContent='Dodajte barem jednu uslugu.';return;}
+  if(!us.length)return fail('Dodajte barem jednu uslugu.');
   s.usluge=us;
   const ok=await putSettings(s);
-  if(ok){toast('Postavke sačuvane');render(true);}
+  if(ok){
+    if(opt.silent){$('#brandName').textContent=state.settings.naziv;const hp=document.querySelector('.set-hero p');if(hp)hp.textContent=state.settings.naziv;flashSaved();}
+    else{toast('Postavke sačuvane');render(true);}
+  }
+  return ok;
 }
 
 /* ---------- Zakazivanje ---------- */
@@ -2862,7 +2882,7 @@ document.addEventListener('click',async e=>{
   const act=el.dataset.act;
   const d=state.draft;
   switch(act){
-    case 'nav':state.view=el.dataset.view;if(state.view==='raspored'&&!state.sheet){}render(true);window.scrollTo(0,0);if(state.view==='raspored')scrollToNow();break;
+    case 'nav':if(state.view==='postavke'&&el.dataset.view!=='postavke'&&!(await flushSettings()))break;state.view=el.dataset.view;if(state.view==='raspored'&&!state.sheet){}render(true);window.scrollTo(0,0);if(state.view==='raspored')scrollToNow();break;
     case 'week':state.date=addDays(state.date,Number(el.dataset.n));render();break;
     case 'pick':state.date=el.dataset.date;render();requestAnimationFrame(()=>{const sd=document.querySelector('#dstrip [aria-current="date"]');if(sd)sd.scrollIntoView({inline:'center',block:'nearest'});});if(!hoursFor(state.date).radi&&closedAnimOn())showClosed(state.date);break;
     case 'today':state.date=today();render();scrollToNow();break;
