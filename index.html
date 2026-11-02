@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0C0C0E">
-<script>(function(){var t=null;try{t=localStorage.getItem("rakic.tema");}catch(e){}t=t||"tamna";document.documentElement.setAttribute("data-skin",t);try{if(localStorage.getItem("rakic.splash")==="0")document.documentElement.classList.add("nosplash");}catch(e){}if(t==="zelena"||t==="svijetla"){var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==="zelena"?"#1F3B33":"#FFFFFF";}})();</script>
+<script>(function(){var t=null;try{t=localStorage.getItem("rakic.tema");}catch(e){}t=t||"tamna";document.documentElement.setAttribute("data-skin",t);try{if(localStorage.getItem("rakic.splash")==="0")document.documentElement.classList.add("nosplash");}catch(e){}try{var tc=localStorage.getItem("rakic.temaBoja");if(tc){var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=tc;}}catch(e){}})();</script>
 <title>Frizer kuće Rakića</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
@@ -17,7 +17,7 @@
 <script src="firebase-config.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Figtree:wght@400;500;600;700&family=Sancreek&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Figtree:wght@400;500;600;700&family=Sancreek&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#F3F3F4; --surface:#FFFFFF; --surface-2:#EDEDEF; --ink:#141416; --muted:#5E5E66; --line:#DADADF;
@@ -185,6 +185,249 @@
   --overlay:rgba(0,0,0,.6);
   color-scheme:dark;
 }
+/* Dodatne teme */
+:root[data-skin="noc"]{
+  --bg:#0B0B0D; --surface:#17171A; --surface-2:#202024; --ink:#ECECEF; --muted:#9B9BA3; --line:#2C2C31;
+  --hdr:#050506; --hdr-ink:#F2F2F4; --hdr-muted:#9B9BA3;
+  --green:#C41E26; --on-green:#FFFFFF; --on-green-muted:rgba(255,255,255,.78); --tab-active:#F0474E;
+  --brass:#D4AA66; --brass-strong:#CFA25A; --brass-soft:#2B2417; --on-brass:#1E1608;
+  --red:#F0575C; --red-soft:#3A1A1C; --ok:#5DC28C; --ok-soft:#14281D;
+  --pole-red:#D0151C; --pole-white:#E4E4E6; --pole-blue:#2A4DB8;
+  --hero:#202025; --on-hero:#F4F4F6; --hero-muted:#A3A3AC; --fab:#C41E26; --on-fab:#FFFFFF;
+  --hdr-line:transparent; --sync-bg:rgba(255,255,255,.08); --brand-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --free:#4CC98A; --free-soft:rgba(76,201,138,.07); --free-line:rgba(76,201,138,.45); --free-strong:rgba(76,201,138,.2);
+  --sp-bg:radial-gradient(120% 80% at 50% 46%,#1d1214 0%,#080809 55%,#030304 100%); --sp-mask:radial-gradient(ellipse 72% 70% at 50% 50%,#000 62%,transparent 100%); --sp-radius:0px; --sp-ovf:visible; --sp-shadow:none;
+  --st1:#ffffff; --st2:#cfd1d6; --st3:#7a7d84; --st4:#eceef1; --cut-core:#ffffff; --cut-glow:rgba(196,30,38,.65);
+  --cw-bg:rgba(0,0,0,.6); --sign-bg:linear-gradient(180deg,#18181b,#09090a); --sign-ink:#F2F2F4; --sign-muted:#B4B4BC; --sign-edge:#8F9198; --sign-gap:#09090a; --sign-ring:#C41E26; --str:#B9BBC1;
+  --stamp-bg:#C41E26; --stamp-ink:#FFFFFF; --day-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --logo-v:dark; --sp-filter:none; --lf-radius:18px; --lf-shadow:var(--shadow); --lf-filter:none;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 10px 22px -16px rgba(0,0,0,.8);
+  --overlay:rgba(0,0,0,.65);
+  color-scheme:dark;
+
+  --bg:#0A1020; --surface:#121A2E; --surface-2:#1A2440; --ink:#E8EDF7; --muted:#93A0BA; --line:#26324F;
+  --hdr:#070C18; --hero:#16213D; --green:#2F6FE4; --tab-active:#6EA0FF; --fab:#D4A55A; --on-fab:#1A1206;
+  --brass:#E0B66A; --brass-strong:#D4A55A; --brass-soft:#2A2618; --sign-ring:#2F6FE4; --stamp-bg:#2F6FE4;--sp-bg:radial-gradient(120% 80% at 50% 46%,#132042 0%,#080D1A 55%,#04070F 100%);
+}
+:root[data-skin="bordo"]{
+  --bg:#0B0B0D; --surface:#17171A; --surface-2:#202024; --ink:#ECECEF; --muted:#9B9BA3; --line:#2C2C31;
+  --hdr:#050506; --hdr-ink:#F2F2F4; --hdr-muted:#9B9BA3;
+  --green:#C41E26; --on-green:#FFFFFF; --on-green-muted:rgba(255,255,255,.78); --tab-active:#F0474E;
+  --brass:#D4AA66; --brass-strong:#CFA25A; --brass-soft:#2B2417; --on-brass:#1E1608;
+  --red:#F0575C; --red-soft:#3A1A1C; --ok:#5DC28C; --ok-soft:#14281D;
+  --pole-red:#D0151C; --pole-white:#E4E4E6; --pole-blue:#2A4DB8;
+  --hero:#202025; --on-hero:#F4F4F6; --hero-muted:#A3A3AC; --fab:#C41E26; --on-fab:#FFFFFF;
+  --hdr-line:transparent; --sync-bg:rgba(255,255,255,.08); --brand-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --free:#4CC98A; --free-soft:rgba(76,201,138,.07); --free-line:rgba(76,201,138,.45); --free-strong:rgba(76,201,138,.2);
+  --sp-bg:radial-gradient(120% 80% at 50% 46%,#1d1214 0%,#080809 55%,#030304 100%); --sp-mask:radial-gradient(ellipse 72% 70% at 50% 50%,#000 62%,transparent 100%); --sp-radius:0px; --sp-ovf:visible; --sp-shadow:none;
+  --st1:#ffffff; --st2:#cfd1d6; --st3:#7a7d84; --st4:#eceef1; --cut-core:#ffffff; --cut-glow:rgba(196,30,38,.65);
+  --cw-bg:rgba(0,0,0,.6); --sign-bg:linear-gradient(180deg,#18181b,#09090a); --sign-ink:#F2F2F4; --sign-muted:#B4B4BC; --sign-edge:#8F9198; --sign-gap:#09090a; --sign-ring:#C41E26; --str:#B9BBC1;
+  --stamp-bg:#C41E26; --stamp-ink:#FFFFFF; --day-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --logo-v:dark; --sp-filter:none; --lf-radius:18px; --lf-shadow:var(--shadow); --lf-filter:none;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 10px 22px -16px rgba(0,0,0,.8);
+  --overlay:rgba(0,0,0,.65);
+  color-scheme:dark;
+
+  --bg:#140A0C; --surface:#1F1114; --surface-2:#2A171B; --ink:#F3E9E6; --muted:#B39A97; --line:#3A2226;
+  --hdr:#100709; --hero:#2C1418; --green:#A3303B; --tab-active:#E05A66; --fab:#A3303B;
+  --brass:#D9B27A; --brass-strong:#C9A06A; --brass-soft:#2E2117; --sign-ring:#A3303B; --stamp-bg:#A3303B;--sp-bg:radial-gradient(120% 80% at 50% 46%,#2A0F14 0%,#0D0506 55%,#060203 100%);
+}
+:root[data-skin="zlato"]{
+  --bg:#0B0B0D; --surface:#17171A; --surface-2:#202024; --ink:#ECECEF; --muted:#9B9BA3; --line:#2C2C31;
+  --hdr:#050506; --hdr-ink:#F2F2F4; --hdr-muted:#9B9BA3;
+  --green:#C41E26; --on-green:#FFFFFF; --on-green-muted:rgba(255,255,255,.78); --tab-active:#F0474E;
+  --brass:#D4AA66; --brass-strong:#CFA25A; --brass-soft:#2B2417; --on-brass:#1E1608;
+  --red:#F0575C; --red-soft:#3A1A1C; --ok:#5DC28C; --ok-soft:#14281D;
+  --pole-red:#D0151C; --pole-white:#E4E4E6; --pole-blue:#2A4DB8;
+  --hero:#202025; --on-hero:#F4F4F6; --hero-muted:#A3A3AC; --fab:#C41E26; --on-fab:#FFFFFF;
+  --hdr-line:transparent; --sync-bg:rgba(255,255,255,.08); --brand-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --free:#4CC98A; --free-soft:rgba(76,201,138,.07); --free-line:rgba(76,201,138,.45); --free-strong:rgba(76,201,138,.2);
+  --sp-bg:radial-gradient(120% 80% at 50% 46%,#1d1214 0%,#080809 55%,#030304 100%); --sp-mask:radial-gradient(ellipse 72% 70% at 50% 50%,#000 62%,transparent 100%); --sp-radius:0px; --sp-ovf:visible; --sp-shadow:none;
+  --st1:#ffffff; --st2:#cfd1d6; --st3:#7a7d84; --st4:#eceef1; --cut-core:#ffffff; --cut-glow:rgba(196,30,38,.65);
+  --cw-bg:rgba(0,0,0,.6); --sign-bg:linear-gradient(180deg,#18181b,#09090a); --sign-ink:#F2F2F4; --sign-muted:#B4B4BC; --sign-edge:#8F9198; --sign-gap:#09090a; --sign-ring:#C41E26; --str:#B9BBC1;
+  --stamp-bg:#C41E26; --stamp-ink:#FFFFFF; --day-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --logo-v:dark; --sp-filter:none; --lf-radius:18px; --lf-shadow:var(--shadow); --lf-filter:none;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 10px 22px -16px rgba(0,0,0,.8);
+  --overlay:rgba(0,0,0,.65);
+  color-scheme:dark;
+
+  --bg:#0A0A0A; --surface:#141311; --surface-2:#1D1B17; --ink:#F2EEE6; --muted:#A39C8F; --line:#2E2B25;
+  --hdr:#050505; --hero:#1C1A15; --green:#C9A24A; --on-green:#1A1405; --on-green-muted:rgba(26,20,5,.72); --tab-active:#E6C46E;
+  --fab:linear-gradient(135deg,#F0D27E,#A87F2C); --on-fab:#1A1405; --brass:#E6C46E; --brass-strong:#D4AF5A; --brass-soft:#26200F;
+  --brand-fill:linear-gradient(180deg,#FFF3C9 0%,#E6C46E 45%,#9C7424 60%,#F2D88A 100%);
+  --pole-red:#C9A24A; --pole-blue:#2E2B25; --pole-white:#F2EEE6; --sign-ring:#C9A24A; --stamp-bg:#C9A24A; --stamp-ink:#1A1405;--sp-bg:radial-gradient(120% 80% at 50% 46%,#1F1A0E 0%,#070707 55%,#030303 100%);
+}
+:root[data-skin="neon"]{
+  --bg:#0B0B0D; --surface:#17171A; --surface-2:#202024; --ink:#ECECEF; --muted:#9B9BA3; --line:#2C2C31;
+  --hdr:#050506; --hdr-ink:#F2F2F4; --hdr-muted:#9B9BA3;
+  --green:#C41E26; --on-green:#FFFFFF; --on-green-muted:rgba(255,255,255,.78); --tab-active:#F0474E;
+  --brass:#D4AA66; --brass-strong:#CFA25A; --brass-soft:#2B2417; --on-brass:#1E1608;
+  --red:#F0575C; --red-soft:#3A1A1C; --ok:#5DC28C; --ok-soft:#14281D;
+  --pole-red:#D0151C; --pole-white:#E4E4E6; --pole-blue:#2A4DB8;
+  --hero:#202025; --on-hero:#F4F4F6; --hero-muted:#A3A3AC; --fab:#C41E26; --on-fab:#FFFFFF;
+  --hdr-line:transparent; --sync-bg:rgba(255,255,255,.08); --brand-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --free:#4CC98A; --free-soft:rgba(76,201,138,.07); --free-line:rgba(76,201,138,.45); --free-strong:rgba(76,201,138,.2);
+  --sp-bg:radial-gradient(120% 80% at 50% 46%,#1d1214 0%,#080809 55%,#030304 100%); --sp-mask:radial-gradient(ellipse 72% 70% at 50% 50%,#000 62%,transparent 100%); --sp-radius:0px; --sp-ovf:visible; --sp-shadow:none;
+  --st1:#ffffff; --st2:#cfd1d6; --st3:#7a7d84; --st4:#eceef1; --cut-core:#ffffff; --cut-glow:rgba(196,30,38,.65);
+  --cw-bg:rgba(0,0,0,.6); --sign-bg:linear-gradient(180deg,#18181b,#09090a); --sign-ink:#F2F2F4; --sign-muted:#B4B4BC; --sign-edge:#8F9198; --sign-gap:#09090a; --sign-ring:#C41E26; --str:#B9BBC1;
+  --stamp-bg:#C41E26; --stamp-ink:#FFFFFF; --day-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --logo-v:dark; --sp-filter:none; --lf-radius:18px; --lf-shadow:var(--shadow); --lf-filter:none;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 10px 22px -16px rgba(0,0,0,.8);
+  --overlay:rgba(0,0,0,.65);
+  color-scheme:dark;
+
+  --bg:#0B0918; --surface:#141127; --surface-2:#1C1836; --ink:#F1EEFF; --muted:#A49CC9; --line:#2D2752;
+  --hdr:#07061A; --hero:#1D1840; --green:#FF2E88; --tab-active:#FF5CA6; --fab:linear-gradient(135deg,#FF2E88,#7B2FF7);
+  --brass:#00E5FF; --brass-strong:#00D1EB; --brass-soft:#0E2A3A; --on-brass:#06121A;
+  --free:#00F5A0; --free-soft:rgba(0,245,160,.07); --free-line:rgba(0,245,160,.45); --free-strong:rgba(0,245,160,.2);
+  --brand-fill:linear-gradient(90deg,#FF7AB8,#7DF3FF); --pole-red:#FF2E88; --pole-blue:#00E5FF; --pole-white:#F1EEFF;
+  --sign-ring:#FF2E88; --stamp-bg:#FF2E88; --cut-glow:rgba(0,229,255,.7);--sp-bg:radial-gradient(120% 80% at 50% 46%,#2A0F3D 0%,#0B0918 55%,#05040C 100%);
+}
+:root[data-skin="celik"]{
+  --bg:#0B0B0D; --surface:#17171A; --surface-2:#202024; --ink:#ECECEF; --muted:#9B9BA3; --line:#2C2C31;
+  --hdr:#050506; --hdr-ink:#F2F2F4; --hdr-muted:#9B9BA3;
+  --green:#C41E26; --on-green:#FFFFFF; --on-green-muted:rgba(255,255,255,.78); --tab-active:#F0474E;
+  --brass:#D4AA66; --brass-strong:#CFA25A; --brass-soft:#2B2417; --on-brass:#1E1608;
+  --red:#F0575C; --red-soft:#3A1A1C; --ok:#5DC28C; --ok-soft:#14281D;
+  --pole-red:#D0151C; --pole-white:#E4E4E6; --pole-blue:#2A4DB8;
+  --hero:#202025; --on-hero:#F4F4F6; --hero-muted:#A3A3AC; --fab:#C41E26; --on-fab:#FFFFFF;
+  --hdr-line:transparent; --sync-bg:rgba(255,255,255,.08); --brand-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --free:#4CC98A; --free-soft:rgba(76,201,138,.07); --free-line:rgba(76,201,138,.45); --free-strong:rgba(76,201,138,.2);
+  --sp-bg:radial-gradient(120% 80% at 50% 46%,#1d1214 0%,#080809 55%,#030304 100%); --sp-mask:radial-gradient(ellipse 72% 70% at 50% 50%,#000 62%,transparent 100%); --sp-radius:0px; --sp-ovf:visible; --sp-shadow:none;
+  --st1:#ffffff; --st2:#cfd1d6; --st3:#7a7d84; --st4:#eceef1; --cut-core:#ffffff; --cut-glow:rgba(196,30,38,.65);
+  --cw-bg:rgba(0,0,0,.6); --sign-bg:linear-gradient(180deg,#18181b,#09090a); --sign-ink:#F2F2F4; --sign-muted:#B4B4BC; --sign-edge:#8F9198; --sign-gap:#09090a; --sign-ring:#C41E26; --str:#B9BBC1;
+  --stamp-bg:#C41E26; --stamp-ink:#FFFFFF; --day-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --logo-v:dark; --sp-filter:none; --lf-radius:18px; --lf-shadow:var(--shadow); --lf-filter:none;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 10px 22px -16px rgba(0,0,0,.8);
+  --overlay:rgba(0,0,0,.65);
+  color-scheme:dark;
+
+  --bg:#111417; --surface:#1A1E23; --surface-2:#232830; --ink:#E9EDF1; --muted:#9AA4AF; --line:#2F3640;
+  --hdr:#0C0F12; --hero:#222831; --green:#5B7A99; --tab-active:#9DB6CF; --fab:#5B7A99;
+  --brass:#C3CDD8; --brass-strong:#AEB9C5; --brass-soft:#252C34; --on-brass:#111417; --sign-ring:#5B7A99; --stamp-bg:#5B7A99;--sp-bg:radial-gradient(120% 80% at 50% 46%,#1E242B 0%,#0B0D10 55%,#050607 100%);
+}
+:root[data-skin="okean"]{
+  --bg:#0B0B0D; --surface:#17171A; --surface-2:#202024; --ink:#ECECEF; --muted:#9B9BA3; --line:#2C2C31;
+  --hdr:#050506; --hdr-ink:#F2F2F4; --hdr-muted:#9B9BA3;
+  --green:#C41E26; --on-green:#FFFFFF; --on-green-muted:rgba(255,255,255,.78); --tab-active:#F0474E;
+  --brass:#D4AA66; --brass-strong:#CFA25A; --brass-soft:#2B2417; --on-brass:#1E1608;
+  --red:#F0575C; --red-soft:#3A1A1C; --ok:#5DC28C; --ok-soft:#14281D;
+  --pole-red:#D0151C; --pole-white:#E4E4E6; --pole-blue:#2A4DB8;
+  --hero:#202025; --on-hero:#F4F4F6; --hero-muted:#A3A3AC; --fab:#C41E26; --on-fab:#FFFFFF;
+  --hdr-line:transparent; --sync-bg:rgba(255,255,255,.08); --brand-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --free:#4CC98A; --free-soft:rgba(76,201,138,.07); --free-line:rgba(76,201,138,.45); --free-strong:rgba(76,201,138,.2);
+  --sp-bg:radial-gradient(120% 80% at 50% 46%,#1d1214 0%,#080809 55%,#030304 100%); --sp-mask:radial-gradient(ellipse 72% 70% at 50% 50%,#000 62%,transparent 100%); --sp-radius:0px; --sp-ovf:visible; --sp-shadow:none;
+  --st1:#ffffff; --st2:#cfd1d6; --st3:#7a7d84; --st4:#eceef1; --cut-core:#ffffff; --cut-glow:rgba(196,30,38,.65);
+  --cw-bg:rgba(0,0,0,.6); --sign-bg:linear-gradient(180deg,#18181b,#09090a); --sign-ink:#F2F2F4; --sign-muted:#B4B4BC; --sign-edge:#8F9198; --sign-gap:#09090a; --sign-ring:#C41E26; --str:#B9BBC1;
+  --stamp-bg:#C41E26; --stamp-ink:#FFFFFF; --day-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --logo-v:dark; --sp-filter:none; --lf-radius:18px; --lf-shadow:var(--shadow); --lf-filter:none;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 10px 22px -16px rgba(0,0,0,.8);
+  --overlay:rgba(0,0,0,.65);
+  color-scheme:dark;
+
+  --bg:#061619; --surface:#0C2125; --surface-2:#122C31; --ink:#E4F4F3; --muted:#8FB3B1; --line:#1C3B40;
+  --hdr:#041114; --hero:#0F2E33; --green:#14B8A6; --on-green:#03201C; --on-green-muted:rgba(3,32,28,.72); --tab-active:#3FD9C6;
+  --fab:#F59E0B; --on-fab:#2A1700; --brass:#F5B342; --brass-strong:#F59E0B; --brass-soft:#2B2410;
+  --sign-ring:#14B8A6; --stamp-bg:#14B8A6; --stamp-ink:#03201C;--sp-bg:radial-gradient(120% 80% at 50% 46%,#0B3A40 0%,#051416 55%,#020A0B 100%);
+}
+:root[data-skin="kraljevska"]{
+  --bg:#0B0B0D; --surface:#17171A; --surface-2:#202024; --ink:#ECECEF; --muted:#9B9BA3; --line:#2C2C31;
+  --hdr:#050506; --hdr-ink:#F2F2F4; --hdr-muted:#9B9BA3;
+  --green:#C41E26; --on-green:#FFFFFF; --on-green-muted:rgba(255,255,255,.78); --tab-active:#F0474E;
+  --brass:#D4AA66; --brass-strong:#CFA25A; --brass-soft:#2B2417; --on-brass:#1E1608;
+  --red:#F0575C; --red-soft:#3A1A1C; --ok:#5DC28C; --ok-soft:#14281D;
+  --pole-red:#D0151C; --pole-white:#E4E4E6; --pole-blue:#2A4DB8;
+  --hero:#202025; --on-hero:#F4F4F6; --hero-muted:#A3A3AC; --fab:#C41E26; --on-fab:#FFFFFF;
+  --hdr-line:transparent; --sync-bg:rgba(255,255,255,.08); --brand-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --free:#4CC98A; --free-soft:rgba(76,201,138,.07); --free-line:rgba(76,201,138,.45); --free-strong:rgba(76,201,138,.2);
+  --sp-bg:radial-gradient(120% 80% at 50% 46%,#1d1214 0%,#080809 55%,#030304 100%); --sp-mask:radial-gradient(ellipse 72% 70% at 50% 50%,#000 62%,transparent 100%); --sp-radius:0px; --sp-ovf:visible; --sp-shadow:none;
+  --st1:#ffffff; --st2:#cfd1d6; --st3:#7a7d84; --st4:#eceef1; --cut-core:#ffffff; --cut-glow:rgba(196,30,38,.65);
+  --cw-bg:rgba(0,0,0,.6); --sign-bg:linear-gradient(180deg,#18181b,#09090a); --sign-ink:#F2F2F4; --sign-muted:#B4B4BC; --sign-edge:#8F9198; --sign-gap:#09090a; --sign-ring:#C41E26; --str:#B9BBC1;
+  --stamp-bg:#C41E26; --stamp-ink:#FFFFFF; --day-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --logo-v:dark; --sp-filter:none; --lf-radius:18px; --lf-shadow:var(--shadow); --lf-filter:none;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 10px 22px -16px rgba(0,0,0,.8);
+  --overlay:rgba(0,0,0,.65);
+  color-scheme:dark;
+
+  --bg:#110B1C; --surface:#1A1229; --surface-2:#231936; --ink:#F0EAFB; --muted:#A898C4; --line:#33264D;
+  --hdr:#0C0714; --hero:#24183A; --green:#8B5CF6; --tab-active:#B395FF; --fab:#F5C04A; --on-fab:#2A1D00;
+  --brass:#F5C04A; --brass-strong:#E8B23A; --brass-soft:#2C2412; --sign-ring:#8B5CF6; --stamp-bg:#8B5CF6;--sp-bg:radial-gradient(120% 80% at 50% 46%,#2A1846 0%,#0E0918 55%,#06040B 100%);
+}
+:root[data-skin="menta"]{
+  --bg:#F3F3F4; --surface:#FFFFFF; --surface-2:#EDEDEF; --ink:#141416; --muted:#5E5E66; --line:#DADADF;
+  --hdr:#0C0C0E; --hdr-ink:#F2F2F4; --hdr-muted:#9D9DA6;
+  --green:#B5161E; --on-green:#FFFFFF; --on-green-muted:rgba(255,255,255,.78); --tab-active:#B5161E;
+  --brass:#8A6423; --brass-strong:#B8893F; --brass-soft:#F3EBDD; --on-brass:#1E1608;
+  --red:#B5161E; --red-soft:#FBE4E5; --ok:#1E7A4C; --ok-soft:#DEF1E6;
+  --pole-red:#D0151C; --pole-white:#F1F1F1; --pole-blue:#1E3FA0;
+  --hero:#141416; --on-hero:#F4F4F6; --hero-muted:#A3A3AC; --fab:#B5161E; --on-fab:#FFFFFF;
+  --hdr:#FFFFFF; --hdr-ink:#141416; --hdr-muted:#5E5E66; --hdr-line:#DADADF; --sync-bg:rgba(0,0,0,.05); --brand-fill:linear-gradient(180deg,#45454B 0%,#121214 58%,#2E2E33 100%);
+  --free:#1E8A52; --free-soft:#EEF8F2; --free-line:#9FD4B5; --free-strong:#D5EFDF;
+  --sp-bg:radial-gradient(120% 80% at 50% 46%,#FFFFFF 0%,#F2F2F4 55%,#E2E2E6 100%); --sp-mask:none; --sp-radius:26px; --sp-shadow:0 30px 60px -24px rgba(20,20,22,.55),0 0 0 1px rgba(0,0,0,.06);
+  --st1:#f4f5f7; --st2:#a3a6ad; --st3:#45484f; --st4:#c4c6cb; --cut-core:#B5161E; --cut-glow:rgba(181,22,30,.35);
+  --cw-bg:rgba(28,28,32,.35); --sign-bg:linear-gradient(180deg,#FFFFFF,#F0F0F2); --sign-ink:#141416; --sign-muted:#5E5E66; --sign-edge:#C9CBD0; --sign-gap:#FFFFFF; --sign-ring:#B5161E; --str:#6B6E75;
+  --stamp-bg:#B5161E; --stamp-ink:#FFFFFF; --day-fill:linear-gradient(180deg,#45454B 0%,#141416 60%,#2C2C31 100%);
+  --logo-v:light; --shine-op:0; --sp-mask:none; --sp-radius:0px; --sp-shadow:none; --sp-ovf:visible; --sp-filter:drop-shadow(0 22px 30px rgba(20,20,22,.28));
+  --lf-radius:0px; --lf-shadow:none; --lf-filter:drop-shadow(0 14px 22px rgba(20,20,22,.22));
+  --shadow:0 1px 0 rgba(20,20,22,.04),0 10px 22px -16px rgba(20,20,22,.45);
+  --overlay:rgba(10,10,12,.5);
+  color-scheme:light;
+
+  --bg:#EAF4F0; --surface:#FFFFFF; --surface-2:#E0EEE8; --ink:#142420; --muted:#55706A; --line:#C9DDD5;
+  --hdr:#1F6F63; --hdr-ink:#F2FBF8; --hdr-muted:#BFE3DA; --hdr-line:transparent; --sync-bg:rgba(255,255,255,.15);
+  --brand-fill:linear-gradient(180deg,#FFFFFF,#D9F2EC); --green:#1F7A6B; --tab-active:#1F7A6B; --fab:#C0392B; --on-fab:#FFFFFF;
+  --brass:#A8392C; --brass-strong:#C0392B; --brass-soft:#F6E1DD; --hero:#163F38; --sign-ring:#1F7A6B; --stamp-bg:#C0392B;--sp-bg:radial-gradient(120% 80% at 50% 46%,#FFFFFF 0%,#E6F3EE 55%,#D3E8E0 100%);
+}
+:root[data-skin="stub"]{
+  --bg:#F3F3F4; --surface:#FFFFFF; --surface-2:#EDEDEF; --ink:#141416; --muted:#5E5E66; --line:#DADADF;
+  --hdr:#0C0C0E; --hdr-ink:#F2F2F4; --hdr-muted:#9D9DA6;
+  --green:#B5161E; --on-green:#FFFFFF; --on-green-muted:rgba(255,255,255,.78); --tab-active:#B5161E;
+  --brass:#8A6423; --brass-strong:#B8893F; --brass-soft:#F3EBDD; --on-brass:#1E1608;
+  --red:#B5161E; --red-soft:#FBE4E5; --ok:#1E7A4C; --ok-soft:#DEF1E6;
+  --pole-red:#D0151C; --pole-white:#F1F1F1; --pole-blue:#1E3FA0;
+  --hero:#141416; --on-hero:#F4F4F6; --hero-muted:#A3A3AC; --fab:#B5161E; --on-fab:#FFFFFF;
+  --hdr:#FFFFFF; --hdr-ink:#141416; --hdr-muted:#5E5E66; --hdr-line:#DADADF; --sync-bg:rgba(0,0,0,.05); --brand-fill:linear-gradient(180deg,#45454B 0%,#121214 58%,#2E2E33 100%);
+  --free:#1E8A52; --free-soft:#EEF8F2; --free-line:#9FD4B5; --free-strong:#D5EFDF;
+  --sp-bg:radial-gradient(120% 80% at 50% 46%,#FFFFFF 0%,#F2F2F4 55%,#E2E2E6 100%); --sp-mask:none; --sp-radius:26px; --sp-shadow:0 30px 60px -24px rgba(20,20,22,.55),0 0 0 1px rgba(0,0,0,.06);
+  --st1:#f4f5f7; --st2:#a3a6ad; --st3:#45484f; --st4:#c4c6cb; --cut-core:#B5161E; --cut-glow:rgba(181,22,30,.35);
+  --cw-bg:rgba(28,28,32,.35); --sign-bg:linear-gradient(180deg,#FFFFFF,#F0F0F2); --sign-ink:#141416; --sign-muted:#5E5E66; --sign-edge:#C9CBD0; --sign-gap:#FFFFFF; --sign-ring:#B5161E; --str:#6B6E75;
+  --stamp-bg:#B5161E; --stamp-ink:#FFFFFF; --day-fill:linear-gradient(180deg,#45454B 0%,#141416 60%,#2C2C31 100%);
+  --logo-v:light; --shine-op:0; --sp-mask:none; --sp-radius:0px; --sp-shadow:none; --sp-ovf:visible; --sp-filter:drop-shadow(0 22px 30px rgba(20,20,22,.28));
+  --lf-radius:0px; --lf-shadow:none; --lf-filter:drop-shadow(0 14px 22px rgba(20,20,22,.22));
+  --shadow:0 1px 0 rgba(20,20,22,.04),0 10px 22px -16px rgba(20,20,22,.45);
+  --overlay:rgba(10,10,12,.5);
+  color-scheme:light;
+
+  --bg:#F3F5FA; --surface:#FFFFFF; --surface-2:#E9EDF5; --ink:#101828; --muted:#5A6478; --line:#D6DCE8;
+  --hdr:#1E3FA0; --hdr-ink:#FFFFFF; --hdr-muted:#C7D3F5; --hdr-line:transparent; --sync-bg:rgba(255,255,255,.15);
+  --brand-fill:linear-gradient(180deg,#FFFFFF,#E3E9FF); --green:#1E3FA0; --tab-active:#1E3FA0; --fab:#D0151C; --on-fab:#FFFFFF;
+  --brass:#B3121A; --brass-strong:#D0151C; --brass-soft:#FBE3E4; --hero:#14296B; --sign-ring:#1E3FA0; --stamp-bg:#D0151C;--sp-bg:radial-gradient(120% 80% at 50% 46%,#FFFFFF 0%,#EEF2FA 55%,#DDE4F2 100%);
+}
+:root[data-skin="kafa"]{
+  --bg:#F3F3F4; --surface:#FFFFFF; --surface-2:#EDEDEF; --ink:#141416; --muted:#5E5E66; --line:#DADADF;
+  --hdr:#0C0C0E; --hdr-ink:#F2F2F4; --hdr-muted:#9D9DA6;
+  --green:#B5161E; --on-green:#FFFFFF; --on-green-muted:rgba(255,255,255,.78); --tab-active:#B5161E;
+  --brass:#8A6423; --brass-strong:#B8893F; --brass-soft:#F3EBDD; --on-brass:#1E1608;
+  --red:#B5161E; --red-soft:#FBE4E5; --ok:#1E7A4C; --ok-soft:#DEF1E6;
+  --pole-red:#D0151C; --pole-white:#F1F1F1; --pole-blue:#1E3FA0;
+  --hero:#141416; --on-hero:#F4F4F6; --hero-muted:#A3A3AC; --fab:#B5161E; --on-fab:#FFFFFF;
+  --hdr:#FFFFFF; --hdr-ink:#141416; --hdr-muted:#5E5E66; --hdr-line:#DADADF; --sync-bg:rgba(0,0,0,.05); --brand-fill:linear-gradient(180deg,#45454B 0%,#121214 58%,#2E2E33 100%);
+  --free:#1E8A52; --free-soft:#EEF8F2; --free-line:#9FD4B5; --free-strong:#D5EFDF;
+  --sp-bg:radial-gradient(120% 80% at 50% 46%,#FFFFFF 0%,#F2F2F4 55%,#E2E2E6 100%); --sp-mask:none; --sp-radius:26px; --sp-shadow:0 30px 60px -24px rgba(20,20,22,.55),0 0 0 1px rgba(0,0,0,.06);
+  --st1:#f4f5f7; --st2:#a3a6ad; --st3:#45484f; --st4:#c4c6cb; --cut-core:#B5161E; --cut-glow:rgba(181,22,30,.35);
+  --cw-bg:rgba(28,28,32,.35); --sign-bg:linear-gradient(180deg,#FFFFFF,#F0F0F2); --sign-ink:#141416; --sign-muted:#5E5E66; --sign-edge:#C9CBD0; --sign-gap:#FFFFFF; --sign-ring:#B5161E; --str:#6B6E75;
+  --stamp-bg:#B5161E; --stamp-ink:#FFFFFF; --day-fill:linear-gradient(180deg,#45454B 0%,#141416 60%,#2C2C31 100%);
+  --logo-v:light; --shine-op:0; --sp-mask:none; --sp-radius:0px; --sp-shadow:none; --sp-ovf:visible; --sp-filter:drop-shadow(0 22px 30px rgba(20,20,22,.28));
+  --lf-radius:0px; --lf-shadow:none; --lf-filter:drop-shadow(0 14px 22px rgba(20,20,22,.22));
+  --shadow:0 1px 0 rgba(20,20,22,.04),0 10px 22px -16px rgba(20,20,22,.45);
+  --overlay:rgba(10,10,12,.5);
+  color-scheme:light;
+
+  --bg:#F5EFE7; --surface:#FFFDF9; --surface-2:#EDE4D8; --ink:#2B1D14; --muted:#7A6555; --line:#DFD2C2;
+  --hdr:#3B2A1E; --hdr-ink:#F7EFE6; --hdr-muted:#CBB8A6; --hdr-line:transparent; --sync-bg:rgba(255,255,255,.12);
+  --brand-fill:linear-gradient(180deg,#FFF6EA,#E3C9A8); --green:#6F4A2F; --tab-active:#6F4A2F; --fab:#2F6F5E; --on-fab:#FFFFFF;
+  --brass:#8A5A2B; --brass-strong:#B07A3E; --brass-soft:#F1E3CF; --hero:#3B2A1E; --sign-ring:#6F4A2F; --stamp-bg:#6F4A2F;--sp-bg:radial-gradient(120% 80% at 50% 46%,#FFFDF9 0%,#F0E6D8 55%,#E4D6C3 100%);
+}
 *,*::before,*::after{box-sizing:inherit}
 html{height:100%;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 90px);-webkit-text-size-adjust:100%}
 body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:16px/1.45 var(--body);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
@@ -215,7 +458,7 @@ svg{flex:none}
 .skin{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);text-align:left;font-weight:600}
 .skin[aria-pressed="true"]{border-color:var(--green);box-shadow:0 0 0 1.5px var(--green)}
 .skin small{display:block;font-weight:400;font-size:12.5px;color:var(--muted)}
-.sw{width:30px;height:30px;border-radius:50%;flex:none;border:1px solid rgba(128,128,128,.35)}
+.sw{width:32px;height:32px;border-radius:50%;flex:none;border:1px solid rgba(128,128,128,.35);box-shadow:inset 0 0 0 3px rgba(255,255,255,.08)}
 
 .sync{margin-left:auto;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--sync-bg);color:var(--hdr-muted);display:flex;align-items:center;gap:6px;white-space:nowrap}
 .sync i{width:7px;height:7px;border-radius:50%;background:#C9B27A}
@@ -724,7 +967,7 @@ html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 124px)}
 :root[data-event="gta"] .dhead h2{background:linear-gradient(90deg,#FF7AC0,#C78BFF 50%,#FFB25C);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 :root[data-event="gta"] .ar{border-color:#5A3388}
 body,.top,.tabs,.ar,.ds,.fb,.fchip{transition:background-color .45s ease,border-color .45s ease,color .45s ease}
-.ds.game-day::after{content:"";position:absolute;left:8px;right:8px;bottom:3px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--g1,#2F6FE4),var(--g2,#2F6FE4))}
+.ds.game-day::after{content:"";position:absolute;left:0;right:0;top:0;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--g1,#2F6FE4),var(--g2,#2F6FE4))}
 .ds.game-day{box-shadow:none}
 .gm-dot{background:var(--g1,#2F6FE4)}
 .gamecard li.col{color:#fff;background:linear-gradient(135deg,var(--g1),var(--g2));text-shadow:0 1px 3px rgba(0,0,0,.55);box-shadow:inset 0 0 0 1px rgba(255,255,255,.15)}
@@ -829,6 +1072,87 @@ select.inp.narrow{text-align:left;padding-right:28px;background-position:calc(10
 .lg.cust{background:var(--brass-strong)}
 .oc-chip.cust{background:var(--brass-soft);color:var(--brass);padding-right:11px}
 .oc-chip small{font-weight:600;opacity:.85}
+/* Raspored na dodir */
+.wg-wrap{padding:10px 10px 12px}
+.wg{display:grid;grid-template-columns:30px repeat(7,1fr);grid-auto-rows:12px;gap:2px 3px;touch-action:none;user-select:none;-webkit-user-select:none}
+.wg .wg-c{grid-row:span 2}
+.wg-h{grid-row:span 2;height:26px;border-radius:8px;font:800 13px/1 var(--display);letter-spacing:.04em;color:var(--muted);background:var(--surface-2)}
+.wg-h.today{color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--brass-strong)}
+.wg-h.sel{background:var(--green);color:var(--on-green)}
+.wg-t{grid-column:1;font:700 11px/12px var(--display);color:var(--muted);text-align:right;padding-right:4px;touch-action:pan-y}
+.wg-t.hr{transform:translateY(-6px)}
+.wg-cell{display:block;border-radius:3px;background:var(--surface-2);cursor:pointer;transition:background .12s}
+.wg-cell.hr{box-shadow:inset 0 1px 0 var(--line)}
+.wg-cell.on{background:var(--green);box-shadow:none}
+.wg-cell.sel:not(.on){background:color-mix(in srgb,var(--surface-2) 70%,var(--green) 30%)}
+.wg-hint{margin:10px 2px 0;font-size:13px;color:var(--muted)}
+.wg-bar{margin-top:12px;border-top:1px solid var(--line);padding-top:12px}
+.wg-sum{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.wg-sum b{font:800 19px/1 var(--display)}
+.wg-sum span{font-size:14px;color:var(--muted)}
+.wg-q{margin:0 0 6px;font-size:13px;font-weight:700;color:var(--muted)}
+.wg-days{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.wg-days .chip{height:36px;padding:0 12px;font-size:14px}
+.wg-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.wg-acts .btn{min-height:42px;font-size:14px}
+details.exact{margin:8px 0 0}
+details.exact summary{cursor:pointer;list-style:none;font-size:13.5px;font-weight:700;color:var(--muted);padding:10px 6px}
+details.exact summary::-webkit-details-marker{display:none}
+details.exact summary::before{content:"+ ";color:var(--brass)}
+details.exact[open] summary::before{content:"– "}
+details.exact summary small{font-weight:500}
+.dg-wrap{padding:10px 12px;margin-bottom:6px}
+.dg{display:grid;grid-template-columns:48px 1fr;grid-auto-rows:13px;gap:2px 6px;touch-action:none;user-select:none;-webkit-user-select:none}
+.dg-t{font:700 12px/13px var(--display);color:var(--muted);touch-action:pan-y;text-align:right}
+.dg-t.hr{transform:translateY(-6px)}
+.dg-cell{border-radius:5px}
+.ds-bar{position:absolute;left:9px;right:9px;bottom:4px;height:3px;border-radius:3px;background:var(--line);overflow:hidden}
+.ds-bar b{display:block;height:100%;background:var(--free);border-radius:3px}
+.ds-bar.full{background:var(--red)}
+.ds[aria-current="date"] .ds-bar{background:rgba(255,255,255,.25)}
+.ds[aria-current="date"] .ds-bar b{background:#fff}
+/* O aplikaciji */
+.about-btn{display:flex;align-items:center;gap:12px;width:100%;margin:10px 0 0;padding:12px 14px;border-radius:16px;background:var(--surface);border:1px solid var(--line);text-align:left;color:var(--ink)}
+.about-btn>svg{color:var(--muted)}
+.ab-ic{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--brass-soft);color:var(--brass);flex:none}
+.ab-ic svg{width:18px;height:18px}
+.about-card{position:relative;text-align:center;padding:22px 18px 20px;margin:0 0 14px;border-radius:20px;background:radial-gradient(120% 90% at 50% 0%,var(--brass-soft) 0%,var(--surface) 70%);border:1px solid var(--line)}
+.about-card img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:2px solid #9A9CA3;box-shadow:0 0 0 3px var(--surface),0 0 0 5px var(--pole-red);margin-bottom:12px}
+.bism{font:700 30px/1.6 'Amiri','Noto Naskh Arabic','Geeza Pro','Traditional Arabic',serif;color:var(--brass);margin:0}
+.bism-bs{font:800 21px/1.2 var(--display);letter-spacing:.02em;margin:4px 0 0;color:var(--ink)}
+.orn{display:flex;align-items:center;gap:10px;margin:16px auto;max-width:220px;color:var(--brass)}
+.orn i{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--brass-strong),transparent)}
+.orn svg{width:16px;height:16px}
+.about-card p{font-size:15.5px;line-height:1.6;margin:0 0 12px}
+.about-card .amin{font:800 24px/1 var(--display);color:var(--brass);margin:6px 0 14px}
+.about-card .ded{font-style:italic;color:var(--muted);margin:0}
+.about-card .dova{margin:14px 0 0;padding-top:12px;border-top:1px solid var(--line);font-weight:600;color:var(--brass)}
+.ver{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-radius:14px;background:var(--surface-2);margin-bottom:6px;font-size:14px;color:var(--muted)}
+.ver b{color:var(--ink);font:800 18px/1 var(--display)}
+.cl-list{display:grid;gap:8px;margin-bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+.cl{border:1px solid var(--line);border-radius:14px;padding:10px 14px;background:var(--surface)}
+.cl.cur{border-color:var(--brass-strong)}
+.cl-h{display:flex;align-items:center;gap:10px;cursor:pointer;list-style:none}
+.cl-h::-webkit-details-marker{display:none}
+.cl-h b{font:800 17px/1 var(--display)}
+.cl-h span{font-size:13px;color:var(--muted)}
+.cl-h em{margin-left:auto;font-style:normal;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--brass-soft);color:var(--brass)}
+.cl ul{margin:8px 0 2px;padding-left:18px;font-size:14px;line-height:1.5}
+.cl li+li{margin-top:3px}
+/* Uputstvo */
+.gd-intro{font-size:14.5px;color:var(--muted);margin:-4px 2px 14px}
+.gd{border:1px solid var(--line);border-radius:16px;background:var(--surface);margin-bottom:8px;overflow:hidden}
+.gd summary{display:flex;align-items:center;gap:12px;padding:13px 14px;font-weight:700;font-size:16px;cursor:pointer;list-style:none}
+.gd summary::-webkit-details-marker{display:none}
+.gd summary::after{content:"+";margin-left:auto;font:700 22px/1 var(--display);color:var(--brass)}
+.gd[open] summary::after{content:"–"}
+.gd-ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--brass-soft);color:var(--brass);flex:none}
+.gd-ic svg{width:17px;height:17px}
+.gd-b{padding:0 16px 14px}
+.gd-b ul{margin:0;padding-left:18px;font-size:14.5px;line-height:1.55}
+.gd-b li+li{margin-top:7px}
+.gd-b b{color:var(--ink)}
+.gd-end{height:calc(16px + env(safe-area-inset-bottom,0px))}
 /* Prijava */
 .login{position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding:24px 18px calc(24px + env(safe-area-inset-bottom,0px));background:radial-gradient(120% 70% at 50% 0%,var(--surface) 0%,var(--bg) 60%);overflow-y:auto}
 .lg-card{width:100%;max-width:380px;text-align:left}
@@ -968,6 +1292,26 @@ const DAYS_A=['nedjelju','ponedjeljak','utorak','srijedu','četvrtak','petak','s
 const MONTHS=['januar','februar','mart','april','maj','juni','juli','august','septembar','oktobar','novembar','decembar'];
 const MONTHS_G=['januara','februara','marta','aprila','maja','juna','jula','augusta','septembra','oktobra','novembra','decembra'];
 const WEEK_ORDER=['1','2','3','4','5','6','0'];
+/* Verzija i promjene: dopunjava se sa svakom novom izmjenom */
+const APP_VERSION='2.4';
+const CHANGELOG=[
+  {v:'2.4',d:'2026-11-02',n:['10 novih tema: Ponoć, Bordo, Zlato, Neon, Čelik, Okean, Kraljevska, Menta, Berberski stub i Kafa','Teme složene u osnovne, tamne i svijetle']},
+  {v:'2.3.1',d:'2026-11-02',n:['Nova posveta i dova na stranici „O aplikaciji“']},
+  {v:'2.3',d:'2026-11-02',n:['Uputstvo za korištenje svih opcija, u Postavkama ispod „O aplikaciji“']},
+  {v:'2.2.1',d:'2026-11-02',n:['Dopunjena posveta i dova na stranici „O aplikaciji“']},
+  {v:'2.2',d:'2026-11-02',n:['Sedmični raspored na dodir: obojiš sate kad radiš, a prazno ostaje kad ne radiš','Kopiranje rasporeda jednog dana na druge dane','Zelena traka slobodnog vremena za svaki dan u kalendaru','Stranica „O aplikaciji“ s verzijom i spiskom promjena']},
+  {v:'2.1',d:'2026-11-02',n:['Dvokratno i višekratno radno vrijeme za svaki dan','Posebno radno vrijeme ili neradni dan za određeni datum']},
+  {v:'2.0',d:'2026-11-02',n:['Verzija za GitHub i Firebase s prijavom PIN-om','Rad bez interneta i instaliranje na telefon','Cijela aplikacija provjerena, očišćena i ubrzana','Izvoz i uvoz svih podataka']},
+  {v:'1.9',d:'2026-11-02',n:['Nove postavke s karticama i prekidačima','Neradni dani u kalendaru','Igre koje izlaze skrivene iza PS5 dugmeta']},
+  {v:'1.8',d:'2026-11-02',n:['HCL vijesti na okret naziva salona','Datumi izlaska PS5 igara u bojama igara','Cijela aplikacija u GTA bojama na dan izlaska GTA VI']},
+  {v:'1.7',d:'2026-11-02',n:['Imena klijenata se sama prilagode da stanu','Animacija kad se zakaže termin i kad termin prođe','Zeleno označeni slobodni termini','Svijetlo zaglavlje u svijetloj temi']},
+  {v:'1.6',d:'2026-11-02',n:['Animacija loga pri otvaranju','Tabla „ne radim“ za neradne dane, sa zvonom i makazama']},
+  {v:'1.5',d:'2026-11-02',n:['Više osoba pod jednom rezervacijom','Ranije završen termin oslobađa vrijeme za novog klijenta','Probna verzija za druge']},
+  {v:'1.4',d:'2026-11-02',n:['Logo salona','Tamna i svijetla tema po logu']},
+  {v:'1.3',d:'2026-11-02',n:['Ponovno zakazivanje jednim dodirom','Stalne bilješke o klijentima','Podsjetnici SMS-om i Viberom','Boje po uslugama i kartica sljedećeg klijenta']},
+  {v:'1.2',d:'2026-11-02',n:['Jednostavniji i pregledniji raspored','Brže zakazivanje']},
+  {v:'1.0',d:'2026-11-02',n:['Prva verzija: zakazivanje termina, klijenti, statistika i postavke']}
+];
 const STATUS={zakazan:'Zakazan',zavrsen:'Završen',nije_dosao:'Nije došao',otkazan:'Otkazan'};
 const LS_A='rakic.termini.v1', LS_S='rakic.postavke.v1', LS_N='rakic.biljeske.v1';
 const SVC_COLORS=['#C8963F','#3D8B6E','#3F6FA8','#A2453F','#7B5A9E','#5E7380','#8A8A3B','#C46A2B'];
@@ -1109,6 +1453,13 @@ function gamesHTML(date){
   return out;
 }
 const I_PAD='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9h4M8 7v4M15 10h.01M18 8h.01"/><path d="M7 5h10a5 5 0 0 1 4.9 6l-1 5a3 3 0 0 1-5.4 1.2L14 15h-4l-1.5 2.2A3 3 0 0 1 3.1 16l-1-5A5 5 0 0 1 7 5z"/></svg>';
+function freeShare(date){
+  const h=hoursFor(date);if(!h.radi)return null;
+  const t=today();if(date<t)return null;
+  const nm=date===t?nowMin():-1;let total=0,free=0;
+  ivMin(h).forEach(([o,c])=>{const o2=Math.max(o,nm);if(o2>=c)return;total+=c-o2;freeIntervals(date,o2,c,null).forEach(([a,b])=>{if(b-a>=10)free+=b-a;});});
+  return total?{total,free}:null;
+}
 function gameBtn(date){
   if(!gamesOnOff())return '';
   const t=today(),list=gamesOn(date),gta=list.some(g=>g.tip==='gta');
@@ -1176,10 +1527,11 @@ function setSplash(on){
 }
 if(window.matchMedia){const mq=matchMedia('(prefers-color-scheme: dark)');const fn=()=>document.querySelectorAll('.logo-full').forEach(i=>{i.src=currentLogo();});if(mq.addEventListener)mq.addEventListener('change',fn);}
 function currentLogo(){return getComputedStyle(document.documentElement).getPropertyValue('--logo-v').trim()==='light'?LOGO_LIGHT:LOGO_FULL;}
+const SKIN_META={tamna:'#0C0C0E',svijetla:'#FFFFFF',auto:'#0C0C0E',zelena:'#1F3B33',noc:'#070C18',bordo:'#100709',zlato:'#050505',neon:'#07061A',celik:'#0C0F12',okean:'#041114',kraljevska:'#0C0714',menta:'#1F6F63',stub:'#1E3FA0',kafa:'#3B2A1E'};
 function setSkin(v){
   document.documentElement.setAttribute('data-skin',v);
   try{localStorage.setItem('rakic.tema',v);}catch(e){}
-  const m=document.querySelector('meta[name="theme-color"]');if(m)m.content=v==='zelena'?'#1F3B33':v==='svijetla'?'#FFFFFF':'#0C0C0E';
+  const m=document.querySelector('meta[name="theme-color"]');const tc=SKIN_META[v]||'#0C0C0E';if(m)m.content=tc;try{localStorage.setItem('rakic.temaBoja',tc);}catch(e){}
   document.querySelectorAll('.logo-full').forEach(i=>{i.src=currentLogo();});
   document.querySelectorAll('[data-act="skin"]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===v)));
 }
@@ -1481,7 +1833,12 @@ function rebuildNews(){
 
 /* ---------- Podaci ---------- */
 const getA=id=>state.appts.find(a=>a.id===id);
-function apptsOn(date){return state.appts.filter(a=>a.datum===date).sort((x,y)=>x.vrijeme.localeCompare(y.vrijeme));}
+let IDX={src:null,map:new Map()};
+function byDate(d){
+  if(IDX.src!==state.appts){const m=new Map();for(const a of state.appts){let l=m.get(a.datum);if(!l){l=[];m.set(a.datum,l);}l.push(a);}IDX={src:state.appts,map:m};}
+  return IDX.map.get(d)||[];
+}
+function apptsOn(date){return byDate(date).slice().sort((x,y)=>x.vrijeme.localeCompare(y.vrijeme));}
 function normIntervals(arr,fallback){
   const iv=(Array.isArray(arr)?arr:[]).filter(x=>x&&validT(x.od)&&validT(x.do)&&tm(x.od)<tm(x.do)).map(x=>({od:x.od,do:x.do})).sort((a,b)=>tm(a.od)-tm(b.od));
   const out=[];for(const x of iv){const l=out[out.length-1];if(l&&tm(x.od)<=tm(l.do)){if(tm(x.do)>tm(l.do))l.do=x.do;}else out.push(x);}
@@ -1499,10 +1856,10 @@ function hoursFor(date){
 function ivMin(h){return h.intervali.map(x=>[tm(x.od),tm(x.do)]);}
 function ivText(h){const a=h.intervali.map(x=>x.od+'–'+x.do);return a.length<2?a[0]:a.slice(0,-1).join(', ')+' i '+a[a.length-1];}
 function conflicts(date,start,dur,exceptId){
-  return state.appts.filter(a=>a.datum===date&&a.id!==exceptId&&a.status!=='otkazan'&&tm(a.vrijeme)<start+dur&&endOf(a)>start);
+  return byDate(date).filter(a=>a.id!==exceptId&&a.status!=='otkazan'&&tm(a.vrijeme)<start+dur&&endOf(a)>start);
 }
 function freeIntervals(date,open,close,exceptId){
-  const busy=state.appts.filter(a=>a.datum===date&&a.status!=='otkazan'&&a.id!==exceptId).map(a=>[tm(a.vrijeme),endOf(a)]).sort((p,q)=>p[0]-q[0]);
+  const busy=byDate(date).filter(a=>a.status!=='otkazan'&&a.id!==exceptId).map(a=>[tm(a.vrijeme),endOf(a)]).sort((p,q)=>p[0]-q[0]);
   const out=[];let cur=open;
   for(const [b0,b1] of busy){if(b1<=cur)continue;if(b0>cur)out.push([cur,Math.min(b0,close)]);cur=Math.max(cur,b1);if(cur>=close)break;}
   if(cur<close)out.push([cur,close]);
@@ -1511,8 +1868,8 @@ function freeIntervals(date,open,close,exceptId){
 function availFrom(date,start,exceptId){
   const h=hoursFor(date);let close=24*60;if(h.radi){const iv=ivMin(h).find(([o,c])=>start>=o&&start<c);close=iv?iv[1]:start+600;}
   let next=start<close?close:start+600;
-  for(const a of state.appts){
-    if(a.datum!==date||a.status==='otkazan'||a.id===exceptId)continue;
+  for(const a of byDate(date)){
+    if(a.status==='otkazan'||a.id===exceptId)continue;
     const b0=tm(a.vrijeme),b1=endOf(a);
     if(b0<=start&&b1>start)return 0;
     if(b0>start&&b0<next)next=b0;
@@ -1631,7 +1988,7 @@ function render(full){
     else{$('#clientList').innerHTML=clientItems();$('#clientCount').textContent=clientCountText();}
   }
   else if(state.view==='statistika')main.innerHTML=statsHTML();
-  else if(state.view==='postavke'){if(full||!$('#setForm'))main.innerHTML=settingsHTML();}
+  else if(state.view==='postavke'){if(full||!$('#setForm')){main.innerHTML=settingsHTML();renderWeekGrid();}}
   if(state.sheet&&state.sheet.indexOf('detail:')===0){const a=getA(state.sheet.slice(7));if(a)$('#sheet').innerHTML=detailHTML(a);else closeSheet();}
   if(state.sheet&&state.sheet.indexOf('rem:')===0)$('#sheet').innerHTML=remHTML(state.sheet.slice(4));
   if(state.sheet&&state.sheet.indexOf('client:')===0&&!(document.activeElement&&document.activeElement.id==='c-note')){const c=getClients().find(x=>x.key===state.sheet.slice(7));if(c)$('#sheet').innerHTML=clientSheetHTML(c);}
@@ -1750,13 +2107,14 @@ function dayStrip(days,sel,act){
   const t=today();
   return days.map(day=>{
     const dd=pd(day);
-    const cnt=state.appts.filter(a=>a.datum===day&&a.tip==='klijent'&&a.status!=='otkazan').length;
+    const cnt=byDate(day).filter(a=>a.tip==='klijent'&&a.status!=='otkazan').length;
     const closed=!hoursFor(day).radi;
+    const fr=closed?null:freeShare(day);
     const name=day===t?'Danas':day===addDays(t,1)?'Sutra':DAYS_S[dd.getDay()];
     const gm=gamesOn(day),gta=gm.some(g=>g.tip==='gta');
     const gc=gm.length&&!gta&&gm[0].boje.length?' style="--g1:'+gm[0].boje[0]+';--g2:'+(gm[0].boje[1]||gm[0].boje[0])+'"':'';
     return '<button type="button" class="ds'+(closed?' closed':'')+(gta?' gta-day':gm.length?' game-day':'')+'" data-act="'+act+'" data-date="'+day+'"'+gc+(day===sel?' aria-current="date"':'')+' aria-label="'+esc(longDate(day))+(cnt?', zakazano '+cnt:'')+(closed?', ne radi':'')+(gm.length?', izlazi '+esc(gm.map(g=>g.naziv).join(', ')):'')+'">'+(gm.length&&!gta?'<i class="gm-dot" aria-hidden="true"></i>':'')+(gta?'<i class="gta-tag" aria-hidden="true">GTA</i>':'')+
-      '<span class="ds-n">'+name+'</span><span class="ds-d">'+dd.getDate()+'</span><span class="ds-c">'+(cnt||'')+'</span></button>';
+      '<span class="ds-n">'+name+'</span><span class="ds-d">'+dd.getDate()+'</span><span class="ds-c">'+(cnt||'')+'</span>'+(fr?'<i class="ds-bar'+(fr.free===0?' full':'')+'"><b style="width:'+Math.round(fr.free/fr.total*100)+'%"></b></i>':'')+'</button>';
   }).join('');
 }
 function fmtIn(m){if(m<60)return m+' min';const h=Math.floor(m/60),r=m%60;return h+' h'+(r?' '+r+' min':'');}
@@ -1907,7 +2265,11 @@ function settingsHTML(){
     '<small class="hr-off" id="h-'+k+'-x"'+(r.radi?' hidden':'')+'>Ne radim</small></span>'+
     '<input type="checkbox" class="sw-t" id="h-'+k+'-on"'+(r.radi?' checked':'')+' data-hk="'+k+'" aria-label="'+nm+' radim"></div>';}).join('');
   const sk=currentSkin();
-  const skins=[['tamna','Tamna','po logu salona','#0B0B0D','#C41E26'],['svijetla','Svijetla','svijetla po logu','#F3F3F4','#B5161E'],['auto','Automatski','prema telefonu','#0B0B0D','#F3F3F4'],['zelena','Zelena','klasična tema','#1F3B33','#C8963F']];
+  const skins=[['tamna','Tamna','po logu salona','#0B0B0D','#C41E26','#C0C2C8'],['svijetla','Svijetla','svijetla po logu','#F3F3F4','#B5161E','#141416'],['auto','Automatski','prema telefonu','#0B0B0D','#F3F3F4','#C41E26'],['zelena','Zelena','klasična tema','#1F3B33','#C8963F','#ECEFEA'],
+    ['noc','Ponoć','plava i mesing','#0A1020','#2F6FE4','#D4A55A'],['bordo','Bordo','koža i krem','#140A0C','#A3303B','#D9B27A'],['zlato','Zlato','crna i zlatna','#0A0A0A','#C9A24A','#F2EEE6'],['neon','Neon','roza i tirkiz','#0B0918','#FF2E88','#00E5FF'],
+    ['celik','Čelik','grafit i srebro','#111417','#5B7A99','#C3CDD8'],['okean','Okean','tirkiz i narandža','#061619','#14B8A6','#F59E0B'],['kraljevska','Kraljevska','ljubičasta i zlatna','#110B1C','#8B5CF6','#F5C04A'],
+    ['menta','Menta','stara brijačnica','#EAF4F0','#1F7A6B','#C0392B'],['stub','Berberski stub','bijela, plava, crvena','#F3F5FA','#1E3FA0','#D0151C'],['kafa','Kafa','kafa i krema','#F5EFE7','#6F4A2F','#2F6F5E']];
+  const skinBtn=x=>'<button type="button" class="skin" data-act="skin" data-v="'+x[0]+'" aria-pressed="'+(sk===x[0])+'"><span class="sw" style="background:conic-gradient('+x[4]+' 0 120deg,'+x[5]+' 120deg 200deg,'+x[3]+' 200deg 360deg)"></span><span>'+x[1]+'<small>'+x[2]+'</small></span></button>';
   const lg=document.querySelector('.top .logo');
   const tabs=[['salon','Salon'],['radno','Vrijeme'],['usluge','Usluge'],['izgled','Izgled']];
   const swRow=(id,on,t,sub)=>'<label class="row-s"><span class="rl"><b>'+t+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</span><input type="checkbox" class="sw-t" id="'+id+'"'+(on?' checked':'')+'></label>';
@@ -1931,7 +2293,8 @@ function settingsHTML(){
       '<label class="row-s"><span class="rl"><b>Uvezi podatke</b><small>iz stare aplikacije ili rezervne kopije</small></span><span class="btn plain">Uvezi</span><input type="file" id="importFile" accept=".json,application/json" hidden></label>'+
     '</div>')+
   pane('radno',
-    '<p class="group-t">Sedmično radno vrijeme <small>(dodaj više vremena za dvokratni rad)</small></p><div class="group" data-form>'+hours+'</div>'+
+    '<p class="group-t">Sedmični raspored <small>dodirni ili prevuci prstom preko sati kad radiš</small></p><div class="group wg-wrap"><div id="weekGridBox"></div><div id="wgBar"></div></div>'+
+    '<details class="exact"><summary>Tačna vremena po danima <small>za minute kao 08:15</small></summary><div class="group" data-form id="hoursList">'+hours+'</div></details>'+
     '<p class="group-t">Neradni dani i posebno vrijeme</p><div class="group off-wrap"><p class="off-help">Dodirni dan da ga zatvoriš (godišnji, praznik) ili mu podesiš posebno radno vrijeme, npr. dvokratno. Može i dan koji inače ne radiš.</p><div id="offCal">'+offCalHTML()+'</div></div>')+
   pane('usluge',
     '<p class="group-t">Usluge i cijene</p><div class="group" data-form><div id="svcRows">'+s.usluge.map(svcRow).join('')+'</div>'+
@@ -1939,8 +2302,9 @@ function settingsHTML(){
     '<p class="hint" style="margin:0 4px">Dodirni kružić da promijeniš boju usluge u rasporedu.</p>')+
   pane('izgled',
     '<img class="logo-full small" src="'+currentLogo()+'" alt="Logo salona">'+
-    '<p class="group-t">Tema</p><div class="skins" role="group" aria-label="Tema">'+
-      skins.map(x=>'<button type="button" class="skin" data-act="skin" data-v="'+x[0]+'" aria-pressed="'+(sk===x[0])+'"><span class="sw" style="background:linear-gradient(135deg,'+x[3]+' 50%,'+x[4]+' 50%)"></span><span>'+x[1]+'<small>'+x[2]+'</small></span></button>').join('')+'</div>'+
+    '<p class="group-t">Tema <small>dodirni da odmah vidiš kako izgleda</small></p><div class="skins" role="group" aria-label="Osnovne teme">'+skins.slice(0,4).map(skinBtn).join('')+'</div>'+
+    '<p class="group-t">Tamne teme</p><div class="skins" role="group" aria-label="Tamne teme">'+skins.slice(4,11).map(skinBtn).join('')+'</div>'+
+    '<p class="group-t">Svijetle teme</p><div class="skins" role="group" aria-label="Svijetle teme">'+skins.slice(11).map(skinBtn).join('')+'</div>'+
     '<p class="group-t">Animacije i zvuk</p><div class="group">'+
       swRow('splashOn',splashOn(),'Animacija loga','pri otvaranju aplikacije')+
       swRow('closedAnim',closedAnimOn(),'Tabla za neradni dan','kad izabereš dan kad ne radiš')+
@@ -1951,9 +2315,95 @@ function settingsHTML(){
       swRow('gamesOn',gamesOnOff(),'Datumi izlaska igara','PS5 igre u kalendaru')+
     '</div>'+newsMgmtHTML())+
   '<p class="msg" id="setMsg"></p>'+
+  '<button type="button" class="about-btn" data-act="guide"><span class="ab-ic">'+I.note+'</span><span class="rl"><b>Uputstvo</b><small>kako se koristi svaka opcija</small></span>'+I.right+'</button>'+
+  '<button type="button" class="about-btn" data-act="about"><span class="ab-ic">'+I_SC+'</span><span class="rl"><b>O aplikaciji</b><small>Verzija '+APP_VERSION+' i šta je novo</small></span>'+I.right+'</button>'+
   '</form>'+
   '<div class="savebar" id="saveBar" hidden><button type="button" class="primary" data-act="save-set">'+I.check+' Sačuvaj promjene</button></div>';
 }
+/* Raspored na dodir: obojeni sati su radni */
+const CELL=30;
+function cellOn(iv,t){return iv.some(x=>Math.min(tm(x.do),t+CELL)-Math.max(tm(x.od),t)>=CELL/2);}
+function gridRange(iv){let a=7*60,b=21*60;iv.forEach(x=>{a=Math.min(a,Math.floor(tm(x.od)/60)*60);b=Math.max(b,Math.ceil(tm(x.do)/60)*60);});return [Math.max(0,a),Math.min(24*60,b)];}
+function validIv(list){return list.filter(x=>validT(x.od)&&validT(x.do)&&tm(x.od)<tm(x.do));}
+function getIv(k){
+  if(k==='de')return validIv(readIv('de-l'));
+  const on=$('#h-'+k+'-on');return on&&on.checked?validIv(readIv('h-'+k+'-l')):[];
+}
+function setIv(k,iv){
+  if(k==='de'){
+    const l=document.getElementById('de-l');if(!l)return;
+    l.innerHTML=(iv.length?iv:[{od:'08:00',do:'16:00'}]).map(ivRow).join('');
+    if(state.dayEdit)state.dayEdit.intervali=iv.length?iv:state.dayEdit.intervali;
+    return;
+  }
+  const l=document.getElementById('h-'+k+'-l'),sw=$('#h-'+k+'-on');if(!l||!sw)return;
+  if(iv.length)l.innerHTML=iv.map(ivRow).join('');
+  sw.checked=iv.length>0;$('#h-'+k+'-t').hidden=!sw.checked;$('#h-'+k+'-x').hidden=sw.checked;
+  markDirty();
+}
+function weekGridHTML(){
+  const model=WEEK_ORDER.map(k=>({k,iv:getIv(k)}));
+  const [G0,G1]=gridRange(model.flatMap(m=>m.iv));
+  const tk=String(new Date().getDay());
+  let h='<div class="wg" style="--rows:'+((G1-G0)/CELL)+'"><span class="wg-c"></span>'+
+    WEEK_ORDER.map(k=>'<button type="button" class="wg-h'+(state.wgSel===k?' sel':'')+(k===tk?' today':'')+'" data-act="wg-day" data-k="'+k+'">'+DAYS_S[Number(k)]+'</button>').join('');
+  for(let t=G0;t<G1;t+=CELL){
+    h+='<span class="wg-t'+(t%60?'':' hr')+'">'+(t%60?'':pad(t/60))+'</span>';
+    model.forEach(m=>{h+='<i class="wg-cell'+(cellOn(m.iv,t)?' on':'')+(t%60?'':' hr')+(state.wgSel===m.k?' sel':'')+'" data-k="'+m.k+'" data-t="'+t+'"></i>';});
+  }
+  return h+'</div>';
+}
+function wgBarHTML(){
+  const k=state.wgSel;
+  if(!k)return '<p class="wg-hint">Dodirni naziv dana gore za kopiranje na druge dane.</p>';
+  const iv=getIv(k),nm=DAYS[Number(k)];
+  let h='<div class="wg-bar"><div class="wg-sum"><b>'+nm+'</b><span>'+(iv.length?esc(ivText({intervali:iv})):'Ne radim')+'</span></div>';
+  if(state.wgCopy){
+    h+='<p class="wg-q">Kopiraj na:</p><div class="wg-days">'+WEEK_ORDER.filter(x=>x!==k).map(x=>'<button type="button" class="chip" data-act="wg-copy-day" data-k="'+x+'" aria-pressed="'+state.wgCopy.has(x)+'">'+DAYS_S[Number(x)]+'</button>').join('')+'</div>'+
+      '<div class="wg-acts"><button type="button" class="btn plain" data-act="wg-copy-all">Sve radne dane</button><button type="button" class="btn ok" data-act="wg-copy-apply">'+I.check+'Primijeni</button></div>';
+  }else{
+    h+='<div class="wg-acts"><button type="button" class="btn plain" data-act="wg-copy">Kopiraj na druge dane</button><button type="button" class="btn plain" data-act="wg-clear">'+(iv.length?'Ne radim ovaj dan':'Radim 08–16')+'</button></div>';
+  }
+  return h+'</div>';
+}
+function renderWeekGrid(){const b=document.getElementById('weekGridBox');if(b)b.innerHTML=weekGridHTML();const w=document.getElementById('wgBar');if(w)w.innerHTML=wgBarHTML();}
+function dayGridHTML(iv){
+  const [G0,G1]=gridRange(iv);
+  let h='<div class="dg">';
+  for(let t=G0;t<G1;t+=CELL){
+    h+='<span class="dg-t'+(t%60?'':' hr')+'">'+(t%60?'':pad(t/60)+':00')+'</span><i class="wg-cell dg-cell'+(cellOn(iv,t)?' on':'')+(t%60?'':' hr')+'" data-k="de" data-t="'+t+'"></i>';
+  }
+  return h+'</div>';
+}
+let PAINT=null,gridQ=false;
+function queueGrid(){if(gridQ)return;gridQ=true;requestAnimationFrame(()=>{gridQ=false;if(!PAINT)renderWeekGrid();});}
+function paintCell(c){if(c.classList.contains('on')!==PAINT.mode){c.classList.toggle('on',PAINT.mode);PAINT.touched.add(c.dataset.k);}}
+function commitPaint(){
+  const p=PAINT;PAINT=null;
+  p.touched.forEach(k=>{
+    const on=[...p.grid.querySelectorAll('.wg-cell[data-k="'+k+'"].on')].map(x=>+x.dataset.t).sort((a,b)=>a-b);
+    const runs=[];for(const t of on){const l=runs[runs.length-1];if(l&&l[1]===t)l[1]=t+CELL;else runs.push([t,t+CELL]);}
+    const orig=getIv(k);
+    const iv=runs.map(([a,b])=>{let st=a,en=b;orig.forEach(o=>{const os=tm(o.od),oe=tm(o.do);if(os>a&&os<a+CELL&&oe>os)st=os;if(oe<b&&oe>b-CELL&&os<oe)en=oe;});return {od:mt(st),do:mt(en)};});
+    setIv(k,iv);
+  });
+  if(p.grid.classList.contains('dg')){if(!getIv('de').length&&state.dayEdit){toast('Nijedan sat nije obojen, pa je dan označen kao „Ne radim“.');state.dayEdit.mode='off';$('#sheet').innerHTML=dayEditHTML();}}
+  else{const w=document.getElementById('wgBar');if(w)w.innerHTML=wgBarHTML();}
+}
+document.addEventListener('pointerdown',e=>{
+  const c=e.target.closest&&e.target.closest('.wg-cell');if(!c)return;
+  e.preventDefault();
+  PAINT={grid:c.closest('.wg,.dg'),mode:!c.classList.contains('on'),touched:new Set()};
+  paintCell(c);
+});
+document.addEventListener('pointermove',e=>{
+  if(!PAINT)return;
+  const el=document.elementFromPoint(e.clientX,e.clientY);
+  const c=el&&el.closest&&el.closest('.wg-cell');
+  if(c&&PAINT.grid.contains(c))paintCell(c);
+},{passive:true});
+document.addEventListener('pointerup',()=>{if(PAINT)commitPaint();});
+document.addEventListener('pointercancel',()=>{if(PAINT)commitPaint();});
 function ivRow(x){return '<div class="iv"><input class="inp iv-od" type="time" value="'+esc(x.od)+'" aria-label="Od"><i>do</i><input class="inp iv-do" type="time" value="'+esc(x.do)+'" aria-label="Do"><button type="button" class="iv-del" data-act="iv-del" aria-label="Ukloni ovo vrijeme">'+I.x+'</button></div>';}
 function ivEditor(id,iv){return '<div class="iv-list" id="'+id+'">'+(iv||[]).map(ivRow).join('')+'</div><button type="button" class="iv-add" data-act="iv-add" data-t="'+id+'">'+I.plus+' Dodaj još jedno vrijeme</button>';}
 function readIv(id){return [...document.querySelectorAll('#'+id+' .iv')].map(r=>({od:r.querySelector('.iv-od').value.slice(0,5),do:r.querySelector('.iv-do').value.slice(0,5)}));}
@@ -1964,7 +2414,7 @@ function dayEditHTML(){
   return '<div class="sheet-head"><h3>'+esc(longDate(e.date))+'</h3><button class="x" data-act="close" aria-label="Zatvori">'+I.x+'</button></div>'+
     '<div class="seg three" role="group" aria-label="Radno vrijeme za ovaj dan">'+[['reg','Po rasporedu'],['cust','Posebno'],['off','Ne radim']].map(m=>'<button type="button" data-act="de-mode" data-v="'+m[0]+'" aria-pressed="'+(e.mode===m[0])+'">'+m[1]+'</button>').join('')+'</div>'+
     (e.mode==='reg'?'<p class="de-note">'+esc(reg)+'</p>':'')+
-    (e.mode==='cust'?'<p class="de-note">Upiši kad tog dana radiš. Možeš dodati više vremena, npr. 08:00–12:00 i 16:00–20:00. Vrijeme između se ne nudi za zakazivanje.</p><div class="group de-ivs">'+ivEditor('de-l',e.intervali)+'</div>':'')+
+    (e.mode==='cust'?'<p class="de-note">Dodirni ili prevuci prstom preko sati kad tog dana radiš. Neobojeno vrijeme se ne nudi za zakazivanje.</p><div class="group dg-wrap" id="dayGridBox">'+dayGridHTML(e.intervali)+'</div><details class="exact"><summary>Tačna vremena</summary><div class="group de-ivs">'+ivEditor('de-l',e.intervali)+'</div></details>':'')+
     (e.mode==='off'?'<p class="de-note">Ovaj dan ne radiš i ne nude se slobodni termini.</p>':'')+
     (cnt&&e.mode!=='reg'?'<div class="warnbox">Taj dan već ima '+cnt+' '+plural(cnt,'zakazan termin','zakazana termina','zakazanih termina')+'. Termini ostaju, provjeri da li se uklapaju.</div>':'')+
     '<p class="msg" id="deMsg"></p><div class="sheet-foot"><button type="button" class="primary" data-act="de-save">'+I.check+' Sačuvaj</button></div>';
@@ -1999,6 +2449,107 @@ function newsMgmtHTML(){
     '<div class="group news-g"><ul class="news-list" id="newsList">'+newsItems()+'</ul>'+
     ('<div class="news-add"><input class="inp" id="n-text" maxlength="200" placeholder="Tvoja obavijest, npr. Ponedjeljkom brada 20% jeftinije"><button type="button" class="btn plain" data-act="news-add">Dodaj</button></div>')+
     '</div><p class="hint" style="margin:0 4px 8px">HCL vijesti i datumi igara se sami osvježavaju preko GitHuba.</p>';
+}
+function guideHTML(){
+  const gh=typeof cfgOk==='function';
+  const sec=(ic,t,body,open)=>'<details class="gd"'+(open?' open':'')+'><summary><span class="gd-ic">'+ic+'</span>'+t+'</summary><div class="gd-b">'+body+'</div></details>';
+  const li=a=>'<ul>'+a.map(x=>'<li>'+x+'</li>').join('')+'</ul>';
+  return '<div class="sheet-head"><h3>Uputstvo</h3><button class="x" data-act="close" aria-label="Zatvori">'+I.x+'</button></div>'+
+  '<p class="gd-intro">Dodirni naslov da otvoriš dio uputstva. Nazivi dugmadi su napisani <b>podebljano</b>, tačno kako piše u aplikaciji.</p>'+
+  sec(I.cal,'Raspored (početni ekran)',li([
+    '<b>Traka dana</b> na vrhu se povlači lijevo-desno. Broj na danu je broj zakazanih termina. <b>Zelena crtica</b> pokazuje koliko je slobodnog vremena, a <b>crvena</b> znači da je dan pun. Dugme <b>Datum</b> na kraju otvara bilo koji dan.',
+    'Ispod naziva dana piše radno vrijeme, koliko je zakazano i očekivana zarada.',
+    'Zeleni blokovi <b>Slobodno</b> su vremena za zakazivanje. Dodirni vrijeme i odmah zakazuješ. Prvo slobodno vrijeme je puno zeleno. Ako ispod vremena piše npr. „15 min“, to je kraća rupa između termina.',
+    'Kartice termina pokazuju vrijeme, ime, uslugu i cijenu. Boja trake lijevo je boja usluge. Termin koji traje ima oznaku <b>U toku</b> i traku koja se puni, a prošli termini su izblijeđeni.',
+    'Velika kartica <b>Sljedeći klijent</b> (ili <b>Trenutno u stolici</b>) ima dugmad <b>Pozovi</b>, <b>Završeno</b> i <b>Detalji</b>.',
+    'Kad se pojavi <b>Slobodno sada</b>, imaš rupu do sljedećeg klijenta. Dugme <b>Ubaci</b> odmah zakazuje uslugu koja stane.',
+    'Na neradni dan pojavi se tabla „ne radim“. Termin i tad možeš dodati dugmetom <b>Svejedno zakaži termin</b>.'
+  ]),true)+
+  sec(I.plus,'Zakazivanje termina',li([
+    'Dodirni slobodno vrijeme ili dugme <b>Novi termin</b> dole desno.',
+    '<b>Dan i vrijeme:</b> dugme <b>Promijeni</b> otvara izbor dana i vremena. Precrtana vremena su zauzeta, a ispod piše ko ih drži. Za tačno vrijeme koristi <b>Drugo vrijeme</b>.',
+    '<b>Ime i telefon:</b> čim počneš kucati, aplikacija ponudi klijente koji su već dolazili. Ako klijent ima stalnu bilješku, odmah je vidiš.',
+    '<b>Usluga</b> sama postavi trajanje i cijenu. „Ne stane“ znači da usluga ne stane do sljedećeg termina.',
+    '<b>Koliko osoba dolazi?</b> Za oca i sina, ili braću, izaberi 2 ili više. Termini se slože jedan za drugim, pod istom rezervacijom.',
+    '<b>Više opcija:</b> trajanje, cijena, napomena i <b>pauza</b> (blokiraš vrijeme bez klijenta).',
+    'Ako se termin preklapa s drugim, pojavi se upozorenje. Drugi dodir na <b>Svejedno sačuvaj</b> ga ipak sprema.'
+  ]))+
+  sec(I.check,'Rad s terminom',li([
+    'Dodirni karticu termina da ga otvoriš.',
+    '<b>Pozovi</b>, <b>Viber</b> i <b>Podsjetnik</b> (SMS s gotovom porukom).',
+    '<b>Završeno:</b> ako završiš ranije, ostatak vremena se oslobodi za drugog klijenta. Odmah se ponudi <b>Zakaži sljedeći dolazak</b> za 2, 3 ili 4 sedmice.',
+    '<b>Nije došao</b> bilježi nedolazak. <b>Vrati na zakazano</b> poništava status.',
+    '<b>Uredi</b> mijenja termin. <b>Otkaži</b> ga otkazuje, ali on ostaje u historiji. <b>Obriši</b> ga briše zauvijek. <b>Karton</b> otvara karton klijenta.',
+    'Kod zajedničke rezervacije postoji i <b>Otkaži sve</b>.'
+  ]))+
+  sec(I.sms,'Podsjetnici',li([
+    'Na danu sa zakazanim terminima dodirni <b>Pošalji podsjetnike</b>.',
+    '<b>SMS</b> otvara poruku s gotovim tekstom, samo pošalješ. <b>Viber</b> kopira poruku, pa je zalijepiš u razgovor.',
+    'Aplikacija pamti kome je poslano, pa na terminu piše „Podsjetnik poslan“.'
+  ]))+
+  sec(I.search,'Klijenti',li([
+    'Klijenti se sami dodaju kad im zakažeš prvi termin.',
+    'Pretraga radi po imenu ili broju telefona.',
+    'U kartonu klijenta su broj posjeta, ukupno potrošeno, nedolasci, historija termina i <b>Stalna bilješka</b> (npr. „fade broj 1“). Dugme <b>Zakaži novi termin</b> zakazuje istu uslugu.'
+  ]))+
+  sec(I_PAD,'Statistika',li([
+    'Biraš <b>Sedmica</b>, <b>Mjesec</b> ili <b>Sve</b>, a strelicama ideš na prethodne periode.',
+    '<b>Ostvarena zarada</b> računa samo završene termine, a <b>očekivano</b> one koji su još zakazani.',
+    'Tu su i nedolasci, najprometniji dani, najtraženije usluge i najvjerniji klijenti.',
+    'Ako prošli termini nisu označeni, dugme <b>Označi sve kao završene</b> ih sve završi odjednom.'
+  ]))+
+  sec(I.cal,'Radno vrijeme i neradni dani',li([
+    'U <b>Postavke → Vrijeme</b> je sedmični raspored kao tabela. <b>Obojeno</b> je vrijeme kad radiš. Dodirni ili <b>prevuci prstom</b> preko sati da ih uključiš ili isključiš. Za dvokratni rad samo isključi sate pauze.',
+    'Dodirni naziv dana (npr. <b>Pon</b>) za <b>Kopiraj na druge dane</b> ili <b>Ne radim ovaj dan</b>.',
+    '<b>Tačna vremena po danima</b> služe za minute kao 08:15.',
+    'U kalendaru <b>Neradni dani i posebno vrijeme</b> dodirni datum: <b>Po rasporedu</b>, <b>Posebno</b> (obojiš sate samo za taj dan) ili <b>Ne radim</b> (godišnji, praznik).',
+    'Kad nešto promijeniš u tabeli, pojavi se dugme <b>Sačuvaj promjene</b>. Kalendar datuma se sprema odmah.'
+  ]))+
+  sec(I.note,'Usluge, izgled i ostale postavke',li([
+    '<b>Salon:</b> naziv, pozivni broj (za Viber i SMS), valuta i <b>Razmak termina</b> (koliko često se nude slobodna vremena, npr. svakih 30 min).',
+    '<b>Usluge:</b> naziv, minute i cijena. Dodir na kružić mijenja boju usluge. <b>Dodaj uslugu</b> dodaje novu, a kantica briše.',
+    '<b>Izgled:</b> 14 tema (osnovne, tamne i svijetle), animacije, zvuk table, HCL vijesti i datumi igara.',
+    'Pod <b>Vijesti na traci</b> dodaješ svoje obavijesti, npr. akciju, i one se vrte s vijestima.',
+    '<b>Izvezi</b> pravi rezervnu kopiju svih podataka u jedan fajl.'+(gh?' <b>Uvezi</b> vraća podatke iz takvog fajla.':'')
+  ]))+
+  sec(I_SC,'Vijesti i igre',li([
+    'Dodirni <b>logo</b> ili <b>naziv salona</b> na vrhu i naziv se okrene u traku s HCL vijestima. Ponovni dodir vraća naziv. Crvena tačka znači da ima novih vijesti.',
+    'Dodir na vijest otvara cijeli članak. Prst na traci je zaustavlja.',
+    'Plavo dugme <b>PS5</b> pored naziva dana pokazuje igre koje izlaze taj dan, a broj na njemu koliko ih ima. Na dan izlaska GTA VI cijela aplikacija pređe u GTA boje.'
+  ]))+
+  (gh?sec(I.check,'Prijava, PIN i sinhronizacija',li([
+    'U aplikaciju ulaziš <b>PIN-om od 6 cifara</b>. Na istom telefonu ostaješ prijavljen.',
+    '<b>Zaboravili ste PIN?</b> šalje link na e-mail. Kao novu lozinku upišeš 6 cifara.',
+    'PIN mijenjaš u <b>Postavke → Salon → PIN za prijavu → Promijeni</b>, a <b>Odjava</b> je na istom mjestu.',
+    'Aplikacija radi i bez interneta. Izmjene se same pošalju kad se veza vrati.'
+  ])):'')+
+  sec(I.phone,'Savjeti',li([
+    '<b>Ikonica na telefonu:</b> na iPhoneu u Safariju <b>Dijeli → Dodaj na početni ekran</b>, a na Androidu u Chromeu meni ⋮ → <b>Instaliraj aplikaciju</b>.',
+    '<b>Tačka gore desno</b> pokazuje vezu: zelena znači sinhronizovano, a crvena da nema veze. Dodirni je za objašnjenje.',
+    'Jednom mjesečno napravi <b>rezervnu kopiju</b> (Postavke → Salon → Izvezi).',
+    'Šta je novo u svakoj verziji vidiš u <b>O aplikaciji</b>.'
+  ]))+'<div class="gd-end"></div>';
+}
+function aboutHTML(){
+  const lg=document.querySelector('.top .logo');
+  const cl=CHANGELOG.map((c,i)=>{
+    const body='<ul>'+c.n.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>';
+    const head='<b>Verzija '+esc(c.v)+'</b><span>'+esc(shortDate(c.d)+' '+c.d.slice(0,4)+'.')+'</span>';
+    return i===0?'<div class="cl cur"><div class="cl-h">'+head+'<em>trenutna</em></div>'+body+'</div>':'<details class="cl"><summary class="cl-h">'+head+'</summary>'+body+'</details>';
+  }).join('');
+  return '<div class="sheet-head"><h3>O aplikaciji</h3><button class="x" data-act="close" aria-label="Zatvori">'+I.x+'</button></div>'+
+    '<div class="about-card">'+(lg?'<img src="'+lg.src+'" alt="">':'')+
+      '<p class="bism" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>'+
+      '<p class="bism-bs">U ime Allaha, Milostivog, Samilosnog</p>'+
+      '<div class="orn" aria-hidden="true"><i></i>'+I_SC+'<i></i></div>'+
+      '<p>Ovaj program je, s Allahovim imenom, napravljen u nadi da će olakšati organizaciju posla, uštedjeti vrijeme i unijeti red u svakodnevne obaveze salona.</p>'+
+      '<p>Molimo Uzvišenog Allaha da ga učini korisnim i berićetnim, da u rad spusti bereket, da posao bude još bolji i lakši, a nafaka obilna i halal.</p>'+
+      '<p class="amin">Amin!</p>'+
+      '<p class="ded">Za brata Braha Zarića,<br>s dubokim poštovanjem, i dovom da ga Uzvišeni Allah uvijek prati Svojom milošću, zaštitom i bereketom.</p>'+
+      '<p class="dova">Neka Allah njemu i njegovoj porodici podari svako dobro. Amin!</p>'+
+    '</div>'+
+    '<div class="ver"><span>'+esc(state.settings.naziv)+'</span><b>Verzija '+APP_VERSION+'</b></div>'+
+    '<p class="group-t">Šta je novo</p><div class="cl-list">'+cl+'</div>';
 }
 function markDirty(){const b=document.getElementById('saveBar');if(b&&b.hidden){b.hidden=false;}}
 function svcRow(u,i){
@@ -2416,7 +2967,9 @@ document.addEventListener('click',async e=>{
     }
     case 'add-svc':{const box=$('#svcRows');box.insertAdjacentHTML('beforeend',svcRow({id:uid('s'),naziv:'',trajanje:30,cijena:'',boja:box.children.length%8}));box.lastElementChild.querySelector('[data-f=naziv]').focus();markDirty();break;}
     case 'del-svc':el.closest('.svc-row').remove();markDirty();break;
-    case 'set-tab':{state.setTab=el.dataset.v;document.querySelectorAll('.set-pane').forEach(p=>{p.hidden=p.dataset.tab!==state.setTab;});document.querySelectorAll('[data-act="set-tab"]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===state.setTab)));window.scrollTo(0,0);break;}
+    case 'about':openSheet(aboutHTML(),'about');break;
+    case 'guide':openSheet(guideHTML(),'guide');break;
+    case 'set-tab':{state.setTab=el.dataset.v;if(state.setTab==='radno')requestAnimationFrame(renderWeekGrid);document.querySelectorAll('.set-pane').forEach(p=>{p.hidden=p.dataset.tab!==state.setTab;});document.querySelectorAll('[data-act="set-tab"]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===state.setTab)));window.scrollTo(0,0);break;}
     case 'off-mon':{const p=state.offMonth.split('-').map(Number);const d=new Date(p[0],p[1]-1+Number(el.dataset.n),1);state.offMonth=d.getFullYear()+'-'+pad(d.getMonth()+1);const c=$('#offCal');if(c)c.innerHTML=offCalHTML();break;}
     case 'off-day':{
       const d0=el.dataset.date,s0=state.settings;
@@ -2445,18 +2998,29 @@ document.addEventListener('click',async e=>{
       toast(e2.mode==='off'?shortDate(e2.date)+': ne radiš':e2.mode==='cust'?shortDate(e2.date)+': radiš '+ivText(state.settings.posebno[e2.date]):shortDate(e2.date)+': po redovnom rasporedu');
       state.dayEdit=null;break;
     }
+    case 'wg-day':{state.wgSel=state.wgSel===el.dataset.k?null:el.dataset.k;state.wgCopy=null;renderWeekGrid();break;}
+    case 'wg-copy':{state.wgCopy=new Set();$('#wgBar').innerHTML=wgBarHTML();break;}
+    case 'wg-copy-day':{const k=el.dataset.k;if(state.wgCopy.has(k))state.wgCopy.delete(k);else state.wgCopy.add(k);el.setAttribute('aria-pressed',String(state.wgCopy.has(k)));break;}
+    case 'wg-copy-all':{WEEK_ORDER.forEach(k=>{if(k!==state.wgSel&&getIv(k).length)state.wgCopy.add(k);});$('#wgBar').innerHTML=wgBarHTML();break;}
+    case 'wg-copy-apply':{
+      const src=state.wgSel,iv=getIv(src),tg=[...(state.wgCopy||[])];
+      if(!tg.length){toast('Izaberi bar jedan dan');break;}
+      tg.forEach(k=>setIv(k,JSON.parse(JSON.stringify(iv))));
+      state.wgCopy=null;renderWeekGrid();toast(DAYS[Number(src)]+' kopiran na '+tg.length+' '+plural(tg.length,'dan','dana','dana')+'. Sačuvaj promjene.');break;
+    }
+    case 'wg-clear':{const k=state.wgSel;setIv(k,getIv(k).length?[]:[{od:'08:00',do:'16:00'}]);renderWeekGrid();break;}
     case 'iv-add':{
       const box=document.getElementById(el.dataset.t);if(!box)break;
       const rows=box.querySelectorAll('.iv');if(rows.length>=6){toast('Najviše 6 vremena u danu');break;}
       const last=rows.length?rows[rows.length-1].querySelector('.iv-do').value:'';
       let st=validT(last)?Math.min(tm(last)+60,22*60):8*60;let en=Math.min(st+240,23*60+59);
       box.insertAdjacentHTML('beforeend',ivRow({od:mt(st),do:mt(en)}));
-      if(box.closest('[data-form]'))markDirty();break;
+      if(box.closest('[data-form]'))markDirty();queueGrid();if(box.id==='de-l'){const g=document.getElementById('dayGridBox');if(g)g.innerHTML=dayGridHTML(validIv(readIv('de-l')));}break;
     }
     case 'iv-del':{
       const box=el.closest('.iv-list');if(!box)break;
       if(box.querySelectorAll('.iv').length<=1){toast(box.id==='de-l'?'Mora ostati bar jedno vrijeme. Za slobodan dan izaberi „Ne radim“.':'Mora ostati bar jedno vrijeme. Za slobodan dan isključi prekidač.');break;}
-      el.closest('.iv').remove();if(box.closest('[data-form]'))markDirty();break;
+      el.closest('.iv').remove();if(box.closest('[data-form]'))markDirty();queueGrid();if(box.id==='de-l'){const g=document.getElementById('dayGridBox');if(g)g.innerHTML=dayGridHTML(validIv(readIv('de-l')));}break;
     }
     case 'export':exportFile();break;
     case 'logout':{if(!(await ask('Odjaviti se s ovog telefona? Termini ostaju sačuvani u bazi.','Odjavi se')))break;try{await FB.au.signOut(FB.auth);}catch(e){}setTrial(false);location.reload();break;}
@@ -2495,6 +3059,7 @@ document.addEventListener('click',async e=>{
 document.addEventListener('input',e=>{
   const t=e.target;
   if(t.closest&&t.closest('[data-form]'))markDirty();
+  if(t.closest&&t.closest('#hoursList'))queueGrid();
   if(t.id==='cq'){state.clientQuery=t.value;$('#clientList').innerHTML=clientItems();return;}
   if(!state.draft)return;
   if(t.dataset&&t.dataset.k){state.draft.imena[Number(t.dataset.k)]=t.value;return;}
@@ -2522,7 +3087,9 @@ document.addEventListener('change',e=>{
   if(t.id==='soundOn'){try{localStorage.setItem('rakic.zvuk',t.checked?'1':'0');}catch(e){}if(t.checked)playClosedSound(true);toast(t.checked?'Zvuk uključen':'Zvuk isključen');return;}
   if(t.id==='closedAnim'){try{localStorage.setItem('rakic.zatvorenoAnim',t.checked?'1':'0');}catch(e){}toast(t.checked?'Animacija za neradni dan uključena':'Animacija za neradni dan isključena');return;}
   if(t.id==='splashOn'){setSplash(t.checked);toast(t.checked?'Animacija će se prikazati pri sljedećem otvaranju':'Animacija isključena');return;}
-  if(t.dataset&&t.dataset.hk){const k=t.dataset.hk;$('#h-'+k+'-t').hidden=!t.checked;$('#h-'+k+'-x').hidden=t.checked;markDirty();return;}
+  if(t.dataset&&t.dataset.hk){const k=t.dataset.hk;$('#h-'+k+'-t').hidden=!t.checked;$('#h-'+k+'-x').hidden=t.checked;markDirty();queueGrid();return;}
+  if(t.closest&&t.closest('#hoursList'))queueGrid();
+  if(t.closest&&t.closest('#de-l')){const g=document.getElementById('dayGridBox');if(g)g.innerHTML=dayGridHTML(validIv(readIv('de-l')));}
   if(t.closest&&t.closest('[data-form]')){markDirty();}
   if(!state.draft)return;
   const d=state.draft;
