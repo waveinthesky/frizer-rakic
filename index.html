@@ -1,0 +1,2462 @@
+<!doctype html>
+<html lang="bs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0C0C0E">
+<script>(function(){var t=null;try{t=localStorage.getItem("rakic.tema");}catch(e){}t=t||"tamna";document.documentElement.setAttribute("data-skin",t);try{if(localStorage.getItem("rakic.splash")==="0")document.documentElement.classList.add("nosplash");}catch(e){}if(t==="zelena"||t==="svijetla"){var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==="zelena"?"#1F3B33":"#FFFFFF";}})();</script>
+<title>Frizer kuće Rakića</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Frizer Rakić">
+<meta name="description" content="Zakazivanje termina za Frizer kuće Rakića">
+<script src="firebase-config.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Figtree:wght@400;500;600;700&family=Sancreek&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F3F4; --surface:#FFFFFF; --surface-2:#EDEDEF; --ink:#141416; --muted:#5E5E66; --line:#DADADF;
+  --hdr:#0C0C0E; --hdr-ink:#F2F2F4; --hdr-muted:#9D9DA6;
+  --green:#B5161E; --on-green:#FFFFFF; --on-green-muted:rgba(255,255,255,.78); --tab-active:#B5161E;
+  --brass:#8A6423; --brass-strong:#B8893F; --brass-soft:#F3EBDD; --on-brass:#1E1608;
+  --red:#B5161E; --red-soft:#FBE4E5; --ok:#1E7A4C; --ok-soft:#DEF1E6;
+  --pole-red:#D0151C; --pole-white:#F1F1F1; --pole-blue:#1E3FA0;
+  --hero:#141416; --on-hero:#F4F4F6; --hero-muted:#A3A3AC; --fab:#B5161E; --on-fab:#FFFFFF;
+  --hdr:#FFFFFF; --hdr-ink:#141416; --hdr-muted:#5E5E66; --hdr-line:#DADADF; --sync-bg:rgba(0,0,0,.05); --brand-fill:linear-gradient(180deg,#45454B 0%,#121214 58%,#2E2E33 100%);
+  --free:#1E8A52; --free-soft:#EEF8F2; --free-line:#9FD4B5; --free-strong:#D5EFDF;
+  --sp-bg:radial-gradient(120% 80% at 50% 46%,#FFFFFF 0%,#F2F2F4 55%,#E2E2E6 100%); --sp-mask:none; --sp-radius:26px; --sp-shadow:0 30px 60px -24px rgba(20,20,22,.55),0 0 0 1px rgba(0,0,0,.06);
+  --st1:#f4f5f7; --st2:#a3a6ad; --st3:#45484f; --st4:#c4c6cb; --cut-core:#B5161E; --cut-glow:rgba(181,22,30,.35);
+  --cw-bg:rgba(28,28,32,.35); --sign-bg:linear-gradient(180deg,#FFFFFF,#F0F0F2); --sign-ink:#141416; --sign-muted:#5E5E66; --sign-edge:#C9CBD0; --sign-gap:#FFFFFF; --sign-ring:#B5161E; --str:#6B6E75;
+  --stamp-bg:#B5161E; --stamp-ink:#FFFFFF; --day-fill:linear-gradient(180deg,#45454B 0%,#141416 60%,#2C2C31 100%);
+  --logo-v:light; --shine-op:0; --sp-mask:none; --sp-radius:0px; --sp-shadow:none; --sp-ovf:visible; --sp-filter:drop-shadow(0 22px 30px rgba(20,20,22,.28));
+  --lf-radius:0px; --lf-shadow:none; --lf-filter:drop-shadow(0 14px 22px rgba(20,20,22,.22));
+  --shadow:0 1px 0 rgba(20,20,22,.04),0 10px 22px -16px rgba(20,20,22,.45);
+  --overlay:rgba(10,10,12,.5);
+  color-scheme:light;
+  --display:'Big Shoulders Display','Arial Narrow','Roboto Condensed',sans-serif;
+  --body:'Figtree',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --brandfont:'Sancreek','Big Shoulders Display',Georgia,serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+  --bg:#0B0B0D; --surface:#17171A; --surface-2:#202024; --ink:#ECECEF; --muted:#9B9BA3; --line:#2C2C31;
+  --hdr:#050506; --hdr-ink:#F2F2F4; --hdr-muted:#9B9BA3;
+  --green:#C41E26; --on-green:#FFFFFF; --on-green-muted:rgba(255,255,255,.78); --tab-active:#F0474E;
+  --brass:#D4AA66; --brass-strong:#CFA25A; --brass-soft:#2B2417; --on-brass:#1E1608;
+  --red:#F0575C; --red-soft:#3A1A1C; --ok:#5DC28C; --ok-soft:#14281D;
+  --pole-red:#D0151C; --pole-white:#E4E4E6; --pole-blue:#2A4DB8;
+  --hero:#202025; --on-hero:#F4F4F6; --hero-muted:#A3A3AC; --fab:#C41E26; --on-fab:#FFFFFF;
+  --hdr-line:transparent; --sync-bg:rgba(255,255,255,.08); --brand-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --free:#4CC98A; --free-soft:rgba(76,201,138,.07); --free-line:rgba(76,201,138,.45); --free-strong:rgba(76,201,138,.2);
+  --sp-bg:radial-gradient(120% 80% at 50% 46%,#1d1214 0%,#080809 55%,#030304 100%); --sp-mask:radial-gradient(ellipse 72% 70% at 50% 50%,#000 62%,transparent 100%); --sp-radius:0px; --sp-ovf:visible; --sp-shadow:none;
+  --st1:#ffffff; --st2:#cfd1d6; --st3:#7a7d84; --st4:#eceef1; --cut-core:#ffffff; --cut-glow:rgba(196,30,38,.65);
+  --cw-bg:rgba(0,0,0,.6); --sign-bg:linear-gradient(180deg,#18181b,#09090a); --sign-ink:#F2F2F4; --sign-muted:#B4B4BC; --sign-edge:#8F9198; --sign-gap:#09090a; --sign-ring:#C41E26; --str:#B9BBC1;
+  --stamp-bg:#C41E26; --stamp-ink:#FFFFFF; --day-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --logo-v:dark; --sp-filter:none; --lf-radius:18px; --lf-shadow:var(--shadow); --lf-filter:none;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 10px 22px -16px rgba(0,0,0,.8);
+  --overlay:rgba(0,0,0,.65);
+  color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B0B0D; --surface:#17171A; --surface-2:#202024; --ink:#ECECEF; --muted:#9B9BA3; --line:#2C2C31;
+  --hdr:#050506; --hdr-ink:#F2F2F4; --hdr-muted:#9B9BA3;
+  --green:#C41E26; --on-green:#FFFFFF; --on-green-muted:rgba(255,255,255,.78); --tab-active:#F0474E;
+  --brass:#D4AA66; --brass-strong:#CFA25A; --brass-soft:#2B2417; --on-brass:#1E1608;
+  --red:#F0575C; --red-soft:#3A1A1C; --ok:#5DC28C; --ok-soft:#14281D;
+  --pole-red:#D0151C; --pole-white:#E4E4E6; --pole-blue:#2A4DB8;
+  --hero:#202025; --on-hero:#F4F4F6; --hero-muted:#A3A3AC; --fab:#C41E26; --on-fab:#FFFFFF;
+  --hdr-line:transparent; --sync-bg:rgba(255,255,255,.08); --brand-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --free:#4CC98A; --free-soft:rgba(76,201,138,.07); --free-line:rgba(76,201,138,.45); --free-strong:rgba(76,201,138,.2);
+  --sp-bg:radial-gradient(120% 80% at 50% 46%,#1d1214 0%,#080809 55%,#030304 100%); --sp-mask:radial-gradient(ellipse 72% 70% at 50% 50%,#000 62%,transparent 100%); --sp-radius:0px; --sp-ovf:visible; --sp-shadow:none;
+  --st1:#ffffff; --st2:#cfd1d6; --st3:#7a7d84; --st4:#eceef1; --cut-core:#ffffff; --cut-glow:rgba(196,30,38,.65);
+  --cw-bg:rgba(0,0,0,.6); --sign-bg:linear-gradient(180deg,#18181b,#09090a); --sign-ink:#F2F2F4; --sign-muted:#B4B4BC; --sign-edge:#8F9198; --sign-gap:#09090a; --sign-ring:#C41E26; --str:#B9BBC1;
+  --stamp-bg:#C41E26; --stamp-ink:#FFFFFF; --day-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --logo-v:dark; --sp-filter:none; --lf-radius:18px; --lf-shadow:var(--shadow); --lf-filter:none;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 10px 22px -16px rgba(0,0,0,.8);
+  --overlay:rgba(0,0,0,.65);
+  color-scheme:dark;
+}
+/* Teme salona: tamna i svijetla po logu, zelena klasična */
+:root[data-skin="tamna"]{
+  --bg:#0B0B0D; --surface:#17171A; --surface-2:#202024; --ink:#ECECEF; --muted:#9B9BA3; --line:#2C2C31;
+  --hdr:#050506; --hdr-ink:#F2F2F4; --hdr-muted:#9B9BA3;
+  --green:#C41E26; --on-green:#FFFFFF; --on-green-muted:rgba(255,255,255,.78); --tab-active:#F0474E;
+  --brass:#D4AA66; --brass-strong:#CFA25A; --brass-soft:#2B2417; --on-brass:#1E1608;
+  --red:#F0575C; --red-soft:#3A1A1C; --ok:#5DC28C; --ok-soft:#14281D;
+  --pole-red:#D0151C; --pole-white:#E4E4E6; --pole-blue:#2A4DB8;
+  --hero:#202025; --on-hero:#F4F4F6; --hero-muted:#A3A3AC; --fab:#C41E26; --on-fab:#FFFFFF;
+  --hdr-line:transparent; --sync-bg:rgba(255,255,255,.08); --brand-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --free:#4CC98A; --free-soft:rgba(76,201,138,.07); --free-line:rgba(76,201,138,.45); --free-strong:rgba(76,201,138,.2);
+  --sp-bg:radial-gradient(120% 80% at 50% 46%,#1d1214 0%,#080809 55%,#030304 100%); --sp-mask:radial-gradient(ellipse 72% 70% at 50% 50%,#000 62%,transparent 100%); --sp-radius:0px; --sp-ovf:visible; --sp-shadow:none;
+  --st1:#ffffff; --st2:#cfd1d6; --st3:#7a7d84; --st4:#eceef1; --cut-core:#ffffff; --cut-glow:rgba(196,30,38,.65);
+  --cw-bg:rgba(0,0,0,.6); --sign-bg:linear-gradient(180deg,#18181b,#09090a); --sign-ink:#F2F2F4; --sign-muted:#B4B4BC; --sign-edge:#8F9198; --sign-gap:#09090a; --sign-ring:#C41E26; --str:#B9BBC1;
+  --stamp-bg:#C41E26; --stamp-ink:#FFFFFF; --day-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --logo-v:dark; --sp-filter:none; --lf-radius:18px; --lf-shadow:var(--shadow); --lf-filter:none;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 10px 22px -16px rgba(0,0,0,.8);
+  --overlay:rgba(0,0,0,.65);
+  color-scheme:dark;
+}
+:root[data-skin="svijetla"]{
+  --bg:#F3F3F4; --surface:#FFFFFF; --surface-2:#EDEDEF; --ink:#141416; --muted:#5E5E66; --line:#DADADF;
+  --hdr:#0C0C0E; --hdr-ink:#F2F2F4; --hdr-muted:#9D9DA6;
+  --green:#B5161E; --on-green:#FFFFFF; --on-green-muted:rgba(255,255,255,.78); --tab-active:#B5161E;
+  --brass:#8A6423; --brass-strong:#B8893F; --brass-soft:#F3EBDD; --on-brass:#1E1608;
+  --red:#B5161E; --red-soft:#FBE4E5; --ok:#1E7A4C; --ok-soft:#DEF1E6;
+  --pole-red:#D0151C; --pole-white:#F1F1F1; --pole-blue:#1E3FA0;
+  --hero:#141416; --on-hero:#F4F4F6; --hero-muted:#A3A3AC; --fab:#B5161E; --on-fab:#FFFFFF;
+  --hdr:#FFFFFF; --hdr-ink:#141416; --hdr-muted:#5E5E66; --hdr-line:#DADADF; --sync-bg:rgba(0,0,0,.05); --brand-fill:linear-gradient(180deg,#45454B 0%,#121214 58%,#2E2E33 100%);
+  --free:#1E8A52; --free-soft:#EEF8F2; --free-line:#9FD4B5; --free-strong:#D5EFDF;
+  --sp-bg:radial-gradient(120% 80% at 50% 46%,#FFFFFF 0%,#F2F2F4 55%,#E2E2E6 100%); --sp-mask:none; --sp-radius:26px; --sp-shadow:0 30px 60px -24px rgba(20,20,22,.55),0 0 0 1px rgba(0,0,0,.06);
+  --st1:#f4f5f7; --st2:#a3a6ad; --st3:#45484f; --st4:#c4c6cb; --cut-core:#B5161E; --cut-glow:rgba(181,22,30,.35);
+  --cw-bg:rgba(28,28,32,.35); --sign-bg:linear-gradient(180deg,#FFFFFF,#F0F0F2); --sign-ink:#141416; --sign-muted:#5E5E66; --sign-edge:#C9CBD0; --sign-gap:#FFFFFF; --sign-ring:#B5161E; --str:#6B6E75;
+  --stamp-bg:#B5161E; --stamp-ink:#FFFFFF; --day-fill:linear-gradient(180deg,#45454B 0%,#141416 60%,#2C2C31 100%);
+  --logo-v:light; --shine-op:0; --sp-mask:none; --sp-radius:0px; --sp-shadow:none; --sp-ovf:visible; --sp-filter:drop-shadow(0 22px 30px rgba(20,20,22,.28));
+  --lf-radius:0px; --lf-shadow:none; --lf-filter:drop-shadow(0 14px 22px rgba(20,20,22,.22));
+  --shadow:0 1px 0 rgba(20,20,22,.04),0 10px 22px -16px rgba(20,20,22,.45);
+  --overlay:rgba(10,10,12,.5);
+  color-scheme:light;
+}
+:root[data-skin="zelena"]{
+  --bg:#ECEFEA; --surface:#FFFFFF; --surface-2:#F3F5F1; --ink:#17201B; --muted:#5A6961; --line:#D3DBD4;
+  --hdr:#1F3B33; --hdr-ink:#F2F4EF; --hdr-muted:#AFC2B8;
+  --green:#1F3B33; --on-green:#F2F4EF; --on-green-muted:#AFC2B8; --tab-active:#1F3B33;
+  --brass:#946A26; --brass-strong:#C8963F; --brass-soft:#F5EAD6; --on-brass:#1E1608;
+  --red:#9A3530; --red-soft:#F6E0DD; --ok:#2C6A4D; --ok-soft:#DBEDE2;
+  --pole-red:#B23A33; --pole-white:#F4F1EC; --pole-blue:#2F4E7A;
+  --hero:#1F3B33; --on-hero:#F2F4EF; --hero-muted:#AFC2B8; --fab:#C8963F; --on-fab:#1E1608;
+  --hdr-line:transparent; --sync-bg:rgba(255,255,255,.08); --brand-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --free:#1E8A52; --free-soft:#F0F8F2; --free-line:#A7D6B8; --free-strong:#D6EEDD;
+  --sp-bg:radial-gradient(120% 80% at 50% 46%,#FFFFFF 0%,#EEF2EC 55%,#DCE4DC 100%); --sp-mask:none; --sp-radius:26px; --sp-shadow:0 30px 60px -24px rgba(23,32,27,.55),0 0 0 1px rgba(0,0,0,.06);
+  --st1:#f4f5f7; --st2:#a3a6ad; --st3:#45484f; --st4:#c4c6cb; --cut-core:#C8963F; --cut-glow:rgba(200,150,63,.45);
+  --cw-bg:rgba(20,32,26,.35); --sign-bg:linear-gradient(180deg,#FFFFFF,#F0F3EE); --sign-ink:#17201B; --sign-muted:#5A6961; --sign-edge:#C5D0C7; --sign-gap:#FFFFFF; --sign-ring:#1F3B33; --str:#6A7A71;
+  --stamp-bg:#1F3B33; --stamp-ink:#F2F4EF; --day-fill:linear-gradient(180deg,#3B5F52 0%,#12271F 60%,#2A4A3F 100%);
+  --logo-v:light; --shine-op:0; --sp-mask:none; --sp-radius:0px; --sp-shadow:none; --sp-ovf:visible; --sp-filter:drop-shadow(0 22px 30px rgba(20,20,22,.28));
+  --lf-radius:0px; --lf-shadow:none; --lf-filter:drop-shadow(0 14px 22px rgba(20,20,22,.22));
+  --shadow:0 1px 0 rgba(23,32,27,.04),0 10px 22px -16px rgba(23,32,27,.4);
+  --overlay:rgba(10,16,13,.45);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root[data-skin="zelena"]:not([data-theme="light"]){
+  --bg:#0F1512; --surface:#171F1B; --surface-2:#1E2823; --ink:#E6EBE7; --muted:#98A79F; --line:#2A3630;
+  --hdr:#152A23; --hdr-ink:#EEF2EE; --hdr-muted:#93AA9E;
+  --green:#2D5A4B; --on-green:#EEF2EE; --on-green-muted:#A9C2B6; --tab-active:#8FD1B3;
+  --brass:#D8AC62; --brass-strong:#D4A55A; --brass-soft:#33291A; --on-brass:#1E1608;
+  --red:#E07A73; --red-soft:#3A2120; --ok:#74C69D; --ok-soft:#1C3328;
+  --pole-white:#D9D4CB;
+  --hero:#2D5A4B; --on-hero:#EEF2EE; --hero-muted:#A9C2B6; --fab:#D4A55A; --on-fab:#1E1608;
+  --hdr-line:transparent; --sync-bg:rgba(255,255,255,.08); --brand-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --free:#4CC98A; --free-soft:rgba(76,201,138,.07); --free-line:rgba(76,201,138,.45); --free-strong:rgba(76,201,138,.2);
+  --sp-bg:radial-gradient(120% 80% at 50% 46%,#1c2a24 0%,#0b110e 55%,#050806 100%); --sp-mask:radial-gradient(ellipse 72% 70% at 50% 50%,#000 62%,transparent 100%); --sp-radius:0px; --sp-ovf:visible; --sp-shadow:none;
+  --st1:#ffffff; --st2:#cfd1d6; --st3:#7a7d84; --st4:#eceef1; --cut-core:#ffffff; --cut-glow:rgba(212,165,90,.6);
+  --cw-bg:rgba(0,0,0,.6); --sign-bg:linear-gradient(180deg,#1C2622,#0C120F); --sign-ink:#EEF2EE; --sign-muted:#A9C2B6; --sign-edge:#6E8A7E; --sign-gap:#0C120F; --sign-ring:#D4A55A; --str:#A9B8B0;
+  --stamp-bg:#D4A55A; --stamp-ink:#1E1608; --day-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --logo-v:dark; --sp-filter:none; --lf-radius:18px; --lf-shadow:var(--shadow); --lf-filter:none;
+  --shadow:0 1px 0 rgba(0,0,0,.2),0 10px 22px -16px rgba(0,0,0,.7);
+  --overlay:rgba(0,0,0,.6);
+  color-scheme:dark;
+  }
+}
+:root[data-skin="zelena"][data-theme="dark"]{
+  --bg:#0F1512; --surface:#171F1B; --surface-2:#1E2823; --ink:#E6EBE7; --muted:#98A79F; --line:#2A3630;
+  --hdr:#152A23; --hdr-ink:#EEF2EE; --hdr-muted:#93AA9E;
+  --green:#2D5A4B; --on-green:#EEF2EE; --on-green-muted:#A9C2B6; --tab-active:#8FD1B3;
+  --brass:#D8AC62; --brass-strong:#D4A55A; --brass-soft:#33291A; --on-brass:#1E1608;
+  --red:#E07A73; --red-soft:#3A2120; --ok:#74C69D; --ok-soft:#1C3328;
+  --pole-white:#D9D4CB;
+  --hero:#2D5A4B; --on-hero:#EEF2EE; --hero-muted:#A9C2B6; --fab:#D4A55A; --on-fab:#1E1608;
+  --hdr-line:transparent; --sync-bg:rgba(255,255,255,.08); --brand-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --free:#4CC98A; --free-soft:rgba(76,201,138,.07); --free-line:rgba(76,201,138,.45); --free-strong:rgba(76,201,138,.2);
+  --sp-bg:radial-gradient(120% 80% at 50% 46%,#1c2a24 0%,#0b110e 55%,#050806 100%); --sp-mask:radial-gradient(ellipse 72% 70% at 50% 50%,#000 62%,transparent 100%); --sp-radius:0px; --sp-ovf:visible; --sp-shadow:none;
+  --st1:#ffffff; --st2:#cfd1d6; --st3:#7a7d84; --st4:#eceef1; --cut-core:#ffffff; --cut-glow:rgba(212,165,90,.6);
+  --cw-bg:rgba(0,0,0,.6); --sign-bg:linear-gradient(180deg,#1C2622,#0C120F); --sign-ink:#EEF2EE; --sign-muted:#A9C2B6; --sign-edge:#6E8A7E; --sign-gap:#0C120F; --sign-ring:#D4A55A; --str:#A9B8B0;
+  --stamp-bg:#D4A55A; --stamp-ink:#1E1608; --day-fill:linear-gradient(180deg,#FFFFFF 0%,#E4E5E9 42%,#8F9198 56%,#D6D7DC 78%,#F4F4F6 100%);
+  --logo-v:dark; --sp-filter:none; --lf-radius:18px; --lf-shadow:var(--shadow); --lf-filter:none;
+  --shadow:0 1px 0 rgba(0,0,0,.2),0 10px 22px -16px rgba(0,0,0,.7);
+  --overlay:rgba(0,0,0,.6);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 90px);-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:16px/1.45 var(--body);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--hdr)}
+body.locked{overflow:hidden}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0;margin:0}
+a{color:inherit}
+:focus-visible{outline:2.5px solid var(--brass-strong);outline-offset:2px}
+svg{flex:none}
+[hidden]{display:none!important}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--hdr);color:var(--hdr-ink);border-bottom:1px solid var(--hdr-line)}
+.pole{height:7px;overflow:hidden}
+.pole::before{content:"";display:block;height:100%;width:calc(100% + 40px);margin-left:-39.6px;
+  background-image:repeating-linear-gradient(-45deg,var(--pole-red) 0 9px,var(--pole-white) 9px 14px,var(--pole-blue) 14px 23px,var(--pole-white) 23px 28px);
+  animation:pole 4s linear infinite}
+@keyframes pole{to{transform:translateX(39.6px)}}
+.top-in{max-width:640px;margin:0 auto;padding:12px 16px 13px;display:flex;align-items:center;gap:12px}
+
+.brand{flex:1;min-width:0}
+.top h1{font:400 23px/1.15 var(--brandfont);letter-spacing:.035em;text-transform:uppercase;margin:0;padding:1px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  color:var(--hdr-ink);background:var(--brand-fill);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.logo{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none;border:1.5px solid #9A9CA3;box-shadow:0 0 0 2px var(--hdr),0 0 0 3.5px var(--pole-red)}
+.logo-full{display:block;width:100%;height:auto;margin:0 0 18px;border-radius:var(--lf-radius);box-shadow:var(--lf-shadow);filter:var(--lf-filter)}
+.skins{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.skin{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);text-align:left;font-weight:600}
+.skin[aria-pressed="true"]{border-color:var(--green);box-shadow:0 0 0 1.5px var(--green)}
+.skin small{display:block;font-weight:400;font-size:12.5px;color:var(--muted)}
+.sw{width:30px;height:30px;border-radius:50%;flex:none;border:1px solid rgba(128,128,128,.35)}
+
+.sync{margin-left:auto;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--sync-bg);color:var(--hdr-muted);display:flex;align-items:center;gap:6px;white-space:nowrap}
+.sync i{width:7px;height:7px;border-radius:50%;background:#C9B27A}
+.sync.ok i{background:#6CC097}
+.sync.bad i{background:#E0786F}
+@media (max-width:480px){.sync{padding:8px;margin-right:-4px}.sync span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.sync i{width:9px;height:9px}}
+
+.wrap{max-width:640px;margin:0 auto;padding:16px 16px calc(150px + var(--tick-h,0px) + env(safe-area-inset-bottom,0px))}
+/* Week */
+
+.day{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 6px;border-radius:12px;background:var(--surface);border:1px solid var(--line);min-width:0}
+.day .dn{font-size:12px;color:var(--muted);font-weight:600}
+.day .dd{font:700 23px/1 var(--display)}
+.day .dc{font-size:11px;line-height:14px;height:14px;color:var(--brass);font-weight:700}
+.day.is-today .dd{color:var(--brass)}
+.day.closed .dn,.day.closed .dd{opacity:.5}
+.day[aria-current="date"]{background:var(--green);border-color:var(--green);color:var(--on-green)}
+.day[aria-current="date"] .dn{color:var(--on-green-muted)}
+.day[aria-current="date"] .dd{color:var(--on-green);opacity:1}
+.day[aria-current="date"] .dc{color:var(--brass-strong)}
+/* Day head */
+
+.dayhead h2,.vhead h2{font:800 36px/1 var(--display);margin:0}
+.dayhead p,.vhead p{margin:4px 0 0;color:var(--muted);font-size:14px}
+
+.next{font-size:14px;margin:12px 2px 0;color:var(--muted)}
+.next strong{color:var(--ink)}
+/* Timeline */
+
+.row{display:grid;grid-template-columns:56px 1fr;gap:10px;align-items:start}
+.row .t{font:700 21px/1 var(--display);padding-top:15px;font-variant-numeric:tabular-nums}
+.row .t small{display:block;font:600 14px/1.2 var(--display);color:var(--muted);margin-top:3px}
+.row.free-row .t{color:var(--muted);font-weight:600}
+.row.past{opacity:.5}
+.free{width:100%;min-height:46px;margin:4px 0;border:1.5px dashed var(--line);border-radius:12px;display:flex;align-items:center;justify-content:space-between;padding:0 8px 0 14px;color:var(--muted);font-size:14px;text-align:left}
+.free .plus{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--surface);border:1px solid var(--line);color:var(--ink)}
+.free:hover,.free:active{border-color:var(--brass-strong);color:var(--ink);background:var(--brass-soft)}
+
+.badge{display:inline-flex;align-self:flex-start;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;margin-top:4px;background:var(--brass-soft);color:var(--brass)}
+.badge.zavrsen{background:var(--ok-soft);color:var(--ok)}
+.badge.nije_dosao{background:var(--red-soft);color:var(--red)}
+.badge.otkazan{background:var(--surface-2);color:var(--muted)}
+
+.empty{text-align:center;padding:34px 18px;color:var(--muted);border:1.5px dashed var(--line);border-radius:16px;margin-top:14px;font-size:15px}
+.empty strong{display:block;color:var(--ink);font-size:17px;margin-bottom:4px}
+.note-closed{background:var(--surface-2);border-radius:12px;padding:10px 14px;font-size:14px;color:var(--muted);margin-top:12px}
+details.cx{margin-top:18px}
+details.cx summary{cursor:pointer;font-weight:600;color:var(--muted);font-size:14px;padding:6px 0}
+
+/* FAB + nav */
+.fab{position:fixed;z-index:25;right:max(16px,calc(50% - 304px));bottom:calc(80px + var(--tick-h,0px) + env(safe-area-inset-bottom,0px));height:54px;padding:0 20px 0 16px;border-radius:999px;background:var(--fab);color:var(--on-fab);font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;box-shadow:0 12px 26px -10px rgba(0,0,0,.5)}
+.tabs{position:fixed;z-index:30;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+.tabs-in{max-width:640px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.tab{display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 0 8px;font-size:12px;font-weight:600;color:var(--muted);position:relative}
+.tab[aria-current="page"]{color:var(--tab-active)}
+.tab[aria-current="page"]::before{content:"";position:absolute;top:-1px;left:32%;right:32%;height:3px;border-radius:0 0 3px 3px;background:var(--brass-strong)}
+
+/* Sheet */
+.sheet-wrap{position:fixed;inset:0;z-index:50;background:transparent;transition:background .22s}
+.sheet-wrap.open{background:var(--overlay)}
+.sheet{position:absolute;left:0;right:0;bottom:0;margin:0 auto;max-width:600px;max-height:calc(100% - env(safe-area-inset-top,0px) - 20px);overflow-y:auto;overscroll-behavior:contain;background:var(--surface);border-radius:22px 22px 0 0;padding:0 18px;transform:translateY(100%);transition:transform .28s cubic-bezier(.2,.8,.2,1)}
+.sheet-wrap.open .sheet{transform:none}
+.sheet-head{position:sticky;top:0;background:var(--surface);display:flex;align-items:center;gap:10px;padding:20px 0 12px;z-index:2}
+.sheet-head::before{content:"";position:absolute;top:7px;left:50%;width:40px;height:4px;margin-left:-20px;border-radius:4px;background:var(--line)}
+.sheet-head h3{margin:0;font:800 28px/1.05 var(--display);flex:1;min-width:0;overflow-wrap:anywhere}
+.x{width:40px;height:40px;border-radius:50%;background:var(--surface-2);display:grid;place-items:center;flex:none}
+.when{font-size:15px;color:var(--muted);margin:-4px 0 12px}
+.when strong{color:var(--ink)}
+
+/* Forms */
+.field{display:block;margin:0 0 16px}
+.field>span,.lbl{display:block;font-size:13.5px;font-weight:600;color:var(--muted);margin-bottom:6px}
+.lbl em{font-style:normal;color:var(--ink)}
+.inp{width:100%;height:48px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface-2);padding:0 14px;font-size:16px;-webkit-appearance:none;appearance:none}
+select.inp{background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 18px) 21px,calc(100% - 13px) 21px;background-size:5px 5px;background-repeat:no-repeat;padding-right:32px}
+textarea.inp{height:auto;padding:12px 14px;resize:vertical;line-height:1.4}
+.inp:focus{border-color:var(--brass-strong);outline:none;background:var(--surface)}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--surface-2);border-radius:12px;padding:4px;margin-bottom:16px}
+.seg.three{grid-template-columns:repeat(3,1fr)}
+.seg button{height:40px;border-radius:9px;font-weight:600;font-size:15px;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+
+.svc{border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;text-align:left;background:var(--surface)}
+.svc b{display:block;font-size:15px;font-weight:600;line-height:1.25}
+.svc span{font-size:13px;color:var(--muted)}
+.svc[aria-pressed="true"]{border-color:var(--green);background:var(--green);color:var(--on-green)}
+.svc[aria-pressed="true"] span{color:var(--on-green-muted)}
+.svc[aria-pressed="true"] i{color:var(--on-green)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{height:42px;padding:0 15px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);font-weight:600;font-size:15px;display:inline-flex;align-items:center;gap:6px;position:relative;overflow:hidden}
+.chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:var(--on-green)}
+.chip input[type=date]{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer}
+.time-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:6px}
+.time-grid .chip{flex-direction:column;justify-content:center;gap:2px;height:48px;padding:0 4px;font:700 18px/1 var(--display);font-variant-numeric:tabular-nums;border-radius:10px}
+.time-grid .chip small{display:block;width:100%;font:600 11px/1.1 var(--body);text-align:center;color:var(--muted);text-decoration:none}
+.time-grid .chip:disabled{opacity:.3;cursor:not-allowed}
+.time-grid .chip:disabled .ct{text-decoration:line-through}
+.time-grid .chip.busy{opacity:.85;background:var(--surface-2);border-style:dashed}
+.time-grid .chip.busy .ct{color:var(--muted)}
+.time-grid .chip.late{border-style:dashed}
+.custom-time{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:14px;color:var(--muted)}
+.custom-time .inp{width:130px;height:42px}
+.hint{font-size:13.5px;color:var(--muted);margin:6px 0 0}
+.sugg{display:flex;flex-direction:column;gap:6px;margin:-8px 0 16px}
+.sugg button{display:flex;align-items:center;gap:10px;text-align:left;padding:8px 10px;border-radius:12px;background:var(--brass-soft)}
+.sugg small{display:block;color:var(--muted);font-size:13px}
+.av{width:38px;height:38px;border-radius:50%;background:var(--green);color:var(--on-green);display:grid;place-items:center;font:700 16px/1 var(--display);flex:none;letter-spacing:.02em}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.msg{font-size:14px;font-weight:600;color:var(--red);margin:0 0 12px}
+.msg:empty{display:none}
+.warnbox{background:var(--red-soft);color:var(--red);border-radius:12px;padding:11px 13px;font-size:14px;margin-bottom:14px;font-weight:500}
+.primary{width:100%;height:54px;border-radius:14px;background:var(--green);color:var(--on-green);font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;gap:8px}
+.primary.warn{background:var(--red);color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:48px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);font-weight:600;font-size:15px;text-decoration:none;color:var(--ink);padding:0 10px;text-align:center}
+.btn.ok{border-color:transparent;background:var(--ok-soft);color:var(--ok)}
+.btn.bad{border-color:transparent;background:var(--red-soft);color:var(--red)}
+.btn.plain{border-color:transparent;background:var(--surface-2)}
+.btn-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 12px}
+.btn-row.two-c{grid-template-columns:1fr 1fr}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:0 0 14px}
+.dgrid>div{background:var(--surface);padding:10px 12px;min-width:0}
+.dgrid dt{font-size:12.5px;color:var(--muted)}
+.dgrid dd{margin:2px 0 0;font-weight:600;overflow-wrap:anywhere}
+.dgrid a{text-decoration:none}
+.notebox{background:var(--brass-soft);border-radius:12px;padding:10px 13px;font-size:15px;margin:0 0 14px}
+.sub-h{font:800 20px/1 var(--display);margin:20px 0 10px}
+.hist{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.hist li{display:flex;align-items:center;gap:10px;padding:10px 12px;font-size:14px}
+.hist li+li{border-top:1px solid var(--line)}
+.hist .hd{flex:1;min-width:0}
+.hist .hd small{display:block;color:var(--muted)}
+.hist .badge{margin:0}
+
+/* Dialog + toast */
+.dialog-wrap{position:fixed;inset:0;z-index:70;background:var(--overlay);display:grid;place-items:center;padding:24px}
+.dialog{background:var(--surface);border-radius:18px;padding:22px 20px 18px;max-width:360px;width:100%;box-shadow:0 20px 50px -20px rgba(0,0,0,.6)}
+.dialog p{margin:0 0 18px;font-size:16px}
+.toast{position:fixed;z-index:80;left:50%;bottom:calc(146px + var(--tick-h,0px) + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;transition:.22s;background:var(--ink);color:var(--bg);padding:11px 16px;border-radius:12px;font-weight:600;font-size:14.5px;max-width:calc(100% - 32px);text-align:center;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* Clients */
+.vhead{display:flex;align-items:flex-end;gap:10px;margin-bottom:14px}
+.search{display:flex;align-items:center;gap:8px;height:50px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);padding:0 14px;margin-bottom:14px;color:var(--muted)}
+.search:focus-within{border-color:var(--brass-strong)}
+.search input{border:0;background:none;flex:1;outline:none;font-size:16px;height:100%;color:var(--ink);min-width:0}
+.clist{list-style:none;padding:0;margin:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.clist li+li{border-top:1px solid var(--line)}
+.citem{display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px;text-align:left}
+.cmain{flex:1;min-width:0}
+.cname{font-weight:700}
+.csub{font-size:13px;color:var(--muted)}
+.cnext{font-size:12.5px;font-weight:700;color:var(--brass)}
+.ccount{text-align:right;flex:none}
+.ccount b{display:block;font:700 22px/1 var(--display)}
+.ccount span{font-size:11.5px;color:var(--muted)}
+
+/* Stats */
+.period{display:flex;align-items:center;gap:8px;margin:-4px 0 14px}
+.period .lab{flex:1;text-align:center;font-weight:700}
+.icon-btn{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);display:grid;place-items:center}
+.icon-btn:disabled{opacity:.35}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:16px}
+.kpis>div{background:var(--surface);padding:14px}
+.kpis b{display:block;font:800 30px/1 var(--display);white-space:nowrap}
+.kpis span{font-size:13px;color:var(--muted)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:16px}
+.panel h3{margin:0 0 14px;font:800 21px/1 var(--display)}
+.panel.attn{background:var(--brass-soft);border-color:transparent}
+.panel.attn p{margin:0 0 12px;font-size:15px}
+.bars{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;align-items:end;min-height:150px}
+.bar{display:flex;flex-direction:column;align-items:center;gap:4px;justify-content:flex-end}
+.bar i{display:block;width:100%;max-width:36px;border-radius:6px 6px 2px 2px;background:var(--green);min-height:3px}
+.bar.best i{background:var(--brass-strong)}
+.bar em{font-style:normal;font-size:13px;font-weight:700}
+.bar span{font-size:12px;color:var(--muted)}
+.rank{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.rt{display:flex;justify-content:space-between;gap:10px;font-size:14.5px;margin-bottom:5px}
+.rt span:last-child{color:var(--muted);white-space:nowrap}
+.meter{height:7px;border-radius:7px;background:var(--surface-2);overflow:hidden}
+.meter i{display:block;height:100%;background:var(--brass-strong);border-radius:7px}
+.muted{color:var(--muted)}
+/* Settings */
+
+.tog{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.tog{display:flex;align-items:center;gap:10px;font-weight:600;cursor:pointer}
+.tog input{width:22px;height:22px;accent-color:var(--green);margin:0;flex:none}
+.svc-row{display:grid;grid-template-columns:30px minmax(0,1fr) 40px;gap:10px;align-items:start;padding:12px 12px}
+.svc-row+.svc-row{border-top:1px solid var(--line)}
+.svc-row .inp{height:44px;padding:0 12px}
+
+.del{width:40px;height:44px;border-radius:10px;display:grid;place-items:center;color:var(--red);background:var(--red-soft)}
+.about{font-size:14px;color:var(--muted);margin:0}
+
+/* v2: traka dana, agenda, jednostavniji formular */
+.sheet>:last-child:not(.sheet-foot){margin-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
+.dstrip{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x proximity;margin:0 -16px 18px;padding:2px 16px 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.dstrip::-webkit-scrollbar{display:none}
+.ds{flex:none;width:58px;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 7px;border-radius:14px;background:var(--surface);border:1px solid var(--line);scroll-snap-align:start;position:relative;overflow:hidden;cursor:pointer}
+.ds-n{font-size:12.5px;font-weight:600;color:var(--muted)}
+.ds-d{font:700 26px/1 var(--display)}
+.ds-c{min-width:20px;height:18px;padding:0 5px;border-radius:9px;font-size:11.5px;font-weight:700;line-height:18px;text-align:center;background:var(--brass-soft);color:var(--brass)}
+.ds-c:empty{visibility:hidden}
+.ds.closed .ds-d,.ds.closed .ds-n{opacity:.45}
+.ds[aria-current="date"]{background:var(--green);border-color:var(--green);color:var(--on-green)}
+.ds[aria-current="date"] .ds-n{color:var(--on-green-muted);opacity:1}
+.ds[aria-current="date"] .ds-d{opacity:1}
+.ds[aria-current="date"] .ds-c{background:var(--brass-strong);color:var(--on-brass)}
+.ds.cal{justify-content:center;gap:6px;color:var(--muted);border-style:dashed}
+.ds.cal input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer}
+.dstrip.sm .ds{width:52px;border-radius:12px;padding:7px 0 6px}
+.dstrip.sm .ds-d{font-size:22px}
+.dhead{display:flex;gap:12px;margin-bottom:16px;align-items:flex-start}
+.dhead>div:first-child{flex:1;min-width:0}
+.dhead h2{font:800 40px/1 var(--display);margin:0}
+.dhead p{margin:5px 0 0;color:var(--muted);font-size:15px}
+.dhead .dsum{color:var(--ink);font-weight:600;margin-top:2px}
+.agenda{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.fb{border:1.5px dashed var(--free-line);background:var(--free-soft);border-radius:16px;padding:10px 10px 12px}
+.fb-l{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--free);margin:0 2px 9px}
+.fchips{display:grid;grid-template-columns:repeat(auto-fill,minmax(68px,1fr));gap:6px}
+.fchip{height:46px;border-radius:11px;background:var(--surface);border:1px solid var(--line);font:700 20px/1 var(--display);font-variant-numeric:tabular-nums;color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.fchip small{font:700 11px/1 var(--body);color:var(--brass);margin-top:3px}
+.fchip.short{border:1.5px dashed var(--brass-strong)}
+.demo-note{background:var(--brass-soft);border-radius:14px;padding:11px 14px;margin:0 0 14px;font-size:14px;color:var(--ink)}
+.demo-note strong{display:block;font:800 19px/1.1 var(--display);color:var(--brass);margin-bottom:2px}
+.gapcard{display:flex;align-items:center;gap:12px;padding:12px 12px 12px 16px;margin:0 0 14px;border-radius:16px;background:var(--brass-soft);border:1.5px dashed var(--brass-strong)}
+.gapcard div{flex:1;min-width:0}
+.gapcard strong{display:block;font:800 22px/1.1 var(--display)}
+.gapcard span{font-size:14px;color:var(--muted)}
+.gapcard .btn{flex:none;background:var(--green);color:var(--on-green);border-color:transparent}
+.seg.four{grid-template-columns:repeat(4,1fr);margin-bottom:10px}
+.extra-names{display:grid;gap:8px;margin-bottom:6px}
+.fit-hint{margin:-2px 0 8px;font-size:14px;font-weight:600;color:var(--brass)}
+.svc.nofit{opacity:.5}
+.svc.nofit[aria-pressed="true"]{opacity:1}
+.tag.grp{background:var(--surface-2);color:var(--ink)}
+.fchip{border-color:var(--free-line)}
+.fchip:hover,.fchip:active{background:var(--free-strong);border-color:var(--free)}
+.fchip.first{background:var(--free);border-color:var(--free);color:#fff;box-shadow:0 6px 14px -8px var(--free)}
+.fchip.first small{color:rgba(255,255,255,.88)}
+.ar{width:100%;display:grid;grid-template-columns:72px minmax(0,1fr) 20px;gap:10px;align-items:center;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 12px 14px 0;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.ar::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--svc,var(--brass-strong))}
+.ar-t{text-align:center;padding-left:5px}
+.ar-t b{display:block;font:800 25px/1 var(--display);font-variant-numeric:tabular-nums}
+.ar-t small{display:block;font:600 14px/1.2 var(--display);color:var(--muted);margin-top:4px}
+.ar-b{display:flex;flex-direction:column;gap:2px;min-width:0}
+.ar-b strong{font:800 23px/1.12 var(--display);letter-spacing:.01em}
+.ar-b>span{font-size:14.5px;color:var(--muted)}
+.ar-b>.ar-note{color:var(--ink);font-size:13.5px;display:flex;gap:5px;align-items:center}
+.ar-go{color:var(--muted);display:grid;place-items:center}
+.ar.is-next{border-color:var(--brass-strong);box-shadow:0 0 0 1.5px var(--brass-strong),var(--shadow)}
+.ar.st-otkazan::before{background:var(--muted)}
+.ar.pauza{background:repeating-linear-gradient(-45deg,var(--surface) 0 10px,var(--surface-2) 10px 20px);box-shadow:none}
+.ar.pauza::before{background:var(--muted)}
+.ar.dim{opacity:.55;box-shadow:none;filter:saturate(.35)}
+.tag{align-self:flex-start;display:inline-block;font-style:normal;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--brass-soft);color:var(--brass);margin-top:4px}
+.tag.zavrsen{background:var(--ok-soft);color:var(--ok)}
+.tag.nije_dosao{background:var(--red-soft);color:var(--red)}
+.tag.otkazan{background:var(--surface-2);color:var(--muted)}
+.step-l{font-weight:700;font-size:16px;margin:0 0 10px}
+.whenbox{width:100%;display:flex;align-items:center;gap:14px;padding:12px 16px;border-radius:16px;background:var(--hero);color:var(--on-hero);text-align:left;margin-bottom:12px}
+.whenbox b{font:800 38px/1 var(--display);font-variant-numeric:tabular-nums}
+.whenbox span{flex:1;min-width:0}
+.whenbox strong{display:block;font-size:16px}
+.whenbox small{display:block;color:var(--hero-muted);font-size:13.5px}
+.whenbox em{font-style:normal;font-weight:700;font-size:14px;color:var(--brass-strong)}
+.picker{background:var(--surface-2);border-radius:16px;padding:12px;margin-bottom:18px}
+.picker .dstrip{margin:0 -12px 10px;padding:0 12px 2px}
+.pick-day{margin:0 2px 10px;font-weight:600;font-size:14.5px}
+.picker .chip{background:var(--surface)}
+.picker .chip[aria-pressed="true"]{background:var(--green)}
+.inp.big{height:54px;font-size:18px}
+.svc-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.svc{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;column-gap:6px;align-items:baseline}
+.svc b{grid-column:1/3}
+.svc i{font-style:normal;font-weight:700;font-size:13.5px;color:var(--brass);text-align:right}
+.svc[aria-pressed="true"] i{color:var(--brass-strong)}
+details.more{border-top:1px solid var(--line);margin:4px 0 0}
+details.more summary{list-style:none;cursor:pointer;padding:14px 0;font-weight:600;display:flex;align-items:baseline;gap:8px}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::before{content:"+";font:700 20px/1 var(--display);width:18px;color:var(--brass)}
+details.more[open] summary::before{content:"–"}
+details.more summary small{color:var(--muted);font-weight:400;font-size:13px}
+.tog.wrap{white-space:normal;margin-bottom:6px;font-weight:500}
+.sheet-foot{position:sticky;bottom:0;background:var(--surface);padding:12px 0 calc(16px + env(safe-area-inset-bottom,0px));margin-top:6px;z-index:2;box-shadow:0 -12px 16px -12px var(--surface)}
+.sheet-foot .warnbox{margin-bottom:10px}
+.dsvc{font-size:16.5px;margin:-6px 0 14px}
+.dinfo{font-size:14.5px;color:var(--muted);margin:2px 0 6px;line-height:1.55}
+.btn.big{min-height:56px;font-size:16px}
+.linkrow{display:flex;border-top:1px solid var(--line);margin:10px -18px 0;padding:0 6px}
+.linkrow button{flex:1;height:54px;font-weight:600;font-size:15px}
+.linkrow button+button{border-left:1px solid var(--line)}
+.linkrow .danger{color:var(--red)}
+
+/* v3: sljedeći klijent, podsjetnici, bilješke, boje */
+.nextcard{background:var(--hero);color:var(--on-hero);border-radius:18px;padding:14px 16px 16px 22px;margin:0 0 16px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.nextcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:7px;background:var(--svc,var(--brass-strong))}
+.nc-l{font-size:13px;font-weight:600;color:var(--hero-muted)}
+
+.nc-when{font:800 19px/1 var(--display);color:var(--brass-strong);white-space:nowrap}
+.nc-note{margin:10px 0 0;font-size:14.5px;display:flex;gap:6px;align-items:flex-start;color:var(--on-hero)}
+.nc-note svg{margin-top:3px}
+.nc-btns{display:flex;gap:8px;margin-top:14px}
+.nc-btns .btn{flex:1;min-height:46px;background:rgba(255,255,255,.1);border-color:transparent;color:var(--on-hero)}
+.nc-btns .btn.ok{background:var(--ok-soft);color:var(--ok)}
+.rem-open{display:inline-flex;align-items:center;gap:7px;margin-top:10px;height:40px;padding:0 14px;border-radius:999px;background:var(--brass-soft);color:var(--brass);font-weight:700;font-size:14.5px}
+.rem-open.done{background:var(--ok-soft);color:var(--ok)}
+.rem-open svg{width:16px;height:16px}
+.ar-rem{display:inline-flex;align-items:center;gap:4px;color:var(--ok)!important;font-size:12.5px!important;font-weight:600}
+.ar-rem svg{width:13px;height:13px}
+.prog{height:8px;border-radius:8px;background:var(--surface-2);overflow:hidden}
+.prog i{display:block;height:100%;background:var(--ok);border-radius:8px;transition:width .3s}
+.prog-l{font-size:13.5px;color:var(--muted);margin:6px 0 14px}
+.rem-list{list-style:none;padding:0;margin:0 0 12px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.rem-list li{display:grid;grid-template-columns:50px minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 10px 10px 12px}
+.rem-list li+li{border-top:1px solid var(--line)}
+.rem-list li>b{font:800 20px/1 var(--display)}
+.rem-list .rm strong{display:block}
+.rem-list .rm small{color:var(--muted);font-size:13px}
+.rem-list li.sent{background:var(--ok-soft)}
+.rem-list li.sent .rm small{color:var(--ok);font-weight:700}
+.rem-btns{display:flex;gap:6px}
+.btn.sm{min-height:40px;padding:0 10px;font-size:14px;gap:5px}
+.btn.sm svg{width:15px;height:15px}
+.rebook{background:var(--brass-soft);border-radius:14px;padding:12px;margin:0 0 12px}
+.rebook p{margin:0 0 10px;font-weight:700}
+.rb-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.rb-btns .chip{justify-content:center;padding:0 8px;font-size:14.5px}
+.nb-l{display:block;font-size:12.5px;font-weight:700;color:var(--brass);margin-bottom:2px}
+.addnote{display:inline-flex;align-items:center;gap:6px;color:var(--brass);font-weight:600;font-size:14.5px;padding:6px 0 4px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;vertical-align:0}
+.cdot{width:30px;height:44px;border-radius:10px;background:var(--surface-2);display:grid;place-items:center}
+.cdot::after{content:"";width:18px;height:18px;border-radius:50%;background:var(--c)}
+
+/* Uvodna animacija loga */
+.splash{position:fixed;inset:0;z-index:100;overflow:hidden;cursor:pointer;transition:opacity .35s ease}
+.nosplash .splash{display:none}
+.splash.out{opacity:0}
+.splash:not(.run) *{animation-play-state:paused!important}
+.sp-half{position:absolute;inset:0;display:grid;place-items:center;background:var(--sp-bg);will-change:transform,opacity}
+.sp-top{clip-path:inset(0 0 50% 0);animation:spUp .62s cubic-bezier(.7,0,.25,1) 2.12s forwards}
+.sp-bot{clip-path:inset(50% 0 0 0);animation:spDown .62s cubic-bezier(.7,0,.25,1) 2.12s forwards}
+@keyframes spUp{to{transform:translateY(-54%) rotate(-1.5deg);opacity:.15}}
+@keyframes spDown{to{transform:translateY(54%) rotate(1.5deg);opacity:.15}}
+.sp-stage{position:relative;width:min(90vw,520px);overflow:var(--sp-ovf,hidden);filter:var(--sp-filter,none);border-radius:var(--sp-radius);box-shadow:var(--sp-shadow);animation:spFade .5s ease both}
+.sp-logo{display:block;width:100%;height:auto;-webkit-mask-image:var(--sp-mask);mask-image:var(--sp-mask);animation:spIn 1.15s cubic-bezier(.2,.8,.2,1) both}
+@keyframes spIn{0%{opacity:0;transform:scale(1.25);filter:blur(16px) brightness(.15)}55%{opacity:1;filter:blur(0) brightness(1.3)}100%{opacity:1;transform:scale(1);filter:none}}
+.sp-shine{opacity:var(--shine-op,1);position:absolute;top:-10%;bottom:-10%;left:0;width:34%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.9),transparent);mix-blend-mode:overlay;transform:translateX(-160%) skewX(-18deg);animation:spShine .85s ease-in-out .8s forwards;pointer-events:none}
+@keyframes spShine{to{transform:translateX(400%) skewX(-18deg)}}
+.sp-cut{position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:linear-gradient(90deg,transparent,var(--cut-core) 12%,var(--cut-core));box-shadow:0 0 10px 1px var(--cut-glow),0 0 28px 4px var(--cut-glow);transform:scaleX(0);transform-origin:0 50%;animation:spCut .78s cubic-bezier(.45,0,.55,1) 1.32s forwards,spGone .25s ease 2.12s forwards}
+@keyframes spCut{to{transform:scaleX(1)}}
+@keyframes spGone{to{opacity:0}}
+.sp-scissors{position:absolute;top:50%;left:0;width:110px;height:55px;margin-top:-27.5px;transform:translateX(-130px);animation:spTravel .78s cubic-bezier(.45,0,.55,1) 1.32s forwards;filter:drop-shadow(0 4px 10px rgba(0,0,0,.7)) drop-shadow(0 0 8px rgba(196,30,38,.4))}
+@keyframes spTravel{to{transform:translateX(calc(100vw + 30px))}}
+.sp-scissors .sa,.sp-scissors .sb{transform-box:view-box;transform-origin:60px 30px}
+.sp-scissors .sa{transform:rotate(18deg);animation:snipA .195s ease-in-out 1.32s 4 alternate}
+.sp-scissors .sb{transform:rotate(-18deg);animation:snipB .195s ease-in-out 1.32s 4 alternate}
+@keyframes snipA{from{transform:rotate(18deg)}to{transform:rotate(-1deg)}}
+@keyframes snipB{from{transform:rotate(-18deg)}to{transform:rotate(1deg)}}
+@media (prefers-reduced-motion:reduce){
+  .sp-scissors,.sp-cut,.sp-shine{display:none}
+  .sp-logo{animation:spFade .4s both}
+  .sp-top,.sp-bot{animation:spGone .4s ease .8s forwards}
+}
+@keyframes spFade{from{opacity:0}to{opacity:1}}
+
+/* Neradni dan: tabla koja se zaljulja */
+.closed-wrap{position:fixed;inset:0;z-index:90;display:flex;justify-content:center;align-items:flex-start;background:var(--cw-bg);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);animation:cwIn .25s ease both;cursor:pointer;overflow:hidden}
+.closed-wrap.out{animation:cwOut .3s ease forwards}
+@keyframes cwIn{from{opacity:0}to{opacity:1}}
+@keyframes cwOut{to{opacity:0}}
+.cs-hang{position:relative;margin-top:calc(env(safe-area-inset-top,0px) + 40px);transform-origin:50% 0;animation:csSwing 2.1s cubic-bezier(.33,0,.3,1) both}
+@keyframes csSwing{0%{transform:translateY(-120%) rotate(-30deg)}16%{transform:translateY(0) rotate(-24deg)}36%{transform:rotate(17deg)}54%{transform:rotate(-10deg)}70%{transform:rotate(5.5deg)}84%{transform:rotate(-2.5deg)}94%{transform:rotate(1deg)}100%{transform:rotate(0)}}
+.cs-str{display:block;width:72%;height:64px;margin:0 auto -2px;overflow:visible}
+.cs-str path{fill:none;stroke:var(--str);stroke-width:1.6;vector-effect:non-scaling-stroke}
+.cs-nail{position:absolute;top:-5px;left:50%;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,#9a9ca3 45%,#3a3b3f);box-shadow:0 2px 4px rgba(0,0,0,.6)}
+.cs-sign{width:min(84vw,330px);background:var(--sign-bg);border-radius:20px;padding:16px 20px 20px;text-align:center;color:var(--sign-ink);border:2px solid var(--sign-edge);box-shadow:0 0 0 5px var(--sign-gap),0 0 0 7px var(--sign-ring),0 34px 60px -18px rgba(0,0,0,.6)}
+.cs-pole{height:7px;border-radius:4px;margin:0 0 18px;background:repeating-linear-gradient(-45deg,#D0151C 0 8px,#F1F1F1 8px 12px,#1E3FA0 12px 20px,#F1F1F1 20px 24px)}
+.cs-logo{display:block;width:96px;height:96px;margin:0 auto;border-radius:50%;object-fit:cover;border:2px solid var(--sign-edge);box-shadow:0 0 0 3px var(--sign-gap),0 0 0 5px var(--sign-ring);animation:csPop .7s cubic-bezier(.3,1.6,.5,1) .45s both}
+@keyframes csPop{from{transform:scale(.3) rotate(-90deg);opacity:0}to{transform:none;opacity:1}}
+.cs-day{margin:16px 0 4px;font:400 40px/1.05 var(--brandfont);text-transform:uppercase;letter-spacing:.04em;color:var(--sign-ink);background:var(--day-fill);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.cs-txt{display:inline-block;font:800 26px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--stamp-ink);background:var(--stamp-bg);padding:7px 14px 6px;border-radius:6px;transform:rotate(-4deg);box-shadow:0 6px 16px -6px rgba(0,0,0,.45);animation:csStamp .45s cubic-bezier(.2,1.4,.5,1) 1s both}
+@keyframes csStamp{0%{transform:scale(2.6) rotate(-14deg);opacity:0}70%{opacity:1}100%{transform:scale(1) rotate(-4deg);opacity:1}}
+.cs-next{margin:16px 0 0;font-size:15px;color:var(--sign-muted)}
+.cs-ok{margin-top:16px;width:100%;height:48px;border-radius:12px;background:var(--stamp-bg);color:var(--stamp-ink);font-weight:700;font-size:16px}
+@media (prefers-reduced-motion:reduce){
+  .cs-hang,.cs-logo,.cs-txt{animation:none}
+}
+
+/* Imena: kompaktno i čitljivo */
+.fit{display:block;max-width:100%;overflow:hidden;white-space:nowrap}
+.fit.fit-wrap{white-space:normal;overflow-wrap:anywhere;line-height:1.1}
+.ar{grid-template-columns:76px minmax(0,1fr) 20px;gap:12px}
+.ar-t{align-self:stretch;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line);padding-right:4px}
+.ar-by{font-size:13px;color:var(--muted)}
+.ar-by b{color:var(--ink);font-weight:600}
+.nc-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.nc-name{font:800 36px/1.05 var(--display);letter-spacing:.01em;margin:8px 0 2px;color:var(--on-hero)}
+.nc-by{display:block;font-size:13.5px;color:var(--hero-muted);margin-bottom:2px}
+.nc-meta{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin-top:6px;color:var(--hero-muted);font-size:15px}
+.nc-meta b{font:800 24px/1 var(--display);color:var(--on-hero);font-variant-numeric:tabular-nums}
+.sheet-head h3.fit{overflow-wrap:normal}
+/* Slobodno, u toku, prošlo, novo zakazano */
+.dot-free{width:8px;height:8px;border-radius:50%;background:var(--free);flex:none}
+.dot-free.pulse{animation:freeDot 2.4s ease-out infinite}
+@keyframes freeDot{0%{box-shadow:0 0 0 0 var(--free-line)}70%,100%{box-shadow:0 0 0 8px transparent}}
+.ar.live{border-color:var(--svc,var(--brass-strong));padding-bottom:18px}
+.ar-prog{position:absolute;left:6px;right:0;bottom:0;height:4px;background:var(--surface-2)}
+.ar-prog i{display:block;height:100%;background:var(--svc,var(--brass-strong));transition:width .8s ease}
+.tag.live{display:inline-flex;align-items:center;gap:6px;background:var(--red-soft);color:var(--red)}
+.tag.live i{width:7px;height:7px;border-radius:50%;background:currentColor;animation:liveDot 1.4s ease-in-out infinite}
+@keyframes liveDot{50%{opacity:.2}}
+.tag.past{background:var(--surface-2);color:var(--muted)}
+.ar.fresh{animation:freshIn 1.6s cubic-bezier(.2,.8,.2,1) both}
+@keyframes freshIn{0%{opacity:0;transform:translateY(14px) scale(.96);box-shadow:0 0 0 0 var(--free-line)}22%{opacity:1;transform:none;box-shadow:0 0 0 5px var(--free-line)}100%{box-shadow:var(--shadow)}}
+.ar.turning{animation:turnPast 1.8s ease both}
+@keyframes turnPast{0%{opacity:1;filter:none}25%{transform:scale(.985)}60%{transform:none}100%{opacity:.55;filter:saturate(.35)}}
+.nc-prog{height:5px;border-radius:5px;background:rgba(255,255,255,.14);margin-top:12px;overflow:hidden}
+.nc-prog i{display:block;height:100%;background:var(--brass-strong);border-radius:5px}
+.booked-pop{position:fixed;z-index:85;left:50%;top:42%;width:min(78vw,300px);transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:4px;padding:22px 20px 20px;border-radius:22px;background:var(--surface);color:var(--ink);text-align:center;box-shadow:0 30px 70px -20px rgba(0,0,0,.55),0 0 0 1px var(--line);pointer-events:none;animation:popIn .4s cubic-bezier(.2,1.4,.5,1) both,popOut .35s ease 1.45s forwards}
+.booked-pop svg{width:66px;height:66px;margin-bottom:6px}
+.booked-pop circle{fill:var(--free-soft);stroke:var(--free);stroke-width:3;stroke-dasharray:145;stroke-dashoffset:145;animation:drawStroke .5s ease .1s forwards}
+.booked-pop path{fill:none;stroke:var(--free);stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:40;stroke-dashoffset:40;animation:drawStroke .32s ease .5s forwards}
+.booked-pop strong{font:800 28px/1 var(--display)}
+.booked-pop span{font-weight:600;font-size:17px;width:100%}
+.booked-pop small{color:var(--muted);font-size:14px}
+@keyframes drawStroke{to{stroke-dashoffset:0}}
+@keyframes popIn{from{opacity:0;transform:translate(-50%,-50%) scale(.7)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes popOut{to{opacity:0;transform:translate(-50%,-56%) scale(.96)}}
+@media (prefers-reduced-motion:reduce){
+  .dot-free.pulse,.tag.live i,.ar.fresh,.ar.turning{animation:none}
+  .booked-pop{animation:popOut .3s ease 1.3s forwards}
+  .booked-pop circle,.booked-pop path{animation:none;stroke-dashoffset:0}
+}
+/* Traka s vijestima */
+.ticker{display:flex;align-items:stretch;width:100%;height:28px;background:var(--surface-2);color:var(--ink);overflow:hidden;border-radius:8px;box-shadow:inset 0 0 0 1px var(--line)}
+.flip{position:relative;height:32px;perspective:700px;cursor:pointer;-webkit-tap-highlight-color:transparent;outline-offset:4px}
+.flip-in{position:relative;height:100%;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.3,1.35,.5,1)}
+.flip.flipped .flip-in{transform:rotateX(180deg)}
+.face{position:absolute;inset:0;display:flex;align-items:center;gap:8px;-webkit-backface-visibility:hidden;backface-visibility:hidden;min-width:0}
+.face.back{transform:rotateX(180deg)}
+.face.front h1{min-width:0}
+.news-dot{flex:none;width:8px;height:8px;border-radius:50%;background:var(--pole-red);box-shadow:0 0 0 0 rgba(208,21,28,.5);animation:newsDot 2s ease-out infinite}
+@keyframes newsDot{0%{box-shadow:0 0 0 0 rgba(208,21,28,.55)}70%,100%{box-shadow:0 0 0 7px rgba(208,21,28,0)}}
+.ds.game-day{box-shadow:inset 0 -3px 0 #2F6FE4}
+.gm-dot{position:absolute;top:5px;right:5px;width:7px;height:7px;border-radius:50%;background:#2F6FE4}
+.ds.gta-day{background:linear-gradient(150deg,#FF5FA2 0%,#B44CFF 52%,#FF9A3C 100%);border-color:transparent;color:#fff}
+.ds.gta-day .ds-n{color:rgba(255,255,255,.92)}
+.ds.gta-day .ds-d{text-shadow:0 1px 6px rgba(80,0,90,.45)}
+.ds.gta-day[aria-current="date"]{box-shadow:0 0 0 2.5px var(--ink) inset,0 0 0 2px var(--bg)}
+.gta-tag{position:absolute;top:3px;right:3px;font:800 8.5px/1 var(--display);letter-spacing:.06em;font-style:normal;background:rgba(0,0,0,.35);color:#fff;padding:2px 3px;border-radius:3px}
+.gamecard{border-radius:16px;padding:12px 14px;margin:0 0 14px;background:var(--surface);border:1px solid var(--line)}
+.gamecard .gc-k{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:#2F6FE4}
+.gamecard ul{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.gamecard li{font-size:14px;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--surface-2)}
+.gamecard.gta{position:relative;overflow:hidden;border:0;color:#fff;background:linear-gradient(135deg,#FF5FA2 0%,#B44CFF 50%,#FF9A3C 100%);box-shadow:0 14px 30px -16px rgba(140,40,200,.8)}
+.gamecard.gta::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-100%);animation:gtaShine 3.5s ease-in-out 1s infinite}
+@keyframes gtaShine{0%{transform:translateX(-100%)}40%,100%{transform:translateX(100%)}}
+.gamecard.gta .gc-k{color:rgba(255,255,255,.9)}
+.gamecard.gta strong{font:800 30px/1.05 var(--display);margin-top:4px;text-shadow:0 2px 10px rgba(60,0,80,.4)}
+.gamecard.gta .gc-p{display:block;font-size:13.5px;opacity:.92;margin-top:2px}
+.gta-count{display:flex;align-items:baseline;gap:8px;width:100%;margin:0 0 14px;padding:10px 14px;border-radius:14px;color:#fff;text-align:left;background:linear-gradient(135deg,#FF5FA2 0%,#B44CFF 55%,#FF9A3C 100%)}
+.gta-count span{font-weight:700;font-size:14.5px;flex:1;min-width:0}
+.gta-count b{font:800 21px/1 var(--display)}
+.gta-count small{font-size:12.5px;opacity:.9}
+@media (prefers-reduced-motion:reduce){.flip-in{transition:none}.news-dot,.gamecard.gta::after{animation:none}}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 124px)}
+
+.tk-view{flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22px,#000 calc(100% - 16px),transparent);mask-image:linear-gradient(90deg,transparent 0,#000 22px,#000 calc(100% - 16px),transparent)}
+.tk-track{display:inline-flex;align-items:center;height:100%;white-space:nowrap;animation:tick 60s linear infinite;will-change:transform}
+.tk-dup{display:inline-flex;align-items:center}
+.ticker:hover .tk-track,.ticker:active .tk-track{animation-play-state:paused}
+@keyframes tick{to{transform:translateX(-50%)}}
+.tk-item{color:inherit;text-decoration:none;font-size:12.5px;font-weight:500;padding-left:14px}
+.tk-item b{color:var(--brass-strong);font-weight:800;margin-right:6px;font-size:11px;letter-spacing:.04em}
+.tk-sep{display:inline-flex;margin-left:14px;color:var(--pole-red)}
+.tk-sep svg{width:11px;height:11px}
+.news-list{list-style:none;margin:0 0 12px;padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;max-height:260px;overflow-y:auto}
+.news-list li{display:flex;align-items:center;gap:10px;padding:8px 8px 8px 12px;font-size:14px}
+.news-list li+li{border-top:1px solid var(--line)}
+.news-list li span{flex:1;min-width:0}
+.news-list li b{color:var(--brass);font-size:12.5px}
+.news-list .del{width:36px;height:36px;flex:none}
+.news-add{display:flex;gap:8px}
+.news-add .inp{flex:1;min-width:0}
+@media (prefers-reduced-motion:reduce){.tk-track{animation:none}.tk-view{overflow-x:auto}.tk-dup{display:none}}
+/* Dan izlaska GTA VI: cijela aplikacija u Vice City bojama */
+:root:root[data-event="gta"]:not(#x){
+  --bg:#1A0B2E; --surface:#251240; --surface-2:#31184F; --ink:#FFF0FA; --muted:#CDAEE2; --line:#4B2B70;
+  --hdr:#2A0F45; --hdr-ink:#FFFFFF; --hdr-muted:rgba(255,255,255,.82); --hdr-line:transparent; --sync-bg:rgba(255,255,255,.16);
+  --brand-fill:linear-gradient(180deg,#FFFFFF 0%,#FFE1F2 60%,#FFC7A0 100%);
+  --green:#FF4FA0; --on-green:#FFFFFF; --on-green-muted:rgba(255,255,255,.85); --tab-active:#FF7AC0;
+  --brass:#FFB25C; --brass-strong:#FF9A3C; --brass-soft:rgba(255,154,60,.16); --on-brass:#2A0F45;
+  --red:#FF5A7A; --red-soft:rgba(255,90,122,.16); --ok:#5CF2B0; --ok-soft:rgba(92,242,176,.13);
+  --pole-red:#FF4FA0; --pole-white:#FFE9F5; --pole-blue:#8E3BFF;
+  --hero:#33155C; --on-hero:#FFFFFF; --hero-muted:#E0C2F2; --fab:linear-gradient(135deg,#FF4FA0,#8E3BFF); --on-fab:#FFFFFF;
+  --free:#2EE6C5; --free-soft:rgba(46,230,197,.07); --free-line:rgba(46,230,197,.45); --free-strong:rgba(46,230,197,.2);
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 12px 26px -16px rgba(255,79,160,.45);
+  color-scheme:dark;
+}
+:root[data-event="gta"] body{background:linear-gradient(180deg,#2E0F4E 0%,#1A0B2E 38%,#130824 100%) fixed}
+:root[data-event="gta"] .top{background:linear-gradient(90deg,#FF4FA0 0%,#B44CFF 52%,#FF9A3C 100%)}
+:root[data-event="gta"] body::before{background:#FF4FA0}
+:root[data-event="gta"] .tabs{background:#20103A;border-top-color:#4B2B70}
+:root[data-event="gta"] .dhead h2{background:linear-gradient(90deg,#FF7AC0,#C78BFF 50%,#FFB25C);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+:root[data-event="gta"] .ar{border-color:#5A3388}
+body,.top,.tabs,.ar,.ds,.fb,.fchip{transition:background-color .45s ease,border-color .45s ease,color .45s ease}
+.ds.game-day::after{content:"";position:absolute;left:8px;right:8px;bottom:3px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--g1,#2F6FE4),var(--g2,#2F6FE4))}
+.ds.game-day{box-shadow:none}
+.gm-dot{background:var(--g1,#2F6FE4)}
+.gamecard li.col{color:#fff;background:linear-gradient(135deg,var(--g1),var(--g2));text-shadow:0 1px 3px rgba(0,0,0,.55);box-shadow:inset 0 0 0 1px rgba(255,255,255,.15)}
+.logo{cursor:pointer}
+.logo.spin{animation:logoSpin .75s cubic-bezier(.3,1.35,.5,1)}
+@keyframes logoSpin{from{transform:rotate(0) scale(1)}50%{transform:rotate(200deg) scale(1.12)}to{transform:rotate(360deg) scale(1)}}
+@media (prefers-reduced-motion:reduce){.logo.spin{animation:none}}
+
+/* Postavke v2 */
+.set-hero{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.set-hero img{width:56px;height:56px;border-radius:50%;object-fit:cover;border:1.5px solid #9A9CA3;box-shadow:0 0 0 2px var(--bg),0 0 0 3.5px var(--pole-red)}
+.set-hero h2{font:800 34px/1 var(--display);margin:0}
+.set-hero p{margin:3px 0 0;color:var(--muted);font-size:14px}
+.set-tabs{position:sticky;top:calc(env(safe-area-inset-top,0px) + 70px);z-index:5;margin-bottom:6px;box-shadow:0 6px 14px -12px rgba(0,0,0,.5)}
+.set-tabs button{font-size:14px}
+.group-t{font-size:13px;font-weight:700;color:var(--muted);margin:18px 6px 8px}
+.group-t small{font-weight:500}
+.group{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:6px}
+.row-s{display:flex;align-items:center;gap:12px;padding:11px 14px;min-height:56px;cursor:default}
+.row-s+.row-s{border-top:1px solid var(--line)}
+label.row-s{cursor:pointer}
+.row-s.col{flex-direction:column;align-items:stretch;gap:8px}
+.rl{flex:1;min-width:0}
+.rl b{display:block;font-weight:600;font-size:15.5px}
+.rl small{display:block;color:var(--muted);font-size:13px;margin-top:1px}
+.rl small.plain{font-size:14px;line-height:1.45}
+.inp.narrow{width:110px;flex:none;height:42px;text-align:center;padding:0 8px}
+select.inp.narrow{text-align:left;padding-right:28px;background-position:calc(100% - 16px) 18px,calc(100% - 11px) 18px}
+.sw-t{-webkit-appearance:none;appearance:none;flex:none;width:50px;height:30px;margin:0;border-radius:999px;background:var(--line);position:relative;cursor:pointer;transition:background .2s}
+.sw-t::before{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.35);transition:transform .22s cubic-bezier(.3,1.4,.5,1)}
+.sw-t:checked{background:var(--green)}
+.sw-t:checked::before{transform:translateX(20px)}
+.hr .rl b{font-size:15px}
+.hr-t{display:flex;align-items:center;gap:8px;margin-top:6px}
+.hr-t i{color:var(--muted);font-style:normal}
+.hr-t .inp{width:112px;height:40px;padding:0 8px;text-align:center;font-size:15.5px}
+.hr-off{color:var(--muted)}
+.hr{align-items:flex-start}
+.hr .sw-t{margin-top:2px}
+.oc-leg .lg{flex:none}
+.oc-leg .lg.ldot{width:8px;height:8px;border-radius:50%}
+.hr-t[hidden],.hr-off[hidden]{display:none}
+.sr-main{display:grid;gap:8px;min-width:0}
+.sr-sub{display:flex;gap:8px}
+.mini{position:relative;flex:1}
+.mini .inp{padding-right:42px}
+.mini span{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--muted);pointer-events:none}
+.cdot{margin-top:7px}
+.add-row{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:50px;border-top:1px solid var(--line);font-weight:700;color:var(--green)}
+.off-wrap{padding:12px}
+.off-help{margin:0 2px 10px;font-size:13.5px;color:var(--muted)}
+.oc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.oc-head strong{font:800 20px/1 var(--display)}
+.oc-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.oc-wd{text-align:center;font-size:11.5px;font-weight:700;color:var(--muted);padding:2px 0 4px}
+.oc-d{position:relative;aspect-ratio:1;border-radius:10px;font:700 17px/1 var(--display);background:var(--surface-2);color:var(--ink);display:grid;place-items:center}
+.oc-d:disabled{opacity:.35;cursor:default}
+.oc-d.weekly{background:repeating-linear-gradient(-45deg,var(--surface-2) 0 5px,transparent 5px 10px);opacity:.5}
+.oc-d.today{box-shadow:inset 0 0 0 2px var(--brass-strong)}
+.oc-d.off{background:var(--red);color:#fff;opacity:1}
+.oc-d.off::after{content:"";position:absolute;left:22%;right:22%;top:50%;height:2px;background:rgba(255,255,255,.85);transform:rotate(-35deg)}
+.oc-d i{position:absolute;bottom:5px;left:50%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--brass-strong)}
+.oc-leg{display:flex;flex-wrap:wrap;gap:6px 14px;margin:10px 2px 0;font-size:12.5px;color:var(--muted)}
+.oc-leg span{display:inline-flex;align-items:center;gap:6px}
+.lg{width:12px;height:12px;border-radius:4px;display:inline-block}
+.lg.off{background:var(--red)}
+.lg.weekly{background:repeating-linear-gradient(-45deg,var(--muted) 0 2px,transparent 2px 4px)}
+.lg.ldot{width:7px;height:7px;border-radius:50%;background:var(--brass-strong)}
+.oc-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.oc-chip{display:inline-flex;align-items:center;gap:4px;height:32px;padding:0 6px 0 11px;border-radius:999px;background:var(--red-soft);color:var(--red);font-weight:700;font-size:13.5px}
+.oc-chip svg{width:14px;height:14px}
+.news-g{padding:0}
+.news-g .news-list{border:0;border-radius:0;margin:0}
+.news-g .news-add{padding:10px;border-top:1px solid var(--line)}
+.logo-full.small{max-width:240px;margin:2px auto 4px}
+.savebar{position:fixed;z-index:26;left:0;right:0;bottom:calc(66px + env(safe-area-inset-bottom,0px));padding:10px 16px;pointer-events:none}
+.savebar .primary{pointer-events:auto;max-width:608px;margin:0 auto;box-shadow:0 14px 30px -12px rgba(0,0,0,.55);animation:sbIn .3s cubic-bezier(.2,1.3,.5,1)}
+@keyframes sbIn{from{transform:translateY(20px);opacity:0}}
+/* Igre iza dugmeta */
+.gbtn{position:relative;flex:none;width:54px;height:54px;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;color:#fff;background:linear-gradient(145deg,#2A6BE8,#123A9E);box-shadow:0 10px 20px -12px #1D4ED8;transition:transform .2s}
+.gbtn span{font:800 11px/1 var(--display);letter-spacing:.08em}
+.gbtn svg{width:22px;height:22px}
+.gbtn b{position:absolute;top:-6px;right:-6px;min-width:20px;height:20px;padding:0 5px;border-radius:10px;background:var(--pole-red);color:#fff;font-size:11.5px;line-height:20px;text-align:center;border:2px solid var(--bg)}
+.gbtn.gta{background:linear-gradient(145deg,#FF4FA0,#8E3BFF 55%,#FF9A3C)}
+.gbtn.open{transform:scale(.94);box-shadow:inset 0 0 0 2px rgba(255,255,255,.7)}
+.gpanel{animation:gpIn .3s cubic-bezier(.2,.8,.2,1)}
+@keyframes gpIn{from{opacity:0;transform:translateY(-8px)}}
+.flip:not(.flipped) .tk-track{animation-play-state:paused}
+/* Prijava */
+.login{position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding:24px 18px calc(24px + env(safe-area-inset-bottom,0px));background:radial-gradient(120% 70% at 50% 0%,var(--surface) 0%,var(--bg) 60%);overflow-y:auto}
+.lg-card{width:100%;max-width:380px;text-align:left}
+.lg-logo{display:block;width:96px;height:96px;margin:0 auto 14px;border-radius:50%;object-fit:cover;border:2px solid #9A9CA3;box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--pole-red)}
+.lg-card h2{font:800 38px/1 var(--display);text-align:center;margin:0}
+.lg-sub{text-align:center;color:var(--muted);margin:6px 0 22px}
+.lg-link{display:block;margin:14px auto 0;color:var(--muted);font-weight:600;font-size:14.5px;text-decoration:underline}
+.lg-or{display:flex;align-items:center;gap:10px;margin:20px 0 14px;color:var(--muted);font-size:13px}
+.lg-or::before,.lg-or::after{content:"";flex:1;height:1px;background:var(--line)}
+.lg-trial{width:100%}
+.lg-note{text-align:center;color:var(--muted);font-size:13px;margin:10px 0 0}
+.pin-hidden{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.pin-dots{display:flex;justify-content:center;gap:14px;margin:6px 0 8px}
+.pin-dots i{width:16px;height:16px;border-radius:50%;border:2px solid var(--muted);transition:background .15s,border-color .15s,transform .15s}
+.pin-dots i.on{background:var(--green);border-color:var(--green);transform:scale(1.08)}
+.pin-dots.shake{animation:pinShake .4s}
+@keyframes pinShake{20%{transform:translateX(-10px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(4px)}}
+.lg-msg{text-align:center;min-height:20px;margin:0 0 6px}
+.pin-pad{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:300px;margin:6px auto 0}
+.pin-pad button{height:66px;border-radius:50%;width:66px;justify-self:center;background:var(--surface-2);font:700 28px/1 var(--display);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line);transition:transform .08s,background .15s}
+.pin-pad button:active{transform:scale(.92);background:var(--green);color:var(--on-green)}
+.pin-pad .pin-del{background:transparent;box-shadow:none;color:var(--muted)}
+.login.busy .pin-pad{opacity:.5;pointer-events:none}
+.lg-mail{margin-bottom:10px}
+@media (prefers-reduced-motion:reduce){.pin-dots.shake{animation:none}}
+@media (max-width:360px){
+
+  .dayhead h2,.vhead h2{font-size:30px}
+  .svc-grid,.svc-list{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .pole::before{animation:none}
+  .sheet,.sheet-wrap,.toast{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="splash" id="splash" aria-hidden="true">
+  <div class="sp-half sp-top"><div class="sp-stage"><img class="sp-logo" alt=""><i class="sp-shine"></i></div></div>
+  <div class="sp-half sp-bot"><div class="sp-stage"><img class="sp-logo" alt=""><i class="sp-shine"></i></div></div>
+  <div class="sp-cut"></div>
+  <svg class="sp-scissors" viewBox="0 0 120 60">
+    <defs><linearGradient id="spSteel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--st1)"/><stop offset=".45" style="stop-color:var(--st2)"/><stop offset=".56" style="stop-color:var(--st3)"/><stop offset="1" style="stop-color:var(--st4)"/></linearGradient></defs>
+    <g class="sb">
+      <path d="M60 30 L117 28.6 L62 25.2 Z" fill="url(#spSteel)"/>
+      <path d="M60 30 L29 42.5" stroke="url(#spSteel)" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="19" cy="46.5" r="9" fill="none" stroke="url(#spSteel)" stroke-width="4"/>
+    </g>
+    <g class="sa">
+      <path d="M60 30 L117 31.4 L62 34.8 Z" fill="url(#spSteel)"/>
+      <path d="M60 30 L29 17.5" stroke="url(#spSteel)" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="19" cy="13.5" r="9" fill="none" stroke="url(#spSteel)" stroke-width="4"/>
+    </g>
+    <circle cx="60" cy="30" r="3.8" fill="#C41E26" stroke="#eceef1" stroke-width="1.5"/>
+  </svg>
+</div>
+<header class="top">
+  <div class="pole" aria-hidden="true"></div>
+  <div class="top-in">
+    <img class="logo" data-act="flip-logo" role="button" tabindex="0" aria-label="Prebaci između naziva i vijesti" src="img/avatar.jpg" alt="" width="44" height="44">
+    <div class="brand flip" id="brandFlip" data-act="flip" role="button" tabindex="0" aria-label="Naziv salona, dodirnite za vijesti">
+      <div class="flip-in">
+        <div class="face front"><h1 id="brandName">Frizer kuće Rakića</h1><i class="news-dot" id="newsDot" hidden></i></div>
+        <div class="face back"><div class="ticker" id="ticker" aria-label="Vijesti" hidden></div></div>
+      </div>
+    </div>
+    <button class="sync" id="sync" data-act="sync-info"><i></i><span>Povezivanje…</span></button>
+  </div>
+</header>
+
+<main class="wrap" id="view" aria-live="polite"></main>
+
+<button class="fab" id="fab" data-act="fab">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+  Novi termin
+</button>
+
+<nav class="tabs" aria-label="Glavni meni">
+  <div class="tabs-in">
+    <button class="tab" data-act="nav" data-view="raspored">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+      Raspored
+    </button>
+    <button class="tab" data-act="nav" data-view="klijenti">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5M16 4.8a3.5 3.5 0 0 1 0 6.4M18.5 14.8c1.6.8 2.6 2.5 3 5.2"/></svg>
+      Klijenti
+    </button>
+    <button class="tab" data-act="nav" data-view="statistika">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 20V11M10 20V5M16 20v-7M21 20H3"/></svg>
+      Statistika
+    </button>
+    <button class="tab" data-act="nav" data-view="postavke">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+      Postavke
+    </button>
+  </div>
+</nav>
+
+<div class="sheet-wrap" id="sheetWrap" hidden>
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true"></div>
+</div>
+<div class="login" id="login" hidden>
+  <div class="lg-card">
+    <img class="lg-logo" src="img/avatar.jpg" alt="">
+    <h2>Unesite PIN</h2>
+    <p class="lg-sub">Frizer kuće Rakića</p>
+    <label class="field lg-mail" id="lg-mailrow" hidden><span>E-mail salona</span><input class="inp big" id="lg-email" type="email" autocomplete="username" inputmode="email" autocapitalize="off"></label>
+    <div class="pin-dots" id="pinDots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <input id="lg-pass" class="pin-hidden" type="password" inputmode="numeric" autocomplete="current-password" maxlength="6" aria-label="PIN od 6 cifara">
+    <p class="msg lg-msg" id="lg-msg"></p>
+    <div class="pin-pad" role="group" aria-label="Tastatura za PIN">
+      <button type="button" data-act="pin-key" data-k="1">1</button><button type="button" data-act="pin-key" data-k="2">2</button><button type="button" data-act="pin-key" data-k="3">3</button>
+      <button type="button" data-act="pin-key" data-k="4">4</button><button type="button" data-act="pin-key" data-k="5">5</button><button type="button" data-act="pin-key" data-k="6">6</button>
+      <button type="button" data-act="pin-key" data-k="7">7</button><button type="button" data-act="pin-key" data-k="8">8</button><button type="button" data-act="pin-key" data-k="9">9</button>
+      <span></span><button type="button" data-act="pin-key" data-k="0">0</button><button type="button" class="pin-del" data-act="pin-del" aria-label="Obriši cifru"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 5H9l-6 7 6 7h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1z"/><path d="m16 9-5 6M11 9l5 6"/></svg></button>
+    </div>
+    <button type="button" class="lg-link" data-act="reset-pass">Zaboravili ste PIN?</button>
+    <div class="lg-or"><span>ili</span></div>
+    <button type="button" class="btn plain lg-trial" data-act="trial">Isprobaj bez prijave</button>
+    <p class="lg-note">Bez prijave se sve čuva samo na ovom telefonu.</p>
+  </div>
+</div>
+<div id="dialogRoot"></div>
+<div class="toast" id="toast" role="status"></div>
+
+<noscript><p style="padding:20px">Za rad aplikacije potrebno je uključiti JavaScript.</p></noscript>
+
+<script>
+(function(){
+'use strict';
+
+/* ---------- Konstante ---------- */
+const DAYS=['Nedjelja','Ponedjeljak','Utorak','Srijeda','Četvrtak','Petak','Subota'];
+const DAYS_S=['Ned','Pon','Uto','Sri','Čet','Pet','Sub'];
+const DAYS_I=['Nedjeljom','Ponedjeljkom','Utorkom','Srijedom','Četvrtkom','Petkom','Subotom'];
+const DAYS_A=['nedjelju','ponedjeljak','utorak','srijedu','četvrtak','petak','subotu'];
+const MONTHS=['januar','februar','mart','april','maj','juni','juli','august','septembar','oktobar','novembar','decembar'];
+const MONTHS_G=['januara','februara','marta','aprila','maja','juna','jula','augusta','septembra','oktobra','novembra','decembra'];
+const WEEK_ORDER=['1','2','3','4','5','6','0'];
+const STATUS={zakazan:'Zakazan',zavrsen:'Završen',nije_dosao:'Nije došao',otkazan:'Otkazan'};
+const LS_A='rakic.termini.v1', LS_S='rakic.postavke.v1', LS_N='rakic.biljeske.v1';
+const SVC_COLORS=['#C8963F','#3D8B6E','#3F6FA8','#A2453F','#7B5A9E','#5E7380','#8A8A3B','#C46A2B'];
+
+const DEFAULT_SETTINGS={
+  naziv:'Frizer kuće Rakića', pozivni:'+387', valuta:'KM', interval:30,
+  radno:{
+    '1':{radi:true,od:'08:00',do:'20:00'},'2':{radi:true,od:'08:00',do:'20:00'},'3':{radi:true,od:'08:00',do:'20:00'},
+    '4':{radi:true,od:'08:00',do:'20:00'},'5':{radi:true,od:'08:00',do:'20:00'},'6':{radi:true,od:'08:00',do:'15:00'},
+    '0':{radi:false,od:'09:00',do:'13:00'}
+  },
+  usluge:[
+    {id:'s1',naziv:'Muško šišanje',trajanje:30,cijena:15,boja:0},
+    {id:'s2',naziv:'Šišanje i brada',trajanje:45,cijena:22,boja:1},
+    {id:'s3',naziv:'Fade šišanje',trajanje:40,cijena:18,boja:2},
+    {id:'s4',naziv:'Uređivanje brade',trajanje:20,cijena:10,boja:3},
+    {id:'s5',naziv:'Brijanje britvom',trajanje:30,cijena:15,boja:4},
+    {id:'s6',naziv:'Dječije šišanje',trajanje:20,cijena:10,boja:5}
+  ]
+};
+
+const I={
+  left:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>',
+  right:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>',
+  x:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>',
+  plus:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>',
+  phone:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>',
+  sms:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
+  viber:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c5.3 0 8.5 2.4 8.5 8 0 5.4-3.2 7.8-8.5 7.8-.8 0-1.6 0-2.3-.2L6 21v-3.8C4.2 16 3.5 13.8 3.5 10.5c0-5.6 3.2-8 8.5-8z"/><path d="M9.3 7.5c.3-.3.8-.3 1 0l.9 1.3c.2.3.1.7-.1.9l-.4.4c.4 1 1.2 1.8 2.2 2.2l.4-.4c.2-.2.6-.3.9-.1l1.3.9c.3.2.3.7 0 1-.6.7-1.4 1-2.3.6-2-.8-3.5-2.3-4.3-4.3-.3-.9 0-1.8.4-2.5z"/></svg>',
+  search:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',
+  cal:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+  trash:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg>',
+  note:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>',
+  check:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>'
+};
+
+/* ---------- Tema ---------- */
+const LOGO_FULL='img/logo.webp';
+const LOGO_LIGHT='img/logo-light.webp';
+function currentSkin(){return document.documentElement.getAttribute('data-skin')||'tamna';}
+(function runSplash(){
+  const sp=document.getElementById('splash');if(!sp)return;
+  if(document.documentElement.classList.contains('nosplash')){sp.remove();return;}
+  const imgs=sp.querySelectorAll('.sp-logo');
+  const lsrc=currentLogo();imgs.forEach(i=>{i.src=lsrc;});
+  const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let done=false;
+  const finish=()=>{if(done)return;done=true;sp.remove();};
+  const skip=()=>{if(done)return;sp.classList.add('out');setTimeout(finish,380);};
+  const start=()=>{if(sp.classList.contains('run'))return;sp.classList.add('run');setTimeout(finish,reduce?1300:2780);};
+  const p=imgs[0].decode?imgs[0].decode():Promise.resolve();
+  p.then(start,start);setTimeout(start,1200);setTimeout(finish,6000);
+  sp.addEventListener('click',skip);
+})();
+/* Zvuk za neradni dan: zvonce na vratima i makaze, napravljeno u pregledniku */
+let actx=null,noiseB=null;
+function soundOn(){try{return localStorage.getItem('rakic.zvuk')!=='0';}catch(e){return true;}}
+function audioCtx(){
+  try{
+    if(!actx){const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;actx=new C();}
+    if(actx.state==='suspended')actx.resume();
+    return actx;
+  }catch(e){return null;}
+}
+function noiseBuf(ctx){
+  if(noiseB)return noiseB;
+  noiseB=ctx.createBuffer(1,Math.floor(ctx.sampleRate*0.6),ctx.sampleRate);
+  const d=noiseB.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;
+  return noiseB;
+}
+function env(ctx,g,t,peak,att,dec){g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(peak,t+att);g.gain.exponentialRampToValueAtTime(0.0001,t+dec);}
+function bellHit(ctx,out,t,f,amp){
+  [[1,1,1.5],[2.76,.5,.85],[5.4,.3,.5],[8.93,.16,.3]].forEach(p=>{
+    const o=ctx.createOscillator();o.type='sine';o.frequency.value=f*p[0];
+    const g=ctx.createGain();env(ctx,g,t,amp*p[1],.003,p[2]);
+    o.connect(g);g.connect(out);o.start(t);o.stop(t+p[2]+.05);
+  });
+  const n=ctx.createBufferSource();n.buffer=noiseBuf(ctx);
+  const hp=ctx.createBiquadFilter();hp.type='highpass';hp.frequency.value=6000;
+  const ng=ctx.createGain();env(ctx,ng,t,amp*.25,.001,.03);
+  n.connect(hp);hp.connect(ng);ng.connect(out);n.start(t,Math.random()*.4);n.stop(t+.05);
+}
+function snipAt(ctx,out,t){
+  const n=ctx.createBufferSource();n.buffer=noiseBuf(ctx);
+  const bp=ctx.createBiquadFilter();bp.type='bandpass';bp.Q.value=3;
+  bp.frequency.setValueAtTime(2400,t);bp.frequency.exponentialRampToValueAtTime(7800,t+.075);
+  const g=ctx.createGain();g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(.9,t+.004);g.gain.exponentialRampToValueAtTime(.22,t+.055);g.gain.exponentialRampToValueAtTime(0.0001,t+.095);
+  n.connect(bp);bp.connect(g);g.connect(out);n.start(t,Math.random()*.4);n.stop(t+.12);
+  const o=ctx.createOscillator();o.type='triangle';o.frequency.value=3500;
+  const og=ctx.createGain();og.gain.setValueAtTime(0.0001,t+.074);og.gain.exponentialRampToValueAtTime(.35,t+.078);og.gain.exponentialRampToValueAtTime(0.0001,t+.11);
+  o.connect(og);og.connect(out);o.start(t+.07);o.stop(t+.12);
+}
+function thudAt(ctx,out,t){
+  const o=ctx.createOscillator();o.type='sine';o.frequency.setValueAtTime(150,t);o.frequency.exponentialRampToValueAtTime(55,t+.14);
+  const g=ctx.createGain();env(ctx,g,t,.7,.004,.18);
+  o.connect(g);g.connect(out);o.start(t);o.stop(t+.2);
+}
+function playClosedSound(force){
+  if(!force&&!soundOn())return;
+  const ctx=audioCtx();if(!ctx)return;
+  try{
+    const t=ctx.currentTime+.03;
+    const mg=ctx.createGain();mg.gain.value=.55;
+    const comp=ctx.createDynamicsCompressor();mg.connect(comp);comp.connect(ctx.destination);
+    bellHit(ctx,mg,t,1180,.5);bellHit(ctx,mg,t+.17,1196,.36);bellHit(ctx,mg,t+.43,1172,.2);
+    snipAt(ctx,mg,t+.84);snipAt(ctx,mg,t+1.03);
+    thudAt(ctx,mg,t+1.3);
+  }catch(e){}
+}
+/* Traka s vijestima */
+const LS_V='rakic.vijesti.v1';
+const I_SC='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg>';
+function normNews(x){
+  x=x&&typeof x==='object'?x:{};
+  const st=Array.isArray(x.stavke)?x.stavke:[];
+  return {izvor:str(x.izvor,40),azurirano:str(x.azurirano,40),stavke:st.filter(i=>i&&typeof i.naslov==='string'&&i.naslov.trim()).slice(0,40).map(i=>({naslov:i.naslov.trim().slice(0,200),link:/^https:\/\//.test(String(i.link||''))?String(i.link).slice(0,500):'',izvor:str(i.izvor,30)}))};
+}
+function tickerOn(){try{return localStorage.getItem('rakic.ticker')!=='0';}catch(e){return true;}}
+/* Datumi izlaska igara */
+const LS_G='rakic.igre.v1';
+function normGames(x){
+  const st=x&&Array.isArray(x.stavke)?x.stavke:[];
+  return st.filter(g=>g&&validD(g.datum)&&typeof g.naziv==='string'&&g.naziv.trim()).slice(0,300).map(g=>({datum:g.datum,naziv:g.naziv.trim().slice(0,80),platforme:str(g.platforme,60),tip:g.tip==='gta'?'gta':'',boje:Array.isArray(g.boje)?g.boje.filter(c=>/^#[0-9a-fA-F]{6}$/.test(String(c))).slice(0,3):[]}));
+}
+function gamesOnOff(){try{return localStorage.getItem('rakic.igre')!=='0';}catch(e){return true;}}
+function gamesOn(date){return gamesOnOff()?state.games.filter(g=>g.datum===date):[];}
+function gamesHTML(date){
+  if(!gamesOnOff())return '';
+  const t=today();let out='';
+  if(date===t){
+    const g=state.games.filter(x=>x.tip==='gta'&&x.datum>t).sort((a,b)=>a.datum.localeCompare(b.datum))[0];
+    if(g){const n=Math.round((pd(g.datum)-pd(t))/864e5);if(n<=120)out+='<button class="gta-count" data-act="pick" data-date="'+g.datum+'"><span>'+esc(g.naziv.replace(/^Grand Theft Auto /,'GTA '))+'</span><b>'+(n===1?'sutra':'za '+n+' '+plural(n,'dan','dana','dana'))+'</b><small>'+esc(shortDate(g.datum))+'</small></button>';}
+  }
+  const list=gamesOn(date);if(!list.length)return out;
+  const when=date===t?'Izlazi danas':date>t?'Izlazi na ovaj dan':'Izašlo na ovaj dan';
+  const gta=list.filter(x=>x.tip==='gta'),rest=list.filter(x=>x.tip!=='gta');
+  gta.forEach(x=>{out+='<div class="gamecard gta"><span class="gc-k">'+when+'</span><strong class="fit" data-min="16">'+esc(x.naziv)+'</strong>'+(x.platforme?'<span class="gc-p">'+esc(x.platforme)+'</span>':'')+'</div>';});
+  if(rest.length)out+='<div class="gamecard"><span class="gc-k">'+I_PAD+when+' na PlayStation 5</span><ul>'+rest.map(x=>'<li'+(x.boje.length?' class="col" style="--g1:'+x.boje[0]+';--g2:'+(x.boje[1]||x.boje[0])+'"':'')+'>'+esc(x.naziv)+'</li>').join('')+'</ul></div>';
+  return out;
+}
+const I_PAD='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9h4M8 7v4M15 10h.01M18 8h.01"/><path d="M7 5h10a5 5 0 0 1 4.9 6l-1 5a3 3 0 0 1-5.4 1.2L14 15h-4l-1.5 2.2A3 3 0 0 1 3.1 16l-1-5A5 5 0 0 1 7 5z"/></svg>';
+function gameBtn(date){
+  if(!gamesOnOff())return '';
+  const t=today(),list=gamesOn(date),gta=list.some(g=>g.tip==='gta');
+  const soon=date===t&&state.games.some(g=>g.tip==='gta'&&g.datum>t&&(pd(g.datum)-pd(t))/864e5<=120);
+  if(!list.length&&!soon)return '';
+  return '<button type="button" class="gbtn'+(gta?' gta':'')+(state.gamesOpen?' open':'')+'" data-act="games-toggle" aria-expanded="'+state.gamesOpen+'" aria-label="'+(list.length?list.length+' '+plural(list.length,'igra izlazi','igre izlaze','igara izlazi')+' ovaj dan':'Odbrojavanje do GTA VI')+'">'+I_PAD+'<span>'+(gta?'GTA':'PS5')+'</span>'+(list.length?'<b>'+list.length+'</b>':'')+'</button>';
+}
+function hashStr(t){let h=5381;for(let i=0;i<t.length;i++)h=((h<<5)+h+t.charCodeAt(i))>>>0;return h.toString(36);}
+function renderTicker(){
+  const el=document.getElementById('ticker');if(!el)return;
+  const items=(state.news&&state.news.stavke)||[];
+  const on=tickerOn()&&items.length>0;
+  const sig=JSON.stringify(items),hs=hashStr(sig);
+  const fl=document.getElementById('brandFlip');
+  if(fl){fl.classList.toggle('can-flip',on);if(!on)fl.classList.remove('flipped');}
+  let seen='';try{seen=localStorage.getItem('rakic.newsSeen')||'';}catch(e){}
+  const dot=document.getElementById('newsDot');if(dot)dot.hidden=!on||seen===hs;
+  el.hidden=!on;
+  if(!on){el.innerHTML='';el.dataset.sig='';return;}
+  if(el.dataset.sig===sig)return;el.dataset.sig=sig;
+  const one=items.map(it=>(it.link?'<a class="tk-item" href="'+esc(it.link)+'" target="_blank" rel="noopener">':'<span class="tk-item">')+(it.izvor?'<b>'+esc(it.izvor)+'</b>':'')+esc(it.naslov)+(it.link?'</a>':'</span>')+'<i class="tk-sep" aria-hidden="true">'+I_SC+'</i>').join('');
+  el.innerHTML='<div class="tk-view"><div class="tk-track">'+one+'<span class="tk-dup" aria-hidden="true">'+one+'</span></div></div>';
+  requestAnimationFrame(()=>{const tr=el.querySelector('.tk-track');if(tr){tr.style.animationDuration=Math.max(18,tr.scrollWidth/2/40)+'s';}});
+}
+function markNewsSeen(){
+  const items=(state.news&&state.news.stavke)||[];
+  try{localStorage.setItem('rakic.newsSeen',hashStr(JSON.stringify(items)));}catch(e){}
+  const dot=document.getElementById('newsDot');if(dot)dot.hidden=true;
+}
+let flipT=null;
+function newsItems(){
+  const own=state.settings.obavijesti||[],feed=(state.feed&&state.feed.stavke)||[];
+  if(!own.length&&!feed.length)return '<li class="muted">Nema vijesti. Dodajte svoju obavijest ispod.</li>';
+  return own.map((t,i)=>'<li><span><b>Salon</b> '+esc(t)+'</span><button type="button" class="del" data-act="news-del" data-i="'+i+'" aria-label="Ukloni obavijest">'+I.trash+'</button></li>').join('')+
+    feed.slice(0,30).map(x=>'<li><span>'+(x.izvor?'<b>'+esc(x.izvor)+'</b> ':'')+esc(x.naslov)+'</span></li>').join('');
+}
+function closedAnimOn(){try{return localStorage.getItem('rakic.zatvorenoAnim')!=='0';}catch(e){return true;}}
+function showClosed(date){
+  const old=document.getElementById('closedRoot');if(old)old.remove();
+  const d=pd(date);
+  let nx=null;for(let i=1;i<=7;i++){const c=addDays(date,i);if(hoursFor(c).radi){nx=c;break;}}
+  const lg=document.querySelector('.top .logo');const av=lg?lg.src:'';
+  const nxt=nx?(nx===today()?'Vidimo se danas':nx===addDays(today(),1)?'Vidimo se sutra, '+DAYS[pd(nx).getDay()].toLowerCase():'Vidimo se u '+DAYS_A[pd(nx).getDay()]+', '+shortDate(nx)):'';
+  const el=document.createElement('div');
+  el.id='closedRoot';el.className='closed-wrap';el.setAttribute('role','alertdialog');const oneOff=(state.settings.neradni||[]).includes(date);const dayLbl=oneOff?shortDate(date):DAYS_I[d.getDay()];
+  el.setAttribute('aria-label',dayLbl+' ne radim');
+  el.innerHTML='<div class="cs-hang"><svg class="cs-str" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><path d="M50 3 L10 60 M50 3 L90 60"/></svg><span class="cs-nail"></span>'+
+    '<div class="cs-sign"><div class="cs-pole"></div>'+(av?'<img class="cs-logo" src="'+av+'" alt="">':'')+
+    '<div class="cs-day">'+esc(dayLbl)+'</div><div class="cs-txt">ne radim</div>'+
+    (nxt?'<p class="cs-next">'+esc(nxt)+'</p>':'')+
+    '<button type="button" class="cs-ok">U redu</button></div></div>';
+  let gone=false;
+  const close=()=>{if(gone)return;gone=true;el.classList.add('out');setTimeout(()=>el.remove(),320);};
+  el.addEventListener('click',close);
+  document.addEventListener('keydown',function k(e){if(e.key==='Escape'){close();document.removeEventListener('keydown',k);}});
+  document.body.appendChild(el);
+  playClosedSound();
+  setTimeout(close,5000);
+  const b=el.querySelector('.cs-ok');if(b)b.focus({preventScroll:true});
+}
+function splashOn(){return !document.documentElement.classList.contains('nosplash');}
+function setSplash(on){
+  document.documentElement.classList.toggle('nosplash',!on);
+  try{localStorage.setItem('rakic.splash',on?'1':'0');}catch(e){}
+}
+if(window.matchMedia){const mq=matchMedia('(prefers-color-scheme: dark)');const fn=()=>document.querySelectorAll('.logo-full').forEach(i=>{i.src=currentLogo();});if(mq.addEventListener)mq.addEventListener('change',fn);}
+function currentLogo(){return getComputedStyle(document.documentElement).getPropertyValue('--logo-v').trim()==='light'?LOGO_LIGHT:LOGO_FULL;}
+function setSkin(v){
+  document.documentElement.setAttribute('data-skin',v);
+  try{localStorage.setItem('rakic.tema',v);}catch(e){}
+  const m=document.querySelector('meta[name="theme-color"]');if(m)m.content=v==='zelena'?'#1F3B33':v==='svijetla'?'#FFFFFF':'#0C0C0E';
+  document.querySelectorAll('.logo-full').forEach(i=>{i.src=currentLogo();});
+  document.querySelectorAll('[data-act="skin"]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===v)));
+}
+
+/* ---------- Pomoćne ---------- */
+const $=(s,r=document)=>r.querySelector(s);
+const pad=n=>String(n).padStart(2,'0');
+const ds=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+const pd=s=>{const p=String(s).split('-').map(Number);return new Date(p[0],p[1]-1,p[2]);};
+const addDays=(s,n)=>{const d=pd(s);d.setDate(d.getDate()+n);return ds(d);};
+const validT=s=>/^([01]\d|2[0-3]):[0-5]\d$/.test(String(s||''));
+const validD=s=>/^\d{4}-\d{2}-\d{2}$/.test(String(s||''));
+const tm=s=>{const p=String(s).split(':').map(Number);return p[0]*60+(p[1]||0);};
+const mt=n=>pad(Math.floor(n/60)%24)+':'+pad(n%60);
+const today=()=>ds(new Date());
+const nowMin=()=>{const d=new Date();return d.getHours()*60+d.getMinutes();};
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=p=>p+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const clampInt=(v,a,b,d)=>{v=Math.round(Number(v));return Number.isFinite(v)?Math.min(b,Math.max(a,v)):d;};
+const str=(v,n)=>typeof v==='string'?v.slice(0,n):'';
+const digits=s=>String(s||'').replace(/\D/g,'');
+const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+function num(n){n=Number(n)||0;return Number.isInteger(n)?n.toLocaleString('de-DE'):n.toFixed(2).replace('.',',');}
+function money(n){return num(n)+'\u00A0'+state.settings.valuta;}
+function plural(n,a,b,c){const m10=n%10,m100=n%100;if(m10===1&&m100!==11)return a;if(m10>=2&&m10<=4&&(m100<12||m100>14))return b;return c;}
+function shortDate(s){const d=pd(s);return d.getDate()+'. '+MONTHS_G[d.getMonth()];}
+function longDate(s,withYear){const d=pd(s);return DAYS[d.getDay()]+', '+d.getDate()+'. '+MONTHS_G[d.getMonth()]+(withYear?' '+d.getFullYear()+'.':'');}
+function relDay(s){const t=today();if(s===t)return 'Danas';if(s===addDays(t,1))return 'Sutra';if(s===addDays(t,-1))return 'Jučer';return null;}
+function friendlyDate(s){const r=relDay(s);return r?r+', '+shortDate(s):longDate(s);}
+function initials(n){const p=String(n||'?').trim().split(/\s+/);return ((p[0]||'?')[0]+(p[1]?p[1][0]:'')).toUpperCase();}
+function endOf(a){return tm(a.vrijeme)+a.trajanje;}
+function isPastAppt(a){const t=today();return a.datum<t||(a.datum===t&&endOf(a)<=nowMin());}
+const isIOS=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+
+/* ---------- Stanje ---------- */
+const state={
+  view:'raspored', date:today(), appts:[], settings:mergeSettings(null),
+  mode:'loading', notes:{}, news:{stavke:[]}, feed:{stavke:[]}, games:[], sheet:null, draft:null, clientQuery:'', statsPeriod:'sedmica', statsOffset:0, setTab:'salon', offMonth:today().slice(0,7), gamesOpen:false
+};
+
+function mergeSettings(x){
+  const d=JSON.parse(JSON.stringify(DEFAULT_SETTINGS));
+  if(!x||typeof x!=='object')return d;
+  ['naziv','pozivni','valuta'].forEach(k=>{if(typeof x[k]==='string'&&x[k].trim())d[k]=x[k].trim().slice(0,60);});
+  if([10,15,20,30,45,60].includes(Number(x.interval)))d.interval=Number(x.interval);
+  d.obavijesti=Array.isArray(x.obavijesti)?x.obavijesti.filter(t=>typeof t==='string'&&t.trim()).map(t=>t.trim().slice(0,200)).slice(0,20):[];
+  d.neradni=Array.isArray(x.neradni)?[...new Set(x.neradni.filter(validD))].sort().slice(-400):[];
+  if(x.radno&&typeof x.radno==='object'){
+    Object.keys(d.radno).forEach(k=>{const r=x.radno[k];if(r&&typeof r==='object')d.radno[k]={radi:!!r.radi,od:validT(r.od)?r.od:d.radno[k].od,do:validT(r.do)?r.do:d.radno[k].do};});
+  }
+  if(Array.isArray(x.usluge)){
+    const u=x.usluge.filter(s=>s&&typeof s.naziv==='string'&&s.naziv.trim()).map((s,i)=>({id:str(String(s.id||''),40)||uid('s'),naziv:s.naziv.trim().slice(0,60),trajanje:clampInt(s.trajanje,5,480,30),cijena:Math.max(0,Number(s.cijena)||0),boja:clampInt(s.boja,0,7,i%8)}));
+    if(u.length)d.usluge=u;
+  }
+  return d;
+}
+function normA(x,id){
+  x=x&&typeof x==='object'?x:{};
+  return {
+    id:String(id||x.id||uid('t')),
+    tip:x.tip==='pauza'?'pauza':'klijent',
+    datum:validD(x.datum)?x.datum:today(),
+    vrijeme:validT(x.vrijeme)?x.vrijeme:'08:00',
+    trajanje:clampInt(x.trajanje,5,600,30),
+    ime:str(x.ime,80), telefon:str(x.telefon,30),
+    uslugaId:str(x.uslugaId,40), usluga:str(x.usluga,60),
+    cijena:Math.max(0,Number(x.cijena)||0),
+    napomena:str(x.napomena,500),
+    status:STATUS[x.status]?x.status:'zakazan',
+    podsjetnik:Number(x.podsjetnik)||0,
+    grupa:str(x.grupa,40), grupaRb:clampInt(x.grupaRb,0,9,0), grupaN:clampInt(x.grupaN,0,9,0),
+    kreirano:Number(x.kreirano)||0
+  };
+}
+function lsGet(k){try{return JSON.parse(localStorage.getItem(k));}catch(e){return null;}}
+function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+function lsDel(k){try{localStorage.removeItem(k);}catch(e){}}
+
+/* ---------- Pohrana: Firebase (prijava) ili probna verzija na telefonu ---------- */
+const FBV='10.12.2';
+const FB={app:null,db:null,auth:null,fs:null,au:null,uid:null,email:'',unsub:[]};
+function trialChosen(){try{return localStorage.getItem('rakic.proba')==='1';}catch(e){return false;}}
+function setTrial(on){try{if(on)localStorage.setItem('rakic.proba','1');else localStorage.removeItem('rakic.proba');}catch(e){}}
+function cfgOk(){const c=window.FIREBASE_CONFIG;return !!(c&&c.apiKey&&c.projectId&&!/UPISI/i.test(c.apiKey+c.projectId));}
+function cloud(){return !!(FB.uid&&state.mode!=='trial');}
+function loadLocal(){
+  const la=lsGet(LS_A);state.appts=Array.isArray(la)?la.map(a=>normA(a,a&&a.id)):[];
+  state.settings=mergeSettings(lsGet(LS_S));
+  const ln=lsGet(LS_N);state.notes=(ln&&typeof ln==='object')?ln:{};
+  rebuildNews();
+}
+function startTrial(){FB.uid=null;loadLocal();setMode('trial');hideLogin();render(true);}
+async function loadFirebase(){
+  if(FB.fs)return true;
+  const base='https://www.gstatic.com/firebasejs/'+FBV+'/';
+  const [ap,fs,au]=await Promise.all([import(base+'firebase-app.js'),import(base+'firebase-firestore.js'),import(base+'firebase-auth.js')]);
+  FB.app=ap.initializeApp(window.FIREBASE_CONFIG);
+  try{FB.db=fs.initializeFirestore(FB.app,{localCache:fs.persistentLocalCache({tabManager:fs.persistentMultipleTabManager()})});}
+  catch(e){FB.db=fs.getFirestore(FB.app);}
+  FB.auth=au.getAuth(FB.app);FB.fs=fs;FB.au=au;
+  return true;
+}
+async function initStore(){
+  render(true);
+  loadFeeds();
+  if(!cfgOk()){startTrial();return;}
+  try{await loadFirebase();}
+  catch(e){
+    if(trialChosen()){startTrial();return;}
+    setMode('offline');showLogin('Za prvu prijavu treba internet. Provjerite vezu i osvježite stranicu.');return;
+  }
+  FB.au.onAuthStateChanged(FB.auth,u=>{
+    if(u){setTrial(false);hideLogin();startCloud(u);}
+    else{stopCloud();if(trialChosen())startTrial();else{state.appts=[];state.notes={};render(true);showLogin();}}
+  });
+}
+function stopCloud(){FB.unsub.forEach(f=>{try{f();}catch(e){}});FB.unsub=[];FB.uid=null;}
+function mref(m){return FB.fs.doc(FB.db,'saloni',FB.uid,'mjeseci',m);}
+function pref(n){return FB.fs.doc(FB.db,'saloni',FB.uid,'podaci',n);}
+function startCloud(u){
+  stopCloud();
+  FB.uid=u.uid;FB.email=u.email||'';
+  state.appts=[];state.notes={};state.settings=mergeSettings(null);rebuildNews();
+  setMode('loading');render(true);scrollToNow();
+  const {collection,onSnapshot}=FB.fs;
+  const timer=setTimeout(()=>{if(state.mode==='loading')setMode('offline');},10000);
+  FB.unsub.push(onSnapshot(collection(FB.db,'saloni',FB.uid,'mjeseci'),{includeMetadataChanges:true},snap=>{
+    const list=[];
+    snap.forEach(d=>{const t=(d.data()||{}).t||{};for(const id in t){if(t[id]&&typeof t[id]==='object')list.push(normA(t[id],id));}});
+    state.appts=list;
+    if(!snap.metadata.fromCache){clearTimeout(timer);setMode('cloud');}
+    else if(!navigator.onLine)setMode('offline');
+    render();
+  },err=>{clearTimeout(timer);setMode('error');toast(errMsg(err));}));
+  FB.unsub.push(onSnapshot(pref('postavke'),snap=>{
+    if(snap.exists()){state.settings=mergeSettings(snap.data());rebuildNews();render();}
+  },()=>{}));
+  FB.unsub.push(onSnapshot(pref('biljeske'),snap=>{
+    const n=snap.exists()?(snap.data().n||{}):{};
+    const m={};for(const k in n){if(typeof n[k]==='string')m[k]=n[k].slice(0,1000);}
+    state.notes=m;render();
+  },()=>{}));
+}
+window.addEventListener('online',()=>{if(FB.uid&&state.mode==='offline')setMode('cloud');});
+window.addEventListener('offline',()=>{if(FB.uid)setMode('offline');});
+function setMode(m){state.mode=m;updateSync();}
+function updateSync(){
+  const el=$('#sync');
+  const map={loading:['Povezivanje…',''],cloud:['Sinhronizovano','ok'],trial:['Probna verzija',''],offline:['Bez interneta','bad'],error:['Greška veze','bad']};
+  const v=map[state.mode]||map.loading;
+  el.className='sync '+v[1];
+  el.lastElementChild.textContent=v[0];
+}
+function errMsg(e){
+  const c=String(e&&e.code||'').replace(/^(firestore|auth)\//,'');
+  if(c==='permission-denied')return 'Nemate dozvolu za ovu izmjenu. Odjavite se i prijavite ponovo.';
+  if(c==='resource-exhausted')return 'Potrošen je dnevni besplatni limit baze. Sutra radi opet.';
+  if(c==='unavailable')return 'Nema veze s bazom. Izmjena će se poslati kad se internet vrati.';
+  return 'Nije sačuvano. Provjerite internet vezu i pokušajte ponovo.';
+}
+function fbErr(e){toast(errMsg(e));}
+function applyLocal(a){const i=state.appts.findIndex(x=>x.id===a.id);state.appts=i>=0?state.appts.map(x=>x.id===a.id?a:x):state.appts.concat([a]);}
+async function putAppt(a){
+  a=normA(a,a.id);
+  const prev=getA(a.id);
+  applyLocal(a);
+  if(cloud()){
+    const {writeBatch,deleteField,FieldPath}=FB.fs;const b=writeBatch(FB.db);
+    b.set(mref(a.datum.slice(0,7)),{t:{[a.id]:a}},{merge:true});
+    if(prev&&prev.datum.slice(0,7)!==a.datum.slice(0,7))b.update(mref(prev.datum.slice(0,7)),new FieldPath('t',a.id),deleteField());
+    b.commit().catch(fbErr);
+  }else lsSet(LS_A,state.appts);
+  render();return true;
+}
+async function removeAppt(id){
+  const prev=getA(id);
+  state.appts=state.appts.filter(a=>a.id!==id);
+  if(cloud()&&prev){
+    const {writeBatch,deleteField,FieldPath}=FB.fs;const b=writeBatch(FB.db);
+    b.update(mref(prev.datum.slice(0,7)),new FieldPath('t',id),deleteField());
+    b.commit().catch(fbErr);
+  }else lsSet(LS_A,state.appts);
+  render();return true;
+}
+async function putSettings(s){
+  state.settings=mergeSettings(s);
+  if(cloud())FB.fs.setDoc(pref('postavke'),JSON.parse(JSON.stringify(state.settings))).catch(fbErr);
+  else lsSet(LS_S,state.settings);
+  rebuildNews();return true;
+}
+async function importData(obj){
+  const appts=(Array.isArray(obj.termini)?obj.termini:[]).filter(a=>a&&typeof a==='object').map(a=>normA(a,a.id));
+  const notes=obj.biljeske&&typeof obj.biljeske==='object'?obj.biljeske:{};
+  if(obj.postavke)state.settings=mergeSettings(obj.postavke);
+  appts.forEach(applyLocal);
+  for(const k in notes){if(typeof notes[k]==='string'&&notes[k].trim())state.notes[k]=notes[k].slice(0,1000);}
+  if(cloud()){
+    const {writeBatch,doc}=FB.fs;
+    const byM={};appts.forEach(a=>{const m=a.datum.slice(0,7);(byM[m]=byM[m]||{})[a.id]=a;});
+    const months=Object.keys(byM);
+    for(let i=0;i<months.length;i+=400){
+      const b=writeBatch(FB.db);
+      months.slice(i,i+400).forEach(m=>b.set(mref(m),{t:byM[m]},{merge:true}));
+      if(i===0){b.set(pref('postavke'),JSON.parse(JSON.stringify(state.settings)));b.set(pref('biljeske'),{n:state.notes},{merge:true});}
+      await b.commit();
+    }
+  }else{lsSet(LS_A,state.appts);lsSet(LS_S,state.settings);lsSet(LS_N,state.notes);}
+  rebuildNews();render(true);
+  return appts.length;
+}
+function exportFile(){
+  const data=JSON.stringify({aplikacija:'frizer-rakic',verzija:1,izvezeno:new Date().toISOString(),termini:state.appts,postavke:state.settings,biljeske:state.notes},null,1);
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data],{type:'application/json'}));
+  a.download='frizer-rakic-kopija-'+today()+'.json';document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1500);
+  toast('Rezervna kopija preuzeta: '+state.appts.length+' '+plural(state.appts.length,'termin','termina','termina'));
+}
+/* Prijava */
+function showLogin(msg){
+  const el=$('#login');if(!el)return;el.hidden=false;document.body.classList.add('locked');
+  const m=$('#lg-msg');if(m)m.textContent=msg||'';
+  pinBuf='';pinDots();
+  const row=$('#lg-mailrow');if(row)row.hidden=!!salonEmail();
+  const e=$('#lg-email');if(e&&!e.value){try{e.value=localStorage.getItem('rakic.email')||'';}catch(x){}}
+}
+function hideLogin(){const el=$('#login');if(el&&!el.hidden){el.hidden=true;document.body.classList.remove('locked');}}
+function authMsg(e){
+  const c=String(e&&e.code||'');
+  if(/invalid-credential|wrong-password|user-not-found|invalid-login/.test(c))return 'Pogrešan e-mail ili lozinka.';
+  if(/invalid-email/.test(c))return 'E-mail salona nije ispravan (provjerite firebase-config.js).';
+  if(/weak-password/.test(c))return 'PIN mora imati 6 cifara.';
+  if(/requires-recent-login/.test(c))return 'Odjavite se i prijavite ponovo, pa promijenite PIN.';
+  if(/too-many-requests/.test(c))return 'Previše pokušaja. Sačekajte par minuta.';
+  if(/network-request-failed/.test(c))return 'Nema interneta. Provjerite vezu.';
+  if(/unauthorized-domain/.test(c))return 'Ova adresa nije dozvoljena u Firebase podešavanjima (Authorized domains).';
+  if(/operation-not-allowed/.test(c))return 'U Firebase konzoli uključite prijavu e-mailom i lozinkom.';
+  return 'Prijava nije uspjela ('+(c||'nepoznata greška')+').';
+}
+function salonEmail(){const e=String(window.SALON_EMAIL||'').trim();return /@/.test(e)&&!/UPISI/i.test(e)?e:'';}
+let pinBuf='',pinBusy=false;
+function pinDots(){const d=document.querySelectorAll('#pinDots i');d.forEach((x,i)=>x.classList.toggle('on',i<pinBuf.length));}
+function pinShake(){const d=$('#pinDots');if(!d)return;d.classList.remove('shake');void d.offsetWidth;d.classList.add('shake');}
+function pinKey(k){if(pinBusy)return;if(pinBuf.length>=6)return;pinBuf+=k;pinDots();$('#lg-msg').textContent='';if(pinBuf.length===6)setTimeout(doLogin,120);}
+function pinDel(){if(pinBusy)return;pinBuf=pinBuf.slice(0,-1);pinDots();}
+async function doLogin(){
+  const m=$('#lg-msg');
+  const e=salonEmail()||($('#lg-email').value||'').trim();
+  if(!e){$('#lg-mailrow').hidden=false;m.textContent='Upišite e-mail salona.';return;}
+  if(pinBuf.length!==6){m.textContent='PIN ima 6 cifara.';return;}
+  if(!FB.au){m.textContent='Firebase nije učitan. Provjerite internet i osvježite stranicu.';return;}
+  pinBusy=true;$('#login').classList.add('busy');
+  try{await FB.au.signInWithEmailAndPassword(FB.auth,e,pinBuf);if(!salonEmail()){try{localStorage.setItem('rakic.email',e);}catch(x){}}}
+  catch(err){m.textContent=authMsg(err).replace('e-mail ili lozinka','PIN');pinShake();if(navigator.vibrate)navigator.vibrate(120);}
+  finally{pinBuf='';pinDots();pinBusy=false;$('#login').classList.remove('busy');}
+}
+async function doReset(){
+  const e=salonEmail()||($('#lg-email').value||'').trim(),m=$('#lg-msg');
+  if(!e){$('#lg-mailrow').hidden=false;m.textContent='Upišite e-mail salona, pa dodirnite opet.';return;}
+  if(!FB.au){m.textContent='Firebase nije učitan.';return;}
+  try{await FB.au.sendPasswordResetEmail(FB.auth,e);m.textContent='Link za novi PIN je poslan na '+e+'. Kao novu lozinku upišite 6 cifara.';}
+  catch(err){m.textContent=authMsg(err);}
+}
+function pinSheetHTML(){
+  const f=(id,l)=>'<label class="field"><span>'+l+'</span><input class="inp big pin-in" id="'+id+'" type="password" inputmode="numeric" maxlength="6" autocomplete="off"></label>';
+  return '<div class="sheet-head"><h3>Promijeni PIN</h3><button class="x" data-act="close" aria-label="Zatvori">'+I.x+'</button></div>'+
+    f('pin-old','Trenutni PIN')+f('pin-new','Novi PIN (6 cifara)')+f('pin-new2','Ponovi novi PIN')+
+    '<p class="msg" id="pinMsg"></p><button type="button" class="primary" data-act="pin-save">Sačuvaj novi PIN</button>';
+}
+async function savePin(){
+  const o=$('#pin-old').value,n=$('#pin-new').value,n2=$('#pin-new2').value,m=$('#pinMsg');
+  if(!/^\d{6}$/.test(n)){m.textContent='Novi PIN mora imati tačno 6 cifara.';return;}
+  if(n!==n2){m.textContent='Novi PIN se ne poklapa.';return;}
+  const u=FB.auth&&FB.auth.currentUser;if(!u){m.textContent='Niste prijavljeni.';return;}
+  try{
+    await FB.au.reauthenticateWithCredential(u,FB.au.EmailAuthProvider.credential(u.email,o));
+    await FB.au.updatePassword(u,n);
+    closeSheet();toast('PIN je promijenjen');
+  }catch(err){m.textContent=/wrong-password|invalid-credential/.test(String(err&&err.code))?'Trenutni PIN nije tačan.':authMsg(err);}
+}
+/* Vijesti i igre s GitHuba */
+let feedsAt=0;
+async function loadFeeds(){
+  feedsAt=Date.now();
+  try{const r=await fetch('data/vijesti.json',{cache:'no-cache'});if(r.ok){state.feed=normNews(await r.json());rebuildNews();}}catch(e){}
+  try{const r=await fetch('data/igre.json',{cache:'no-cache'});if(r.ok){state.games=normGames(await r.json());if(state.view==='raspored')render();}}catch(e){}
+}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&Date.now()-feedsAt>30*60e3)loadFeeds();});
+function rebuildNews(){
+  const own=(state.settings.obavijesti||[]).map(t=>({naslov:t,link:'',izvor:'Salon'}));
+  const f=state.feed||{stavke:[]};
+  state.news={izvor:f.izvor||'',azurirano:f.azurirano||'',stavke:own.concat(f.stavke||[])};
+  renderTicker();
+  if(state.view==='postavke'){const nl=$('#newsList');if(nl)nl.innerHTML=newsItems();}
+}
+
+/* ---------- Podaci ---------- */
+const getA=id=>state.appts.find(a=>a.id===id);
+function apptsOn(date){return state.appts.filter(a=>a.datum===date).sort((x,y)=>x.vrijeme.localeCompare(y.vrijeme));}
+function hoursFor(date){const b=state.settings.radno[String(pd(date).getDay())]||{radi:false,od:'08:00',do:'20:00'};if((state.settings.neradni||[]).includes(date))return {radi:false,od:b.od,do:b.do,odmor:true};return b;}
+function conflicts(date,start,dur,exceptId){
+  return state.appts.filter(a=>a.datum===date&&a.id!==exceptId&&a.status!=='otkazan'&&tm(a.vrijeme)<start+dur&&endOf(a)>start);
+}
+function freeIntervals(date,open,close,exceptId){
+  const busy=state.appts.filter(a=>a.datum===date&&a.status!=='otkazan'&&a.id!==exceptId).map(a=>[tm(a.vrijeme),endOf(a)]).sort((p,q)=>p[0]-q[0]);
+  const out=[];let cur=open;
+  for(const [b0,b1] of busy){if(b1<=cur)continue;if(b0>cur)out.push([cur,Math.min(b0,close)]);cur=Math.max(cur,b1);if(cur>=close)break;}
+  if(cur<close)out.push([cur,close]);
+  return out.filter(x=>x[1]>x[0]);
+}
+function availFrom(date,start,exceptId){
+  const h=hoursFor(date);const close=h.radi?tm(h.do):24*60;
+  let next=start<close?close:start+600;
+  for(const a of state.appts){
+    if(a.datum!==date||a.status==='otkazan'||a.id===exceptId)continue;
+    const b0=tm(a.vrijeme),b1=endOf(a);
+    if(b0<=start&&b1>start)return 0;
+    if(b0>start&&b0<next)next=b0;
+  }
+  return next-start;
+}
+function groupOf(a){return a.grupa?state.appts.filter(x=>x.grupa===a.grupa).sort((x,y)=>x.vrijeme.localeCompare(y.vrijeme)):[a];}
+function st0(a){return tm(a.vrijeme);}
+function groupHolder(a){if(!(a.grupaN>1)||a.grupaRb===1)return '';const h=groupOf(a).find(x=>x.grupaRb===1);return h&&h.id!==a.id?(h.ime||h.telefon||''):'';}
+function shortName(n){const p=String(n||'').trim().split(/\s+/).filter(Boolean);if(!p.length)return '';return p[0]+(p[1]?' '+p[1][0]+'.':'');}
+function draftDur(d){return d.trajanje*(d.id?1:(d.osobe||1));}
+function clientKey(a){if((a.grupaRb||0)>1)return 'n'+String(a.ime||'').trim().toLowerCase();const p=digits(a.telefon);return p?'p'+p.slice(-8):'n'+String(a.ime||'').trim().toLowerCase();}
+let clientsMemo={src:null,list:[]};
+function getClients(){
+  if(clientsMemo.src===state.appts)return clientsMemo.list;
+  const m=new Map();
+  for(const a of state.appts){
+    if(a.tip==='pauza'||!(a.ime||a.telefon))continue;
+    const k=clientKey(a);let c=m.get(k);
+    if(!c){c={key:k,list:[]};m.set(k,c);}
+    c.list.push(a);
+  }
+  const t=today(),nm=nowMin();
+  const list=[...m.values()].map(c=>{
+    c.list.sort((x,y)=>(y.datum+y.vrijeme).localeCompare(x.datum+x.vrijeme));
+    const withName=c.list.find(a=>a.ime)||c.list[0];
+    const withTel=c.list.find(a=>a.telefon)||c.list[0];
+    c.ime=withName.ime||withTel.telefon;c.telefon=withTel.telefon;
+    const done=c.list.filter(a=>a.status==='zavrsen');
+    c.posjete=done.length;
+    c.potroseno=done.reduce((s,a)=>s+a.cijena,0);
+    c.nedolasci=c.list.filter(a=>a.status==='nije_dosao').length;
+    c.zadnja=c.list.find(a=>a.status==='zavrsen'||(a.status==='zakazan'&&isPastAppt(a)));
+    c.sljedeca=[...c.list].reverse().find(a=>a.status==='zakazan'&&(a.datum>t||(a.datum===t&&endOf(a)>nm)));
+    c.zadnjaUsluga=(done[0]||c.list[0]);
+    c.sortKey=c.sljedeca?'2'+c.sljedeca.datum:(c.zadnja?'1'+c.zadnja.datum:'0');
+    return c;
+  });
+  list.sort((a,b)=>{const la=a.list[0],lb=b.list[0];return (lb.datum+lb.vrijeme).localeCompare(la.datum+la.vrijeme);});
+  clientsMemo={src:state.appts,list};
+  return list;
+}
+function intl(p){
+  let d=String(p||'').replace(/[^\d+]/g,'');
+  if(!d)return '';
+  if(d.startsWith('+'))return d;
+  if(d.startsWith('00'))return '+'+d.slice(2);
+  const cc=state.settings.pozivni.startsWith('+')?state.settings.pozivni:'+'+state.settings.pozivni;
+  if(d.startsWith('0'))return cc+d.slice(1);
+  return cc+d;
+}
+function noteId(key){if(key[0]==='p')return 'c-'+key.replace(/[^\w]/g,'');let h=5381;for(const ch of key)h=((h<<5)+h+ch.codePointAt(0))>>>0;return 'c-n'+h.toString(36);}
+function noteFor(key){return key?(state.notes[noteId(key)]||''):'';}
+async function saveNote(key,text){
+  const id=noteId(key);text=String(text||'').trim().slice(0,1000);
+  const n=Object.assign({},state.notes);if(text)n[id]=text;else delete n[id];
+  state.notes=n;
+  if(cloud())FB.fs.setDoc(pref('biljeske'),{n:{[id]:text?text:FB.fs.deleteField()}},{merge:true}).catch(fbErr);
+  else lsSet(LS_N,n);
+  render();return true;
+}
+function svcColorOf(u){const us=state.settings.usluge;const i=Number.isInteger(u.boja)?u.boja:Math.max(0,us.indexOf(u));return SVC_COLORS[i%8];}
+function svcColor(a){const us=state.settings.usluge;const u=us.find(x=>x.id===a.uslugaId)||us.find(x=>x.naziv===a.usluga);return u?svcColorOf(u):SVC_COLORS[0];}
+function reminderText(a){
+  const first=(a.ime||'').trim().split(/\s+/)[0];
+  return 'Pozdrav'+(first?' '+first:'')+'! Podsjetnik za Vaš termin ('+state.settings.naziv+'): '+longDate(a.datum)+' u '+a.vrijeme+(a.grupaN>1?', za '+a.grupaN+' osobe':(a.usluga?', '+a.usluga:''))+'. Ako ne možete doći, molimo javite se. Hvala!';
+}
+function smsHref(tel,body){return 'sms:'+intl(tel)+(body?(isIOS?'&':'?')+'body='+encodeURIComponent(body):'');}
+function copyText(t){
+  let ok=false;
+  try{const ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();ok=document.execCommand('copy');ta.remove();}catch(e){}
+  if(!ok&&navigator.clipboard)navigator.clipboard.writeText(t).catch(()=>{});
+}
+function contactButtons(tel,a){
+  if(!tel)return '';
+  const n=intl(tel);
+  return '<div class="btn-row">'+
+    '<a class="btn" href="tel:'+esc(n)+'" target="_blank" rel="noopener">'+I.phone+'Pozovi</a>'+
+    '<a class="btn" href="viber://chat?number='+encodeURIComponent(n)+'" target="_blank" rel="noopener">'+I.viber+'Viber</a>'+
+    '<a class="btn" href="'+esc(smsHref(tel,a?reminderText(a):''))+'" target="_blank" rel="noopener"'+(a?' data-act="rem-sent" data-id="'+esc(a.id)+'"':'')+'>'+I.sms+(a?'Podsjetnik':'SMS')+'</a>'+
+  '</div>';
+}
+
+/* ---------- Render ---------- */
+/* Imena se sama smanje da stanu u red; ako ni najmanja ne stanu, prelome se u dva reda */
+function fitText(root){
+  (root||document).querySelectorAll('.fit').forEach(el=>{
+    if(!el.dataset.max){el.style.fontSize='';el.dataset.max=parseFloat(getComputedStyle(el).fontSize)||16;}
+    const max=Number(el.dataset.max),min=Number(el.dataset.min)||12;
+    el.classList.remove('fit-wrap');el.style.fontSize=max+'px';
+    const w=el.clientWidth;if(!w)return;
+    if(el.scrollWidth<=w+1)return;
+    let sz=Math.max(min,Math.floor(max*w/el.scrollWidth));
+    el.style.fontSize=sz+'px';
+    while(el.scrollWidth>w+1&&sz>min){sz-=1;el.style.fontSize=sz+'px';}
+    if(el.scrollWidth>w+1)el.classList.add('fit-wrap');
+  });
+}
+let fitQ=false;
+function queueFit(){if(fitQ)return;fitQ=true;requestAnimationFrame(()=>{fitQ=false;fitText();});}
+new MutationObserver(queueFit).observe(document.body,{childList:true,subtree:true});
+window.addEventListener('resize',()=>{document.querySelectorAll('.fit').forEach(e=>{delete e.dataset.max;});queueFit();});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{document.querySelectorAll('.fit').forEach(e=>{delete e.dataset.max;});queueFit();});
+function render(full){
+  {const gtaDay=state.view==='raspored'&&gamesOn(state.date).some(g=>g.tip==='gta');
+   if(gtaDay)document.documentElement.setAttribute('data-event','gta');else document.documentElement.removeAttribute('data-event');}
+  trackPast();
+  updateSync();
+  $('#brandName').textContent=state.settings.naziv;
+  document.querySelectorAll('.tab').forEach(t=>{if(t.dataset.view===state.view)t.setAttribute('aria-current','page');else t.removeAttribute('aria-current');});
+  $('#fab').hidden=!(state.view==='raspored'||state.view==='klijenti');
+  const main=$('#view');
+  if(state.view==='raspored')main.innerHTML=scheduleHTML();
+  else if(state.view==='klijenti'){
+    if(full||!$('#clientList'))main.innerHTML=clientsHTML();
+    else{$('#clientList').innerHTML=clientItems();$('#clientCount').textContent=clientCountText();}
+  }
+  else if(state.view==='statistika')main.innerHTML=statsHTML();
+  else if(state.view==='postavke'){if(full||!$('#setForm'))main.innerHTML=settingsHTML();}
+  if(state.sheet&&state.sheet.indexOf('detail:')===0){const a=getA(state.sheet.slice(7));if(a)$('#sheet').innerHTML=detailHTML(a);else closeSheet();}
+  if(state.sheet&&state.sheet.indexOf('rem:')===0)$('#sheet').innerHTML=remHTML(state.sheet.slice(4));
+  if(state.sheet&&state.sheet.indexOf('client:')===0&&!(document.activeElement&&document.activeElement.id==='c-note')){const c=getClients().find(x=>x.key===state.sheet.slice(7));if(c)$('#sheet').innerHTML=clientSheetHTML(c);}
+}
+function scrollToNow(){
+  if(state.view!=='raspored')return;
+  requestAnimationFrame(()=>{
+    const s=$('#dstrip [aria-current="date"]');if(s&&s.scrollIntoView)s.scrollIntoView({inline:'center',block:'nearest'});
+    const n=$('.is-next');if(n){const r=n.getBoundingClientRect();if(r.top>window.innerHeight*0.7)n.scrollIntoView({block:'center'});}
+  });
+}
+
+/* Raspored */
+function scheduleHTML(){
+  const s=state.settings,date=state.date,t=today(),nm=nowMin(),step=s.interval;
+  const d=pd(date);
+  const strip=[];for(let i=0;i<28;i++)strip.push(addDays(t,i));
+  if(!strip.includes(date))strip.unshift(date);
+  const stripHTML=dayStrip(strip,date,'pick');
+  const h=hoursFor(date);
+  const all=apptsOn(date);
+  const active=all.filter(a=>a.status!=='otkazan');
+  const cancelled=all.filter(a=>a.status==='otkazan');
+  const clients=active.filter(a=>a.tip==='klijent');
+  const income=clients.filter(a=>a.status!=='nije_dosao').reduce((x,a)=>x+a.cijena,0);
+
+  const entries=[];
+  if(h.radi){
+    const open=tm(h.od),close=tm(h.do);
+    freeIntervals(date,open,close,null).forEach(([fs,fe])=>{
+      let x=fs;const off=(x-open)%step;
+      if(off){const ng=Math.min(fe,x+(step-off));if(ng-x>=10)entries.push({t:x,len:ng-x});x=ng;}
+      while(x<fe){const len=Math.min(step,fe-x);if(len>=10)entries.push({t:x,len});x+=step;}
+    });
+    active.forEach(a=>entries.push({a,t:tm(a.vrijeme)}));
+    entries.sort((p,q)=>p.t-q.t||(p.a?-1:1));
+  }else{
+    active.forEach(a=>entries.push({a,t:tm(a.vrijeme)}));
+  }
+  let gapCard='';
+  if(date===t&&h.radi){
+    const close=tm(h.do);
+    const nr=Math.ceil(nm/5)*5;
+    const fi=freeIntervals(date,tm(h.od),close,null).find(x=>x[0]<=nr&&nr<x[1]);
+    if(fi&&fi[1]<close){
+      const from=Math.max(nr,fi[0]),left=fi[1]-from;
+      if(left>=10&&left<=90){
+        const fits=s.usluge.filter(u=>u.trajanje<=left).map(u=>u.naziv);
+        gapCard='<section class="gapcard"><div><strong>Slobodno sada '+left+' min</strong><span>do '+mt(fi[1])+(fits.length?'. Stane: '+esc(fits.slice(0,3).join(', ')):'')+'</span></div><button class="btn" data-act="new" data-time="'+mt(from)+'">'+I.plus+'Ubaci</button></section>';
+      }
+    }
+  }
+  const nextA=date===t?clients.find(a=>a.status==='zakazan'&&endOf(a)>nm):null;
+  let nextCard='';
+  if(nextA){
+    const st=tm(nextA.vrijeme),inP=st<=nm,diff=st-nm;
+    const when=inP?'Završava u '+mt(endOf(nextA)):(diff<=240?'Za '+fmtIn(diff):'U '+nextA.vrijeme);
+    const holder=groupHolder(nextA);
+    const cnt=nextA.napomena||noteFor(clientKey(nextA));
+    nextCard='<section class="nextcard" style="--svc:'+svcColor(nextA)+'"><div class="nc-top"><span class="nc-l">'+(inP?'Trenutno u stolici':'Sljedeći klijent')+'</span><span class="nc-when">'+esc(when)+'</span></div>'+
+      '<strong class="nc-name fit" data-min="16">'+esc(nextA.ime||nextA.telefon||'Klijent')+'</strong>'+
+      (holder?'<span class="nc-by">Rezervacija na ime: '+esc(holder)+'</span>':'')+
+      '<div class="nc-meta"><b>'+nextA.vrijeme+'–'+mt(endOf(nextA))+'</b><span>'+esc(nextA.usluga||'Usluga')+(nextA.cijena?', '+money(nextA.cijena):'')+'</span></div>'+
+      (inP?'<div class="nc-prog" aria-hidden="true"><i style="width:'+Math.round((nm-st)/nextA.trajanje*100)+'%"></i></div>':'')+
+      (cnt?'<p class="nc-note">'+I.note+esc(cnt)+'</p>':'')+
+      '<div class="nc-btns">'+(nextA.telefon?'<a class="btn" href="tel:'+esc(intl(nextA.telefon))+'" target="_blank" rel="noopener">'+I.phone+'Pozovi</a>':'')+
+      (inP?'<button class="btn ok" data-act="st" data-id="'+esc(nextA.id)+'" data-v="zavrsen">'+I.check+'Završeno</button>':'')+
+      '<button class="btn" data-act="open" data-id="'+esc(nextA.id)+'">Detalji</button></div></section>';
+  }
+  const remList=date>=t?clients.filter(a=>a.status==='zakazan'&&a.telefon&&!isPastAppt(a)&&(a.grupaRb||0)<=1):[];
+  const remSent=remList.filter(a=>a.podsjetnik).length;
+  const remBtn=remList.length?'<button class="rem-open'+(remSent===remList.length?' done':'')+'" data-act="rem" data-date="'+date+'">'+
+    (remSent===remList.length?I.check+'Podsjetnici poslani':I.sms+'Pošalji podsjetnike ('+(remList.length-remSent)+')')+'</button>':'';
+  let list='',buf=[],freeCount=0,blocks=0;
+  const flush=()=>{
+    if(!buf.length)return;
+    const first=blocks===0;blocks++;
+    list+='<li class="fb"><span class="fb-l"><i class="dot-free'+(first?' pulse':'')+'"></i>'+(first?'Slobodno, dodirnite vrijeme za zakazivanje':'Slobodno')+'</span><div class="fchips">'+
+      buf.map((x,i)=>'<button class="fchip'+(x.len<step?' short':'')+(first&&i===0?' first':'')+'" data-act="new" data-time="'+mt(x.t)+'">'+mt(x.t)+(x.len<step?'<small>'+x.len+' min</small>':'')+'</button>').join('')+'</div></li>';
+    buf=[];
+  };
+  entries.forEach(e=>{
+    if(e.a){flush();list+='<li>'+apptRow(e.a,e.a===nextA)+'</li>';return;}
+    if(date<t)return;
+    let x={t:e.t,len:e.len};
+    if(date===t&&x.t<nm){const end=x.t+x.len;if(end<=nm)return;x.t=Math.ceil(nm/5)*5;x.len=end-x.t;if(x.len<10)return;}
+    buf.push(x);freeCount++;
+  });
+  flush();
+
+  const rel=relDay(date);
+  const sum=clients.length?'Zakazano: '+clients.length+', očekivano '+money(income):'Još nema zakazanih termina';
+  let body='';
+  if(!list){
+    if(!h.radi)body='<div class="empty"><strong>Neradni dan</strong>Salon ovaj dan ne radi.<br><button class="btn" data-act="fab" style="margin-top:14px">'+I.plus+' Svejedno zakaži termin</button></div>';
+    else if(date<t||date===t)body='<div class="empty"><strong>Radni dan je završen</strong>Izaberite drugi dan u traci iznad.</div>';
+  }else{
+    if(!h.radi)body+='<p class="note-closed">Ovo je neradni dan, ali ima zakazanih termina.</p>';
+    if(h.radi&&!freeCount&&!(date<t))body+='<p class="note-closed">Ovaj dan je popunjen. Nema više slobodnih termina.</p>';
+    body+='<ol class="agenda">'+list+'</ol>';
+  }
+  if(cancelled.length){
+    body+='<details class="cx"><summary>Otkazani termini ('+cancelled.length+')</summary><ol class="agenda">'+
+      cancelled.map(a=>'<li>'+apptRow(a,false)+'</li>').join('')+'</ol></details>';
+  }
+  return (state.mode==='trial'?'<div class="demo-note"><strong>Probna verzija</strong>'+(cfgOk()?'Termini se čuvaju samo na ovom telefonu. Prijavite se u Postavkama da se sinhronizuju.':'Firebase još nije podešen, pa se termini čuvaju samo na ovom telefonu.')+'</div>':'')+
+    '<div class="dstrip" id="dstrip" role="group" aria-label="Izbor dana">'+stripHTML+
+      '<label class="ds cal" aria-label="Izaberi drugi datum">'+I.cal+'<span class="ds-n">Datum</span><input type="date" id="jump" value="'+date+'"></label></div>'+
+    '<div class="dhead"><div><h2>'+esc(rel||DAYS[d.getDay()])+'</h2>'+
+      '<p>'+esc((rel?DAYS[d.getDay()]+', ':'')+d.getDate()+'. '+MONTHS_G[d.getMonth()])+(h.radi?', radi '+h.od+'–'+h.do:', ne radi')+'</p>'+
+      '<p class="dsum">'+esc(sum)+'</p>'+remBtn+'</div>'+gameBtn(date)+'</div>'+(state.gamesOpen?'<div class="gpanel">'+gamesHTML(date)+'</div>':'')+gapCard+nextCard+body;
+}
+function dayStrip(days,sel,act){
+  const t=today();
+  return days.map(day=>{
+    const dd=pd(day);
+    const cnt=state.appts.filter(a=>a.datum===day&&a.tip==='klijent'&&a.status!=='otkazan').length;
+    const closed=!hoursFor(day).radi;
+    const name=day===t?'Danas':day===addDays(t,1)?'Sutra':DAYS_S[dd.getDay()];
+    const gm=gamesOn(day),gta=gm.some(g=>g.tip==='gta');
+    const gc=gm.length&&!gta&&gm[0].boje.length?' style="--g1:'+gm[0].boje[0]+';--g2:'+(gm[0].boje[1]||gm[0].boje[0])+'"':'';
+    return '<button type="button" class="ds'+(closed?' closed':'')+(gta?' gta-day':gm.length?' game-day':'')+'" data-act="'+act+'" data-date="'+day+'"'+gc+(day===sel?' aria-current="date"':'')+' aria-label="'+esc(longDate(day))+(cnt?', zakazano '+cnt:'')+(closed?', ne radi':'')+(gm.length?', izlazi '+esc(gm.map(g=>g.naziv).join(', ')):'')+'">'+(gm.length&&!gta?'<i class="gm-dot" aria-hidden="true"></i>':'')+(gta?'<i class="gta-tag" aria-hidden="true">GTA</i>':'')+
+      '<span class="ds-n">'+name+'</span><span class="ds-d">'+dd.getDate()+'</span><span class="ds-c">'+(cnt||'')+'</span></button>';
+  }).join('');
+}
+function fmtIn(m){if(m<60)return m+' min';const h=Math.floor(m/60),r=m%60;return h+' h'+(r?' '+r+' min':'');}
+const FX={added:{},past:{},known:null};
+function rowFx(a){
+  const now=Date.now();let cls='',dl=0;
+  const ad=FX.added[a.id],pt=FX.past[a.id];
+  if(ad&&now-ad<1600){cls=' fresh';dl=now-ad;}
+  else if(pt&&now-pt<1800){cls=' turning';dl=now-pt;}
+  return {cls,style:cls?';animation-delay:-'+dl+'ms':''};
+}
+function trackPast(){
+  if(state.mode==='loading')return;
+  if(!FX.known){FX.known=new Set(state.appts.filter(isPastAppt).map(a=>a.id));return;}
+  const now=Date.now(),t=today();
+  state.appts.forEach(a=>{if(!FX.known.has(a.id)&&isPastAppt(a)){FX.known.add(a.id);if(a.datum===t&&!FX.added[a.id])FX.past[a.id]=now;}});
+}
+function showBooked(title,name,when){
+  const old=document.getElementById('bookedPop');if(old)old.remove();
+  const el=document.createElement('div');el.id='bookedPop';el.className='booked-pop';el.setAttribute('role','status');
+  el.innerHTML='<svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="23"/><path d="M15 27 l7.5 7.5 L37.5 19"/></svg><strong>'+esc(title)+'</strong>'+(name?'<span class="fit" data-min="13">'+esc(name)+'</span>':'')+'<small>'+esc(when)+'</small>';
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),1900);
+}
+function apptRow(a,isNext){
+  const past=a.status!=='otkazan'&&isPastAppt(a);
+  const dim=a.status==='otkazan'||past;
+  const nmR=nowMin(),live=a.status==='zakazan'&&a.datum===today()&&tm(a.vrijeme)<=nmR&&nmR<endOf(a);
+  const pct=live?Math.round((nmR-tm(a.vrijeme))/a.trajanje*100):0;
+  const fx=rowFx(a);
+  const time='<span class="ar-t"><b>'+a.vrijeme+'</b><small>'+mt(endOf(a))+'</small></span>';
+  if(a.tip==='pauza'){
+    return '<button class="ar pauza'+(dim?' dim':'')+fx.cls+'" style="'+fx.style+'" data-act="open" data-id="'+esc(a.id)+'">'+time+
+      '<span class="ar-b"><strong class="fit" data-min="13">'+esc(a.ime||'Pauza')+'</strong><span>Zauzeto, '+fmtIn(a.trajanje)+'</span></span><span class="ar-go">'+I.right+'</span></button>';
+  }
+  const cn=a.napomena||noteFor(clientKey(a));
+  return '<button class="ar st-'+a.status+(isNext?' is-next':'')+(dim?' dim':'')+(live?' live':'')+fx.cls+'" style="--svc:'+svcColor(a)+fx.style+'" data-act="open" data-id="'+esc(a.id)+'">'+time+
+    '<span class="ar-b"><strong class="fit" data-min="13">'+esc(a.ime||a.telefon||'Klijent')+'</strong>'+
+    (groupHolder(a)?'<span class="ar-by fit" data-min="11">Na ime: <b>'+esc(groupHolder(a))+'</b></span>':'')+
+    '<span>'+esc(a.usluga||'Usluga')+(a.cijena?', '+money(a.cijena):'')+'</span>'+
+    (cn?'<span class="ar-note">'+I.note+esc(cn.length>46?cn.slice(0,46)+'…':cn)+'</span>':'')+
+    (a.status==='zakazan'&&a.podsjetnik?'<span class="ar-rem">'+I.check+'Podsjetnik poslan</span>':'')+
+    (a.grupaN>1?'<em class="tag grp">Zajednička rezervacija '+a.grupaRb+'/'+a.grupaN+'</em>':'')+
+    (a.status!=='zakazan'?'<em class="tag '+a.status+'">'+STATUS[a.status]+'</em>':'')+
+    (live?'<em class="tag live"><i></i>U toku</em>':'')+
+    (past&&a.status==='zakazan'?'<em class="tag past">Prošao</em>':'')+
+    '</span><span class="ar-go">'+I.right+'</span>'+
+    (live?'<span class="ar-prog"><i style="width:'+pct+'%"></i></span>':'')+'</button>';
+}
+
+/* Klijenti */
+function clientCountText(){const n=getClients().length;return n+' '+plural(n,'klijent','klijenta','klijenata')+' u evidenciji';}
+function clientsHTML(){
+  return '<div class="vhead"><div><h2>Klijenti</h2><p id="clientCount">'+clientCountText()+'</p></div></div>'+
+    '<label class="search">'+I.search+'<input id="cq" type="search" placeholder="Traži po imenu ili broju" autocomplete="off" value="'+esc(state.clientQuery)+'" aria-label="Traži klijenta"></label>'+
+    '<ul class="clist" id="clientList">'+clientItems()+'</ul>';
+}
+function clientItems(){
+  const q=state.clientQuery.trim().toLowerCase(),qd=digits(q);
+  let list=getClients();
+  if(q)list=list.filter(c=>String(c.ime).toLowerCase().includes(q)||(qd.length>=3&&digits(c.telefon).includes(qd)));
+  if(!getClients().length)return '<li><div class="empty" style="margin:0;border:0">'+'<strong>Još nema klijenata</strong>Klijent se sam dodaje u evidenciju kada mu zakažete prvi termin.</div></li>';
+  if(!list.length)return '<li><div class="empty" style="margin:0;border:0"><strong>Nema rezultata</strong>Nijedan klijent ne odgovara pretrazi „'+esc(state.clientQuery)+'“.</div></li>';
+  return list.slice(0,300).map(c=>{
+    let sub=c.telefon?esc(c.telefon):'Bez broja telefona';
+    let extra=c.sljedeca?'<div class="cnext">Sljedeći termin: '+esc(friendlyDate(c.sljedeca.datum))+' u '+c.sljedeca.vrijeme+'</div>':(c.zadnja?'<div class="csub">Zadnji put: '+esc(friendlyDate(c.zadnja.datum))+'</div>':'');
+    return '<li><button class="citem" data-act="client" data-key="'+esc(c.key)+'"><span class="av">'+esc(initials(c.ime))+'</span>'+
+      '<span class="cmain"><div class="cname fit" data-min="13">'+esc(c.ime)+'</div><div class="csub">'+sub+'</div>'+extra+'</span>'+
+      '<span class="ccount"><b>'+c.posjete+'</b><span>'+plural(c.posjete,'posjeta','posjete','posjeta')+'</span></span></button></li>';
+  }).join('');
+}
+function clientSheetHTML(c){
+  const hist=c.list.slice(0,25).map(a=>'<li><span class="hd">'+esc(friendlyDate(a.datum))+' u '+a.vrijeme+'<small>'+esc(a.usluga||'Usluga')+(a.cijena?', '+money(a.cijena):'')+'</small></span><span class="badge '+a.status+'">'+STATUS[a.status]+'</span></li>').join('');
+  return '<div class="sheet-head"><h3 class="fit" data-min="17">'+esc(c.ime)+'</h3><button class="x" data-act="close" aria-label="Zatvori">'+I.x+'</button></div>'+
+    (c.telefon?'<p class="when">'+esc(c.telefon)+'</p>':'')+
+    contactButtons(c.telefon,null)+
+    '<dl class="dgrid">'+
+      '<div><dt>Posjete</dt><dd>'+c.posjete+'</dd></div>'+
+      '<div><dt>Ukupno potrošeno</dt><dd>'+money(c.potroseno)+'</dd></div>'+
+      '<div><dt>Zadnji dolazak</dt><dd>'+(c.zadnja?esc(friendlyDate(c.zadnja.datum)):'–')+'</dd></div>'+
+      '<div><dt>Nedolasci</dt><dd>'+c.nedolasci+'</dd></div>'+
+    '</dl>'+
+    '<label class="field"><span>Stalna bilješka</span><textarea class="inp" id="c-note" rows="3" maxlength="1000" placeholder="npr. fade broj 1, kraće iznad ušiju">'+esc(noteFor(c.key))+'</textarea></label>'+
+    '<button class="btn plain" data-act="save-note" data-key="'+esc(c.key)+'" style="width:100%;margin:-6px 0 16px">Sačuvaj bilješku</button>'+
+    (c.sljedeca?'<div class="notebox">Već ima zakazan termin: <strong>'+esc(friendlyDate(c.sljedeca.datum))+' u '+c.sljedeca.vrijeme+'</strong></div>':'')+
+    '<button class="primary" data-act="book-client" data-key="'+esc(c.key)+'">'+I.plus+' Zakaži novi termin</button>'+
+    '<h4 class="sub-h">Historija termina</h4><ul class="hist">'+hist+'</ul>';
+}
+
+/* Statistika */
+function statsRange(){
+  const t=today(),o=state.statsOffset;
+  if(state.statsPeriod==='sedmica'){
+    const mon=addDays(t,-((pd(t).getDay()+6)%7)+o*7),sun=addDays(mon,6);
+    const a=pd(mon),b=pd(sun);
+    const lab=o===0?'Ova sedmica':o===-1?'Prošla sedmica':a.getDate()+'. '+MONTHS_G[a.getMonth()]+' – '+b.getDate()+'. '+MONTHS_G[b.getMonth()];
+    return {from:mon,to:sun,lab};
+  }
+  if(state.statsPeriod==='mjesec'){
+    const d=pd(t);const f=new Date(d.getFullYear(),d.getMonth()+o,1),l=new Date(f.getFullYear(),f.getMonth()+1,0);
+    const lab=o===0?'Ovaj mjesec':cap(MONTHS[f.getMonth()])+' '+f.getFullYear()+'.';
+    return {from:ds(f),to:ds(l),lab};
+  }
+  return {from:'0000-00-00',to:'9999-99-99',lab:'Svi podaci'};
+}
+function statsHTML(){
+  const r=statsRange();
+  const inR=state.appts.filter(a=>a.tip==='klijent'&&a.datum>=r.from&&a.datum<=r.to);
+  const done=inR.filter(a=>a.status==='zavrsen'),sched=inR.filter(a=>a.status==='zakazan'),noShow=inR.filter(a=>a.status==='nije_dosao'),cx=inR.filter(a=>a.status==='otkazan');
+  const earned=done.reduce((s,a)=>s+a.cijena,0),expected=sched.reduce((s,a)=>s+a.cijena,0);
+  const counted=done.concat(sched);
+  const pastOpen=state.appts.filter(a=>a.tip==='klijent'&&a.status==='zakazan'&&isPastAppt(a));
+
+  const byDay=[0,0,0,0,0,0,0];counted.forEach(a=>{byDay[(pd(a.datum).getDay()+6)%7]++;});
+  const mx=Math.max(1,...byDay);const topIdx=byDay.indexOf(Math.max(...byDay));
+  const bars=byDay.map((v,i)=>'<div class="bar'+(v&&i===topIdx?' best':'')+'"><em>'+(v||'')+'</em><i style="height:'+Math.max(3,Math.round(v/mx*100))+'px"></i><span>'+DAYS_S[(i+1)%7]+'</span></div>').join('');
+
+  const svc=new Map();counted.forEach(a=>{const k=a.usluga||'Ostalo';const v=svc.get(k)||{n:0,m:0};v.n++;v.m+=a.cijena;svc.set(k,v);});
+  const svcList=[...svc.entries()].sort((a,b)=>b[1].n-a[1].n).slice(0,6);
+  const svcMax=svcList.length?svcList[0][1].n:1;
+  const cl=new Map();counted.forEach(a=>{const k=clientKey(a);const v=cl.get(k)||{ime:a.ime||a.telefon,n:0,m:0};v.n++;v.m+=a.cijena;cl.set(k,v);});
+  const clList=[...cl.values()].sort((a,b)=>b.n-a.n||b.m-a.m).slice(0,5);
+  const noShowRate=(done.length+noShow.length)?Math.round(noShow.length/(done.length+noShow.length)*100):0;
+
+  return '<div class="vhead"><div><h2>Statistika</h2><p>Pregled posla i zarade</p></div></div>'+
+    '<div class="seg three" role="group" aria-label="Period">'+
+      ['sedmica','mjesec','sve'].map(p=>'<button data-act="sp" data-v="'+p+'" aria-pressed="'+(state.statsPeriod===p)+'">'+({sedmica:'Sedmica',mjesec:'Mjesec',sve:'Sve'})[p]+'</button>').join('')+
+    '</div>'+
+    (state.statsPeriod!=='sve'?'<div class="period"><button class="icon-btn" data-act="so" data-n="-1" aria-label="Prethodni period">'+I.left+'</button><span class="lab">'+esc(r.lab)+'</span><button class="icon-btn" data-act="so" data-n="1" aria-label="Sljedeći period"'+(state.statsOffset>=0?' disabled':'')+'>'+I.right+'</button></div>':'')+
+    (pastOpen.length?'<div class="panel attn"><p><strong>'+pastOpen.length+' '+plural(pastOpen.length,'prošli termin','prošla termina','prošlih termina')+'</strong> '+plural(pastOpen.length,'još nije označen','još nisu označena','još nije označeno')+' kao '+plural(pastOpen.length,'završen','završena','završeno')+'. Zarada se računa kada je termin završen.</p><button class="btn ok" data-act="mark-done" style="width:100%">'+I.check+'Označi sve kao završene</button></div>':'')+
+    '<div class="kpis">'+
+      '<div><b>'+money(earned)+'</b><span>ostvarena zarada</span></div>'+
+      '<div><b>'+money(expected)+'</b><span>očekivano od zakazanih</span></div>'+
+      '<div><b>'+counted.length+'</b><span>'+plural(counted.length,'termin','termina','termina')+' ukupno</span></div>'+
+      '<div><b>'+noShow.length+'</b><span>'+plural(noShow.length,'nedolazak','nedolaska','nedolazaka')+(noShowRate?' ('+noShowRate+'%)':'')+', '+cx.length+' '+plural(cx.length,'otkazan','otkazana','otkazanih')+'</span></div>'+
+    '</div>'+
+    '<div class="panel"><h3>Najprometniji dani</h3>'+(counted.length?'<div class="bars">'+bars+'</div>':'<p class="muted" style="margin:0">Nema termina u ovom periodu.</p>')+'</div>'+
+    '<div class="panel"><h3>Usluge</h3>'+(svcList.length?'<ul class="rank">'+svcList.map(([k,v])=>'<li><div class="rt"><span>'+esc(k)+'</span><span>'+v.n+'×, '+money(v.m)+'</span></div><div class="meter"><i style="width:'+Math.round(v.n/svcMax*100)+'%;background:'+(function(){const u=state.settings.usluge.find(x=>x.naziv===k);return u?svcColorOf(u):SVC_COLORS[0];})()+'"></i></div></li>').join('')+'</ul>':'<p class="muted" style="margin:0">Nema podataka.</p>')+'</div>'+
+    '<div class="panel"><h3>Najvjerniji klijenti</h3>'+(clList.length?'<ul class="rank">'+clList.map(v=>'<li><div class="rt"><span>'+esc(v.ime)+'</span><span>'+v.n+' '+plural(v.n,'termin','termina','termina')+', '+money(v.m)+'</span></div></li>').join('')+'</ul>':'<p class="muted" style="margin:0">Nema podataka.</p>')+'</div>';
+}
+
+/* Postavke */
+function settingsHTML(){
+  const s=state.settings,tab=state.setTab;
+  const hours=WEEK_ORDER.map(k=>{const r=s.radno[k];const nm=DAYS[Number(k)];return '<div class="row-s hr">'+
+    '<span class="rl"><b>'+nm+'</b>'+
+    '<span class="hr-t" id="h-'+k+'-t"'+(r.radi?'':' hidden')+'><input class="inp" type="time" id="h-'+k+'-od" value="'+r.od+'" aria-label="'+nm+' od"><i>do</i><input class="inp" type="time" id="h-'+k+'-do" value="'+r.do+'" aria-label="'+nm+' do"></span>'+
+    '<small class="hr-off" id="h-'+k+'-x"'+(r.radi?' hidden':'')+'>Ne radim</small></span>'+
+    '<input type="checkbox" class="sw-t" id="h-'+k+'-on"'+(r.radi?' checked':'')+' data-hk="'+k+'" aria-label="'+nm+' radim"></div>';}).join('');
+  const sk=currentSkin();
+  const skins=[['tamna','Tamna','po logu salona','#0B0B0D','#C41E26'],['svijetla','Svijetla','svijetla po logu','#F3F3F4','#B5161E'],['auto','Automatski','prema telefonu','#0B0B0D','#F3F3F4'],['zelena','Zelena','klasična tema','#1F3B33','#C8963F']];
+  const lg=document.querySelector('.top .logo');
+  const tabs=[['salon','Salon'],['radno','Vrijeme'],['usluge','Usluge'],['izgled','Izgled']];
+  const swRow=(id,on,t,sub)=>'<label class="row-s"><span class="rl"><b>'+t+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</span><input type="checkbox" class="sw-t" id="'+id+'"'+(on?' checked':'')+'></label>';
+  const pane=(k,html)=>'<section class="set-pane" data-tab="'+k+'"'+(tab===k?'':' hidden')+'>'+html+'</section>';
+  return '<div class="set-hero">'+(lg?'<img src="'+lg.src+'" alt="">':'')+'<div><h2>Postavke</h2><p>'+esc(s.naziv)+'</p></div></div>'+
+  '<div class="seg four set-tabs" role="tablist">'+tabs.map(t=>'<button type="button" role="tab" data-act="set-tab" data-v="'+t[0]+'" aria-pressed="'+(tab===t[0])+'">'+t[1]+'</button>').join('')+'</div>'+
+  '<form id="setForm" onsubmit="return false">'+
+  pane('salon',
+    '<p class="group-t">Podaci o salonu</p><div class="group" data-form>'+
+      '<label class="row-s col"><span class="rl"><b>Naziv salona</b></span><input class="inp" id="s-naziv" value="'+esc(s.naziv)+'" maxlength="60"></label>'+
+      '<label class="row-s"><span class="rl"><b>Pozivni broj</b><small>za Viber i SMS</small></span><input class="inp narrow" id="s-poz" value="'+esc(s.pozivni)+'" inputmode="tel" maxlength="6"></label>'+
+      '<label class="row-s"><span class="rl"><b>Valuta</b></span><input class="inp narrow" id="s-val" value="'+esc(s.valuta)+'" maxlength="6"></label>'+
+      '<label class="row-s"><span class="rl"><b>Razmak termina</b><small>koliko često nudi slobodna vremena</small></span><select class="inp narrow" id="s-int">'+[10,15,20,30,45,60].map(v=>'<option value="'+v+'"'+(v===s.interval?' selected':'')+'>'+v+' min</option>').join('')+'</select></label>'+
+    '</div>'+
+    '<p class="group-t">Nalog</p><div class="group">'+
+      (cloud()?'<div class="row-s"><span class="rl"><b>Prijavljeni ste</b><small>termini se sinhronizuju na svim uređajima</small></span><button type="button" class="btn plain" data-act="logout">Odjava</button></div><div class="row-s"><span class="rl"><b>PIN za prijavu</b><small>6 cifara</small></span><button type="button" class="btn plain" data-act="pin-change">Promijeni</button></div>'
+              :'<div class="row-s"><span class="rl"><b>Probna verzija</b><small>podaci se čuvaju samo na ovom telefonu</small></span><button type="button" class="btn plain" data-act="login-open">Prijava</button></div>')+
+    '</div>'+
+    '<p class="group-t">Rezervna kopija i prebacivanje</p><div class="group">'+
+      '<div class="row-s"><span class="rl"><b>Izvezi rezervnu kopiju</b><small>svi termini, klijenti i postavke u jednom fajlu</small></span><button type="button" class="btn plain" data-act="export">Izvezi</button></div>'+
+      '<label class="row-s"><span class="rl"><b>Uvezi podatke</b><small>iz stare aplikacije ili rezervne kopije</small></span><span class="btn plain">Uvezi</span><input type="file" id="importFile" accept=".json,application/json" hidden></label>'+
+    '</div>')+
+  pane('radno',
+    '<p class="group-t">Sedmično radno vrijeme</p><div class="group" data-form>'+hours+'</div>'+
+    '<p class="group-t">Neradni dani</p><div class="group off-wrap"><p class="off-help">Dodirni dan u kalendaru koji ne radiš, npr. godišnji odmor ili praznik. Ponovni dodir ga vraća. Sprema se odmah.</p><div id="offCal">'+offCalHTML()+'</div></div>')+
+  pane('usluge',
+    '<p class="group-t">Usluge i cijene</p><div class="group" data-form><div id="svcRows">'+s.usluge.map(svcRow).join('')+'</div>'+
+    '<button type="button" class="add-row" data-act="add-svc">'+I.plus+' Dodaj uslugu</button></div>'+
+    '<p class="hint" style="margin:0 4px">Dodirni kružić da promijeniš boju usluge u rasporedu.</p>')+
+  pane('izgled',
+    '<img class="logo-full small" src="'+currentLogo()+'" alt="Logo salona">'+
+    '<p class="group-t">Tema</p><div class="skins" role="group" aria-label="Tema">'+
+      skins.map(x=>'<button type="button" class="skin" data-act="skin" data-v="'+x[0]+'" aria-pressed="'+(sk===x[0])+'"><span class="sw" style="background:linear-gradient(135deg,'+x[3]+' 50%,'+x[4]+' 50%)"></span><span>'+x[1]+'<small>'+x[2]+'</small></span></button>').join('')+'</div>'+
+    '<p class="group-t">Animacije i zvuk</p><div class="group">'+
+      swRow('splashOn',splashOn(),'Animacija loga','pri otvaranju aplikacije')+
+      swRow('closedAnim',closedAnimOn(),'Tabla za neradni dan','kad izabereš dan kad ne radiš')+
+      swRow('soundOn',soundOn(),'Zvuk table','zvonce i makaze')+
+    '</div>'+
+    '<p class="group-t">Vijesti i igre</p><div class="group">'+
+      swRow('tickerOn',tickerOn(),'HCL vijesti','dodirni logo ili naziv na vrhu')+
+      swRow('gamesOn',gamesOnOff(),'Datumi izlaska igara','PS5 igre u kalendaru')+
+    '</div>'+newsMgmtHTML())+
+  '<p class="msg" id="setMsg"></p>'+
+  '</form>'+
+  '<div class="savebar" id="saveBar" hidden><button type="button" class="primary" data-act="save-set">'+I.check+' Sačuvaj promjene</button></div>';
+}
+function offCalHTML(){
+  const s=state.settings,t=today(),cur=t.slice(0,7);
+  const ym=state.offMonth<cur?cur:state.offMonth;
+  const p=ym.split('-').map(Number),y=p[0],m=p[1];
+  const first=new Date(y,m-1,1),days=new Date(y,m,0).getDate(),lead=(first.getDay()+6)%7;
+  const set=new Set(s.neradni||[]);
+  let h='<div class="oc-head"><button type="button" class="icon-btn" data-act="off-mon" data-n="-1" aria-label="Prethodni mjesec"'+(ym<=cur?' disabled':'')+'>'+I.left+'</button><strong>'+cap(MONTHS[m-1])+' '+y+'.</strong><button type="button" class="icon-btn" data-act="off-mon" data-n="1" aria-label="Sljedeći mjesec">'+I.right+'</button></div>';
+  h+='<div class="oc-grid">'+['Pon','Uto','Sri','Čet','Pet','Sub','Ned'].map(x=>'<span class="oc-wd">'+x+'</span>').join('');
+  for(let i=0;i<lead;i++)h+='<span></span>';
+  let offN=0;
+  for(let d=1;d<=days;d++){
+    const ds=y+'-'+pad(m)+'-'+pad(d),dow=new Date(y,m-1,d).getDay();
+    const weekly=!(s.radno[String(dow)]||{}).radi,off=set.has(ds),past=ds<t;
+    if(off)offN++;
+    const appt=state.appts.some(a=>a.datum===ds&&a.tip==='klijent'&&a.status==='zakazan');
+    h+='<button type="button" class="oc-d'+(off?' off':'')+(weekly?' weekly':'')+(ds===t?' today':'')+'" data-act="off-day" data-date="'+ds+'"'+(past||weekly?' disabled':'')+' aria-pressed="'+off+'" aria-label="'+esc(longDate(ds))+(off?', ne radim':weekly?', uvijek zatvoreno':'')+'">'+d+(appt?'<i></i>':'')+'</button>';
+  }
+  h+='</div><div class="oc-leg"><span><i class="lg off"></i>Ne radim</span><span><i class="lg weekly"></i>Zatvoreno sedmično</span><span><i class="lg ldot"></i>Ima termina</span></div>';
+  const up=(s.neradni||[]).filter(x=>x>=t);
+  if(up.length)h+='<div class="oc-list">'+up.slice(0,30).map(x=>'<button type="button" class="oc-chip" data-act="off-day" data-date="'+x+'" aria-label="Vrati '+esc(longDate(x))+' kao radni dan">'+esc(shortDate(x))+I.x+'</button>').join('')+'</div>';
+  return h;
+}
+function newsMgmtHTML(){
+  const n=state.news||{};const d=n.azurirano?new Date(n.azurirano):null;
+  const when=d&&!isNaN(d)?d.getDate()+'. '+MONTHS_G[d.getMonth()]+' u '+pad(d.getHours())+':'+pad(d.getMinutes()):'';
+  return '<p class="group-t">Vijesti na traci'+(n.izvor?' <small>'+esc(n.izvor)+(when?', '+esc(when):'')+'</small>':'')+'</p>'+
+    '<div class="group news-g"><ul class="news-list" id="newsList">'+newsItems()+'</ul>'+
+    ('<div class="news-add"><input class="inp" id="n-text" maxlength="200" placeholder="Tvoja obavijest, npr. Ponedjeljkom brada 20% jeftinije"><button type="button" class="btn plain" data-act="news-add">Dodaj</button></div>')+
+    '</div><p class="hint" style="margin:0 4px 8px">HCL vijesti i datumi igara se sami osvježavaju preko GitHuba.</p>';
+}
+function markDirty(){const b=document.getElementById('saveBar');if(b&&b.hidden){b.hidden=false;}}
+function svcRow(u,i){
+  const bi=Number.isInteger(u.boja)?u.boja:(Number(i)||0)%8;
+  return '<div class="svc-row" data-id="'+esc(u.id)+'"><button type="button" class="cdot" data-act="svc-color" data-i="'+bi+'" style="--c:'+SVC_COLORS[bi]+'" aria-label="Promijeni boju usluge"></button>'+
+    '<div class="sr-main"><input class="inp" data-f="naziv" value="'+esc(u.naziv)+'" placeholder="Naziv usluge" maxlength="60" aria-label="Naziv usluge">'+
+    '<div class="sr-sub"><label class="mini"><input class="inp" data-f="trajanje" value="'+u.trajanje+'" inputmode="numeric" aria-label="Trajanje u minutama"><span>min</span></label>'+
+    '<label class="mini"><input class="inp" data-f="cijena" value="'+(u.cijena===''?'':num(u.cijena))+'" inputmode="decimal" aria-label="Cijena"><span>'+esc(state.settings.valuta)+'</span></label></div></div>'+
+    '<button type="button" class="del" data-act="del-svc" aria-label="Ukloni uslugu">'+I.trash+'</button></div>';
+}
+
+async function saveSettings(){
+  const msg=$('#setMsg');msg.textContent='';
+  const s=JSON.parse(JSON.stringify(state.settings));
+  s.naziv=$('#s-naziv').value.trim()||DEFAULT_SETTINGS.naziv;
+  let poz=$('#s-poz').value.replace(/[^\d+]/g,'');if(poz&&!poz.startsWith('+'))poz='+'+poz;s.pozivni=poz||'+387';
+  s.valuta=$('#s-val').value.trim()||'KM';
+  s.interval=Number($('#s-int').value)||30;
+  for(const k of WEEK_ORDER){
+    const on=$('#h-'+k+'-on').checked,od=$('#h-'+k+'-od').value.slice(0,5),dd=$('#h-'+k+'-do').value.slice(0,5);
+    if(on&&(!validT(od)||!validT(dd)||tm(od)>=tm(dd))){msg.textContent=DAYS[Number(k)]+': početak radnog vremena mora biti prije kraja.';return;}
+    s.radno[k]={radi:on,od:validT(od)?od:s.radno[k].od,do:validT(dd)?dd:s.radno[k].do};
+  }
+  const rows=[...document.querySelectorAll('#svcRows .svc-row')];
+  const us=[];
+  for(const r of rows){
+    const n=r.querySelector('[data-f=naziv]').value.trim();
+    if(!n)continue;
+    const tr=clampInt(r.querySelector('[data-f=trajanje]').value,5,480,NaN);
+    if(!Number.isFinite(tr)){msg.textContent='Upišite trajanje u minutama za uslugu „'+n+'“.';return;}
+    const c=Number(String(r.querySelector('[data-f=cijena]').value).replace(/\./g,'').replace(',','.'))||0;
+    us.push({id:r.dataset.id,naziv:n.slice(0,60),trajanje:tr,cijena:Math.max(0,c),boja:clampInt(r.querySelector('.cdot').dataset.i,0,7,0)});
+  }
+  if(!us.length){msg.textContent='Dodajte barem jednu uslugu.';return;}
+  s.usluge=us;
+  const ok=await putSettings(s);
+  if(ok){toast('Postavke sačuvane');render(true);}
+}
+
+/* ---------- Zakazivanje ---------- */
+function openBooking(init){
+  const s=state.settings;
+  const d=Object.assign({id:null,tip:'klijent',ime:'',telefon:'',uslugaId:'',usluga:'',trajanje:30,cijena:0,datum:today(),vrijeme:'',napomena:'',status:'zakazan',kreirano:0,force:false},init||{});
+  if(!d.id&&d.tip==='klijent'&&!d.uslugaId&&s.usluge[0]){const u=s.usluge[0];d.uslugaId=u.id;d.usluga=u.naziv;d.trajanje=u.trajanje;d.cijena=u.cijena;}
+  if(d.vrijeme&&!validT(d.vrijeme))d.vrijeme='';
+  d.osobe=d.osobe||1;d.imena=d.imena||[];
+  if(d.vrijeme&&!d.id&&d.tip==='klijent'&&!(init&&init.uslugaId)){
+    const av=availFrom(d.datum,tm(d.vrijeme),null);
+    if(av>0&&d.trajanje>av){
+      const fit=s.usluge.filter(u=>u.trajanje<=av).sort((x,y)=>y.trajanje-x.trajanje)[0];
+      if(fit){d.uslugaId=fit.id;d.usluga=fit.naziv;d.trajanje=fit.trajanje;d.cijena=fit.cijena;}
+      else if(av>=10){d.trajanje=av;}
+    }
+  }
+  d.pickOpen=!d.vrijeme;
+  d.moreOpen=d.tip==='pauza'||!!d.napomena;
+  state.draft=d;
+  openSheet(bookingHTML(),'booking');
+}
+function slotGrid(date){
+  const h=hoursFor(date),step=state.settings.interval;
+  const open=h.radi?tm(h.od):8*60,close=h.radi?tm(h.do):20*60;
+  const set=new Set();for(let t=open;t<close;t+=step)set.add(t);
+  freeIntervals(date,open,close,state.draft&&state.draft.id).forEach(([fs,fe])=>{if((fs-open)%step&&fe-fs>=10)set.add(fs);});
+  const slots=[...set].sort((a,b)=>a-b);
+  return {open,close,slots,closed:!h.radi};
+}
+function bookingHTML(){
+  const d=state.draft,s=state.settings,t=today(),nm=nowMin();
+  const isP=d.tip==='pauza';
+  const showPick=d.pickOpen||!d.vrijeme;
+  const T=draftDur(d),nOs=d.id?1:(d.osobe||1);
+  const conf=d.vrijeme?conflicts(d.datum,tm(d.vrijeme),T,d.id):[];
+  const av=d.vrijeme?availFrom(d.datum,tm(d.vrijeme),d.id):0;
+  let picker='';
+  if(showPick){
+    const g=slotGrid(d.datum);
+    let chips='';
+    g.slots.forEach(x=>{
+      const v=mt(x);
+      if(d.datum===t&&x+s.interval<=nm&&d.vrijeme!==v)return;
+      const cf=conflicts(d.datum,x,T,d.id);const busy=cf.length>0;
+      const late=x+T>g.close;
+      const who=busy?(cf.find(c=>tm(c.vrijeme)<=x&&endOf(c)>x)||cf[0]):null;
+      const whoN=who?(who.tip==='pauza'?(who.ime||'Pauza'):shortName(who.ime||who.telefon)):'';
+      const shown=busy&&d.vrijeme!==v;
+      chips+='<button type="button" class="chip'+(late?' late':'')+(shown?' busy':'')+'" data-act="d-time" data-v="'+v+'" aria-pressed="'+(d.vrijeme===v)+'"'+(shown?' disabled aria-label="'+v+' zauzeto, '+esc(whoN)+'"':'')+'><span class="ct">'+v+'</span>'+(shown?'<small class="fit" data-min="8">'+esc(whoN)+'</small>':'')+'</button>';
+    });
+    const days=[];for(let i=0;i<21;i++)days.push(addDays(t,i));
+    if(!days.includes(d.datum))days.unshift(d.datum);
+    picker='<div class="picker">'+
+      '<div class="dstrip sm" id="pstrip">'+dayStrip(days,d.datum,'d-day')+
+        '<label class="ds cal" aria-label="Izaberi drugi datum">'+I.cal+'<span class="ds-n">Datum</span><input type="date" id="f-datum" value="'+d.datum+'"></label></div>'+
+      '<p class="pick-day">'+esc(longDate(d.datum))+(g.closed?', neradni dan':'')+'</p>'+
+      (chips?'<div class="time-grid">'+chips+'</div>':'<p class="hint">Za danas nema više termina u radnom vremenu. Izaberite drugi dan ili upišite vrijeme ručno.</p>')+
+      '<label class="custom-time">Drugo vrijeme<input class="inp" type="time" id="f-vrijeme" step="300" value="'+(d.vrijeme&&!g.slots.some(x=>mt(x)===d.vrijeme)?esc(d.vrijeme):'')+'"></label>'+
+    '</div>';
+  }
+  const when=d.vrijeme?
+    '<button type="button" class="whenbox" data-act="d-pick" aria-expanded="'+showPick+'"><b>'+d.vrijeme+'</b><span><strong>'+esc(friendlyDate(d.datum))+'</strong><small>do '+mt(tm(d.vrijeme)+T)+', '+(nOs>1?nOs+' osobe':fmtIn(d.trajanje))+'</small></span><em>'+(showPick?'Sakrij':'Promijeni')+'</em></button>'
+    :'<p class="step-l">Izaberite dan i vrijeme</p>';
+  const dur=[10,15,20,25,30,35,40,45,50,60,75,90,105,120,150,180,240];
+  if(!dur.includes(d.trajanje))dur.push(d.trajanje),dur.sort((a,b)=>a-b);
+  const main=isP?
+      '<label class="field"><span>Opis</span><input class="inp" id="f-ime" value="'+esc(d.ime)+'" placeholder="npr. Pauza za ručak" maxlength="80"></label>'
+    :
+      '<label class="field"><span>Ime klijenta</span><input class="inp big" id="f-ime" value="'+esc(d.ime)+'" autocomplete="off" autocapitalize="words" maxlength="80" placeholder="Ime i prezime"></label>'+
+      '<div class="sugg" id="sugg"></div>'+
+      '<label class="field"><span>Telefon</span><input class="inp big" id="f-tel" type="tel" inputmode="tel" autocomplete="off" value="'+esc(d.telefon)+'" maxlength="30" placeholder="06x xxx xxx"></label>'+
+      '<div id="cnote"></div>'+
+      '<div class="field"><span class="lbl">Usluga</span>'+
+        (d.vrijeme&&av>0&&av<180?'<p class="fit-hint">Od '+d.vrijeme+' je slobodno '+fmtIn(av)+'</p>':'')+
+        '<div class="svc-list">'+
+        s.usluge.map(u=>{const nofit=d.vrijeme&&av>0&&u.trajanje*nOs>av;return '<button type="button" class="svc'+(nofit?' nofit':'')+'" data-act="d-svc" data-id="'+esc(u.id)+'" aria-pressed="'+(d.uslugaId===u.id)+'"><b><span class="dot" style="background:'+svcColorOf(u)+'"></span>'+esc(u.naziv)+'</b><span>'+u.trajanje+' min'+(nofit?', ne stane':'')+'</span><i>'+money(u.cijena)+'</i></button>';}).join('')+
+      '</div></div>'+
+      (d.id?'':'<div class="field"><span class="lbl">Koliko osoba dolazi?</span><div class="seg four" role="group" aria-label="Broj osoba">'+
+        [1,2,3,4].map(n=>'<button type="button" data-act="d-os" data-v="'+n+'" aria-pressed="'+(nOs===n)+'">'+n+'</button>').join('')+'</div>'+
+        (nOs>1?'<div class="extra-names">'+Array.from({length:nOs-1},(_,i)=>'<input class="inp" id="f-ime'+(i+2)+'" data-k="'+(i+2)+'" value="'+esc((d.imena&&d.imena[i+2])||'')+'" placeholder="Ime '+(i+2)+'. osobe (nije obavezno)" maxlength="80" autocapitalize="words">').join('')+'</div>'+
+          (d.vrijeme?'<p class="hint">Termini idu jedan za drugim, '+d.vrijeme+'–'+mt(tm(d.vrijeme)+T)+', svako po '+fmtIn(d.trajanje)+'.</p>':''):'')+
+      '</div>');
+  return '<div class="sheet-head"><h3>'+(d.id?'Uredi termin':(isP?'Blokiraj vrijeme':'Novi termin'))+'</h3><button class="x" data-act="close" aria-label="Zatvori">'+I.x+'</button></div>'+
+    when+picker+main+
+    '<details class="more" id="more"'+(d.moreOpen?' open':'')+'><summary>Više opcija <small>trajanje, cijena, napomena, pauza</small></summary><div class="more-in">'+
+      '<label class="field"><span>Napomena</span><textarea class="inp" id="f-nap" rows="2" maxlength="500" placeholder="'+(isP?'':'npr. kraće sa strane, mašinica broj 2')+'">'+esc(d.napomena)+'</textarea></label>'+
+      '<div class="two">'+
+        '<label class="field"><span>Trajanje</span><select class="inp" id="f-traj">'+dur.map(v=>'<option value="'+v+'"'+(v===d.trajanje?' selected':'')+'>'+fmtIn(v)+'</option>').join('')+'</select></label>'+
+        (isP?'':'<label class="field"><span>Cijena ('+esc(s.valuta)+')</span><input class="inp" id="f-cijena" inputmode="decimal" value="'+(d.cijena?num(d.cijena):'')+'" placeholder="0"></label>')+
+      '</div>'+
+      '<label class="tog wrap"><input type="checkbox" id="f-pauza"'+(isP?' checked':'')+'>Ovo je pauza, vrijeme bez klijenta</label>'+
+    '</div></details>'+
+    '<div class="sheet-foot">'+
+      (conf.length?'<div class="warnbox">Preklapa se sa: '+conf.map(c=>esc(c.tip==='pauza'?(c.ime||'Pauza'):(c.ime||c.telefon))+' ('+c.vrijeme+'–'+mt(endOf(c))+')').join(', ')+(d.force?'. Dodirnite još jednom da ipak sačuvate.':'')+'</div>':'')+
+      '<p class="msg" id="formMsg"></p>'+
+      '<button type="button" class="primary'+(conf.length&&d.force?' warn':'')+'" data-act="save">'+(conf.length&&d.force?'Svejedno sačuvaj':(d.id?'Sačuvaj izmjene':(isP?'Blokiraj vrijeme':'Zakaži termin')))+'</button>'+
+    '</div>';
+}
+function refreshBooking(){
+  const sh=$('#sheet'),top=sh.scrollTop;
+  const ps=$('#pstrip'),pl=ps?ps.scrollLeft:0;
+  sh.innerHTML=bookingHTML();sh.scrollTop=top;
+  const ps2=$('#pstrip');if(ps2)ps2.scrollLeft=pl;
+  updateSugg();
+}
+function readDraftInputs(){
+  const d=state.draft;if(!d)return;
+  const v=id=>{const e=$('#'+id);return e?e.value:null;};
+  if(v('f-ime')!==null)d.ime=v('f-ime');
+  if(v('f-tel')!==null)d.telefon=v('f-tel');
+  if(v('f-nap')!==null)d.napomena=v('f-nap');
+  document.querySelectorAll('#sheet [data-k]').forEach(e=>{d.imena[Number(e.dataset.k)]=e.value;});
+  if(v('f-cijena')!==null)d.cijena=Number(String(v('f-cijena')).replace(/\./g,'').replace(',','.'))||0;
+}
+function updateSugg(){
+  const box=$('#sugg');if(!box)return;
+  const d=state.draft;
+  const cnb=$('#cnote');
+  if(cnb){
+    const k=(digits(d.telefon).length>=6||String(d.ime||'').trim())?clientKey(d):'';
+    const nt=k&&getClients().some(c=>c.key===k)?noteFor(k):'';
+    cnb.innerHTML=nt?'<div class="notebox"><small class="nb-l">Stalna bilješka o klijentu</small>'+esc(nt)+'</div>':'';
+  }
+  const q=String(d.ime||'').trim().toLowerCase(),qd=digits(d.telefon);
+  if(q.length<2&&qd.length<3){box.innerHTML='';return;}
+  const list=getClients().filter(c=>{
+    if(c.key===clientKey({ime:d.ime,telefon:d.telefon})&&c.ime===d.ime)return false;
+    return (q.length>=2&&String(c.ime).toLowerCase().includes(q))||(qd.length>=3&&digits(c.telefon).includes(qd));
+  }).slice(0,3);
+  box.innerHTML=list.map(c=>'<button type="button" data-act="d-sugg" data-key="'+esc(c.key)+'"><span class="av">'+esc(initials(c.ime))+'</span><span><strong>'+esc(c.ime)+'</strong><small>'+esc(c.telefon||'bez broja')+', '+c.posjete+' '+plural(c.posjete,'posjeta','posjete','posjeta')+'</small></span></button>').join('');
+}
+async function saveDraft(){
+  readDraftInputs();
+  const d=state.draft,msg=$('#formMsg');
+  const say=t=>{msg.textContent=t;msg.scrollIntoView({block:'center',behavior:'smooth'});};
+  if(d.tip==='klijent'&&!d.ime.trim()&&!d.telefon.trim())return say('Upišite ime ili broj telefona klijenta.');
+  if(!validT(d.vrijeme))return say('Izaberite vrijeme termina.');
+  const conf=conflicts(d.datum,tm(d.vrijeme),draftDur(d),d.id);
+  if(conf.length&&!d.force){d.force=true;refreshBooking();return;}
+  const isP=d.tip==='pauza';
+  const a={id:d.id||uid('t'),tip:d.tip,datum:d.datum,vrijeme:d.vrijeme,trajanje:d.trajanje,
+    ime:isP?(d.ime.trim()||'Pauza'):d.ime.trim(),telefon:isP?'':d.telefon.trim(),
+    uslugaId:isP?'':d.uslugaId,usluga:isP?'':d.usluga,cijena:isP?0:d.cijena,
+    napomena:d.napomena.trim(),status:d.status||'zakazan',kreirano:d.kreirano||Date.now(),podsjetnik:0,
+    grupa:d.grupa||'',grupaRb:d.grupaRb||0,grupaN:d.grupaN||0};
+  {const old=d.id?getA(d.id):null;if(old&&old.datum===a.datum&&old.vrijeme===a.vrijeme)a.podsjetnik=old.podsjetnik||0;}
+  const btn=$('#sheet [data-act=save]');if(btn){btn.disabled=true;btn.textContent='Čuvam…';}
+  FX.added={};
+  const nG=(!d.id&&!isP)?(d.osobe||1):1;
+  let ok=true;
+  if(nG>1){
+    const gid=uid('g');
+    for(let k=0;k<nG;k++){
+      const nm2=k?(((d.imena&&d.imena[k+1])||'').trim()||(a.ime||a.telefon||'Klijent')+' ('+(k+1)+'. osoba)'):a.ime;
+      const b=Object.assign({},a,{id:k?uid('t'):a.id,vrijeme:mt(tm(a.vrijeme)+k*a.trajanje),grupa:gid,grupaRb:k+1,grupaN:nG,ime:nm2});
+      FX.added[b.id]=Date.now();
+      if(!(await putAppt(b))){ok=false;break;}
+    }
+  }else{FX.added[a.id]=Date.now();ok=await putAppt(a);}
+  if(!ok){if(btn){btn.disabled=false;refreshBooking();}return;}
+  const wasEdit=!!d.id;
+  closeSheet();
+  state.date=a.datum;
+  if(state.view!=='raspored'&&state.view!=='klijenti')state.view='raspored';
+  Object.keys(FX.added).forEach(k=>{FX.added[k]=Date.now();});
+  render(true);
+  if(wasEdit)toast('Izmjene sačuvane');
+  else showBooked(isP?'Vrijeme blokirano':'Zakazano',isP?'':(a.ime||a.telefon)+(nG>1?' + '+(nG-1):''),friendlyDate(a.datum)+' u '+a.vrijeme);
+  requestAnimationFrame(()=>{const f=document.querySelector('.ar.fresh');if(f){const r=f.getBoundingClientRect();if(r.top<90||r.bottom>window.innerHeight-90)f.scrollIntoView({block:'center',behavior:'smooth'});}});
+}
+
+/* ---------- Detalji termina ---------- */
+function detailHTML(a){
+  const when=esc(friendlyDate(a.datum))+' u <strong>'+a.vrijeme+'–'+mt(endOf(a))+'</strong>';
+  const id=esc(a.id);
+  if(a.tip==='pauza'){
+    return '<div class="sheet-head"><h3>'+esc(a.ime||'Pauza')+'</h3><button class="x" data-act="close" aria-label="Zatvori">'+I.x+'</button></div>'+
+      '<p class="when">'+when+'</p>'+(a.napomena?'<div class="notebox">'+esc(a.napomena)+'</div>':'')+
+      '<div class="linkrow"><button data-act="edit" data-id="'+id+'">Uredi</button><button class="danger" data-act="del" data-id="'+id+'">Ukloni pauzu</button></div>';
+  }
+  const c=getClients().find(x=>x.key===clientKey(a));
+  const prev=c?c.list.filter(x=>x.id!==a.id&&x.status==='zavrsen'&&(x.datum+x.vrijeme)<(a.datum+a.vrijeme))[0]:null;
+  const visits=c?c.posjete:0;
+  let info=a.telefon?'Telefon '+esc(a.telefon):'Bez broja telefona';
+  info+='<br>'+(visits?visits+' '+plural(visits,'završena posjeta','završene posjete','završenih posjeta')+(prev?', zadnji put '+esc(shortDate(prev.datum)+' '+pd(prev.datum).getFullYear()+'.'):''):'Novi klijent');
+  if(c&&c.sljedeca&&c.sljedeca.id!==a.id)info+='<br>Sljedeći termin: '+esc(friendlyDate(c.sljedeca.datum))+' u '+c.sljedeca.vrijeme;
+  const cnote=c?noteFor(c.key):'';
+  const grp=a.grupaN>1?groupOf(a):null;
+  if(grp&&grp.length>1)info='Zajednička rezervacija: '+grp.map(x=>esc(x.ime)+' '+x.vrijeme).join(', ')+'<br>'+info;
+  if(c&&c.nedolasci)info+='<br><span style="color:var(--red)">Nije došao '+c.nedolasci+' '+plural(c.nedolasci,'put','puta','puta')+'</span>';
+  return '<div class="sheet-head"><h3 class="fit" data-min="17">'+esc(a.ime||a.telefon||'Klijent')+'</h3><button class="x" data-act="close" aria-label="Zatvori">'+I.x+'</button></div>'+
+    '<p class="when">'+when+'</p>'+
+    '<p class="dsvc">'+esc(a.usluga||'Usluga')+(a.cijena?', <strong>'+money(a.cijena)+'</strong>':'')+(a.status!=='zakazan'?' <em class="tag '+a.status+'">'+STATUS[a.status]+'</em>':'')+'</p>'+
+    (a.napomena?'<div class="notebox">'+esc(a.napomena)+'</div>':'')+
+    (cnote?'<div class="notebox"><small class="nb-l">Stalna bilješka o klijentu</small>'+esc(cnote)+'</div>':'')+
+    contactButtons(a.telefon,a.status==='zakazan'&&!isPastAppt(a)?a:null)+
+    (a.status==='zakazan'?
+      '<div class="btn-row two-c"><button class="btn ok big" data-act="st" data-id="'+id+'" data-v="zavrsen">'+I.check+'Završeno</button><button class="btn bad big" data-act="st" data-id="'+id+'" data-v="nije_dosao">Nije došao</button></div>'
+      :'<div class="btn-row" style="grid-template-columns:1fr"><button class="btn plain big" data-act="st" data-id="'+id+'" data-v="zakazan">Vrati na zakazano</button></div>')+
+    (a.status==='zavrsen'&&!(c&&c.sljedeca)?rebookHTML(a):'')+
+    '<p class="dinfo">'+info+'</p>'+
+    (c&&!cnote?'<button class="addnote" data-act="client" data-key="'+esc(c.key)+'" data-focus="1">'+I.plus+' Dodaj stalnu bilješku o klijentu</button>':'')+
+    '<div class="linkrow">'+
+      '<button data-act="edit" data-id="'+id+'">Uredi</button>'+
+      (a.status!=='otkazan'?'<button data-act="cancel" data-id="'+id+'">Otkaži</button>':'')+
+      (grp&&grp.filter(x=>x.status==='zakazan').length>1?'<button data-act="cancel-grp" data-id="'+id+'">Otkaži sve</button>':'')+
+      (c?'<button data-act="client" data-key="'+esc(c.key)+'">Karton</button>':'')+
+      '<button class="danger" data-act="del" data-id="'+id+'">Obriši</button>'+
+    '</div>';
+}
+
+function rebookHTML(a){
+  return '<div class="rebook"><p>Zakaži sljedeći dolazak</p><div class="rb-btns">'+
+    [2,3,4].map(w=>'<button class="chip" data-act="rebook" data-id="'+esc(a.id)+'" data-w="'+w+'">Za '+w+' sedmice</button>').join('')+
+    '<button class="chip" data-act="rebook" data-id="'+esc(a.id)+'" data-w="0">Drugi dan</button></div></div>';
+}
+function remHTML(date){
+  const list=apptsOn(date).filter(a=>a.tip==='klijent'&&a.status==='zakazan'&&!isPastAppt(a)&&(a.grupaRb||0)<=1);
+  const withTel=list.filter(a=>a.telefon),noTel=list.filter(a=>!a.telefon);
+  const sent=withTel.filter(a=>a.podsjetnik).length;
+  const pct=withTel.length?Math.round(sent/withTel.length*100):0;
+  const rows=withTel.map(a=>{
+    const n=intl(a.telefon);
+    return '<li class="'+(a.podsjetnik?'sent':'')+'"><b>'+a.vrijeme+'</b><span class="rm"><strong class="fit" data-min="11">'+esc(a.ime||a.telefon)+'</strong><small>'+(a.podsjetnik?'Poslano':esc(a.telefon))+'</small></span><span class="rem-btns">'+
+      '<a class="btn sm" href="'+esc(smsHref(a.telefon,reminderText(a)))+'" target="_blank" rel="noopener" data-act="rem-sent" data-id="'+esc(a.id)+'">'+I.sms+'SMS</a>'+
+      '<a class="btn sm" href="viber://chat?number='+encodeURIComponent(n)+'" target="_blank" rel="noopener" data-act="rem-sent" data-id="'+esc(a.id)+'" data-copy="1">'+I.viber+'Viber</a></span></li>';
+  }).join('');
+  return '<div class="sheet-head"><h3>Podsjetnici</h3><button class="x" data-act="close" aria-label="Zatvori">'+I.x+'</button></div>'+
+    '<p class="when">'+esc(friendlyDate(date))+'</p>'+
+    '<div class="prog"><i style="width:'+pct+'%"></i></div><p class="prog-l">Poslano '+sent+' od '+withTel.length+'</p>'+
+    (rows?'<ul class="rem-list">'+rows+'</ul>':'<p class="muted">Nema zakazanih klijenata s brojem telefona.</p>')+
+    '<p class="hint">SMS se otvara s gotovom porukom. Za Viber se poruka kopira, pa je samo zalijepite u razgovor.</p>'+
+    (noTel.length?'<p class="hint">Bez broja telefona: '+noTel.map(a=>esc(a.ime||'klijent')).join(', ')+'</p>':'');
+}
+
+/* ---------- Sheet, dijalog, toast ---------- */
+function openSheet(html,kind){
+  const w=$('#sheetWrap'),sh=$('#sheet');
+  const already=!w.hidden&&w.classList.contains('open');
+  sh.innerHTML=html;state.sheet=kind;sh.scrollTop=0;
+  if(!already){w.hidden=false;document.body.classList.add('locked');requestAnimationFrame(()=>requestAnimationFrame(()=>w.classList.add('open')));}
+  if(kind==='booking'){updateSugg();const p=$('#pstrip [aria-current="date"]');if(p)p.scrollIntoView({inline:'center',block:'nearest'});}
+}
+function closeSheet(){
+  const w=$('#sheetWrap');
+  w.classList.remove('open');state.sheet=null;state.draft=null;
+  document.body.classList.remove('locked');
+  setTimeout(()=>{if(!state.sheet){w.hidden=true;$('#sheet').innerHTML='';}},280);
+}
+function ask(text,okLabel){
+  return new Promise(res=>{
+    const root=$('#dialogRoot');
+    root.innerHTML='<div class="dialog-wrap"><div class="dialog" role="alertdialog" aria-modal="true"><p>'+esc(text)+'</p><div class="btn-row two-c" style="margin:0"><button class="btn plain" data-r="0">Odustani</button><button class="btn bad" data-r="1">'+esc(okLabel)+'</button></div></div></div>';
+    const done=v=>{root.innerHTML='';res(v);};
+    root.querySelectorAll('[data-r]').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();done(b.dataset.r==='1');}));
+    root.querySelector('.dialog-wrap').addEventListener('click',e=>{if(e.target.classList.contains('dialog-wrap'))done(false);});
+    root.querySelector('[data-r="1"]').focus();
+  });
+}
+let toastT;
+function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>el.classList.remove('show'),2600);}
+
+/* ---------- Događaji ---------- */
+document.addEventListener('click',async e=>{
+  const el=e.target.closest('[data-act]');if(!el||el.disabled)return;
+  const act=el.dataset.act;
+  const d=state.draft;
+  switch(act){
+    case 'nav':state.view=el.dataset.view;if(state.view==='raspored'&&!state.sheet){}render(true);window.scrollTo(0,0);if(state.view==='raspored')scrollToNow();break;
+    case 'week':state.date=addDays(state.date,Number(el.dataset.n));render();break;
+    case 'pick':state.date=el.dataset.date;render();requestAnimationFrame(()=>{const sd=document.querySelector('#dstrip [aria-current="date"]');if(sd)sd.scrollIntoView({inline:'center',block:'nearest'});});if(!hoursFor(state.date).radi&&closedAnimOn())showClosed(state.date);break;
+    case 'today':state.date=today();render();scrollToNow();break;
+    case 'new':openBooking({datum:state.date,vrijeme:el.dataset.time});break;
+    case 'fab':openBooking({datum:state.view==='raspored'?state.date:today()});break;
+    case 'open':{const a=getA(el.dataset.id);if(a)openSheet(detailHTML(a),'detail:'+a.id);break;}
+    case 'close':closeSheet();break;
+    case 'client':{const c=getClients().find(x=>x.key===el.dataset.key);if(c){openSheet(clientSheetHTML(c),'client:'+c.key);if(el.dataset.focus){const f=$('#c-note');if(f){f.scrollIntoView({block:'center'});f.focus();}}}break;}
+    case 'save-note':{const f=$('#c-note');if(!f)break;f.blur();if(await saveNote(el.dataset.key,f.value))toast('Bilješka sačuvana');break;}
+    case 'rem':openSheet(remHTML(el.dataset.date),'rem:'+el.dataset.date);break;
+    case 'rem-sent':{
+      const a=getA(el.dataset.id);if(!a)break;
+      if(el.dataset.copy){copyText(reminderText(a));toast('Poruka kopirana. Zalijepite je u Viber.');}
+      (async()=>{for(const x of groupOf(a)){if(!x.podsjetnik&&!(await putAppt(Object.assign({},x,{podsjetnik:Date.now()}))))break;}})();
+      break;
+    }
+    case 'rebook':{
+      const a=getA(el.dataset.id);if(!a)break;
+      const w=Number(el.dataset.w),t0=today();
+      const u=state.settings.usluge.find(x=>x.id===a.uslugaId);
+      const init={ime:a.ime,telefon:a.telefon,uslugaId:a.uslugaId,usluga:a.usluga,trajanje:a.trajanje,cijena:a.cijena,datum:t0};
+      if(u){init.uslugaId=u.id;init.usluga=u.naziv;init.trajanje=u.trajanje;init.cijena=u.cijena;}
+      if(w){
+        let dd=addDays(a.datum,w*7);while(dd<t0)dd=addDays(dd,7);
+        init.datum=dd;const h=hoursFor(dd),st=tm(a.vrijeme);
+        if(h.radi&&st>=tm(h.od)&&st+init.trajanje<=tm(h.do)&&!conflicts(dd,st,init.trajanje,null).length)init.vrijeme=a.vrijeme;
+      }
+      openBooking(init);
+      if(!init.vrijeme&&w)toast('Uobičajeno vrijeme ('+a.vrijeme+') je zauzeto. Izaberite drugo.');
+      break;
+    }
+    case 'svc-color':{const i=(Number(el.dataset.i)+1)%8;el.dataset.i=i;el.style.setProperty('--c',SVC_COLORS[i]);markDirty();break;}
+    case 'book-client':{
+      const c=getClients().find(x=>x.key===el.dataset.key);if(!c)break;
+      const last=c.zadnjaUsluga;const u=last&&state.settings.usluge.find(s=>s.id===last.uslugaId);
+      openBooking(Object.assign({ime:c.ime,telefon:c.telefon,datum:state.view==='raspored'?state.date:today()},u?{uslugaId:u.id,usluga:u.naziv,trajanje:u.trajanje,cijena:u.cijena}:{}));
+      break;
+    }
+    case 'd-tip':readDraftInputs();d.tip=el.dataset.v;d.force=false;
+      if(d.tip==='pauza'){if(!d.id){d.ime='';d.trajanje=30;}}
+      else if(!d.uslugaId&&state.settings.usluge[0]){const u=state.settings.usluge[0];d.uslugaId=u.id;d.usluga=u.naziv;d.trajanje=u.trajanje;d.cijena=u.cijena;if(d.ime==='Pauza')d.ime='';}
+      refreshBooking();updateSugg();break;
+    case 'd-svc':{readDraftInputs();const u=state.settings.usluge.find(s=>s.id===el.dataset.id);if(u){d.uslugaId=u.id;d.usluga=u.naziv;d.trajanje=u.trajanje;d.cijena=u.cijena;d.force=false;}refreshBooking();updateSugg();break;}
+    case 'd-day':readDraftInputs();d.datum=el.dataset.date||el.dataset.v;d.force=false;refreshBooking();break;
+    case 'd-time':readDraftInputs();d.vrijeme=el.dataset.v;d.force=false;d.pickOpen=false;refreshBooking();
+      if(d.tip==='klijent'&&!d.ime&&!d.telefon){const f=$('#f-ime');if(f)f.scrollIntoView({block:'center',behavior:'smooth'});}
+      break;
+    case 'd-pick':readDraftInputs();d.pickOpen=!(d.pickOpen||!d.vrijeme);refreshBooking();break;
+    case 'd-sugg':{
+      readDraftInputs();const c=getClients().find(x=>x.key===el.dataset.key);if(!c)break;
+      d.ime=c.ime;d.telefon=c.telefon;
+      const last=c.zadnjaUsluga;const u=last&&state.settings.usluge.find(s=>s.id===last.uslugaId);
+      if(u&&!d.id){d.uslugaId=u.id;d.usluga=u.naziv;d.trajanje=u.trajanje;d.cijena=u.cijena;}
+      refreshBooking();$('#sugg').innerHTML='';
+      if(c.sljedeca)toast(c.ime+' već ima termin: '+friendlyDate(c.sljedeca.datum)+' u '+c.sljedeca.vrijeme);
+      break;
+    }
+    case 'save':saveDraft();break;
+    case 'edit':{const a=getA(el.dataset.id);if(a)openBooking(Object.assign({},a));break;}
+    case 'st':{
+      const a=getA(el.dataset.id);if(!a)break;
+      const upd={status:el.dataset.v};let early=0;
+      if(el.dataset.v==='zavrsen'&&a.datum===today()&&a.status==='zakazan'){
+        const nm=nowMin(),st=tm(a.vrijeme);
+        if(nm>st&&nm<endOf(a)-4){const nd=Math.max(5,Math.ceil((nm-st)/5)*5);if(nd<a.trajanje){early=a.trajanje-nd;upd.trajanje=nd;}}
+      }
+      const ok=await putAppt(Object.assign({},a,upd));
+      if(ok){toast(early?'Završeno ranije. Oslobođeno '+early+' min ('+mt(st0(a)+upd.trajanje)+'–'+mt(endOf(a))+')':el.dataset.v==='zavrsen'?'Označeno kao završeno':el.dataset.v==='nije_dosao'?'Označeno: nije došao':'Termin je ponovo zakazan');const b=getA(a.id);if(b){if(state.sheet==='detail:'+a.id)$('#sheet').innerHTML=detailHTML(b);else if(el.dataset.v==='zavrsen')openSheet(detailHTML(b),'detail:'+b.id);}}
+      break;
+    }
+    case 'cancel-grp':{
+      const a=getA(el.dataset.id);if(!a)break;
+      const g=groupOf(a).filter(x=>x.status==='zakazan');
+      if(!(await ask('Otkazati cijelu rezervaciju ('+g.length+' osobe, '+friendlyDate(a.datum)+')?','Otkaži sve')))break;
+      let okAll=true;for(const x of g){if(!(await putAppt(Object.assign({},x,{status:'otkazan'})))){okAll=false;break;}}
+      if(okAll){closeSheet();toast('Rezervacija otkazana');}
+      break;
+    }
+    case 'd-os':readDraftInputs();d.osobe=Number(el.dataset.v)||1;d.force=false;refreshBooking();break;
+    case 'cancel':{
+      const a=getA(el.dataset.id);if(!a)break;
+      if(!(await ask('Otkazati termin za '+(a.ime||a.telefon||'klijenta')+' ('+friendlyDate(a.datum)+' u '+a.vrijeme+')? Termin ostaje u historiji kao otkazan.','Otkaži termin')))break;
+      if(await putAppt(Object.assign({},a,{status:'otkazan'}))){closeSheet();toast('Termin otkazan');}
+      break;
+    }
+    case 'del':{
+      const a=getA(el.dataset.id);if(!a)break;
+      if(!(await ask('Trajno obrisati ovaj termin? Ovo se ne može vratiti.','Obriši')))break;
+      if(await removeAppt(a.id)){closeSheet();toast('Termin obrisan');}
+      break;
+    }
+    case 'sp':state.statsPeriod=el.dataset.v;state.statsOffset=0;render();break;
+    case 'so':state.statsOffset=Math.min(0,state.statsOffset+Number(el.dataset.n));render();break;
+    case 'mark-done':{
+      const list=state.appts.filter(a=>a.tip==='klijent'&&a.status==='zakazan'&&isPastAppt(a));
+      if(!list.length)break;
+      if(!(await ask('Označiti '+list.length+' '+plural(list.length,'prošli termin','prošla termina','prošlih termina')+' kao završen?','Označi')))break;
+      el.disabled=true;let n=0;
+      for(const a of list){if(await putAppt(Object.assign({},a,{status:'zavrsen'})))n++;else break;}
+      toast(n+' '+plural(n,'termin označen','termina označena','termina označeno')+' kao završen');render();
+      break;
+    }
+    case 'add-svc':{const box=$('#svcRows');box.insertAdjacentHTML('beforeend',svcRow({id:uid('s'),naziv:'',trajanje:30,cijena:'',boja:box.children.length%8}));box.lastElementChild.querySelector('[data-f=naziv]').focus();markDirty();break;}
+    case 'del-svc':el.closest('.svc-row').remove();markDirty();break;
+    case 'set-tab':{state.setTab=el.dataset.v;document.querySelectorAll('.set-pane').forEach(p=>{p.hidden=p.dataset.tab!==state.setTab;});document.querySelectorAll('[data-act="set-tab"]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===state.setTab)));window.scrollTo(0,0);break;}
+    case 'off-mon':{const p=state.offMonth.split('-').map(Number);const d=new Date(p[0],p[1]-1+Number(el.dataset.n),1);state.offMonth=d.getFullYear()+'-'+pad(d.getMonth()+1);const c=$('#offCal');if(c)c.innerHTML=offCalHTML();break;}
+    case 'off-day':{
+      const d0=el.dataset.date;const s2=JSON.parse(JSON.stringify(state.settings));const set=new Set(s2.neradni||[]);
+      const adding=!set.has(d0);if(adding)set.add(d0);else set.delete(d0);
+      s2.neradni=[...set].filter(x=>x>=today()).sort();
+      state.settings=mergeSettings(s2);
+      const c=$('#offCal');if(c)c.innerHTML=offCalHTML();
+      const cnt=state.appts.filter(a=>a.datum===d0&&a.tip==='klijent'&&a.status==='zakazan').length;
+      const ok=await putSettings(s2);
+      if(ok)toast(adding?(cnt?shortDate(d0)+' ne radiš. Pažnja: taj dan ima '+cnt+' '+plural(cnt,'zakazan termin','zakazana termina','zakazanih termina')+'.':shortDate(d0)+' je označen kao neradni dan'):shortDate(d0)+' je opet radni dan');
+      break;
+    }
+    case 'export':exportFile();break;
+    case 'logout':{if(!(await ask('Odjaviti se s ovog telefona? Termini ostaju sačuvani u bazi.','Odjavi se')))break;try{await FB.au.signOut(FB.auth);}catch(e){}setTrial(false);location.reload();break;}
+    case 'login-open':{if(!cfgOk()){toast('Prvo upišite Firebase podatke u firebase-config.js');break;}setTrial(false);if(!FB.au){try{await loadFirebase();}catch(e){toast('Nema interneta.');break;}FB.au.onAuthStateChanged(FB.auth,u=>{if(u){hideLogin();startCloud(u);}});}showLogin();break;}
+    case 'pin-key':pinKey(el.dataset.k);break;
+    case 'pin-del':pinDel();break;
+    case 'pin-change':openSheet(pinSheetHTML(),'pin');break;
+    case 'pin-save':savePin();break;
+    case 'reset-pass':doReset();break;
+    case 'trial':setTrial(true);startTrial();toast('Probna verzija: podaci samo na ovom telefonu');break;
+    case 'games-toggle':{state.gamesOpen=!state.gamesOpen;render();break;}
+    case 'save-set':saveSettings();break;
+    case 'skin':setSkin(el.dataset.v);break;
+    case 'flip':{
+      if(e.target.closest('.tk-item'))break;
+      if(!el.classList.contains('can-flip')){toast('Trenutno nema vijesti');break;}
+      const on=!el.classList.contains('flipped');
+      el.classList.toggle('flipped',on);el.setAttribute('aria-pressed',String(on));
+      if(on)markNewsSeen();
+      break;
+    }
+    case 'flip-logo':{
+      el.classList.remove('spin');void el.offsetWidth;el.classList.add('spin');
+      const fl=document.getElementById('brandFlip');if(!fl)break;
+      if(!fl.classList.contains('can-flip')){toast('Trenutno nema vijesti');break;}
+      const on=!fl.classList.contains('flipped');
+      fl.classList.toggle('flipped',on);fl.setAttribute('aria-pressed',String(on));
+      if(on)markNewsSeen();
+      break;
+    }
+    case 'news-del':{const s2=JSON.parse(JSON.stringify(state.settings));s2.obavijesti.splice(Number(el.dataset.i),1);await putSettings(s2);toast('Obavijest uklonjena');break;}
+    case 'news-add':{const f=$('#n-text');const v=f?f.value.trim():'';if(!v){toast('Upišite tekst obavijesti');break;}const s2=JSON.parse(JSON.stringify(state.settings));s2.obavijesti=[v].concat(s2.obavijesti||[]).slice(0,20);await putSettings(s2);f.value='';toast('Obavijest dodana na traku');break;}
+    case 'sync-info':toast(state.mode==='cloud'?'Termini su sinhronizovani na svim tvojim uređajima.':state.mode==='trial'?'Probna verzija: termini se čuvaju samo na ovom telefonu.':state.mode==='loading'?'Povezivanje sa bazom termina…':state.mode==='offline'?'Nema interneta. Izmjene se čuvaju i pošalju kad se veza vrati.':'Greška veze s bazom. Pokušajte osvježiti stranicu.');break;
+  }
+});
+document.addEventListener('input',e=>{
+  const t=e.target;
+  if(t.closest&&t.closest('[data-form]'))markDirty();
+  if(t.id==='cq'){state.clientQuery=t.value;$('#clientList').innerHTML=clientItems();return;}
+  if(!state.draft)return;
+  if(t.dataset&&t.dataset.k){state.draft.imena[Number(t.dataset.k)]=t.value;return;}
+  if(t.id==='f-ime'){state.draft.ime=t.value;updateSugg();}
+  else if(t.id==='f-tel'){state.draft.telefon=t.value;updateSugg();}
+  else if(t.id==='f-nap'){state.draft.napomena=t.value;}
+  else if(t.id==='f-cijena'){readDraftInputs();}
+});
+document.addEventListener('change',e=>{
+  const t=e.target;
+  if(t.id==='importFile'&&t.files&&t.files[0]){
+    const f=t.files[0];t.value='';
+    f.text().then(async txt=>{
+      let obj;try{obj=JSON.parse(txt);}catch(e){toast('Fajl nije ispravan.');return;}
+      if(!obj||obj.aplikacija!=='frizer-rakic'){toast('Ovo nije fajl iz aplikacije Frizer kuće Rakića.');return;}
+      const n=(obj.termini||[]).length;
+      if(!(await ask('Uvesti '+n+' '+plural(n,'termin','termina','termina')+', klijentske bilješke i postavke? Postojeći termini ostaju.','Uvezi')))return;
+      try{const k=await importData(obj);toast('Uvezeno '+k+' '+plural(k,'termin','termina','termina'));}catch(e){toast(errMsg(e));}
+    });
+    return;
+  }
+  if(t.id==='jump'&&validD(t.value)){state.date=t.value;render();if(!hoursFor(state.date).radi&&closedAnimOn())showClosed(state.date);return;}
+  if(t.id==='gamesOn'){try{localStorage.setItem('rakic.igre',t.checked?'1':'0');}catch(e){}toast(t.checked?'Datumi igara uključeni':'Datumi igara isključeni');return;}
+  if(t.id==='tickerOn'){try{localStorage.setItem('rakic.ticker',t.checked?'1':'0');}catch(e){}renderTicker();return;}
+  if(t.id==='soundOn'){try{localStorage.setItem('rakic.zvuk',t.checked?'1':'0');}catch(e){}if(t.checked)playClosedSound(true);toast(t.checked?'Zvuk uključen':'Zvuk isključen');return;}
+  if(t.id==='closedAnim'){try{localStorage.setItem('rakic.zatvorenoAnim',t.checked?'1':'0');}catch(e){}toast(t.checked?'Animacija za neradni dan uključena':'Animacija za neradni dan isključena');return;}
+  if(t.id==='splashOn'){setSplash(t.checked);toast(t.checked?'Animacija će se prikazati pri sljedećem otvaranju':'Animacija isključena');return;}
+  if(t.dataset&&t.dataset.hk){const k=t.dataset.hk;$('#h-'+k+'-t').hidden=!t.checked;$('#h-'+k+'-x').hidden=t.checked;markDirty();return;}
+  if(t.closest&&t.closest('[data-form]')){markDirty();}
+  if(!state.draft)return;
+  const d=state.draft;
+  if(t.id==='f-datum'&&validD(t.value)){readDraftInputs();d.datum=t.value;d.force=false;refreshBooking();updateSugg();}
+  else if(t.id==='f-vrijeme'&&t.value){readDraftInputs();const v=t.value.slice(0,5);if(validT(v)){d.vrijeme=v;d.force=false;d.pickOpen=false;refreshBooking();}}
+  else if(t.id==='f-pauza'){readDraftInputs();d.tip=t.checked?'pauza':'klijent';d.force=false;
+    if(d.tip==='pauza'){if(!d.id&&d.ime&&!d.telefon){}else if(!d.id)d.ime='';}
+    else{if(d.ime==='Pauza')d.ime='';if(!d.uslugaId&&state.settings.usluge[0]){const u=state.settings.usluge[0];d.uslugaId=u.id;d.usluga=u.naziv;d.trajanje=u.trajanje;d.cijena=u.cijena;}}
+    refreshBooking();}
+  else if(t.id==='f-traj'){readDraftInputs();d.trajanje=Number(t.value)||30;d.force=false;refreshBooking();updateSugg();}
+});
+document.addEventListener('toggle',e=>{if(e.target.id==='more'&&state.draft)state.draft.moreOpen=e.target.open;},true);
+$('#sheetWrap').addEventListener('click',e=>{if(e.target.id==='sheetWrap')closeSheet();});
+document.addEventListener('keydown',e=>{const lg=$('#login');if(lg&&!lg.hidden&&!(e.target&&e.target.id==='lg-email')){if(/^\d$/.test(e.key)){pinKey(e.key);e.preventDefault();return;}if(e.key==='Backspace'){pinDel();e.preventDefault();return;}}if(e.key==='Escape'){if($('#dialogRoot').innerHTML)return;if(state.sheet)closeSheet();}});
+
+// osvježi liniju „sada“ svake minute
+setInterval(()=>{if(state.view==='raspored'&&!document.hidden)render();},60000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&state.view==='raspored')render();});
+
+initStore();
+if('serviceWorker' in navigator&&location.protocol==='https:'){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});}
+})();
+</script>
+</body>
+</html>

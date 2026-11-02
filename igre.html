@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="bs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B0B0D">
+<title>Igre koje izlaze na PS5 – Frizer kuće Rakića</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0B0D;--card:#17171A;--ink:#ECECEF;--muted:#9B9BA3;--line:#2C2C31;--red:#C41E26;
+  --display:'Big Shoulders Display','Arial Narrow',sans-serif;--body:'Figtree',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 var(--body);padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+.pole{height:6px;background:repeating-linear-gradient(-45deg,#D0151C 0 9px,#F1F1F1 9px 14px,#1E3FA0 14px 23px,#F1F1F1 23px 28px)}
+main{max-width:640px;margin:0 auto;padding:20px 16px 40px}
+h1{font:800 40px/1 var(--display);margin:0}
+.sub{color:var(--muted);margin:6px 0 20px;font-size:14px}
+.count{display:block;text-decoration:none;color:#fff;border-radius:18px;padding:16px 18px;margin-bottom:22px;background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3,var(--g2)));box-shadow:0 16px 34px -18px var(--g1)}
+.count small{display:block;font-size:13px;opacity:.9}
+.count strong{display:block;font:800 30px/1.05 var(--display);margin:4px 0}
+.count b{font:800 22px/1 var(--display)}
+h2{font:800 24px/1 var(--display);margin:26px 0 10px;text-transform:capitalize}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.g{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center;padding:10px;border-radius:16px;background:var(--card);border:1px solid var(--line);position:relative;overflow:hidden;color:inherit;text-decoration:none}
+.g::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:linear-gradient(180deg,var(--g1),var(--g2))}
+.date{height:64px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;background:linear-gradient(135deg,var(--g1),var(--g2));background-size:cover;background-position:center;text-shadow:0 1px 4px rgba(0,0,0,.7)}
+.date b{font:800 28px/1 var(--display)}
+.date span{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.name{font-weight:700;font-size:16.5px;line-height:1.25}
+.plat{font-size:13px;color:var(--muted);margin-top:2px}
+.g.gta{border:0;background:linear-gradient(135deg,#FF4FA0 0%,#B44CFF 52%,#FF9A3C 100%);color:#fff}
+.g.gta .plat{color:rgba(255,255,255,.9)}
+.g.gta .date{background:rgba(0,0,0,.25)}
+.empty,.err{padding:24px;border:1.5px dashed var(--line);border-radius:16px;color:var(--muted);text-align:center}
+footer{margin-top:30px;font-size:13px;color:var(--muted)}
+footer a{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="pole"></div>
+<main>
+  <h1>Igre na PS5</h1>
+  <p class="sub" id="sub">Učitavam…</p>
+  <div id="top"></div>
+  <div id="out"></div>
+  <footer id="foot"></footer>
+</main>
+<script>
+(function(){
+  const MG=['januara','februara','marta','aprila','maja','juna','jula','augusta','septembra','oktobra','novembra','decembra'];
+  const MN=['januar','februar','mart','april','maj','juni','juli','august','septembar','oktobar','novembar','decembar'];
+  const D=['ned','pon','uto','sri','čet','pet','sub'];
+  const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const pd=s=>{const p=s.split('-').map(Number);return new Date(p[0],p[1]-1,p[2]);};
+  const hex=c=>/^#[0-9a-fA-F]{6}$/.test(c||'')?c:null;
+  const today=new Date();today.setHours(0,0,0,0);
+  function vars(g){const b=(g.boje||[]).map(hex).filter(Boolean);const a=b[0]||'#2F6FE4',c=b[1]||a;return '--g1:'+a+';--g2:'+c+(b[2]?';--g3:'+b[2]:'');}
+  fetch('data/igre.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json();}).then(data=>{
+    const items=(data.stavke||[]).filter(g=>g&&g.datum&&pd(g.datum)>=today);
+    const up=data.azurirano?new Date(data.azurirano):null;
+    document.getElementById('sub').textContent=items.length+' igara koje dolaze'+(up&&!isNaN(up)?', ažurirano '+up.getDate()+'. '+MG[up.getMonth()]+' '+up.getFullYear()+'.':'');
+    const big=items.find(g=>g.tip==='gta');
+    if(big){const n=Math.round((pd(big.datum)-today)/864e5);
+      document.getElementById('top').innerHTML='<a class="count" style="'+vars(big)+'" href="#g-'+esc(big.datum)+'"><small>Najveća igra koja dolazi</small><strong>'+esc(big.naziv)+'</strong><b>'+(n===0?'izlazi danas':n===1?'sutra':'za '+n+' dana')+'</b></a>';}
+    if(!items.length){document.getElementById('out').innerHTML='<div class="empty">Trenutno nema datuma. Pokreni „Osvježi datume igara“ u kartici Actions.</div>';}
+    let html='',month='';
+    items.forEach(g=>{
+      const d=pd(g.datum),m=MN[d.getMonth()]+' '+d.getFullYear();
+      if(m!==month){if(month)html+='</ul>';html+='<h2>'+esc(m)+'</h2><ul class="list">';month=m;}
+      const img=g.slika&&/^https:\/\//.test(g.slika)?';background-image:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('+encodeURI(g.slika)+')':'';
+      const tag=g.link&&/^https:\/\//.test(g.link)?'a href="'+esc(g.link)+'" target="_blank" rel="noopener"':'div';
+      html+='<li id="g-'+esc(g.datum)+'"><'+tag+' class="g'+(g.tip==='gta'?' gta':'')+'" style="'+vars(g)+'">'+
+        '<span class="date" style="'+vars(g)+img+'"><b>'+d.getDate()+'</b><span>'+D[d.getDay()]+'</span></span>'+
+        '<span><span class="name">'+esc(g.naziv)+'</span><span class="plat" style="display:block">'+esc(g.platforme||'PS5')+'</span></span></'+tag.split(' ')[0]+'></li>';
+    });
+    if(month)html+='</ul>';
+    document.getElementById('out').innerHTML=html;
+    document.getElementById('foot').innerHTML=data.izvor==='RAWG.io'?'Podaci o igrama: <a href="https://rawg.io" target="_blank" rel="noopener">RAWG</a>. Osvježava se automatski svakog ponedjeljka.':'Ovo je početni spisak. Nakon prvog pokretanja u kartici Actions podaci dolaze automatski s RAWG-a.';
+  }).catch(e=>{
+    document.getElementById('sub').textContent='';
+    document.getElementById('out').innerHTML='<div class="err">Spisak igara nije učitan ('+esc(e.message)+'). Provjeri da postoji fajl data/igre.json.</div>';
+  });
+})();
+</script>
+</body>
+</html>
