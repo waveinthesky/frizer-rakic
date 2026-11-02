@@ -813,6 +813,22 @@ select.inp.narrow{text-align:left;padding-right:28px;background-position:calc(10
 .gpanel{animation:gpIn .3s cubic-bezier(.2,.8,.2,1)}
 @keyframes gpIn{from{opacity:0;transform:translateY(-8px)}}
 .flip:not(.flipped) .tk-track{animation-play-state:paused}
+/* Više radnih vremena u danu */
+.hr-ivs{margin-top:8px}
+.iv-list{display:grid;gap:8px}
+.iv{display:flex;align-items:center;gap:8px}
+.iv i{color:var(--muted);font-style:normal;font-size:14px}
+.iv .inp{width:104px;height:40px;padding:0 6px;text-align:center;font-size:15.5px}
+.iv-del{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:var(--muted);background:var(--surface-2);flex:none}
+.iv-del svg{width:16px;height:16px}
+.iv-add{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-weight:700;font-size:14px;color:var(--green)}
+.iv-add svg{width:15px;height:15px}
+.de-note{font-size:14.5px;color:var(--muted);margin:2px 2px 14px}
+.de-ivs{padding:12px 12px 10px;margin-bottom:14px}
+.oc-d.cust{background:var(--brass-soft);box-shadow:inset 0 0 0 2px var(--brass-strong);color:var(--ink)}
+.lg.cust{background:var(--brass-strong)}
+.oc-chip.cust{background:var(--brass-soft);color:var(--brass);padding-right:11px}
+.oc-chip small{font-weight:600;opacity:.85}
 /* Prijava */
 .login{position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding:24px 18px calc(24px + env(safe-area-inset-bottom,0px));background:radial-gradient(120% 70% at 50% 0%,var(--surface) 0%,var(--bg) 60%);overflow-y:auto}
 .lg-card{width:100%;max-width:380px;text-align:left}
@@ -1206,18 +1222,22 @@ const state={
 
 function mergeSettings(x){
   const d=JSON.parse(JSON.stringify(DEFAULT_SETTINGS));
-  if(!x||typeof x!=='object')return d;
+  if(!x||typeof x!=='object')x={};
   ['naziv','pozivni','valuta'].forEach(k=>{if(typeof x[k]==='string'&&x[k].trim())d[k]=x[k].trim().slice(0,60);});
   if([10,15,20,30,45,60].includes(Number(x.interval)))d.interval=Number(x.interval);
+  d.posebno={};
+  if(x.posebno&&typeof x.posebno==='object'){Object.keys(x.posebno).filter(validD).sort().slice(-400).forEach(k=>{const iv=normIntervals(x.posebno[k]&&x.posebno[k].intervali,null);if(iv)d.posebno[k]={intervali:iv};});}
   d.obavijesti=Array.isArray(x.obavijesti)?x.obavijesti.filter(t=>typeof t==='string'&&t.trim()).map(t=>t.trim().slice(0,200)).slice(0,20):[];
   d.neradni=Array.isArray(x.neradni)?[...new Set(x.neradni.filter(validD))].sort().slice(-400):[];
   if(x.radno&&typeof x.radno==='object'){
-    Object.keys(d.radno).forEach(k=>{const r=x.radno[k];if(r&&typeof r==='object')d.radno[k]={radi:!!r.radi,od:validT(r.od)?r.od:d.radno[k].od,do:validT(r.do)?r.do:d.radno[k].do};});
+    Object.keys(d.radno).forEach(k=>{const r=x.radno[k];if(r&&typeof r==='object'){const od=validT(r.od)?r.od:d.radno[k].od,dd=validT(r.do)?r.do:d.radno[k].do;d.radno[k]={radi:!!r.radi,intervali:normIntervals(r.intervali,null)||normIntervals([{od,do:dd}],[{od:d.radno[k].od,do:d.radno[k].do}])};}});
   }
   if(Array.isArray(x.usluge)){
     const u=x.usluge.filter(s=>s&&typeof s.naziv==='string'&&s.naziv.trim()).map((s,i)=>({id:str(String(s.id||''),40)||uid('s'),naziv:s.naziv.trim().slice(0,60),trajanje:clampInt(s.trajanje,5,480,30),cijena:Math.max(0,Number(s.cijena)||0),boja:clampInt(s.boja,0,7,i%8)}));
     if(u.length)d.usluge=u;
   }
+  Object.keys(d.radno).forEach(k=>{const r=d.radno[k];const iv=normIntervals(r.intervali,null)||normIntervals([{od:r.od,do:r.do}],[{od:'08:00',do:'20:00'}]);d.radno[k]={radi:!!r.radi,intervali:iv,od:iv[0].od,do:iv[iv.length-1].do};});
+  if(!d.posebno)d.posebno={};
   return d;
 }
 function normA(x,id){
@@ -1462,7 +1482,22 @@ function rebuildNews(){
 /* ---------- Podaci ---------- */
 const getA=id=>state.appts.find(a=>a.id===id);
 function apptsOn(date){return state.appts.filter(a=>a.datum===date).sort((x,y)=>x.vrijeme.localeCompare(y.vrijeme));}
-function hoursFor(date){const b=state.settings.radno[String(pd(date).getDay())]||{radi:false,od:'08:00',do:'20:00'};if((state.settings.neradni||[]).includes(date))return {radi:false,od:b.od,do:b.do,odmor:true};return b;}
+function normIntervals(arr,fallback){
+  const iv=(Array.isArray(arr)?arr:[]).filter(x=>x&&validT(x.od)&&validT(x.do)&&tm(x.od)<tm(x.do)).map(x=>({od:x.od,do:x.do})).sort((a,b)=>tm(a.od)-tm(b.od));
+  const out=[];for(const x of iv){const l=out[out.length-1];if(l&&tm(x.od)<=tm(l.do)){if(tm(x.do)>tm(l.do))l.do=x.do;}else out.push(x);}
+  return out.length?out.slice(0,6):fallback;
+}
+function hoursFor(date){
+  const s=state.settings,b=s.radno[String(pd(date).getDay())]||{radi:false,od:'08:00',do:'20:00'};
+  const ivb=b.intervali&&b.intervali.length?b.intervali:[{od:b.od,do:b.do}];
+  const mk=(radi,iv,extra)=>Object.assign({radi,intervali:iv,od:iv[0].od,do:iv[iv.length-1].do},extra||{});
+  if((s.neradni||[]).includes(date))return mk(false,ivb,{odmor:true});
+  const sp=s.posebno&&s.posebno[date];
+  if(sp&&sp.intervali&&sp.intervali.length)return mk(true,sp.intervali,{posebno:true});
+  return mk(!!b.radi,ivb);
+}
+function ivMin(h){return h.intervali.map(x=>[tm(x.od),tm(x.do)]);}
+function ivText(h){const a=h.intervali.map(x=>x.od+'–'+x.do);return a.length<2?a[0]:a.slice(0,-1).join(', ')+' i '+a[a.length-1];}
 function conflicts(date,start,dur,exceptId){
   return state.appts.filter(a=>a.datum===date&&a.id!==exceptId&&a.status!=='otkazan'&&tm(a.vrijeme)<start+dur&&endOf(a)>start);
 }
@@ -1474,7 +1509,7 @@ function freeIntervals(date,open,close,exceptId){
   return out.filter(x=>x[1]>x[0]);
 }
 function availFrom(date,start,exceptId){
-  const h=hoursFor(date);const close=h.radi?tm(h.do):24*60;
+  const h=hoursFor(date);let close=24*60;if(h.radi){const iv=ivMin(h).find(([o,c])=>start>=o&&start<c);close=iv?iv[1]:start+600;}
   let next=start<close?close:start+600;
   for(const a of state.appts){
     if(a.datum!==date||a.status==='otkazan'||a.id===exceptId)continue;
@@ -1625,11 +1660,12 @@ function scheduleHTML(){
 
   const entries=[];
   if(h.radi){
-    const open=tm(h.od),close=tm(h.do);
+    ivMin(h).forEach(([open,close])=>{
     freeIntervals(date,open,close,null).forEach(([fs,fe])=>{
       let x=fs;const off=(x-open)%step;
       if(off){const ng=Math.min(fe,x+(step-off));if(ng-x>=10)entries.push({t:x,len:ng-x});x=ng;}
       while(x<fe){const len=Math.min(step,fe-x);if(len>=10)entries.push({t:x,len});x+=step;}
+    });
     });
     active.forEach(a=>entries.push({a,t:tm(a.vrijeme)}));
     entries.sort((p,q)=>p.t-q.t||(p.a?-1:1));
@@ -1637,10 +1673,11 @@ function scheduleHTML(){
     active.forEach(a=>entries.push({a,t:tm(a.vrijeme)}));
   }
   let gapCard='';
-  if(date===t&&h.radi){
-    const close=tm(h.do);
-    const nr=Math.ceil(nm/5)*5;
-    const fi=freeIntervals(date,tm(h.od),close,null).find(x=>x[0]<=nr&&nr<x[1]);
+  const nr0=Math.ceil(nm/5)*5,ivNow=h.radi?ivMin(h).find(([o,c])=>nr0>=o&&nr0<c):null;
+  if(date===t&&ivNow){
+    const close=ivNow[1];
+    const nr=nr0;
+    const fi=freeIntervals(date,ivNow[0],close,null).find(x=>x[0]<=nr&&nr<x[1]);
     if(fi&&fi[1]<close){
       const from=Math.max(nr,fi[0]),left=fi[1]-from;
       if(left>=10&&left<=90){
@@ -1706,7 +1743,7 @@ function scheduleHTML(){
     '<div class="dstrip" id="dstrip" role="group" aria-label="Izbor dana">'+stripHTML+
       '<label class="ds cal" aria-label="Izaberi drugi datum">'+I.cal+'<span class="ds-n">Datum</span><input type="date" id="jump" value="'+date+'"></label></div>'+
     '<div class="dhead"><div><h2>'+esc(rel||DAYS[d.getDay()])+'</h2>'+
-      '<p>'+esc((rel?DAYS[d.getDay()]+', ':'')+d.getDate()+'. '+MONTHS_G[d.getMonth()])+(h.radi?', radi '+h.od+'–'+h.do:', ne radi')+'</p>'+
+      '<p>'+esc((rel?DAYS[d.getDay()]+', ':'')+d.getDate()+'. '+MONTHS_G[d.getMonth()])+(h.radi?(h.posebno?', danas posebno ':', radi ')+ivText(h):', ne radi')+'</p>'+
       '<p class="dsum">'+esc(sum)+'</p>'+remBtn+'</div>'+gameBtn(date)+'</div>'+(state.gamesOpen?'<div class="gpanel">'+gamesHTML(date)+'</div>':'')+gapCard+nextCard+body;
 }
 function dayStrip(days,sel,act){
@@ -1866,7 +1903,7 @@ function settingsHTML(){
   const s=state.settings,tab=state.setTab;
   const hours=WEEK_ORDER.map(k=>{const r=s.radno[k];const nm=DAYS[Number(k)];return '<div class="row-s hr">'+
     '<span class="rl"><b>'+nm+'</b>'+
-    '<span class="hr-t" id="h-'+k+'-t"'+(r.radi?'':' hidden')+'><input class="inp" type="time" id="h-'+k+'-od" value="'+r.od+'" aria-label="'+nm+' od"><i>do</i><input class="inp" type="time" id="h-'+k+'-do" value="'+r.do+'" aria-label="'+nm+' do"></span>'+
+    '<div class="hr-ivs" id="h-'+k+'-t"'+(r.radi?'':' hidden')+'>'+ivEditor('h-'+k+'-l',r.intervali)+'</div>'+
     '<small class="hr-off" id="h-'+k+'-x"'+(r.radi?' hidden':'')+'>Ne radim</small></span>'+
     '<input type="checkbox" class="sw-t" id="h-'+k+'-on"'+(r.radi?' checked':'')+' data-hk="'+k+'" aria-label="'+nm+' radim"></div>';}).join('');
   const sk=currentSkin();
@@ -1894,8 +1931,8 @@ function settingsHTML(){
       '<label class="row-s"><span class="rl"><b>Uvezi podatke</b><small>iz stare aplikacije ili rezervne kopije</small></span><span class="btn plain">Uvezi</span><input type="file" id="importFile" accept=".json,application/json" hidden></label>'+
     '</div>')+
   pane('radno',
-    '<p class="group-t">Sedmično radno vrijeme</p><div class="group" data-form>'+hours+'</div>'+
-    '<p class="group-t">Neradni dani</p><div class="group off-wrap"><p class="off-help">Dodirni dan u kalendaru koji ne radiš, npr. godišnji odmor ili praznik. Ponovni dodir ga vraća. Sprema se odmah.</p><div id="offCal">'+offCalHTML()+'</div></div>')+
+    '<p class="group-t">Sedmično radno vrijeme <small>(dodaj više vremena za dvokratni rad)</small></p><div class="group" data-form>'+hours+'</div>'+
+    '<p class="group-t">Neradni dani i posebno vrijeme</p><div class="group off-wrap"><p class="off-help">Dodirni dan da ga zatvoriš (godišnji, praznik) ili mu podesiš posebno radno vrijeme, npr. dvokratno. Može i dan koji inače ne radiš.</p><div id="offCal">'+offCalHTML()+'</div></div>')+
   pane('usluge',
     '<p class="group-t">Usluge i cijene</p><div class="group" data-form><div id="svcRows">'+s.usluge.map(svcRow).join('')+'</div>'+
     '<button type="button" class="add-row" data-act="add-svc">'+I.plus+' Dodaj uslugu</button></div>'+
@@ -1917,6 +1954,21 @@ function settingsHTML(){
   '</form>'+
   '<div class="savebar" id="saveBar" hidden><button type="button" class="primary" data-act="save-set">'+I.check+' Sačuvaj promjene</button></div>';
 }
+function ivRow(x){return '<div class="iv"><input class="inp iv-od" type="time" value="'+esc(x.od)+'" aria-label="Od"><i>do</i><input class="inp iv-do" type="time" value="'+esc(x.do)+'" aria-label="Do"><button type="button" class="iv-del" data-act="iv-del" aria-label="Ukloni ovo vrijeme">'+I.x+'</button></div>';}
+function ivEditor(id,iv){return '<div class="iv-list" id="'+id+'">'+(iv||[]).map(ivRow).join('')+'</div><button type="button" class="iv-add" data-act="iv-add" data-t="'+id+'">'+I.plus+' Dodaj još jedno vrijeme</button>';}
+function readIv(id){return [...document.querySelectorAll('#'+id+' .iv')].map(r=>({od:r.querySelector('.iv-od').value.slice(0,5),do:r.querySelector('.iv-do').value.slice(0,5)}));}
+function dayEditHTML(){
+  const e=state.dayEdit,s=state.settings,b=s.radno[String(pd(e.date).getDay())];
+  const reg=b.radi?'Redovno radiš '+ivText({intervali:b.intervali})+'.':'Redovno ovaj dan ne radiš.';
+  const cnt=state.appts.filter(a=>a.datum===e.date&&a.tip==='klijent'&&a.status==='zakazan').length;
+  return '<div class="sheet-head"><h3>'+esc(longDate(e.date))+'</h3><button class="x" data-act="close" aria-label="Zatvori">'+I.x+'</button></div>'+
+    '<div class="seg three" role="group" aria-label="Radno vrijeme za ovaj dan">'+[['reg','Po rasporedu'],['cust','Posebno'],['off','Ne radim']].map(m=>'<button type="button" data-act="de-mode" data-v="'+m[0]+'" aria-pressed="'+(e.mode===m[0])+'">'+m[1]+'</button>').join('')+'</div>'+
+    (e.mode==='reg'?'<p class="de-note">'+esc(reg)+'</p>':'')+
+    (e.mode==='cust'?'<p class="de-note">Upiši kad tog dana radiš. Možeš dodati više vremena, npr. 08:00–12:00 i 16:00–20:00. Vrijeme između se ne nudi za zakazivanje.</p><div class="group de-ivs">'+ivEditor('de-l',e.intervali)+'</div>':'')+
+    (e.mode==='off'?'<p class="de-note">Ovaj dan ne radiš i ne nude se slobodni termini.</p>':'')+
+    (cnt&&e.mode!=='reg'?'<div class="warnbox">Taj dan već ima '+cnt+' '+plural(cnt,'zakazan termin','zakazana termina','zakazanih termina')+'. Termini ostaju, provjeri da li se uklapaju.</div>':'')+
+    '<p class="msg" id="deMsg"></p><div class="sheet-foot"><button type="button" class="primary" data-act="de-save">'+I.check+' Sačuvaj</button></div>';
+}
 function offCalHTML(){
   const s=state.settings,t=today(),cur=t.slice(0,7);
   const ym=state.offMonth<cur?cur:state.offMonth;
@@ -1932,11 +1984,12 @@ function offCalHTML(){
     const weekly=!(s.radno[String(dow)]||{}).radi,off=set.has(ds),past=ds<t;
     if(off)offN++;
     const appt=state.appts.some(a=>a.datum===ds&&a.tip==='klijent'&&a.status==='zakazan');
-    h+='<button type="button" class="oc-d'+(off?' off':'')+(weekly?' weekly':'')+(ds===t?' today':'')+'" data-act="off-day" data-date="'+ds+'"'+(past||weekly?' disabled':'')+' aria-pressed="'+off+'" aria-label="'+esc(longDate(ds))+(off?', ne radim':weekly?', uvijek zatvoreno':'')+'">'+d+(appt?'<i></i>':'')+'</button>';
+    const cust=!off&&!!(s.posebno&&s.posebno[ds]);
+    h+='<button type="button" class="oc-d'+(off?' off':'')+(cust?' cust':'')+(weekly&&!cust?' weekly':'')+(ds===t?' today':'')+'" data-act="off-day" data-date="'+ds+'"'+(past?' disabled':'')+' aria-label="'+esc(longDate(ds))+(off?', ne radim':cust?', posebno vrijeme '+esc(ivText(s.posebno[ds])):weekly?', redovno zatvoreno':'')+'">'+d+(appt?'<i></i>':'')+'</button>';
   }
-  h+='</div><div class="oc-leg"><span><i class="lg off"></i>Ne radim</span><span><i class="lg weekly"></i>Zatvoreno sedmično</span><span><i class="lg ldot"></i>Ima termina</span></div>';
-  const up=(s.neradni||[]).filter(x=>x>=t);
-  if(up.length)h+='<div class="oc-list">'+up.slice(0,30).map(x=>'<button type="button" class="oc-chip" data-act="off-day" data-date="'+x+'" aria-label="Vrati '+esc(longDate(x))+' kao radni dan">'+esc(shortDate(x))+I.x+'</button>').join('')+'</div>';
+  h+='</div><div class="oc-leg"><span><i class="lg off"></i>Ne radim</span><span><i class="lg cust"></i>Posebno vrijeme</span><span><i class="lg weekly"></i>Zatvoreno sedmično</span><span><i class="lg ldot"></i>Ima termina</span></div>';
+  const up=(s.neradni||[]).filter(x=>x>=t).map(x=>({d:x,off:true})).concat(Object.keys(s.posebno||{}).filter(x=>x>=t).map(x=>({d:x,off:false}))).sort((a,b)=>a.d.localeCompare(b.d));
+  if(up.length)h+='<div class="oc-list">'+up.slice(0,40).map(x=>'<button type="button" class="oc-chip'+(x.off?'':' cust')+'" data-act="off-day" data-date="'+x.d+'" aria-label="Uredi '+esc(longDate(x.d))+'">'+esc(shortDate(x.d))+(x.off?'':' <small>'+esc(ivText(s.posebno[x.d]))+'</small>')+'</button>').join('')+'</div>';
   return h;
 }
 function newsMgmtHTML(){
@@ -1965,9 +2018,12 @@ async function saveSettings(){
   s.valuta=$('#s-val').value.trim()||'KM';
   s.interval=Number($('#s-int').value)||30;
   for(const k of WEEK_ORDER){
-    const on=$('#h-'+k+'-on').checked,od=$('#h-'+k+'-od').value.slice(0,5),dd=$('#h-'+k+'-do').value.slice(0,5);
-    if(on&&(!validT(od)||!validT(dd)||tm(od)>=tm(dd))){msg.textContent=DAYS[Number(k)]+': početak radnog vremena mora biti prije kraja.';return;}
-    s.radno[k]={radi:on,od:validT(od)?od:s.radno[k].od,do:validT(dd)?dd:s.radno[k].do};
+    const on=$('#h-'+k+'-on').checked;
+    const rows=readIv('h-'+k+'-l');
+    const bad=rows.find(x=>!validT(x.od)||!validT(x.do)||tm(x.od)>=tm(x.do));
+    if(on&&(bad||!rows.length)){msg.textContent=DAYS[Number(k)]+': '+(bad?'početak mora biti prije kraja ('+(bad.od||'?')+' – '+(bad.do||'?')+').':'upišite radno vrijeme.');msg.scrollIntoView({block:'center',behavior:'smooth'});return;}
+    const iv=normIntervals(rows,null)||s.radno[k].intervali;
+    s.radno[k]={radi:on,intervali:iv,od:iv[0].od,do:iv[iv.length-1].do};
   }
   const rows=[...document.querySelectorAll('#svcRows .svc-row')];
   const us=[];
@@ -2007,11 +2063,14 @@ function openBooking(init){
 }
 function slotGrid(date){
   const h=hoursFor(date),step=state.settings.interval;
-  const open=h.radi?tm(h.od):8*60,close=h.radi?tm(h.do):20*60;
-  const set=new Set();for(let t=open;t<close;t+=step)set.add(t);
-  freeIntervals(date,open,close,state.draft&&state.draft.id).forEach(([fs,fe])=>{if((fs-open)%step&&fe-fs>=10)set.add(fs);});
+  const ivs=h.radi?ivMin(h):[[8*60,20*60]];
+  const set=new Set(),ends={};
+  ivs.forEach(([o,c])=>{
+    for(let t=o;t<c;t+=step){set.add(t);ends[t]=c;}
+    freeIntervals(date,o,c,state.draft&&state.draft.id).forEach(([fs,fe])=>{if((fs-o)%step&&fe-fs>=10){set.add(fs);ends[fs]=c;}});
+  });
   const slots=[...set].sort((a,b)=>a-b);
-  return {open,close,slots,closed:!h.radi};
+  return {open:ivs[0][0],close:ivs[ivs.length-1][1],slots,ends,closed:!h.radi};
 }
 function bookingHTML(){
   const d=state.draft,s=state.settings,t=today(),nm=nowMin();
@@ -2028,7 +2087,7 @@ function bookingHTML(){
       const v=mt(x);
       if(d.datum===t&&x+s.interval<=nm&&d.vrijeme!==v)return;
       const cf=conflicts(d.datum,x,T,d.id);const busy=cf.length>0;
-      const late=x+T>g.close;
+      const late=x+T>(g.ends[x]||g.close);
       const who=busy?(cf.find(c=>tm(c.vrijeme)<=x&&endOf(c)>x)||cf[0]):null;
       const whoN=who?(who.tip==='pauza'?(who.ime||'Pauza'):shortName(who.ime||who.telefon)):'';
       const shown=busy&&d.vrijeme!==v;
@@ -2278,7 +2337,7 @@ document.addEventListener('click',async e=>{
       if(w){
         let dd=addDays(a.datum,w*7);while(dd<t0)dd=addDays(dd,7);
         init.datum=dd;const h=hoursFor(dd),st=tm(a.vrijeme);
-        if(h.radi&&st>=tm(h.od)&&st+init.trajanje<=tm(h.do)&&!conflicts(dd,st,init.trajanje,null).length)init.vrijeme=a.vrijeme;
+        if(h.radi&&ivMin(h).some(([o,c])=>st>=o&&st+init.trajanje<=c)&&!conflicts(dd,st,init.trajanje,null).length)init.vrijeme=a.vrijeme;
       }
       openBooking(init);
       if(!init.vrijeme&&w)toast('Uobičajeno vrijeme ('+a.vrijeme+') je zauzeto. Izaberite drugo.');
@@ -2360,15 +2419,44 @@ document.addEventListener('click',async e=>{
     case 'set-tab':{state.setTab=el.dataset.v;document.querySelectorAll('.set-pane').forEach(p=>{p.hidden=p.dataset.tab!==state.setTab;});document.querySelectorAll('[data-act="set-tab"]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===state.setTab)));window.scrollTo(0,0);break;}
     case 'off-mon':{const p=state.offMonth.split('-').map(Number);const d=new Date(p[0],p[1]-1+Number(el.dataset.n),1);state.offMonth=d.getFullYear()+'-'+pad(d.getMonth()+1);const c=$('#offCal');if(c)c.innerHTML=offCalHTML();break;}
     case 'off-day':{
-      const d0=el.dataset.date;const s2=JSON.parse(JSON.stringify(state.settings));const set=new Set(s2.neradni||[]);
-      const adding=!set.has(d0);if(adding)set.add(d0);else set.delete(d0);
-      s2.neradni=[...set].filter(x=>x>=today()).sort();
-      state.settings=mergeSettings(s2);
-      const c=$('#offCal');if(c)c.innerHTML=offCalHTML();
-      const cnt=state.appts.filter(a=>a.datum===d0&&a.tip==='klijent'&&a.status==='zakazan').length;
-      const ok=await putSettings(s2);
-      if(ok)toast(adding?(cnt?shortDate(d0)+' ne radiš. Pažnja: taj dan ima '+cnt+' '+plural(cnt,'zakazan termin','zakazana termina','zakazanih termina')+'.':shortDate(d0)+' je označen kao neradni dan'):shortDate(d0)+' je opet radni dan');
+      const d0=el.dataset.date,s0=state.settings;
+      const mode=(s0.neradni||[]).includes(d0)?'off':(s0.posebno&&s0.posebno[d0])?'cust':'reg';
+      const b=s0.radno[String(pd(d0).getDay())];
+      state.dayEdit={date:d0,mode,intervali:JSON.parse(JSON.stringify(mode==='cust'?s0.posebno[d0].intervali:(b.radi?b.intervali:[{od:'08:00',do:'12:00'},{od:'16:00',do:'20:00'}])))};
+      openSheet(dayEditHTML(),'dayedit');
       break;
+    }
+    case 'de-mode':{const e2=state.dayEdit;if(!e2)break;if(document.getElementById('de-l')){const r=readIv('de-l');if(r.length)e2.intervali=r;}e2.mode=el.dataset.v;$('#sheet').innerHTML=dayEditHTML();break;}
+    case 'de-save':{
+      const e2=state.dayEdit;if(!e2)break;const msg=$('#deMsg');
+      const s2=JSON.parse(JSON.stringify(state.settings));
+      s2.neradni=(s2.neradni||[]).filter(x=>x!==e2.date&&x>=today());
+      s2.posebno=s2.posebno||{};delete s2.posebno[e2.date];
+      Object.keys(s2.posebno).forEach(k=>{if(k<today())delete s2.posebno[k];});
+      if(e2.mode==='off')s2.neradni.push(e2.date);
+      if(e2.mode==='cust'){
+        const rows=readIv('de-l');const bad=rows.find(x=>!validT(x.od)||!validT(x.do)||tm(x.od)>=tm(x.do));
+        if(bad||!rows.length){msg.textContent=bad?'Početak mora biti prije kraja ('+(bad.od||'?')+' – '+(bad.do||'?')+').':'Dodajte bar jedno vrijeme.';break;}
+        s2.posebno[e2.date]={intervali:normIntervals(rows,rows)};
+      }
+      s2.neradni.sort();
+      await putSettings(s2);state.settings=mergeSettings(s2);
+      closeSheet();const c=$('#offCal');if(c)c.innerHTML=offCalHTML();
+      toast(e2.mode==='off'?shortDate(e2.date)+': ne radiš':e2.mode==='cust'?shortDate(e2.date)+': radiš '+ivText(state.settings.posebno[e2.date]):shortDate(e2.date)+': po redovnom rasporedu');
+      state.dayEdit=null;break;
+    }
+    case 'iv-add':{
+      const box=document.getElementById(el.dataset.t);if(!box)break;
+      const rows=box.querySelectorAll('.iv');if(rows.length>=6){toast('Najviše 6 vremena u danu');break;}
+      const last=rows.length?rows[rows.length-1].querySelector('.iv-do').value:'';
+      let st=validT(last)?Math.min(tm(last)+60,22*60):8*60;let en=Math.min(st+240,23*60+59);
+      box.insertAdjacentHTML('beforeend',ivRow({od:mt(st),do:mt(en)}));
+      if(box.closest('[data-form]'))markDirty();break;
+    }
+    case 'iv-del':{
+      const box=el.closest('.iv-list');if(!box)break;
+      if(box.querySelectorAll('.iv').length<=1){toast(box.id==='de-l'?'Mora ostati bar jedno vrijeme. Za slobodan dan izaberi „Ne radim“.':'Mora ostati bar jedno vrijeme. Za slobodan dan isključi prekidač.');break;}
+      el.closest('.iv').remove();if(box.closest('[data-form]'))markDirty();break;
     }
     case 'export':exportFile();break;
     case 'logout':{if(!(await ask('Odjaviti se s ovog telefona? Termini ostaju sačuvani u bazi.','Odjavi se')))break;try{await FB.au.signOut(FB.auth);}catch(e){}setTrial(false);location.reload();break;}
