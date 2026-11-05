@@ -1,0 +1,42 @@
+name: Osvježi HCL vijesti
+
+on:
+  schedule:
+    - cron: "7,37 * * * *"   # svakih 30 minuta
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: vijesti
+  cancel-in-progress: true
+
+jobs:
+  osvjezi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instaliraj alate
+        run: pip install requests==2.32.3
+
+      - name: Povuci vijesti s HCL-a
+        run: python scripts/update_vijesti.py
+
+      - name: Spremi promjene
+        run: |
+          if git diff --quiet -- data/vijesti.json; then
+            echo "Nema novih vijesti."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/vijesti.json
+          git commit -m "Nove HCL vijesti"
+          git pull --rebase
+          git push
