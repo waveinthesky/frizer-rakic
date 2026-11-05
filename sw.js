@@ -1,6 +1,6 @@
 // Omogućava da aplikacija radi i bez interneta i da se brzo otvara.
 // Kad mijenjaš aplikaciju, povećaj broj verzije ispod.
-const V = 'frizer-rakic-v9';
+const V = 'frizer-rakic-v13';
 const SHELL = ['./', './index.html', './firebase-config.js', './manifest.webmanifest',
   './img/logo.webp', './img/logo-light.webp', './img/avatar.jpg', './img/icon-192.png', './img/icon-512.png'];
 

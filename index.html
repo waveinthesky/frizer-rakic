@@ -1156,6 +1156,71 @@ details.exact summary small{font-weight:500}
 .saved-pill{position:fixed;z-index:81;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translate(-50%,12px);opacity:0;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:var(--ok);color:#fff;font-weight:700;font-size:14px;box-shadow:0 10px 24px -10px rgba(0,0,0,.5);transition:.22s;pointer-events:none}
 .saved-pill svg{width:16px;height:16px}
 .saved-pill.show{opacity:1;transform:translate(-50%,0)}
+/* Broj rezervacija na danima */
+.dstrip{padding-top:10px!important;margin-top:-6px}
+.dstrip.sm{padding-top:10px!important}
+.ds:not(.cal){overflow:visible}
+.ds.game-day::after{border-radius:14px 14px 0 0}
+.ds-c{display:none}
+.ds-badge{position:absolute;top:-8px;right:-6px;z-index:2;min-width:21px;height:21px;padding:0 6px;border-radius:11px;background:var(--pole-red);color:#fff;font:800 12px/17px var(--body);text-align:center;border:2px solid var(--bg);box-shadow:0 4px 10px -4px rgba(0,0,0,.55)}
+.ds-badge.full{background:var(--ink);color:var(--bg)}
+.ds-badge.pop{animation:badgePop .55s cubic-bezier(.3,1.8,.5,1)}
+@keyframes badgePop{0%{transform:scale(.3)}60%{transform:scale(1.25)}100%{transform:scale(1)}}
+.ds-dots{display:flex;justify-content:center;gap:3px;height:14px;align-items:center}
+.ds-dots i{width:6px;height:6px;border-radius:50%;box-shadow:0 0 0 1px rgba(255,255,255,.15)}
+.ds[aria-current="date"] .ds-dots i{box-shadow:0 0 0 1.5px rgba(255,255,255,.85)}
+.gm-dot{left:5px;right:auto}
+.gta-tag{left:3px;right:auto}
+.dstrip.sm .ds-badge{top:-7px;right:-5px;min-width:19px;height:19px;font-size:11px;line-height:15px}
+@media (prefers-reduced-motion:reduce){.ds-badge.pop{animation:none}}
+/* Tabela rasporeda v2 */
+.wg{grid-template-columns:38px repeat(7,1fr);grid-auto-rows:18px;gap:2px 3px}
+.wg .wg-c{grid-row:span 2}
+.wg-h{grid-row:span 2;height:38px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:0}
+.wg-h b{font:800 13px/1 var(--display);letter-spacing:.04em}
+.wg-h small{font:700 11px/1 var(--body);color:var(--muted)}
+.wg-h.sel small{color:var(--on-green-muted)}
+.wg-t{font:700 11px/18px var(--display);padding-right:5px;white-space:nowrap}
+.wg-t.hr{transform:none;color:var(--ink)}
+.wg-t.half{color:var(--muted);font-weight:600;opacity:.75}
+.wg-cell{border-radius:4px}
+.wg-cell.hr{box-shadow:inset 0 1.5px 0 var(--line)}
+.wg-cell.on{background:linear-gradient(180deg,var(--green),color-mix(in srgb,var(--green) 82%,#000 18%))}
+.dg{grid-template-columns:44px 1fr;grid-auto-rows:20px;gap:2px 8px}
+.dg-t{font:700 12px/20px var(--display)}
+.dg-t.hr{transform:none;color:var(--ink)}
+.dg-t.half{opacity:.7}
+/* Brz izbor klijenta */
+.sugg{margin:-8px 0 16px}
+.sg-l{font-size:12.5px;font-weight:700;color:var(--muted);margin:0 2px 6px}
+.sg-chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:0 -18px;padding:0 18px 2px}
+.sg-chips::-webkit-scrollbar{display:none}
+.sugg .sg-chip{flex:none;display:inline-flex;align-items:center;gap:7px;height:40px;padding:0 12px 0 4px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line);font-weight:600;font-size:14.5px;white-space:nowrap}
+.sg-chip .av{width:32px;height:32px;font-size:13px}
+.sugg .sg-row{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:8px 10px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line)}
+.sugg .sg-row+.sg-row{margin-top:6px}
+.sg-row>svg{color:var(--muted);flex:none}
+.sg-t{flex:1;min-width:0}
+.sg-t strong{display:block;font-size:15.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sg-t mark{background:var(--brass-soft);color:var(--brass);border-radius:3px;padding:0 1px}
+.sugg .sg-t small{display:block;color:var(--muted);font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* Kartice postavki: 6 kartica u redu koji se pomjera */
+.set-tabs{display:flex!important;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.set-tabs::-webkit-scrollbar{display:none}
+.set-tabs button{flex:none;padding:0 14px;white-space:nowrap}
+.info-gap{height:6px}
+.set-pane[data-tab="pomoc"] .gd-intro{margin-top:10px}
+/* Veća HCL traka */
+.flip{height:40px}
+.ticker{height:36px;border-radius:10px}
+.tk-item{font-size:15px;font-weight:600;padding-left:16px}
+.tk-item b{font-size:12px;margin-right:7px}
+.tk-sep{margin-left:16px}
+.tk-sep svg{width:14px;height:14px}
+.tk-when{flex:none;display:flex;align-items:center;padding:0 9px;font:800 12px/1 var(--display);letter-spacing:.04em;color:#fff;background:var(--pole-red);border-radius:10px 0 0 10px}
+.info-h{font:800 22px/1 var(--display)!important;color:var(--ink)!important;margin:22px 4px 10px!important}
+.set-tabs{display:grid!important;grid-template-columns:1.45fr 1fr .85fr 1.3fr;overflow:visible}
+.set-tabs button{padding:0 3px;font-size:13.5px;white-space:nowrap}
 /* Prijava */
 .login{position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding:24px 18px calc(24px + env(safe-area-inset-bottom,0px));background:radial-gradient(120% 70% at 50% 0%,var(--surface) 0%,var(--bg) 60%);overflow-y:auto}
 .lg-card{width:100%;max-width:380px;text-align:left}
@@ -1296,8 +1361,12 @@ const MONTHS=['januar','februar','mart','april','maj','juni','juli','august','se
 const MONTHS_G=['januara','februara','marta','aprila','maja','juna','jula','augusta','septembra','oktobra','novembra','decembra'];
 const WEEK_ORDER=['1','2','3','4','5','6','0'];
 /* Verzija i promjene: dopunjava se sa svakom novom izmjenom */
-const APP_VERSION='2.4.1';
+const APP_VERSION='2.7.1';
 const CHANGELOG=[
+  {v:'2.7.1',d:'2026-11-04',n:['Postavke složene u 4 kartice: Salon i usluge, Vrijeme, Izgled, O aplikaciji','Uputstvo se nalazi unutar kartice O aplikaciji']},
+  {v:'2.7',d:'2026-11-04',n:['Uputstvo i O aplikaciji su sada kartice u Postavkama','Veća slova na HCL traci i vrijeme zadnjeg osvježavanja vijesti','HCL vijesti se osvježe svaki put kad otvoriš traku i svakih 30 minuta (GitHub verzija, bez trošenja Firebasea)']},
+  {v:'2.6',d:'2026-11-02',n:['Radno vrijeme može ići do ponoći (24:00)','Tabela rasporeda pokazuje svako pola sata (7:00, 7:30, 8:00…) i koliko sati radiš svaki dan','Brz izbor klijenta: česti klijenti na jedan dodir, a već od prvog slova lista onih koji su dolazili']},
+  {v:'2.5',d:'2026-11-02',n:['Broj rezervacija na svakom danu u traci, kao značka u uglu','Tačkice u bojama usluga pokazuju šta je zakazano taj dan','Kad se zakaže novi termin, broj na danu „poskoči“']},
   {v:'2.4.1',d:'2026-11-02',n:['Ispravka: radno vrijeme se sada sprema samo, odmah nakon izmjene, pa raspored uvijek prikazuje tačno ono što je podešeno','Kad se postavke sačuvaju, kratko se prikaže „Sačuvano“']},
   {v:'2.4',d:'2026-11-02',n:['10 novih tema: Ponoć, Bordo, Zlato, Neon, Čelik, Okean, Kraljevska, Menta, Berberski stub i Kafa','Teme složene u osnovne, tamne i svijetle']},
   {v:'2.3.1',d:'2026-11-02',n:['Nova posveta i dova na stranici „O aplikaciji“']},
@@ -1485,7 +1554,8 @@ function renderTicker(){
   if(!on){el.innerHTML='';el.dataset.sig='';return;}
   if(el.dataset.sig===sig)return;el.dataset.sig=sig;
   const one=items.map(it=>(it.link?'<a class="tk-item" href="'+esc(it.link)+'" target="_blank" rel="noopener">':'<span class="tk-item">')+(it.izvor?'<b>'+esc(it.izvor)+'</b>':'')+esc(it.naslov)+(it.link?'</a>':'</span>')+'<i class="tk-sep" aria-hidden="true">'+I_SC+'</i>').join('');
-  el.innerHTML='<div class="tk-view"><div class="tk-track">'+one+'<span class="tk-dup" aria-hidden="true">'+one+'</span></div></div>';
+  const up=state.news&&state.news.azurirano?new Date(state.news.azurirano):null;
+  el.innerHTML=(up&&!isNaN(up)?'<span class="tk-when" title="Zadnje osvježavanje vijesti">'+pad(up.getHours())+':'+pad(up.getMinutes())+'</span>':'')+'<div class="tk-view"><div class="tk-track">'+one+'<span class="tk-dup" aria-hidden="true">'+one+'</span></div></div>';
   requestAnimationFrame(()=>{const tr=el.querySelector('.tk-track');if(tr){tr.style.animationDuration=Math.max(18,tr.scrollWidth/2/40)+'s';}});
 }
 function markNewsSeen(){
@@ -1586,7 +1656,7 @@ function mergeSettings(x){
   d.obavijesti=Array.isArray(x.obavijesti)?x.obavijesti.filter(t=>typeof t==='string'&&t.trim()).map(t=>t.trim().slice(0,200)).slice(0,20):[];
   d.neradni=Array.isArray(x.neradni)?[...new Set(x.neradni.filter(validD))].sort().slice(-400):[];
   if(x.radno&&typeof x.radno==='object'){
-    Object.keys(d.radno).forEach(k=>{const r=x.radno[k];if(r&&typeof r==='object'){const od=validT(r.od)?r.od:d.radno[k].od,dd=validT(r.do)?r.do:d.radno[k].do;d.radno[k]={radi:!!r.radi,intervali:normIntervals(r.intervali,null)||normIntervals([{od,do:dd}],[{od:d.radno[k].od,do:d.radno[k].do}])};}});
+    Object.keys(d.radno).forEach(k=>{const r=x.radno[k];if(r&&typeof r==='object'){const od=validT(r.od)?r.od:d.radno[k].od,dd=validEnd(r.do)?r.do:d.radno[k].do;d.radno[k]={radi:!!r.radi,intervali:normIntervals(r.intervali,null)||normIntervals([{od,do:dd}],[{od:d.radno[k].od,do:d.radno[k].do}])};}});
   }
   if(Array.isArray(x.usluge)){
     const u=x.usluge.filter(s=>s&&typeof s.naziv==='string'&&s.naziv.trim()).map((s,i)=>({id:str(String(s.id||''),40)||uid('s'),naziv:s.naziv.trim().slice(0,60),trajanje:clampInt(s.trajanje,5,480,30),cijena:Math.max(0,Number(s.cijena)||0),boja:clampInt(s.boja,0,7,i%8)}));
@@ -1821,12 +1891,14 @@ async function savePin(){
 }
 /* Vijesti i igre s GitHuba */
 let feedsAt=0;
-async function loadFeeds(){
+async function loadFeeds(force){
+  if(!force&&feedsAt&&Date.now()-feedsAt<90*1000)return;
   feedsAt=Date.now();
   try{const r=await fetch('data/vijesti.json',{cache:'no-cache'});if(r.ok){state.feed=normNews(await r.json());rebuildNews();}}catch(e){}
   try{const r=await fetch('data/igre.json',{cache:'no-cache'});if(r.ok){state.games=normGames(await r.json());if(state.view==='raspored')render();}}catch(e){}
 }
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&Date.now()-feedsAt>30*60e3)loadFeeds();});
+setInterval(()=>{if(!document.hidden)loadFeeds(true);},30*60*1000);
 function rebuildNews(){
   const own=(state.settings.obavijesti||[]).map(t=>({naslov:t,link:'',izvor:'Salon'}));
   const f=state.feed||{stavke:[]};
@@ -1843,8 +1915,12 @@ function byDate(d){
   return IDX.map.get(d)||[];
 }
 function apptsOn(date){return byDate(date).slice().sort((x,y)=>x.vrijeme.localeCompare(y.vrijeme));}
+function validEnd(s){return validT(s)||s==='24:00';}
+function mtE(n){return n>=1440?'24:00':mt(n);}
+function fmtH(m){const h=Math.floor(m/60),r=m%60;return r===0?h+'h':r===30?h+',5h':h+'h'+pad(r);}
+function ivMinutes(iv){return iv.reduce((a,x)=>a+Math.max(0,tm(x.do)-tm(x.od)),0);}
 function normIntervals(arr,fallback){
-  const iv=(Array.isArray(arr)?arr:[]).filter(x=>x&&validT(x.od)&&validT(x.do)&&tm(x.od)<tm(x.do)).map(x=>({od:x.od,do:x.do})).sort((a,b)=>tm(a.od)-tm(b.od));
+  const iv=(Array.isArray(arr)?arr:[]).filter(x=>x&&validT(x.od)&&validEnd(x.do)&&tm(x.od)<tm(x.do)).map(x=>({od:x.od,do:x.do})).sort((a,b)=>tm(a.od)-tm(b.od));
   const out=[];for(const x of iv){const l=out[out.length-1];if(l&&tm(x.od)<=tm(l.do)){if(tm(x.do)>tm(l.do))l.do=x.do;}else out.push(x);}
   return out.length?out.slice(0,6):fallback;
 }
@@ -2107,18 +2183,23 @@ function scheduleHTML(){
       '<p>'+esc((rel?DAYS[d.getDay()]+', ':'')+d.getDate()+'. '+MONTHS_G[d.getMonth()])+(h.radi?(h.posebno?', posebno vrijeme ':', radi ')+ivText(h):', ne radi')+'</p>'+
       '<p class="dsum">'+esc(sum)+'</p>'+remBtn+'</div>'+gameBtn(date)+'</div>'+(state.gamesOpen?'<div class="gpanel">'+gamesHTML(date)+'</div>':'')+gapCard+nextCard+body;
 }
+const STRIP_CNT={};
 function dayStrip(days,sel,act){
   const t=today();
   return days.map(day=>{
     const dd=pd(day);
-    const cnt=byDate(day).filter(a=>a.tip==='klijent'&&a.status!=='otkazan').length;
+    const list=byDate(day).filter(a=>a.tip==='klijent'&&a.status!=='otkazan').sort((x,y)=>x.vrijeme.localeCompare(y.vrijeme));
+    const cnt=list.length;
+    const pk=act+day,pop=STRIP_CNT[pk]!==undefined&&STRIP_CNT[pk]!==cnt&&cnt>0;STRIP_CNT[pk]=cnt;
+    const dots=list.slice(0,5).map(a=>'<i style="background:'+svcColor(a)+'"></i>').join('');
     const closed=!hoursFor(day).radi;
     const fr=closed?null:freeShare(day);
     const name=day===t?'Danas':day===addDays(t,1)?'Sutra':DAYS_S[dd.getDay()];
     const gm=gamesOn(day),gta=gm.some(g=>g.tip==='gta');
     const gc=gm.length&&!gta&&gm[0].boje.length?' style="--g1:'+gm[0].boje[0]+';--g2:'+(gm[0].boje[1]||gm[0].boje[0])+'"':'';
     return '<button type="button" class="ds'+(closed?' closed':'')+(gta?' gta-day':gm.length?' game-day':'')+'" data-act="'+act+'" data-date="'+day+'"'+gc+(day===sel?' aria-current="date"':'')+' aria-label="'+esc(longDate(day))+(cnt?', zakazano '+cnt:'')+(closed?', ne radi':'')+(gm.length?', izlazi '+esc(gm.map(g=>g.naziv).join(', ')):'')+'">'+(gm.length&&!gta?'<i class="gm-dot" aria-hidden="true"></i>':'')+(gta?'<i class="gta-tag" aria-hidden="true">GTA</i>':'')+
-      '<span class="ds-n">'+name+'</span><span class="ds-d">'+dd.getDate()+'</span><span class="ds-c">'+(cnt||'')+'</span>'+(fr?'<i class="ds-bar'+(fr.free===0?' full':'')+'"><b style="width:'+Math.round(fr.free/fr.total*100)+'%"></b></i>':'')+'</button>';
+      (cnt?'<b class="ds-badge'+(pop?' pop':'')+(fr&&fr.free===0?' full':'')+'">'+cnt+'</b>':'')+
+      '<span class="ds-n">'+name+'</span><span class="ds-d">'+dd.getDate()+'</span><span class="ds-dots">'+dots+'</span>'+(fr?'<i class="ds-bar'+(fr.free===0?' full':'')+'"><b style="width:'+Math.round(fr.free/fr.total*100)+'%"></b></i>':'')+'</button>';
   }).join('');
 }
 function fmtIn(m){if(m<60)return m+' min';const h=Math.floor(m/60),r=m%60;return h+' h'+(r?' '+r+' min':'');}
@@ -2262,6 +2343,7 @@ function statsHTML(){
 
 /* Postavke */
 function settingsHTML(){
+  if(!['salon','radno','izgled','info'].includes(state.setTab))state.setTab=state.setTab==='usluge'?'salon':state.setTab==='pomoc'?'info':'salon';
   const s=state.settings,tab=state.setTab;
   const hours=WEEK_ORDER.map(k=>{const r=s.radno[k];const nm=DAYS[Number(k)];return '<div class="row-s hr">'+
     '<span class="rl"><b>'+nm+'</b>'+
@@ -2275,7 +2357,7 @@ function settingsHTML(){
     ['menta','Menta','stara brijačnica','#EAF4F0','#1F7A6B','#C0392B'],['stub','Berberski stub','bijela, plava, crvena','#F3F5FA','#1E3FA0','#D0151C'],['kafa','Kafa','kafa i krema','#F5EFE7','#6F4A2F','#2F6F5E']];
   const skinBtn=x=>'<button type="button" class="skin" data-act="skin" data-v="'+x[0]+'" aria-pressed="'+(sk===x[0])+'"><span class="sw" style="background:conic-gradient('+x[4]+' 0 120deg,'+x[5]+' 120deg 200deg,'+x[3]+' 200deg 360deg)"></span><span>'+x[1]+'<small>'+x[2]+'</small></span></button>';
   const lg=document.querySelector('.top .logo');
-  const tabs=[['salon','Salon'],['radno','Vrijeme'],['usluge','Usluge'],['izgled','Izgled']];
+  const tabs=[['salon','Salon i usluge'],['radno','Vrijeme'],['izgled','Izgled'],['info','O aplikaciji']];
   const swRow=(id,on,t,sub)=>'<label class="row-s"><span class="rl"><b>'+t+'</b>'+(sub?'<small>'+sub+'</small>':'')+'</span><input type="checkbox" class="sw-t" id="'+id+'"'+(on?' checked':'')+'></label>';
   const pane=(k,html)=>'<section class="set-pane" data-tab="'+k+'"'+(tab===k?'':' hidden')+'>'+html+'</section>';
   return '<div class="set-hero">'+(lg?'<img src="'+lg.src+'" alt="">':'')+'<div><h2>Postavke</h2><p>'+esc(s.naziv)+'</p></div></div>'+
@@ -2300,7 +2382,7 @@ function settingsHTML(){
     '<p class="group-t">Sedmični raspored <small>dodirni ili prevuci prstom preko sati kad radiš</small></p><div class="group wg-wrap"><div id="weekGridBox"></div><div id="wgBar"></div></div>'+
     '<details class="exact"><summary>Tačna vremena po danima <small>za minute kao 08:15</small></summary><div class="group" data-form id="hoursList">'+hours+'</div></details>'+
     '<p class="group-t">Neradni dani i posebno vrijeme</p><div class="group off-wrap"><p class="off-help">Dodirni dan da ga zatvoriš (godišnji, praznik) ili mu podesiš posebno radno vrijeme, npr. dvokratno. Može i dan koji inače ne radiš.</p><div id="offCal">'+offCalHTML()+'</div></div>')+
-  pane('usluge',
+  pane('salon',
     '<p class="group-t">Usluge i cijene</p><div class="group" data-form><div id="svcRows">'+s.usluge.map(svcRow).join('')+'</div>'+
     '<button type="button" class="add-row" data-act="add-svc">'+I.plus+' Dodaj uslugu</button></div>'+
     '<p class="hint" style="margin:0 4px">Dodirni kružić da promijeniš boju usluge u rasporedu.</p>')+
@@ -2319,16 +2401,16 @@ function settingsHTML(){
       swRow('gamesOn',gamesOnOff(),'Datumi izlaska igara','PS5 igre u kalendaru')+
     '</div>'+newsMgmtHTML())+
   '<p class="msg" id="setMsg"></p>'+
-  '<button type="button" class="about-btn" data-act="guide"><span class="ab-ic">'+I.note+'</span><span class="rl"><b>Uputstvo</b><small>kako se koristi svaka opcija</small></span>'+I.right+'</button>'+
-  '<button type="button" class="about-btn" data-act="about"><span class="ab-ic">'+I_SC+'</span><span class="rl"><b>O aplikaciji</b><small>Verzija '+APP_VERSION+' i šta je novo</small></span>'+I.right+'</button>'+
+  pane('info',aboutHTML(true,'<p class="group-t info-h">Uputstvo</p>'+guideHTML(true)))+
   '</form>'+
   '<div class="savebar" id="saveBar" hidden><button type="button" class="primary" data-act="save-set">'+I.check+' Sačuvaj promjene</button></div>';
 }
 /* Raspored na dodir: obojeni sati su radni */
 const CELL=30;
 function cellOn(iv,t){return iv.some(x=>Math.min(tm(x.do),t+CELL)-Math.max(tm(x.od),t)>=CELL/2);}
-function gridRange(iv){let a=7*60,b=21*60;iv.forEach(x=>{a=Math.min(a,Math.floor(tm(x.od)/60)*60);b=Math.max(b,Math.ceil(tm(x.do)/60)*60);});return [Math.max(0,a),Math.min(24*60,b)];}
-function validIv(list){return list.filter(x=>validT(x.od)&&validT(x.do)&&tm(x.od)<tm(x.do));}
+function gridRange(iv){let a=6*60;iv.forEach(x=>{a=Math.min(a,Math.floor(tm(x.od)/60)*60);});return [Math.max(0,a),24*60];}
+function tLabel(t){return Math.floor(t/60)+':'+pad(t%60);}
+function validIv(list){return list.filter(x=>validT(x.od)&&validEnd(x.do)&&tm(x.od)<tm(x.do));}
 function getIv(k){
   if(k==='de')return validIv(readIv('de-l'));
   const on=$('#h-'+k+'-on');return on&&on.checked?validIv(readIv('h-'+k+'-l')):[];
@@ -2349,10 +2431,10 @@ function weekGridHTML(){
   const model=WEEK_ORDER.map(k=>({k,iv:getIv(k)}));
   const [G0,G1]=gridRange(model.flatMap(m=>m.iv));
   const tk=String(new Date().getDay());
-  let h='<div class="wg" style="--rows:'+((G1-G0)/CELL)+'"><span class="wg-c"></span>'+
-    WEEK_ORDER.map(k=>'<button type="button" class="wg-h'+(state.wgSel===k?' sel':'')+(k===tk?' today':'')+'" data-act="wg-day" data-k="'+k+'">'+DAYS_S[Number(k)]+'</button>').join('');
+  let h='<div class="wg"><span class="wg-c"></span>'+
+    model.map(m=>{const mins=ivMinutes(m.iv);return '<button type="button" class="wg-h'+(state.wgSel===m.k?' sel':'')+(m.k===tk?' today':'')+'" data-act="wg-day" data-k="'+m.k+'"><b>'+DAYS_S[Number(m.k)]+'</b><small>'+(mins?fmtH(mins):'–')+'</small></button>';}).join('');
   for(let t=G0;t<G1;t+=CELL){
-    h+='<span class="wg-t'+(t%60?'':' hr')+'">'+(t%60?'':pad(t/60))+'</span>';
+    h+='<span class="wg-t'+(t%60?' half':' hr')+'">'+tLabel(t)+'</span>';
     model.forEach(m=>{h+='<i class="wg-cell'+(cellOn(m.iv,t)?' on':'')+(t%60?'':' hr')+(state.wgSel===m.k?' sel':'')+'" data-k="'+m.k+'" data-t="'+t+'"></i>';});
   }
   return h+'</div>';
@@ -2361,7 +2443,7 @@ function wgBarHTML(){
   const k=state.wgSel;
   if(!k)return '<p class="wg-hint">Dodirni naziv dana gore za kopiranje na druge dane.</p>';
   const iv=getIv(k),nm=DAYS[Number(k)];
-  let h='<div class="wg-bar"><div class="wg-sum"><b>'+nm+'</b><span>'+(iv.length?esc(ivText({intervali:iv})):'Ne radim')+'</span></div>';
+  let h='<div class="wg-bar"><div class="wg-sum"><b>'+nm+'</b><span>'+(iv.length?esc(ivText({intervali:iv}))+', ukupno '+fmtH(ivMinutes(iv)):'Ne radim')+'</span></div>';
   if(state.wgCopy){
     h+='<p class="wg-q">Kopiraj na:</p><div class="wg-days">'+WEEK_ORDER.filter(x=>x!==k).map(x=>'<button type="button" class="chip" data-act="wg-copy-day" data-k="'+x+'" aria-pressed="'+state.wgCopy.has(x)+'">'+DAYS_S[Number(x)]+'</button>').join('')+'</div>'+
       '<div class="wg-acts"><button type="button" class="btn plain" data-act="wg-copy-all">Sve radne dane</button><button type="button" class="btn ok" data-act="wg-copy-apply">'+I.check+'Primijeni</button></div>';
@@ -2375,7 +2457,7 @@ function dayGridHTML(iv){
   const [G0,G1]=gridRange(iv);
   let h='<div class="dg">';
   for(let t=G0;t<G1;t+=CELL){
-    h+='<span class="dg-t'+(t%60?'':' hr')+'">'+(t%60?'':pad(t/60)+':00')+'</span><i class="wg-cell dg-cell'+(cellOn(iv,t)?' on':'')+(t%60?'':' hr')+'" data-k="de" data-t="'+t+'"></i>';
+    h+='<span class="dg-t'+(t%60?' half':' hr')+'">'+tLabel(t)+'</span><i class="wg-cell dg-cell'+(cellOn(iv,t)?' on':'')+(t%60?'':' hr')+'" data-k="de" data-t="'+t+'"></i>';
   }
   return h+'</div>';
 }
@@ -2388,11 +2470,11 @@ function commitPaint(){
     const on=[...p.grid.querySelectorAll('.wg-cell[data-k="'+k+'"].on')].map(x=>+x.dataset.t).sort((a,b)=>a-b);
     const runs=[];for(const t of on){const l=runs[runs.length-1];if(l&&l[1]===t)l[1]=t+CELL;else runs.push([t,t+CELL]);}
     const orig=getIv(k);
-    const iv=runs.map(([a,b])=>{let st=a,en=b;orig.forEach(o=>{const os=tm(o.od),oe=tm(o.do);if(os>a&&os<a+CELL&&oe>os)st=os;if(oe<b&&oe>b-CELL&&os<oe)en=oe;});return {od:mt(st),do:mt(en)};});
+    const iv=runs.map(([a,b])=>{let st=a,en=b;orig.forEach(o=>{const os=tm(o.od),oe=tm(o.do);if(os>a&&os<a+CELL&&oe>os)st=os;if(oe<b&&oe>b-CELL&&os<oe)en=oe;});return {od:mt(st),do:mtE(en)};});
     setIv(k,iv);
   });
   if(p.grid.classList.contains('dg')){if(!getIv('de').length&&state.dayEdit){toast('Nijedan sat nije obojen, pa je dan označen kao „Ne radim“.');state.dayEdit.mode='off';$('#sheet').innerHTML=dayEditHTML();}}
-  else{const w=document.getElementById('wgBar');if(w)w.innerHTML=wgBarHTML();}
+  else{renderWeekGrid();}
 }
 document.addEventListener('pointerdown',e=>{
   const c=e.target.closest&&e.target.closest('.wg-cell');if(!c)return;
@@ -2408,9 +2490,9 @@ document.addEventListener('pointermove',e=>{
 },{passive:true});
 document.addEventListener('pointerup',()=>{if(PAINT)commitPaint();});
 document.addEventListener('pointercancel',()=>{if(PAINT)commitPaint();});
-function ivRow(x){return '<div class="iv"><input class="inp iv-od" type="time" value="'+esc(x.od)+'" aria-label="Od"><i>do</i><input class="inp iv-do" type="time" value="'+esc(x.do)+'" aria-label="Do"><button type="button" class="iv-del" data-act="iv-del" aria-label="Ukloni ovo vrijeme">'+I.x+'</button></div>';}
+function ivRow(x){return '<div class="iv"><input class="inp iv-od" type="time" value="'+esc(x.od)+'" aria-label="Od"><i>do</i><input class="inp iv-do" type="time" value="'+esc(x.do==='24:00'?'23:59':x.do)+'" aria-label="Do (23:59 znači ponoć)"><button type="button" class="iv-del" data-act="iv-del" aria-label="Ukloni ovo vrijeme">'+I.x+'</button></div>';}
 function ivEditor(id,iv){return '<div class="iv-list" id="'+id+'">'+(iv||[]).map(ivRow).join('')+'</div><button type="button" class="iv-add" data-act="iv-add" data-t="'+id+'">'+I.plus+' Dodaj još jedno vrijeme</button>';}
-function readIv(id){return [...document.querySelectorAll('#'+id+' .iv')].map(r=>({od:r.querySelector('.iv-od').value.slice(0,5),do:r.querySelector('.iv-do').value.slice(0,5)}));}
+function readIv(id){return [...document.querySelectorAll('#'+id+' .iv')].map(r=>{const e=r.querySelector('.iv-do').value.slice(0,5);return {od:r.querySelector('.iv-od').value.slice(0,5),do:e==='23:59'?'24:00':e};});}
 function dayEditHTML(){
   const e=state.dayEdit,s=state.settings,b=s.radno[String(pd(e.date).getDay())];
   const reg=b.radi?'Redovno radiš '+ivText({intervali:b.intervali})+'.':'Redovno ovaj dan ne radiš.';
@@ -2454,14 +2536,14 @@ function newsMgmtHTML(){
     ('<div class="news-add"><input class="inp" id="n-text" maxlength="200" placeholder="Tvoja obavijest, npr. Ponedjeljkom brada 20% jeftinije"><button type="button" class="btn plain" data-act="news-add">Dodaj</button></div>')+
     '</div><p class="hint" style="margin:0 4px 8px">HCL vijesti i datumi igara se sami osvježavaju preko GitHuba.</p>';
 }
-function guideHTML(){
+function guideHTML(inline){
   const gh=typeof cfgOk==='function';
   const sec=(ic,t,body,open)=>'<details class="gd"'+(open?' open':'')+'><summary><span class="gd-ic">'+ic+'</span>'+t+'</summary><div class="gd-b">'+body+'</div></details>';
   const li=a=>'<ul>'+a.map(x=>'<li>'+x+'</li>').join('')+'</ul>';
-  return '<div class="sheet-head"><h3>Uputstvo</h3><button class="x" data-act="close" aria-label="Zatvori">'+I.x+'</button></div>'+
+  return (inline?'':'<div class="sheet-head"><h3>Uputstvo</h3><button class="x" data-act="close" aria-label="Zatvori">'+I.x+'</button></div>')+
   '<p class="gd-intro">Dodirni naslov da otvoriš dio uputstva. Nazivi dugmadi su napisani <b>podebljano</b>, tačno kako piše u aplikaciji.</p>'+
   sec(I.cal,'Raspored (početni ekran)',li([
-    '<b>Traka dana</b> na vrhu se povlači lijevo-desno. Broj na danu je broj zakazanih termina. <b>Zelena crtica</b> pokazuje koliko je slobodnog vremena, a <b>crvena</b> znači da je dan pun. Dugme <b>Datum</b> na kraju otvara bilo koji dan.',
+    '<b>Traka dana</b> na vrhu se povlači lijevo-desno. <b>Crveni broj u uglu</b> dana je broj rezervacija, a <b>tačkice</b> ispod datuma su zakazane usluge u svojim bojama. <b>Zelena crtica</b> pokazuje koliko je slobodnog vremena, a <b>crvena</b> znači da je dan pun. Dugme <b>Datum</b> na kraju otvara bilo koji dan.',
     'Ispod naziva dana piše radno vrijeme, koliko je zakazano i očekivana zarada.',
     'Zeleni blokovi <b>Slobodno</b> su vremena za zakazivanje. Dodirni vrijeme i odmah zakazuješ. Prvo slobodno vrijeme je puno zeleno. Ako ispod vremena piše npr. „15 min“, to je kraća rupa između termina.',
     'Kartice termina pokazuju vrijeme, ime, uslugu i cijenu. Boja trake lijevo je boja usluge. Termin koji traje ima oznaku <b>U toku</b> i traku koja se puni, a prošli termini su izblijeđeni.',
@@ -2472,7 +2554,7 @@ function guideHTML(){
   sec(I.plus,'Zakazivanje termina',li([
     'Dodirni slobodno vrijeme ili dugme <b>Novi termin</b> dole desno.',
     '<b>Dan i vrijeme:</b> dugme <b>Promijeni</b> otvara izbor dana i vremena. Precrtana vremena su zauzeta, a ispod piše ko ih drži. Za tačno vrijeme koristi <b>Drugo vrijeme</b>.',
-    '<b>Ime i telefon:</b> čim počneš kucati, aplikacija ponudi klijente koji su već dolazili. Ako klijent ima stalnu bilješku, odmah je vidiš.',
+    '<b>Brz izbor klijenta:</b> čim otvoriš novi termin, ispod imena su <b>česti klijenti</b>, pa jedan dodir upiše ime, broj i uobičajenu uslugu. Već od prvog slova pojavi se lista klijenata koji su dolazili, i to radi i bez kvačica (zar → Zarić). Ako klijent ima stalnu bilješku, odmah je vidiš.',
     '<b>Usluga</b> sama postavi trajanje i cijenu. „Ne stane“ znači da usluga ne stane do sljedećeg termina.',
     '<b>Koliko osoba dolazi?</b> Za oca i sina, ili braću, izaberi 2 ili više. Termini se slože jedan za drugim, pod istom rezervacijom.',
     '<b>Više opcija:</b> trajanje, cijena, napomena i <b>pauza</b> (blokiraš vrijeme bez klijenta).',
@@ -2505,13 +2587,13 @@ function guideHTML(){
   sec(I.cal,'Radno vrijeme i neradni dani',li([
     'U <b>Postavke → Vrijeme</b> je sedmični raspored kao tabela. <b>Obojeno</b> je vrijeme kad radiš. Dodirni ili <b>prevuci prstom</b> preko sati da ih uključiš ili isključiš. Za dvokratni rad samo isključi sate pauze.',
     'Dodirni naziv dana (npr. <b>Pon</b>) za <b>Kopiraj na druge dane</b> ili <b>Ne radim ovaj dan</b>.',
-    '<b>Tačna vremena po danima</b> služe za minute kao 08:15.',
+    'Tabela ide od 6:00 do ponoći, svako polje je pola sata, a ispod naziva dana piše koliko sati radiš. <b>Tačna vremena po danima</b> služe za minute kao 08:15, a 23:59 znači ponoć.',
     'U kalendaru <b>Neradni dani i posebno vrijeme</b> dodirni datum: <b>Po rasporedu</b>, <b>Posebno</b> (obojiš sate samo za taj dan) ili <b>Ne radim</b> (godišnji, praznik).',
     'Sve izmjene u postavkama se spremaju same, odmah. Kad se sačuvaju, dole kratko piše <b>Sačuvano</b>.'
   ]))+
   sec(I.note,'Usluge, izgled i ostale postavke',li([
-    '<b>Salon:</b> naziv, pozivni broj (za Viber i SMS), valuta i <b>Razmak termina</b> (koliko često se nude slobodna vremena, npr. svakih 30 min).',
-    '<b>Usluge:</b> naziv, minute i cijena. Dodir na kružić mijenja boju usluge. <b>Dodaj uslugu</b> dodaje novu, a kantica briše.',
+    'U kartici <b>Salon i usluge</b> su naziv, pozivni broj (za Viber i SMS), valuta i <b>Razmak termina</b> (koliko često se nude slobodna vremena, npr. svakih 30 min).',
+    '<b>Usluge</b> (u istoj kartici, ispod): naziv, minute i cijena. Dodir na kružić mijenja boju usluge. <b>Dodaj uslugu</b> dodaje novu, a kantica briše.',
     '<b>Izgled:</b> 14 tema (osnovne, tamne i svijetle), animacije, zvuk table, HCL vijesti i datumi igara.',
     'Pod <b>Vijesti na traci</b> dodaješ svoje obavijesti, npr. akciju, i one se vrte s vijestima.',
     '<b>Izvezi</b> pravi rezervnu kopiju svih podataka u jedan fajl.'+(gh?' <b>Uvezi</b> vraća podatke iz takvog fajla.':'')
@@ -2531,17 +2613,17 @@ function guideHTML(){
     '<b>Ikonica na telefonu:</b> na iPhoneu u Safariju <b>Dijeli → Dodaj na početni ekran</b>, a na Androidu u Chromeu meni ⋮ → <b>Instaliraj aplikaciju</b>.',
     '<b>Tačka gore desno</b> pokazuje vezu: zelena znači sinhronizovano, a crvena da nema veze. Dodirni je za objašnjenje.',
     'Jednom mjesečno napravi <b>rezervnu kopiju</b> (Postavke → Salon → Izvezi).',
-    'Šta je novo u svakoj verziji vidiš u <b>O aplikaciji</b>.'
+    'Šta je novo u svakoj verziji vidiš u <b>Postavke → O aplikaciji</b>.'
   ]))+'<div class="gd-end"></div>';
 }
-function aboutHTML(){
+function aboutHTML(inline,mid){
   const lg=document.querySelector('.top .logo');
   const cl=CHANGELOG.map((c,i)=>{
     const body='<ul>'+c.n.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>';
     const head='<b>Verzija '+esc(c.v)+'</b><span>'+esc(shortDate(c.d)+' '+c.d.slice(0,4)+'.')+'</span>';
     return i===0?'<div class="cl cur"><div class="cl-h">'+head+'<em>trenutna</em></div>'+body+'</div>':'<details class="cl"><summary class="cl-h">'+head+'</summary>'+body+'</details>';
   }).join('');
-  return '<div class="sheet-head"><h3>O aplikaciji</h3><button class="x" data-act="close" aria-label="Zatvori">'+I.x+'</button></div>'+
+  return (inline?'<div class="info-gap"></div>':'<div class="sheet-head"><h3>O aplikaciji</h3><button class="x" data-act="close" aria-label="Zatvori">'+I.x+'</button></div>')+
     '<div class="about-card">'+(lg?'<img src="'+lg.src+'" alt="">':'')+
       '<p class="bism" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>'+
       '<p class="bism-bs">U ime Allaha, Milostivog, Samilosnog</p>'+
@@ -2552,6 +2634,7 @@ function aboutHTML(){
       '<p class="ded">Za brata Braha Zarića,<br>s dubokim poštovanjem, i dovom da ga Uzvišeni Allah uvijek prati Svojom milošću, zaštitom i bereketom.</p>'+
       '<p class="dova">Neka Allah njemu i njegovoj porodici podari svako dobro. Amin!</p>'+
     '</div>'+
+    (mid||'')+
     '<div class="ver"><span>'+esc(state.settings.naziv)+'</span><b>Verzija '+APP_VERSION+'</b></div>'+
     '<p class="group-t">Šta je novo</p><div class="cl-list">'+cl+'</div>';
 }
@@ -2587,7 +2670,7 @@ async function saveSettings(opt){
   for(const k of WEEK_ORDER){
     const on=$('#h-'+k+'-on').checked;
     const rows=readIv('h-'+k+'-l');
-    const bad=rows.find(x=>!validT(x.od)||!validT(x.do)||tm(x.od)>=tm(x.do));
+    const bad=rows.find(x=>!validT(x.od)||!validEnd(x.do)||tm(x.od)>=tm(x.do));
     if(on&&(bad||!rows.length))return fail(DAYS[Number(k)]+': '+(bad?'početak mora biti prije kraja ('+(bad.od||'?')+' – '+(bad.do||'?')+').':'upišite radno vrijeme.'));
     const iv=normIntervals(rows,null)||s.radno[k].intervali;
     s.radno[k]={radi:on,intervali:iv,od:iv[0].od,do:iv[iv.length-1].do};
@@ -2682,7 +2765,7 @@ function bookingHTML(){
   const main=isP?
       '<label class="field"><span>Opis</span><input class="inp" id="f-ime" value="'+esc(d.ime)+'" placeholder="npr. Pauza za ručak" maxlength="80"></label>'
     :
-      '<label class="field"><span>Ime klijenta</span><input class="inp big" id="f-ime" value="'+esc(d.ime)+'" autocomplete="off" autocapitalize="words" maxlength="80" placeholder="Ime i prezime"></label>'+
+      '<label class="field"><span>Ime klijenta</span><input class="inp big" id="f-ime" value="'+esc(d.ime)+'" autocomplete="off" autocorrect="off" spellcheck="false" autocapitalize="words" enterkeyhint="next" maxlength="80" placeholder="Počni kucati ime…"></label>'+
       '<div class="sugg" id="sugg"></div>'+
       '<label class="field"><span>Telefon</span><input class="inp big" id="f-tel" type="tel" inputmode="tel" autocomplete="off" value="'+esc(d.telefon)+'" maxlength="30" placeholder="06x xxx xxx"></label>'+
       '<div id="cnote"></div>'+
@@ -2728,6 +2811,8 @@ function readDraftInputs(){
   document.querySelectorAll('#sheet [data-k]').forEach(e=>{d.imena[Number(e.dataset.k)]=e.value;});
   if(v('f-cijena')!==null)d.cijena=Number(String(v('f-cijena')).replace(/\./g,'').replace(',','.'))||0;
 }
+function normName(t){return String(t||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d');}
+function hlName(name,q){const n=normName(name),i=q?n.indexOf(q):-1;if(i<0)return esc(name);return esc(name.slice(0,i))+'<mark>'+esc(name.slice(i,i+q.length))+'</mark>'+esc(name.slice(i+q.length));}
 function updateSugg(){
   const box=$('#sugg');if(!box)return;
   const d=state.draft;
@@ -2737,13 +2822,26 @@ function updateSugg(){
     const nt=k&&getClients().some(c=>c.key===k)?noteFor(k):'';
     cnb.innerHTML=nt?'<div class="notebox"><small class="nb-l">Stalna bilješka o klijentu</small>'+esc(nt)+'</div>':'';
   }
-  const q=String(d.ime||'').trim().toLowerCase(),qd=digits(d.telefon);
-  if(q.length<2&&qd.length<3){box.innerHTML='';return;}
-  const list=getClients().filter(c=>{
-    if(c.key===clientKey({ime:d.ime,telefon:d.telefon})&&c.ime===d.ime)return false;
-    return (q.length>=2&&String(c.ime).toLowerCase().includes(q))||(qd.length>=3&&digits(c.telefon).includes(qd));
-  }).slice(0,3);
-  box.innerHTML=list.map(c=>'<button type="button" data-act="d-sugg" data-key="'+esc(c.key)+'"><span class="av">'+esc(initials(c.ime))+'</span><span><strong>'+esc(c.ime)+'</strong><small>'+esc(c.telefon||'bez broja')+', '+c.posjete+' '+plural(c.posjete,'posjeta','posjete','posjeta')+'</small></span></button>').join('');
+  if(d.tip==='pauza'){box.innerHTML='';return;}
+  const all=getClients();
+  const q=normName(d.ime).trim(),qd=digits(d.telefon);
+  if(!q&&qd.length<3){
+    if(d.id||!all.length){box.innerHTML='';return;}
+    const top=all.slice().sort((a,b)=>(b.posjete*2+b.list.length)-(a.posjete*2+a.list.length)||(b.list[0].datum).localeCompare(a.list[0].datum)).slice(0,10);
+    box.innerHTML='<div class="sg-l">Česti klijenti, dodirni za brz unos</div><div class="sg-chips">'+top.map(c=>{const p=String(c.ime).trim().split(/\s+/);return '<button type="button" class="sg-chip" data-act="d-sugg" data-key="'+esc(c.key)+'"><span class="av">'+esc(initials(c.ime))+'</span>'+esc(p[0]+(p[1]?' '+p[1][0]+'.':''))+'</button>';}).join('')+'</div>';
+    return;
+  }
+  const cur=clientKey({ime:d.ime,telefon:d.telefon});
+  const sc=all.map(c=>{
+    const n=normName(c.ime);let v=0;
+    if(q){if(n.startsWith(q))v=4;else if(n.split(/\s+/).some(w=>w.startsWith(q)))v=3;else if(n.includes(q))v=1;}
+    if(qd.length>=3&&digits(c.telefon).includes(qd))v=Math.max(v,3);
+    return {c,v};
+  }).filter(x=>x.v>0&&!(x.c.key===cur&&normName(x.c.ime)===q)).sort((a,b)=>b.v-a.v||b.c.posjete-a.c.posjete).slice(0,6);
+  box.innerHTML=sc.length?sc.map(({c})=>{
+    const last=c.zadnjaUsluga;
+    return '<button type="button" class="sg-row" data-act="d-sugg" data-key="'+esc(c.key)+'"><span class="av">'+esc(initials(c.ime))+'</span><span class="sg-t"><strong>'+hlName(c.ime,q)+'</strong><small>'+esc([c.telefon,last&&last.usluga,c.posjete?c.posjete+' '+plural(c.posjete,'posjeta','posjete','posjeta'):'novi'].filter(Boolean).join(', '))+'</small></span>'+I.right+'</button>';
+  }).join(''):'';
 }
 async function saveDraft(){
   readDraftInputs();
@@ -2989,7 +3087,7 @@ document.addEventListener('click',async e=>{
     case 'del-svc':el.closest('.svc-row').remove();markDirty();break;
     case 'about':openSheet(aboutHTML(),'about');break;
     case 'guide':openSheet(guideHTML(),'guide');break;
-    case 'set-tab':{state.setTab=el.dataset.v;if(state.setTab==='radno')requestAnimationFrame(renderWeekGrid);document.querySelectorAll('.set-pane').forEach(p=>{p.hidden=p.dataset.tab!==state.setTab;});document.querySelectorAll('[data-act="set-tab"]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===state.setTab)));window.scrollTo(0,0);break;}
+    case 'set-tab':{state.setTab=el.dataset.v;if(state.setTab==='radno')requestAnimationFrame(renderWeekGrid);document.querySelectorAll('.set-pane').forEach(p=>{p.hidden=p.dataset.tab!==state.setTab;});document.querySelectorAll('[data-act="set-tab"]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===state.setTab)));window.scrollTo(0,0);el.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'});break;}
     case 'off-mon':{const p=state.offMonth.split('-').map(Number);const d=new Date(p[0],p[1]-1+Number(el.dataset.n),1);state.offMonth=d.getFullYear()+'-'+pad(d.getMonth()+1);const c=$('#offCal');if(c)c.innerHTML=offCalHTML();break;}
     case 'off-day':{
       const d0=el.dataset.date,s0=state.settings;
@@ -3008,7 +3106,7 @@ document.addEventListener('click',async e=>{
       Object.keys(s2.posebno).forEach(k=>{if(k<today())delete s2.posebno[k];});
       if(e2.mode==='off')s2.neradni.push(e2.date);
       if(e2.mode==='cust'){
-        const rows=readIv('de-l');const bad=rows.find(x=>!validT(x.od)||!validT(x.do)||tm(x.od)>=tm(x.do));
+        const rows=readIv('de-l');const bad=rows.find(x=>!validT(x.od)||!validEnd(x.do)||tm(x.od)>=tm(x.do));
         if(bad||!rows.length){msg.textContent=bad?'Početak mora biti prije kraja ('+(bad.od||'?')+' – '+(bad.do||'?')+').':'Dodajte bar jedno vrijeme.';break;}
         s2.posebno[e2.date]={intervali:normIntervals(rows,rows)};
       }
@@ -3033,8 +3131,9 @@ document.addEventListener('click',async e=>{
       const box=document.getElementById(el.dataset.t);if(!box)break;
       const rows=box.querySelectorAll('.iv');if(rows.length>=6){toast('Najviše 6 vremena u danu');break;}
       const last=rows.length?rows[rows.length-1].querySelector('.iv-do').value:'';
-      let st=validT(last)?Math.min(tm(last)+60,22*60):8*60;let en=Math.min(st+240,23*60+59);
-      box.insertAdjacentHTML('beforeend',ivRow({od:mt(st),do:mt(en)}));
+      const lastE=last==='23:59'?'24:00':last;
+      let st=validEnd(lastE)?Math.min(tm(lastE)+60,23*60):8*60;let en=Math.min(st+240,1440);
+      box.insertAdjacentHTML('beforeend',ivRow({od:mt(st),do:mtE(en)}));
       if(box.closest('[data-form]'))markDirty();queueGrid();if(box.id==='de-l'){const g=document.getElementById('dayGridBox');if(g)g.innerHTML=dayGridHTML(validIv(readIv('de-l')));}break;
     }
     case 'iv-del':{
@@ -3059,7 +3158,7 @@ document.addEventListener('click',async e=>{
       if(!el.classList.contains('can-flip')){toast('Trenutno nema vijesti');break;}
       const on=!el.classList.contains('flipped');
       el.classList.toggle('flipped',on);el.setAttribute('aria-pressed',String(on));
-      if(on)markNewsSeen();
+      if(on){markNewsSeen();if(typeof loadFeeds==='function')loadFeeds();}
       break;
     }
     case 'flip-logo':{
@@ -3068,7 +3167,7 @@ document.addEventListener('click',async e=>{
       if(!fl.classList.contains('can-flip')){toast('Trenutno nema vijesti');break;}
       const on=!fl.classList.contains('flipped');
       fl.classList.toggle('flipped',on);fl.setAttribute('aria-pressed',String(on));
-      if(on)markNewsSeen();
+      if(on){markNewsSeen();if(typeof loadFeeds==='function')loadFeeds();}
       break;
     }
     case 'news-del':{const s2=JSON.parse(JSON.stringify(state.settings));s2.obavijesti.splice(Number(el.dataset.i),1);await putSettings(s2);toast('Obavijest uklonjena');break;}
