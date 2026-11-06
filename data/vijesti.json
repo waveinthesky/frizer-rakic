@@ -1,7 +1,12 @@
 {
  "izvor": "HCL.hr",
- "azurirano": "2026-11-06T15:21Z",
+ "azurirano": "2026-11-06T21:02Z",
  "stavke": [
+  {
+   "naslov": "Otkazana je igra Ratchet & Clank: Ranger Rumble",
+   "link": "https://www.hcl.hr/vijest/otkazana-igra-ratchet-clank-ranger-rumble-244763/",
+   "izvor": "HCL"
+  },
   {
    "naslov": "Ovoga vikenda besplatno možete zaigrati stratešku igru Anno 117: Pax Romana",
    "link": "https://www.hcl.hr/vijest/ovoga-vikenda-besplatno-mozete-zaigrati-stratesku-igru-anno-117-pax-romana-244761/",
@@ -45,11 +50,6 @@
   {
    "naslov": "Nvidia je lansirala besplatni simulator koji PC gamere vraća 20 godina unazad",
    "link": "https://www.hcl.hr/vijest/nvidia-lansirala-besplatni-simulator-pc-gamere-vraca-20-godina-unazad-244723/",
-   "izvor": "HCL"
-  },
-  {
-   "naslov": "Sad možete besplatno doživjeti kako James Bond priča crnogorski",
-   "link": "https://www.hcl.hr/vijest/sad-mozete-besplatno-dozivjeti-james-bond-prica-crnogorski-244720/",
    "izvor": "HCL"
   }
  ]
