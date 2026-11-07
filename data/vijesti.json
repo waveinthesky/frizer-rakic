@@ -1,7 +1,37 @@
 {
  "izvor": "HCL.hr",
- "azurirano": "2026-11-06T21:02Z",
+ "azurirano": "2026-11-07T13:55Z",
  "stavke": [
+  {
+   "naslov": "Bezveze je kad novu igru najave bez da prikažu išta od same igre",
+   "link": "https://www.hcl.hr/kolumne/bezveze-kad-novu-igru-najave-bez-da-prikazu-ista-same-igre-244775/",
+   "izvor": "HCL"
+  },
+  {
+   "naslov": "WoW Forever postavio je nove rekorde, a jedan je igrač već došao do 60. levela",
+   "link": "https://www.hcl.hr/vijest/wow-forever-postavio-je-nove-rekorde-a-jedan-je-igrac-vec-dosao-do-60-levela-244773/",
+   "izvor": "HCL"
+  },
+  {
+   "naslov": "Call of Duty 3 – igra koja je zapravo postojala",
+   "link": "https://www.hcl.hr/vijest/call-of-duty-3-igra-koja-zapravo-postojala-222077/",
+   "izvor": "HCL"
+  },
+  {
+   "naslov": "The Expanse: Osiris Reborn promijenio je glavnog glumca usred razvoja nakon kritika igrača",
+   "link": "https://www.hcl.hr/vijest/the-expanse-osiris-reborn-promijenio-je-glavnog-glumca-usred-razvoja-nakon-kritika-igraca-244770/",
+   "izvor": "HCL"
+  },
+  {
+   "naslov": "Na PC-u je krenula utrka tko će prvi napraviti igrivu verziju Nintendovog hita Zelda: Ocarina of Time",
+   "link": "https://www.hcl.hr/vijest/ocarina-of-time-pc-utrka-244765/",
+   "izvor": "HCL"
+  },
+  {
+   "naslov": "Igramo The Legend of Zelda: Ocarina of Time (EP2): Idemo do vrha te planine!",
+   "link": "https://www.hcl.hr/video/igramo-the-legend-of-zelda-ocarina-of-time-ep2-idemo-do-vrha-te-planine-244766/",
+   "izvor": "HCL"
+  },
   {
    "naslov": "Otkazana je igra Ratchet & Clank: Ranger Rumble",
    "link": "https://www.hcl.hr/vijest/otkazana-igra-ratchet-clank-ranger-rumble-244763/",
@@ -20,36 +50,6 @@
   {
    "naslov": "Bethesda već prodaje odjeću za The Elder Scrolls 6: Sentinel, a sve što su otkrili je naziv igre",
    "link": "https://www.hcl.hr/vijest/bethesda-vec-prodaje-odjecu-the-elder-scrolls-6-sentinel-a-sto-otkrili-naziv-igre-244750/",
-   "izvor": "HCL"
-  },
-  {
-   "naslov": "Valor Mortis",
-   "link": "https://www.hcl.hr/recenzija/valor-mortis-244707/",
-   "izvor": "HCL"
-  },
-  {
-   "naslov": "Saudijska Arabija razmišlja o preuzimanju Unity Enginea",
-   "link": "https://www.hcl.hr/vijest/saudijska-arabija-razmislja-preuzimanju-unity-enginea-244738/",
-   "izvor": "HCL"
-  },
-  {
-   "naslov": "Electronic Arts vratio svoje stare PC igre u prodaju zahvaljujući dvojici gamera",
-   "link": "https://www.hcl.hr/vijest/electronic-arts-vratio-stare-pc-igre-prodaju-zahvaljujuci-dvojici-gamera-244733/",
-   "izvor": "HCL"
-  },
-  {
-   "naslov": "GOG Galaxy stiže na Linux i uvodi GOG Social",
-   "link": "https://www.hcl.hr/vijest/gog-galaxy-stize-linux-uvodi-gog-social-244729/",
-   "izvor": "HCL"
-  },
-  {
-   "naslov": "Dostupna je nova Xbox PC aplikacija, kažu 60% brža nego prije",
-   "link": "https://www.hcl.hr/vijest/dostupna-je-nova-xbox-pc-aplikacija-ka-244726/",
-   "izvor": "HCL"
-  },
-  {
-   "naslov": "Nvidia je lansirala besplatni simulator koji PC gamere vraća 20 godina unazad",
-   "link": "https://www.hcl.hr/vijest/nvidia-lansirala-besplatni-simulator-pc-gamere-vraca-20-godina-unazad-244723/",
    "izvor": "HCL"
   }
  ]
