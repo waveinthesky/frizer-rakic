@@ -1,7 +1,12 @@
 {
  "izvor": "HCL.hr",
- "azurirano": "2026-11-11T18:38Z",
+ "azurirano": "2026-11-12T08:48Z",
  "stavke": [
+  {
+   "naslov": "Šefu Nvidije prijeti otkaz nakon što je otkrivena druga afera",
+   "link": "https://www.hcl.hr/vijest/sefu-nvidije-prijeti-otkaz-nakon-sto-otkrivena-druga-afera-244896/",
+   "izvor": "HCL"
+  },
   {
    "naslov": "Probao sam atraktivnu novu survival igru Dreadmoor i podsjetila me na Raft, ali čudovišta su ovdje duplo gora",
    "link": "https://www.hcl.hr/video/probao-atraktivnu-novu-survival-igru-dreadmoor-podsjetila-me-raft-cudovista-duplo-gora-244892/",
@@ -45,11 +50,6 @@
   {
    "naslov": "The Legend of Zelda: Ocarina of Time je nova najbrže prodavana igra za Nintendo Switch 2",
    "link": "https://www.hcl.hr/vijest/the-legend-of-zelda-ocarina-of-time-nova-najbrze-prodavana-igra-nintendo-switch-2-244874/",
-   "izvor": "HCL"
-  },
-  {
-   "naslov": "Sony je otkazao multiplayer pucačinu Fairgames",
-   "link": "https://www.hcl.hr/vijest/sony-otkazao-multiplayer-pucacinu-fairgames-244872/",
    "izvor": "HCL"
   }
  ]
