@@ -1,7 +1,12 @@
 {
  "izvor": "HCL.hr",
- "azurirano": "2026-11-12T17:31Z",
+ "azurirano": "2026-11-12T22:51Z",
  "stavke": [
+  {
+   "naslov": "YouTube najavio 24-satni live stream GTA 6 za sve one koji neće igrati",
+   "link": "https://www.hcl.hr/vijest/youtube-najavio-24-satni-live-stream-gta-6-one-nece-igrati-244921/",
+   "izvor": "HCL"
+  },
   {
    "naslov": "Dosta je više provlačenja kroz uske prolaze u igrama!",
    "link": "https://www.hcl.hr/kolumne/dosta-vise-provlacenja-uske-prolaze-igrama-244911/",
@@ -45,11 +50,6 @@
   {
    "naslov": "Stari Resident Evil 2 dobio je ludo ambiciozan remaster",
    "link": "https://www.hcl.hr/vijest/stari-resident-evil-2-dobio-ludo-ambiciozan-remaster-244889/",
-   "izvor": "HCL"
-  },
-  {
-   "naslov": "Južnokorejska Alisa u zemlji čudesa definitivno udara drugačije",
-   "link": "https://www.hcl.hr/vijest/juznokorejska-alisa-u-zemlji-cudesa-definitivno-udara-drugacije-244886/",
    "izvor": "HCL"
   }
  ]
