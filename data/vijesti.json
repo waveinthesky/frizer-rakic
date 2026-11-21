@@ -1,7 +1,12 @@
 {
  "izvor": "HCL.hr",
- "azurirano": "2026-11-20T23:56Z",
+ "azurirano": "2026-11-21T15:16Z",
  "stavke": [
+  {
+   "naslov": "Vikend je – što igrate, a da nisu Mumijevi?",
+   "link": "https://www.hcl.hr/vijest/vikend-je-sto-igrate-a-da-nisu-mumijevi-245138/",
+   "izvor": "HCL"
+  },
   {
    "naslov": "GTA 6 je očekivano imao najuspješnije lansiranje u povijesti zabavnih proizvoda, evo koliko je novca skupljeno",
    "link": "https://www.hcl.hr/vijest/gta-6-je-ocekivano-imao-najuspjesnije-lansiranje-u-povijesti-zabavnih-proizvoda-evo-koliko-je-novca-skupljeno-245136/",
@@ -45,11 +50,6 @@
   {
    "naslov": "Ubisoft otpušta 166 ljudi u svojim kanadskim studijima",
    "link": "https://www.hcl.hr/vijest/ubisoft-otpusta-166-ljudi-svojim-kanadskim-studijima-245121/",
-   "izvor": "HCL"
-  },
-  {
-   "naslov": "Je li GTA 6 uopće GTA ako u prvih pet sati ukradem samo jedan auto?",
-   "link": "https://www.hcl.hr/vijest/li-gta-6-uopce-gta-prvih-pet-sati-ukradem-jedan-auto-245115/",
    "izvor": "HCL"
   }
  ]
