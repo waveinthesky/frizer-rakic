@@ -1,7 +1,12 @@
 {
  "izvor": "HCL.hr",
- "azurirano": "2026-11-27T00:30Z",
+ "azurirano": "2026-11-27T08:59Z",
  "stavke": [
+  {
+   "naslov": "GTA 6 kutija s kodom u Britaniji je najprodavanije fizičko izdanje ove generacije konzola",
+   "link": "https://www.hcl.hr/vijest/gta-6-kutija-s-kodom-igru-najprodavanije-fizicko-izdanje-britaniji-zadnjih-sedam-godina-245244/",
+   "izvor": "HCL"
+  },
   {
    "naslov": "Na Steamu se bira PC igra desetljeća, evo što je nominirano",
    "link": "https://www.hcl.hr/vijest/steamu-se-bira-pc-igra-desetljeca-evo-sto-nominirano-245239/",
@@ -45,11 +50,6 @@
   {
    "naslov": "2D platformer Yooka-Laylee and the Impossible Lair dobit će svoj remaster",
    "link": "https://www.hcl.hr/vijest/245221-245221/",
-   "izvor": "HCL"
-  },
-  {
-   "naslov": "PlayStation Plus za 12. mjesec priprema dobre igre",
-   "link": "https://www.hcl.hr/vijest/playstation-plus-12-mjesec-priprema-dobre-igre-245219/",
    "izvor": "HCL"
   }
  ]
